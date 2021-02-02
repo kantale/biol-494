@@ -4,7 +4,7 @@
 
 ### Διδάσκοντας
 * [Αλέξανδρος Καντεράκης](https://www.ics.forth.gr/cbml/person/kanterakis/alexandros%C2%A0)
-* email: [mailto:kantale@ics.forth.gr](kantale@ics.forth.gr)
+* email: [kantale@ics.forth.gr](mailto:kantale@ics.forth.gr)
 
 ### Ώρες Μαθήματος 
 * Τετάρτη, 17:00-19:00
@@ -51,4 +51,3 @@
    * [Introduction to Pandas](https://realpython.com/pandas-dataframe/) . [plotting with pandas](https://realpython.com/pandas-plot-python/)
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
 
-   
