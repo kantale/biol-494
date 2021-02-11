@@ -25,6 +25,7 @@
 ### Διαλέξεις
 * Διάλεξη 1η - 3 Φεβρουαρίου 2021 . Εγκατάσταση jupyter 
 * Διάλεξη 2η - 10 Φεβρουαρίου 2021 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_1.ipynb), [markdown](2021/draft_lesson_1.md), [pdf](2021/draft_lesson_1.html), [pdf](2021/draft_lesson_1.pdf)
 
 ### Βαθμολόγηση
 Ο τελικός βαθμός του μαθήματος θα είναι το 33.3% των βαθμών από τις ασκήσεις, το 33.3% των βαθμών από το project και το υπόλοιπο 33.4% από το τελικό διαγώνισμα στο τέλος του τριμηνου. 
