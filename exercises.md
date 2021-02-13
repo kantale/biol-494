@@ -76,7 +76,7 @@ f('CAGTGACGTACCGTAGGGCGTAGCGTAACG')
 ### Άσκηση 5
 Φτιάξτε μία συνάρτηση σε python η οποία θα παίρνει σαν όρισμα έναν string το οποίο αναπαριστάει μία ακολουθία DNA. Η συνάρτηση θα επιτρέφει το [CG content](https://en.wikipedia.org/wiki/GC-content) της ακολουθίας. Το GC content υπολογίζεται με βάση τον παρακάτω τύπο:
 
-[img](https://i.imgur.com/oRNebOT.png)
+![img](https://i.imgur.com/oRNebOT.png)
 
 Όπου A,C,G,C είναι το πλήθος των A,C,G,C που υπάρχουν στην ακολουθίας. 
 
