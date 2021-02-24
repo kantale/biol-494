@@ -28,6 +28,9 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_1.ipynb), [markdown](2021/draft_lesson_1.md), [html](2021/draft_lesson_1.html), [pdf](2021/draft_lesson_1.pdf)
 * Διάλεξη 3η - 17 Φεβρουαρίου 2021 . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_2.ipynb), [markdown](2021/draft_lesson_2.md), [html](2021/draft_lesson_2.html), [pdf](2021/draft_lesson_2.pdf)
+* Διάλεξη 4η - 24 Φεβρουαρίου 2021 . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_3.ipynb), [markdown](2021/draft_lesson_3.md), [html](2021/draft_lesson_3.html), [pdf](2021/draft_lesson_3.pdf)
+   
 
 ### Βαθμολόγηση
 Ο τελικός βαθμός του μαθήματος θα είναι το 33.3% των βαθμών από τις ασκήσεις, το 33.3% των βαθμών από το project και το υπόλοιπο 33.4% από το τελικό διαγώνισμα στο τέλος του τριμηνου. 
