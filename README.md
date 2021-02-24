@@ -134,4 +134,6 @@ print ("This is the solution for ex. 55")
 * Pandas:
    * [Introduction to Pandas](https://realpython.com/pandas-dataframe/) . [plotting with pandas](https://realpython.com/pandas-plot-python/)
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
+* [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html)
+* [Python & APIs: A Winning Combo for Reading Public Data](https://realpython.com/python-api/)
 
