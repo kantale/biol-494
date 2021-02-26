@@ -319,7 +319,7 @@ def get_tumor_gene_names():
 	r = requests.get('http://mygene.info/v3/query?q=tumor&fields=symbol&size=1000&species=human')
 	j = r.json()
 
-	return [x['symbol'] for x in f['hits']]
+	return [x['symbol'] for x in j['hits']]
 ```
 
 Η συνάρτηση αυτή χρειάζεται το πακέτο requests της python. Αν δεν είναι εγκαταστημένο στον υπολογιστή σας μπορείτε να το εγκαταστήσετε τρέχoντας σε ένα κελί στο jupyter:
