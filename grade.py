@@ -30,6 +30,7 @@ class Grades:
         'Απαντηση ασκησης', 'Απάντηση ασκησης', 'απαντηση ασκησης',
         'Task_', 'απαντηση ακσησης', 'απάντηση άσκησης',
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
+        "'Ασκηση", 
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -53,6 +54,7 @@ class Grades:
     def get_grade_from_comment(self, comment):
         grades = [int(x) for x in comment.split('\n') if re.match(r'^\d+$', x)]
         assert len(grades) == 1
+        assert grades[0] in range(0,11)
 
         return grades[0]
 
@@ -82,7 +84,7 @@ class Grades:
             comment = ''
             while True:
                 line = input() # NEVER USE INPUT!! 
-                if line.strip() == 'q':
+                if line.strip() in ['q', ';']:
                     break
 
                 comment += line + '\n'
@@ -130,8 +132,8 @@ class Grades:
                 assert k
                 assert k2
 
-        # Group and sort according to ask1 / ArgumentParser
-        self.all_exercises = sorted((k2, k, v2) for k,v in self.all_exercises.items() for k2,v2 in v.items())
+        # Group and sort according to ask / AM
+        self.all_exercises = sorted((int(k2), k, v2) for k,v in self.all_exercises.items() for k2,v2 in v.items())
         
 
     def get_type(self, filename):
