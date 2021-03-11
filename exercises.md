@@ -677,4 +677,276 @@ cancer = [True, True, True, True, True, True, True, False, True, False]
 f(genes, sizes, cancer) # Επιστρέφει [2, 3, 4, 5, 6, 9]
 ```
 
+**Κάποιες σημειώσεις για τις υπόλοιπες ασκήσεις**
+* Απαγορεύεται να χρησιμοποιήσετε μεταβλήτές με το όνομα: max, min, id, str, int, list, dict, tuple, set. Αυτά είναι ονόματα συναρτήσεων της python. Αν και η python αφήνει τη χρήση του (κακώς..) σαν ονόματα μεταβλητών, αυτό έχει τη συνέπεια ότι μετά ΔΕΝ μπορείτε να τις χρησιμοποιήσετε. Δοκιμάστε:
+
+```python
+print (min([4,5,3])) #  Δουλεύει κανονικά 
+min=5
+print (min([4,5,3])) # Ουπς !
+```
+
+* Απαγορεύεται να χρησιμοποιήσετε μεταβλητή που ΔΕΝ ((έχει οριστεί στη συνάρτηση που ανήκει) 'Η (είναι παράμετρος της συνάρτησης)). Και αυτό σας αφήνει η python να το κάνετε, αλλά ειδικά σε αρχάριους προγραμματιστές δημιουργεί σύγχηση όσον αφορά τι πρέπει να βάλουν σε μία συνάρτηση και τι όχι. Για παράδειγμα: Μία συνάρτηση η οποία επιστρέφει αν o τελευταίος χαρακτήρες ενός string είναι αριθμός: 
+
+Λάθος:
+```python
+a = 'asdfasdf3'
+last = x[-1]
+
+def f(x):
+	is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
+	return is_it
+
+```
+
+Σωστό:
+```python
+def f(x):
+	last = x[-1]
+	is_it = last.is_digit()
+	return is_it
+```
+
+Παρόλα αυτά εννοείται ότι επιτρέπεται να χρησιμοποιήσουμε συναρτήσεις που έχουν οριστεί έξω από τη συνάρτησή μας. 
+
+### Άσκηση 41
+Φτιάξτε μία συνάρτηση η οποία να παίρνει δύο παράμετρους. Οι παράμετροι είναι και οι δύο dictionaries, τα Α και το Β. Η συνάρτηση θα πρέπει να επιτρέφει ένα νέο dictionary το οποίο θα έχει τα κλειδιά του Α που δεν υπάρχουν στο Β και τα κλειδιά του Β που δεν υπάρχουν στο Α, με τις αντίστοιχες τιμές τους. Για παράδειγμα:
+
+```python
+A = {
+	'kwstas': 1,
+	'george': 2,
+	'elenh': 3,
+}
+
+B = {
+	'mitsos': 2,
+	'kwstas': 3,
+	'elenh': 1,
+}
+
+
+f(A,B) 
+# Επιστρέφει:
+
+{
+	'george': 2,
+	'mitsos': 2,
+}
+# Το "kwstas" και το "mitsos" υπάρχουν και στα δύο dictionaries (A και Β) για αυτό δεν υπάρχουν στο dictionary που επέστρεψε η συνάρτηση.
+``` 
+
+### Άσκηση 42
+Φτιάξτε μία συνάρτηση η οποία να παίρνει δύο παράμετρους. Οι παράμετροι είναι και οι δύο dictionaries, τα Α και το Β. Τα dictionaries είναι τέτοια που οι τιμές τους είναι ακέραιοι. Η συνάρτηση θα πρέπει να επιστρέφει ένα νέο dictionary το οποία θα πρέπει να έχει ΜΟΝΟ τα κλειδιά που ανήκουν και στο Α και στο Β. Η τιμή του κάθε κλειδιού θα είναι ο μέσος όρος των τιμών αυτού του κλειδιού στα dictionry Α και Β. Για παράδειγμα:
+
+```python
+A = {
+	'kwstas': 1,
+	'george': 2,
+	'elenh': 3,
+}
+
+B = {
+	'mitsos': 2,
+	'kwstas': 3,
+	'elenh': 2,
+}
+
+
+f(A,B)
+# Επιστρέφει:
+{
+	'kwstas': 2. # (1+3)/2
+	'elenh': 2.5 # (2+3)/2
+}
+
+```
+
+### Άσκηση 43
+Η λίστα:
+```python
+genes = ['Gene_1', 'Gene_2', 'Gene_3', 'Gene_4', 'Gene_5', 'Gene_6', 'Gene_7', 'Gene_8', 'Gene_9', 'Gene_10']
+```
+Περιέχει τα ονόματα από 10 γονίδια.
+
+Η λίστα:
+```python
+sizes = [2957, 8379, 9365, 5377, 9243, 5636, 4984, 9238, 6779, 7745]
+```
+Περιέχει το μέγεθός τους. 
+
+H λίστα:
+```python
+cancer = [True, True, True, True, True, True, True, False, True, False]
+```
+περιέχει το αν εμπλέκονται σε μελέτες με καρκίνο (True) ή όχι (False).
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει 3 παραμέτρους. Και οι τρεις παράμετροι θα είναι λίστες με το ίδιο μέγεθος όπως οι λίστες ```genes```, ```sizes``` και ```cancer```. Η συνάρτηση θα επιστρέφει ένα dictionary όπου:
+* τα κλειδιά θα είναι τα genes
+* Οι τιμές θα είναι ένα dictionary με τα εξής ζευγάρια κλειδί/τιμή:
+   * 'size': περιέχει τις τιμές του sizes
+   * 'cancer': περιέχει τις τιμές του cancer 
+
+Για παράδειγμα:
+```python
+genes = ['Gene_1', 'Gene_2', 'Gene_3', 'Gene_4', 'Gene_5', 'Gene_6', 'Gene_7', 'Gene_8', 'Gene_9', 'Gene_10']
+sizes = [2957, 8379, 9365, 5377, 9243, 5636, 4984, 9238, 6779, 7745]
+cancer = [True, True, True, True, True, True, True, False, True, False]
+
+f(genes, sizes, cancer) 
+# Επιστρέφει:
+{
+	'Gene_1': {'size': 2957, 'cancer': True},
+	'Gene_2': {'size': 8379, 'cancer': True},
+	...
+	'Gene_10': {'size': 7745, 'cancer': False},
+}
+```
+
+### Άσκηση 44
+Φτιάξτε μία συνάρτηση η οποία θα κάνει το αντίθετο από ότι η άσκηση 43. Η συνάρτηση θα δέχεται μία παράμετρο. Η παράμετρο θα είναι ένα dictionary όπως αυτό που επιστρέφει η άσκηση 43. Η συνάρτηση θα επιστρέφει τρεις λίστες:
+* Η πρώτη θα είναι τα κλειδιά του dictionary της παραμέτρου
+* Η δεύτερη θα είναι η τιμή του κλειδιού "size", της κάθε τιμής του dictionary της παραμέτρου, 
+* Η τρίτη θα είναι η τιμή του κλειδιού "size", της κάθε τιμής του dictionary της παραμέτρου.
+
+Παράδειγμα:
+```python
+A = {
+	'Gene_1': {'size': 2957, 'cancer': True},
+	'Gene_2': {'size': 8379, 'cancer': True},
+	'Gene_10': {'size': 7745, 'cancer': False},
+}
+
+f(A)
+
+k,l,m  = f(A)
+
+print (k) # τυπώνει: ['Gene_1', 'Gene_2', 'Gene_10']
+print (l) # τυπώνει [2957, 8379, 7745]
+print (m) # τυπώνει [true, True, False]
+
+```
+
+### Άσκηση 45 
+Το [MESH](https://en.wikipedia.org/wiki/Medical_Subject_Headings) είναι ένα λεξικό το οποίο περιέχει ιατρικούς και βιολογικούς όρους. Το Mesh υπάρχει από τη δεκαετία του 1960, και τα τελευταία 10 χρόνια περίπου είναι διαθέσιμο μόνο από το διαδίκτυο. Μία εγγραφή στο MESH είναι ένα string όπως το παρακάτω:
+
+```python
+
+MESH_record = '''
+RECTYPE = D
+MH = Calcimycin
+AQ = AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR
+ENTRY = A-23187|T109|T195|LAB|NRW|NLM (1991)|900308|abbcdef
+ENTRY = A23187|T109|T195|LAB|NRW|UNK (19XX)|741111|abbcdef
+ENTRY = Antibiotic A23187|T109|T195|NON|NRW|NLM (1991)|900308|abbcdef
+ENTRY = A 23187
+ENTRY = A23187, Antibiotic
+MN = D03.633.100.221.173
+PA = Anti-Bacterial Agents
+PA = Calcium Ionophores
+MH_TH = FDA SRS (2014)
+MH_TH = NLM (1975)
+ST = T109
+ST = T195
+N1 = 4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-
+RN = 37H9VM9WZL
+RR = 52665-69-7 (Calcimycin)
+PI = Antibiotics (1973-1974)
+PI = Carboxylic Acids (1973-1974)
+MS = An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.
+OL = use CALCIMYCIN to search A 23187 1975-90
+PM = 91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)
+HN = 91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)
+MR = 20160527
+DA = 19741119
+DC = 1
+DX = 19840101
+UI = D000001
+'''
+
+```
+
+Παρατηρούμε ότι αυτό το string έχει πολλές γραμμές. Κάθε γραμμή αρχίζει με το όνομα ενός πεδίου. Στη συνέχεια υπάρχει ένα ``` = ``` και στη συνέχεια η τιμή αυτού του πεδίου.
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα string το οποίο θα αναπαριστάει μία εγγραφή στη MESH (όπως το παράδειγμα παραπάνω). Η συνάρτηση θα επιστρέφει ένα dictionary. Τα κλειδιά του dictionary θα είναι τα ονόματα των πεδίων της εγγραφής και οι τιμές του dictionary θα είναι οι τιμές αυτών των πεδίων. Για παράδειγμα:
+
+```python
+f(A)
+# Επιστρέφει:
+
+{
+	 'RECTYPE': 'D',
+	 'MH': 'Calcimycin',
+	 'AQ': 'AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR',
+	 'ENTRY': 'A23187, Antibiotic',
+	 'MN': 'D03.633.100.221.173',
+	 'PA': 'Calcium Ionophores',
+	 'MH_TH': 'NLM (1975)',
+	 'ST': 'T195',
+	 'N1': '4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-',
+	 'RN': '37H9VM9WZL',
+	 'RR': '52665-69-7 (Calcimycin)',
+	 'PI': 'Carboxylic Acids (1973-1974)',
+	 'MS': 'An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.',
+	 'OL': 'use CALCIMYCIN to search A 23187 1975-90',
+	 'PM': '91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+	 'HN': '91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+	 'MR': '20160527',
+	 'DA': '19741119',
+	 'DC': '1',
+	 'DX': '19840101',
+	 'UI': 'D000001'
+ }
+
+```
+
+
+### Άσκηση 46
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα θετικός ακέραιος αριθμός. Η συνάρτηση θα επιστρέφει τον επόμενο πρώτο αριθμό ο οποίος είναι μεγαλύτερος από τη παράμετρο. Για παράδειγμα:
+
+```python
+f(10) # Επιστρέφει 11
+f(11) # Επιστρέφει 13
+f(15) # Επιστρέφει 17
+```
+
+### Άσκηση 47
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένας θετικός ακέραιος αριθμός. Η συνάρτηση θα επιτρέψει τον μεγαλύτερο πρώτο αριθμό ο οποίος είναι μικρότερος από τη παράμετρο. Για παράδειγμα:
+
+```python
+f(10) # Επιστρέφει 7
+f(100) # Eπιστρέφει 97
+``` 
+
+### Άσκηση 48
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει την απάντηση στο παρακάτω ερώτημα. Ας υποθέσουμε ότι έχουμε 1000 ευρώ και άθε μήνα ξοδεύουμε το 10% του ποσού που έχουμε. Μετά από πόσους μήνες το ποσό που θα έχει μείνει θα είναι λιγότερο από 100 ευρώ;
+
+### Άσκηση 49
+Φτιάξτε μία συνάρτηση με το όνομα ```fact``` η οποία θα δέχεται μία παράμετρο. Η παράμετρος θα είναι ένας θετικός ακέραιος αριθμός. Η συνάρτηση θα επιστρέφει το παραγοντικό του αριθμού αυτού. Το παραγοντικό ενός αριθμού ```N```, συμβολίζεται με ```Ν!``` και είναι ίσο με το γινόμενο: ```1 * 2 * .. * Ν-1 * Ν```.
+
+Ο [αριθμός e](https://en.wikipedia.org/wiki/E_%28mathematical_constant%29) είναι ίσος με 2.718281828459...  Επίσης γνωρίζουμε ότι ο αριθμός αυτό μπορεί να προσεγγιστεί με την παρακάτω σειρά:
+
+![img](https://i.imgur.com/I3mS3Hu.png)
+
+Όσο περισσότερους όρους βάλουμε σε αυτή τη σειρά, τόσο καλύτερη προσέγγιση του e θα κάνουμε. Φτιάξτε λοιπόν μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα υπολογίζει προσεγγιστικά και θα επιστρέφει το ```e``` χρησιμοποιώντας τον παραπάνω μαθηματικό τύπο. Για τον υπολογισμό του e, προσθέστε όσους όρους χρειαστούν μέχρι ο τελευταίος όρος που θα προσθέσετε να γίνει μικρότερος από 0.0001. 
+
+### Άσκηση 50
+Δίνεται η παρακάτω συνάρτηση:
+
+```python
+import requests
+
+def get_disease_gene_names(disease):
+	r = requests.get(f'http://mygene.info/v3/query?q={disease}&fields=symbol&size=1000&species=human')
+	j = r.json()
+
+	return {x['symbol'] for x in j['hits']}
+```
+
+Αυτή η συνάρτηση παίρνει σαν όρισμα ένα string το οποίο αναπαριστάει έναν φαινότυπο (ασθένεια ή μη) ή μία βιολογική λειτουργία. Η συνάρτηση επιστρέφει ένα σύνολο από γονίδια τα οποία έχουν συσχετιστεί με αυτόν το string. 
+
+Φτιάξτε μία συνάρτηση η οποία δεν παίρνει κανένα όρισμα. Η συνάρτηση θα πρέπει να επιστρέφει ένα **σύνολο** με τα γονίδια τα οποία: Εμπλέκονται στη παχυσαρκία (```'obesity'```) KAI στον μεταβολισμό (```'metabolism'```) αλλά δεν έχουν συσχετιστεί με κάποιο λιπίδιο (```'lipids'```).
+
+
 
