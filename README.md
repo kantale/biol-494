@@ -32,6 +32,9 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_3.ipynb), [markdown](2021/draft_lesson_3.md), [html](2021/draft_lesson_3.html), [pdf](2021/draft_lesson_3.pdf)
 * Διάλεξη 5η - 3 Μαρτίου 2021 . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_4.ipynb), [markdown](2021/draft_lesson_4.md), [html](2021/draft_lesson_4.html), [pdf](2021/draft_lesson_4.pdf)
+* Διάλεξη 6η - 10 Μαρτίου 2021 . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_5.ipynb), [markdown](2021/draft_lesson_5.md), [html](2021/draft_lesson_5.html), [pdf](2021/draft_lesson_5.pdf)
+
 
 
 ### Βαθμολόγηση
