@@ -541,7 +541,9 @@ H τετραγωνική ρίζα του a είναι: ```a**0.5```
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```.  Η συνάρτηση θα επιστρέφει την "Nei's minimum genetic distance 1973" μεταξύ των πληθυσμών ```X``` και ```Y``` η οποία υπολογίζεται ως εξής [πηγή](https://dyerlab.github.io/applied_population_genetics/genetic-distances.html):
 
 
-![img](https://i.imgur.com/qde8a4d.png)
+<!-- OLD ![img](https://i.imgur.com/qde8a4d.png) -->
+![img](https://i.imgur.com/kpYmmcp.png)
+
 
 Όπου:
 * L είναι το πλήθος από γενετικούς τόπους (10 στη περίπτωσή μας)
