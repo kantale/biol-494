@@ -547,6 +547,11 @@ I=\frac{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,x}p_{ij,y} \righ
 -->
 ![img](https://i.imgur.com/kpYmmcp.png)
 
+Δίνεται ότι:
+```python
+f(pop_A, pop_B) # Επιστρέφει: 0.9886664715207936
+```
+
 
 Όπου:
 * L είναι το πλήθος από γενετικούς τόπους (10 στη περίπτωσή μας)
