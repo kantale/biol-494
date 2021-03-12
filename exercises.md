@@ -542,6 +542,9 @@ H τετραγωνική ρίζα του a είναι: ```a**0.5```
 
 
 <!-- OLD ![img](https://i.imgur.com/qde8a4d.png) -->
+<!-- 
+I=\frac{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,x}p_{ij,y} \right ) \right ) }{\sqrt{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,x}^{2} \right ) \right )}\sqrt{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,y}^{2} \right ) \right )}}
+-->
 ![img](https://i.imgur.com/kpYmmcp.png)
 
 
