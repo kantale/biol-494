@@ -295,7 +295,7 @@ AM: {AM}
         if '@' in AM:
             return AM
 
-        return AM + '@edu.biology.uoc.gr'
+        return 'bio' + AM + '@edu.biology.uoc.gr'
 
     def send_mail(self,):
 
