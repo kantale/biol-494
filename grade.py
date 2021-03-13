@@ -59,10 +59,15 @@ class Mail:
 
     def do_send_mail(self, to, subject, text, sleep=10, actually_send_mail=False):
 
+        from email.header import Header
+        from email.mime.text import MIMEText
+        msg = MIMEText(text, 'utf-8')
         sender_email = "alexandros.kanterakis@gmail.com"
         receiver_email = to
-        message = 'Subject: {}\n\n{}'.format(subject, text)
-
+        msg['From'] = sender_email # Hopefully no utf8 weirdness here...
+        msg['To'] = receiver_email
+        msg['Subject'] = Header(subject, 'utf-8')
+        message = msg.as_string()
 
         if actually_send_mail:
             self.server.sendmail(sender_email, receiver_email, message.encode("utf8")) # msg.encode("utf8")
