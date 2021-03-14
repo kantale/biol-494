@@ -89,7 +89,7 @@ class Grades:
         'Απαντηση ασκησης', 'Απάντηση ασκησης', 'απαντηση ασκησης',
         'Task_', 'απαντηση ακσησης', 'απάντηση άσκησης',
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
-        "'Ασκηση", "Αskisi", "Άσκση", "asksisi"
+        "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -149,6 +149,7 @@ AM: {AM}
         self.start = start
         self.end = end
         self.exercises_range = list(range(self.start, self.end+1))
+        self.all_anonymous_grades = [] # For plotting and statistics
 
         self.get_filenames(ex)
         self.get_all_exercises()
@@ -164,7 +165,10 @@ AM: {AM}
         else:
             raise Exception('Unknown action: {}'.format(action))
 
-
+    def save_anonymoys_grades(self,):
+        with open('grades.json', 'w') as f:
+            json.dump(self.all_anonymous_grades, f)
+        print ('Saved anonymous grades at: grades.json ')
 
     def get_solutions_filename(self, id_, exercise):
 
@@ -242,6 +246,7 @@ AM: {AM}
         # Read all files
         data = []
         for filename in self.filenames:
+            #print (filename)
             id_ = self.get_id_from_filename(filename)
             content = self.get_exercises(filename)
 
@@ -269,6 +274,9 @@ AM: {AM}
     def collect_all_grades(self,):
         all_answers = {}
 
+        #print (json.dumps(self.all_exercises, indent=4))
+        #print ('=====')
+
         for ask, AM, answer in self.all_exercises:
             if not AM in all_answers:
                 all_answers[AM] = {}
@@ -289,6 +297,12 @@ AM: {AM}
                 'comment': comment,
             }
         self.all_answers = all_answers
+        #print (json.dumps(self.all_answers, indent=4))
+
+        self.all_anonymous_grades = [[v.get(i, {'grade':0})['grade'] for i in self.exercises_range] for k,v in all_answers.items()]
+        with open('grades.json', 'w') as f:
+            json.dump(self.all_anonymous_grades, f)
+        print ('Created anonymous grades.json')
 
     @staticmethod
     def create_mail_address(AM):
@@ -350,13 +364,15 @@ AM: {AM}
                 comment = 'Δεν έστειλες τίποτα για αυτή την άσκηση!'
                 grade = 0
 
-
+            grade_dics = {'Άσκηση': ASK, 'Βαθμός': grade}
             exercises_mail += self.create_exercise_mail(ASK, answer, comment, grade)
-            pandas_df.append({'Άσκηση': ASK, 'Βαθμός': grade})
+            pandas_df.append(grade_dics)
 
         pandas_df = pd.DataFrame(pandas_df)
         summary = pandas_df.to_string(index=False)
-        summary += '\n\nΜέσος Όρος: {}'.format(pandas_df['Βαθμός'].mean())
+        average = pandas_df['Βαθμός'].mean()
+        summary += '\n\nΜέσος Όρος: {}'.format(average)
+
 
 
         ret = self.MAIL_PATTERN.format(
@@ -461,6 +477,8 @@ AM: {AM}
     def get_filenames(self, ex=None):
         if not ex:
             ex='*'
+        else:
+            ex = ex + '*'
 
         self.filenames = glob.glob(os.path.join(self.dir, ex))
         print ('Read: {} files'.format(len(self.filenames)))
@@ -470,13 +488,16 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action grade
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action send_mail
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action send_mail --actually_send_mail
-    python grade.py --dir /Users/admin/biol-494/exercises/ --ex 3158 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --ex 3158 --action grade 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
+
     '''
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", help="Directory with exercises")
     parser.add_argument("--sol", help="Directory with solutions")
-    parser.add_argument("--ex", help="Examine only given exercise")
+    parser.add_argument("--ex", help="Examine only given ΑΜ")
     parser.add_argument("--action", help="What to do: grade")
     parser.add_argument("--actually_send_mail", action="store_true")
     args = parser.parse_args()
