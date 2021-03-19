@@ -568,7 +568,7 @@ def get_tumor_gene_names():
 ### Άσκηση 22
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_22_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει μία νέα λίστα η οποία θα έχει τα στοιχεία της περαμέτρου αλλά θα είναι ταξινομημένη με βάση το μήκος του string (από το μικρότερο στο μεγαλύτερο). 
 
-Χρησιμοποιώντας τη συνάρτηση που μόλις φτιάξατε (τη ```ask_22_a```) και τη ```get_tumor_gene_names()```, φτιάξτε μία άλλη συνάρτηση με το όνομα ```ask_22_b``` η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιαστρέφει την απάντηση στην ερώτηση: Ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο;
+Χρησιμοποιώντας τη συνάρτηση που μόλις φτιάξατε (τη ```ask_22_a```) και τη ```get_tumor_gene_names()```, φτιάξτε μία άλλη συνάρτηση με το όνομα ```ask_22_b``` η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει την απάντηση στην ερώτηση: Ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο;
 
 ### Άσκηση 23
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_23_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει τη λίστα της περαμέτρου όπου όμως σε κάθε στοιχείο της θα έχετε αφαιρέσει όλους τους αριθμούς. Για παράδειγμα θα πρέπει:
@@ -1018,7 +1018,7 @@ B = {
 f(A,B)
 # Επιστρέφει:
 {
-	'kwstas': 2. # (1+3)/2
+	'kwstas': 2.0, # (1+3)/2
 	'elenh': 2.5 # (2+3)/2
 }
 
@@ -1223,10 +1223,177 @@ def get_pi_1M():
 	return r.text
 ```
 
-Αυτή η συνάρτηση επιστρέφει ένα string το οποίο περιέχει το π (3.14159...) στις πρώτες 1.000.000 θέσεις. Γράψτε μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει τη θέση πάνω στο π όπου ο αριθμός 7 γίνεται για πρώτη φορά ο πιο κοινός αριθμός του π. 
+Αυτή η συνάρτηση επιστρέφει ένα string το οποίο περιέχει το π (3.14159...) στις πρώτες 1.000.000 θέσεις. Γράψτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει τη θέση πάνω στο π όπου ο αριθμός 7 γίνεται για πρώτη φορά ο πιο κοινός αριθμός του π. 
 
 ### Άσκηση 52
-ΟΜΙΜ Genes
+Φτιάξτε μία συνάρτηση η οποία παίρνει σαν παράμετρο έναν ακέραιο αριθμό. Η συνάρτηση δημιουργεί ένα αρχείο με το όνομα factors.txt. Το αρχείο περιέχει τόσες γραμμές όσες ο αριθμός της παραμέτρου. Η i-οστή γραμμή περιέχει όλους τους παράγοντες του i από το 1 μέχρι και το i διαχωρισμένοι με κόμματα. Οι παράγοντες ενός αριθμού είναι οι αριθμοί που τον διαρούν τέλεια. H συνάρτηση δεν επιστρέφει τίποτα. Για παράδειγμα:
+
+```python
+f(10)
+
+# Δημιουργεί το αρχείο factors.txt το οποίο θα πρέπει να μπορώ να το τυπωσω με:
+with open('factors.txt') as f:
+	data = f.read()
+
+print (data)
+# θα πρέπει να τυπώνει:
+'''
+1
+1,2
+1,3
+1,2,4
+1,5
+1,2,3,6
+1,7,
+1,2,4,8
+1,3,9
+1,2,5,10
+'''
+```
+
+### Άσκηση 53
+Γράψτε κώδικα python τέτοιον ώστε όταν γράφω:
+
+```python
+f()()[0]()
+```
+
+Να επιστρέφεται η τιμή: ```Μήτσος```
+
+### Άσκηση 54
+Σε αυτό το site: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/ θα βρείτε το αρχείο: Homo_sapiens.gene_info.gz. Το αρχείο αυτό μπορείτε να το κατεβάσετε και απευθείας με αυτό το link: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz . Το αρχείο αυτό είναι συμπιεσμένο οπότε θα πρέπει και να το αποσυμπιέσετε. Το αποσυμπιεσμένο αρχείο ονομάζεται: ```Homo_sapiens.gene_info```. To αρχείο είναι tab delimited (οι στήλες δηλαδή είναι χωρισμένες με τον χαρακτήρα tab) και περιέχει διάφορες πληροφορίες για τα γονίδια στο ανθρώπινο γονιδίωμα. Η πρώτη γραμμή του αρχείου περιέχει την επικεφαλίδα (header) η οποία περιέχει τους τίτλους των στηλών. Η επικεφαλίδα είναι:
+
+```text
+#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
+``` 
+
+Το αρχείο μπορείτε να το ανοίξετε και από το excel (ή από το Google sheets). Μπορείτε να google-άρετε: "how to open tab delimited file in excel" για να βρείτε πως γίνεται αυτό.
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το Homo_sapiens.gene_info. Η συνάρτηση θα πρέπει να επιστρέφει ένα dictionary. Τα keys του dictionary θα είναι οι τιμές στη στήλη με το όνομα: ```Symbol```. Τα values του dictionary θα πρέπει να είναι οι αντίστοιχες τιμές στη στήλη: ```description```. 
+
+Για παράδειγμα θα πρέπε να μπορώ να γράφω:
+```python
+d = f('Homo_sapiens.gene_info')
+print (d['A1BG']) # Τυπώνει: "alpha-1-B glycoprotein" 
+print (d['GLP1R']) # Τυπώνρι: "glucagon like peptide 1 receptor"
+```
+
+### Άσκηση 55
+Ας θεωρήσουμε πάλι το ίδιο αρχείο με την άσκηση 54. Η στήλη ```Synonyms``` του αρχείου περιέχει τα συνόνυμα για κάθε γονίδιο. Οι τιμές αυτής της στήλης είναι strings διαχωρισμένα με τον χαρακτήρα ```|```. Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το ```Homo_sapiens.gene_info```. Η συνάρτηση θα πρέπει να επιστρέφει ένα dictionary. Τα keys του dictionary θα είναι οι τιμές στη στήλη με το όνομα: ```Symbol```. Τα values του dictionary θα πρέπει να είναι μία λίστα με όλα τα συνόνυμα του γονιδίου όπως υπάρχουν στη στήλη ```Synonyms```. Για παράδειγμα θα πρέπει να μπορώ να γράφω:
+
+```python
+d = f('Homo_sapiens.gene_info')
+print (d['A1BG']) # Τυπώνει: ['A1B', 'ABG', 'GAB', 'HYST2477']
+print (d['HCN2']) # Τυπώνει: ['BCNG-2', 'BCNG2', 'HAC-1']
+```
+
+### Άσκηση 56
+Aς θεωρήσουμε πάλι το ίδιο αρχείο με την άσκηση 54. Η στήλη ```chromosome``` περιέχει το χρωμόσωμα στο οποίο ανήκει το γονίδιο. Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παράμετρους. Η πρώτη παράμετρος θα είναι ένα string με το όνομα filename, το οποίο θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή με το ```Homo_sapiens.gene_info```. H δεύτερη παράμετρος με το όνομα chromosome θα είναι ένα string με το όνομα ενός χρωμοσώματος. Η συνάρτηση θα δημιουργεί ένα αρχείο με το όνομα: ```Homo_sapiens_CHROMOSOME.gene_info``` όπου το ```CHROMOSOME``` θα πρέπει να το αντικαταστήσετε με τη τιμή της παραμέτρου chromosome. Το περιεχόμενο του αρχείου θα είναι ακριβώς το ίδιο με αυτό του αρχείου filename αλλά θα περιέχει μόνο τα γονίδια που ανήκουν στο χρωμόσωμα της παραμέτρου. Η συνάρτηση θα πρέπει να επιστρέψει το όνομα του αρχείου που δημιούργησε. Για παράδειγμα:
+
+```python
+filename = f('Homo_sapiens.gene_info', '7')
+
+with open(filename) as f:
+	if l_number, line in enumerate(f):
+		print (line.strip('\n'))
+		if l_number>4:
+			break
+
+#To παραπάνω τυπώνει:
+'''
+#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
+9606	26	AOC1	-	ABP|ABP1|DAO|DAO1|KAO	MIM:104610|HGNC:HGNC:80|Ensembl:ENSG00000002726	7	7q36.1	amine oxidase copper containing 1	protein-coding	AOC1	amine oxidase copper containing 1	O	amiloride-sensitive amine oxidase [copper-containing]|amiloride binding protein 1 (amine oxidase (copper-containing))|amiloride-binding protein 1|amiloride-sensitive amine oxidase|amine oxidase copper domain-containing protein 1|diamine oxidase|histaminase|kidney amine oxidase	20210302	-
+9606	43	ACHE	-	ACEE|ARACHE|N-ACHE|YT	MIM:100740|HGNC:HGNC:108|Ensembl:ENSG00000087085	7	7q22.1	acetylcholinesterase (Cartwright blood group)	protein-coding	ACHE	acetylcholinesterase (Cartwright blood group)	O	acetylcholinesterase|Yt blood group|acetylcholinesterase (Yt blood group)|apoptosis-related acetylcholinesterase	20210302	-
+9606	60	ACTB	-	BRWS1|PS1TP5BP1	MIM:102630|HGNC:HGNC:132|Ensembl:ENSG00000075624	7	7p22.1	actin beta	protein-coding	ACTB	actin beta	O	actin, cytoplasmic 1|I(2)-actin|PS1TP5-binding protein 1|beta cytoskeletal actin	20210307	-
+9606	107	ADCY1	-	AC1|DFNB44	MIM:103072|HGNC:HGNC:232|Ensembl:ENSG00000164742	7	7p12.3	adenylate cyclase 1	protein-coding	ADCY1	adenylate cyclase 1	O	adenylate cyclase type 1|3',5'-cyclic AMP synthetase|ATP pyrophosphate-lyase 1|Ca(2+)/calmodulin-activated adenylyl cyclase|adenyl cyclase|adenylate cyclase 1 (brain)|adenylate cyclase type I|adenylyl cyclase 1|adenylyl cyclase subtype 1	20210302	-
+9606	117	ADCYAP1R1	-	PAC1|PAC1R|PACAPR|PACAPRI	MIM:102981|HGNC:HGNC:242|Ensembl:ENSG00000078549	7	7p14.3	ADCYAP receptor type I	protein-coding	ADCYAP1R1	ADCYAP receptor type I	O	pituitary adenylate cyclase-activating polypeptide type I receptor|PACAP receptor 1|PACAP type I receptor|PACAP-R1|adenylate cyclase activating polypeptide 1 (pituitary) receptor type I|pituitary adenylate cyclase activating polypeptide 1 receptor type I Hiphop|pituitary adenylate cyclase-activating polypeptide type 1 receptor	20210302	-
+'''
+```
+
+* Προσοχή 1! Το νέο αρχείο θα πρέπει να έχει και την επικεφελίδα (header) του filename.
+* Προσοχή 2! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία γονίδια! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'UN'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλ αυτά.
+
+### Άσκηση 57
+Φτιάξτε μία συνάρτηση με το όνομα ask_57_a η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα χρησημοποιεί την συνάρτηση της άσκησης 56 για να "σπάσει" το αρχείο σε πολλά αρχεία όπου το κάθε αρχείο θα έχει και ένα από τα χρωμόσωματα: 1,2,3,...,22,Χ,Υ,ΜΤ . Θα πρέπει δηλαδή η συνάρτηση να φτιάχνει τα αντίστοιχα αρχεία:  ```Homo_sapiens_1.gene_info```, ```Homo_sapiens_2.gene_info```, ... ```Homo_sapiens_22.gene_info```, ```Homo_sapiens_Χ.gene_info```, ```Homo_sapiens_Υ.gene_info```, ```Homo_sapiens_ΜΤ.gene_info```. H συνάρτηση θα επιστρέφει μία λίστα με τα αρχεία που δημιούργησε.
+
+Φτιάξτε μία συνάρτηση με το όνομα ask_57_b η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι μία λίστα από strings. Κάθε strings θα είναι και το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα ενώνει όλα τα αρχεία της λίστας της παραμέτρου σε ένα αρχείο. Το αρχείο θα σώζεται με όνομα: ```Homo_sapiens_MERGED.gene_info```. Αυτό το αρχείο θα πρέπει να έχει την ίδια δομή με το αρχείο ```Homo_sapiens.gene_info``` και τα γονίδια που περιέχει να είναι ταξινομήμα αλφαβητικά (όπως άλλωστε είναι καi τα γονίδια στο αρχείο ```Homo_sapiens.gene_info```). H συνάρτηση θα επιστρέφει το string: ```Homo_sapiens_MERGED.gene_info```. Θα πρέπει δηλαδή να μπορώ να κάνω:
+
+```python
+chromosomes = [str(x) for x in range(1,23)] 
+chromosomes += ['X', 'Y', 'MT']
+
+filenames = ask_57_a('Homo_sapiens.gene_info')
+merged_filename = ask_57_b(filenames)
+
+# Take all contents from original Homo_sapiens.gene_info
+with open('Homo_sapiens.gene_info') as f:
+	original_content = f.read()
+
+# Take all contents from merged 
+with open(merged_filename) as f:
+	merged_content = f.read()
+
+print (original_content == merged_content) # Αυτό πρέπει να τυώνει: True
+
+```
+
+### Άσκηση 58
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα επιστρέφει μία λίστα με τα χρωμοσώματα ταξινομημένα από το μεγαλύτερο προς το μικρότερο ανάλογα με το πλήθος γονιδίων που έχουν. Για παράδειγμα:
+
+```python
+f('Homo_sapiens.gene_info') # Επιστρέφει τη λίστα: 
+['1', '2', '6', '3', '11', '7', '5', '19', '12', '17', '4', '9', 'X', '8', '10', '14', '16', '15', '13', '20', '22', '18', '21', 'Y', 'MT',] 
+
+```
+
+### Άσκηση 59
+Σε μία ανάλυση που έγινε παρήγαγε ένα αρχείο το οποίο είχε το εξής περιεχόμενο:
+
+```
+ID	GENE	FoldChange
+TC0100007038.hg.1	NECAP2	1.17
+TC0100007063.hg.1	FAM231C; FAM231A	-1.04
+TC0100007206.hg.1	CDA; CDB; CDC	-1.15
+TC0100007207.hg.1	PINK1; MIR6084	1.1
+```
+
+Παρατηρούμε ότι η στήλη GENE μπορεί να έχει παραπάνω από ένα γονίδια διαχωρισμένα με τον χαρακτήρα ```';'```. Αυτό που θέλουμε είναι να μετασχηματίσουμε το αρχείο έτσι ώστε η στήλη GENE να έχει μόνο ένα γονίδιο. Οι γραμμές που έχουν παραπάνω από ένα γονίδιο θα πρέπει να γραφτούν τόσες φορές όσες τα γονίδια που περιέχουν. Κάθε γραμμή θα έχει και από ένα γονίδιο. Η τιμή στη στήλη ```ID``` και στη στήλη ```FoldChange``` θα πρέπει να παραμείνουν ίδιες. Επίσης οι στήλες χωρίζονται με τον χαρακτήρα tab (```'\t'```)
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους. Και οι δύο θα είναι strings τα οποία θα είναι ονόματα αρχείων. Η συνάρτηση θα πρέπει να ανοίγει το αρχείο του οποίου το όνομα είναι η πρώτης παράμετρος, να το μετασχηματίζει όπως περιγράφηκε παραπάνω και να το σώζει στο όνομα του αρχείου της δεύτερης παράμετρου. Θα πρέπει δηλαδή να μπορώ να γράφω:
 
 
+```python
 
+contents = '''ID	GENE	FoldChange
+TC0100007038.hg.1	NECAP2	1.17
+TC0100007063.hg.1	FAM231C; FAM231A	-1.04
+TC0100007206.hg.1	CDA; CDB; CDC	-1.15
+TC0100007207.hg.1	PINK1; MIR6084	1.1
+'''
+
+with open('ask_59_input.txt', 'w') as f:
+	f.write(contents)
+
+f('ask_59_input.txt', 'ask_59_output.txt')
+
+with open('ask_59_output.txt') as f:
+	result = f.read()
+
+print (result) 
+#  Θα πρέπει να τυπώνει:
+'''
+ID	GENE	FoldChange
+TC0100007038.hg.1 	NECAP2	1.17
+TC0100007063.hg.1 	FAM231C	-1.04
+TC0100007063.hg.1 	FAM231A	-1.04
+TC0100007206.hg.1	CDA	-1.15
+TC0100007206.hg.1	CDB	-1.15
+TC0100007206.hg.1	CDC	-1.15
+TC0100007207.hg.1	PINK1	1.1
+TC0100007207.hg.1	MIR6084	1.1
+'''
+```
+
+### Άσκηση 60
+
+	
