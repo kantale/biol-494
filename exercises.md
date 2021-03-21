@@ -952,7 +952,7 @@ print (min([4,5,3])) # Ουπς !
 Λάθος:
 ```python
 a = 'asdfasdf3'
-last = x[-1]
+last = a[-1]
 
 def f(x):
 	is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
@@ -1381,12 +1381,12 @@ TC0100007206.hg.1	CDA; CDB; CDC	-1.15
 TC0100007207.hg.1	PINK1; MIR6084	1.1
 '''
 
-with open('ask_59_input.txt', 'w') as f:
+with open('ask_60_input.txt', 'w') as f:
 	f.write(contents)
 
-f('ask_59_input.txt', 'ask_59_output.txt')
+f('ask_60_input.txt', 'ask_60_output.txt')
 
-with open('ask_59_output.txt') as f:
+with open('ask_60_output.txt') as f:
 	result = f.read()
 
 print (result) 

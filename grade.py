@@ -95,6 +95,7 @@ class Grades:
         'Task_', 'απαντηση ακσησης', 'απάντηση άσκησης',
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
+        'Ασκηση', "Task", "ask", 
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -271,7 +272,8 @@ AM: {AM}
         for k,v in self.all_exercises.items():
             for k2,v2 in v.items():
                 assert k
-                assert k2
+                if not k2:
+                    raise Exception('AM: {} Empty ASK:{} '.format(k, str(k2)))
 
         # Group and sort according to ask / AM
         self.all_exercises = sorted((int(k2), k, v2) for k,v in self.all_exercises.items() for k2,v2 in v.items())
@@ -470,11 +472,12 @@ AM: {AM}
 
         m = email.message_from_string(content)
         payload = m.get_payload()
-        assert len(payload) == 21 # FIXME
+        #assert len(payload) == 21 # FIXME
 
         content = ""
         for x in payload[1:]:
-            content += '\n' + x.get_payload(decode=True).decode("utf-8")
+            if hasattr(x, "get_payload"):
+                content += '\n' + x.get_payload(decode=True).decode("utf-8")
 
         return content 
 
@@ -497,6 +500,7 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
 
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade
     '''
 
     parser = argparse.ArgumentParser()
