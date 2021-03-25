@@ -36,6 +36,8 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_5.ipynb), [markdown](2021/draft_lesson_5.md), [html](2021/draft_lesson_5.html), [pdf](2021/draft_lesson_5.pdf)
 * Διάλεξη 7η - 17 Μαρτίου 2021 . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_6.ipynb), [markdown](2021/draft_lesson_6.md), [html](2021/draft_lesson_6.html), [pdf](2021/draft_lesson_6.pdf)
+* Διάλεξη 8η = 24 Μαρτίου 2021 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_7.ipynb), [markdown](2021/draft_lesson_7.md), [html](2021/draft_lesson_7.html), [pdf](2021/draft_lesson_7.pdf)
 
 
 
