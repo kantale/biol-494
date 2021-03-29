@@ -1329,7 +1329,6 @@ with open('Homo_sapiens.gene_info') as f:
 with open(merged_filename) as f:
 	merged_content = f.read()
 
-print (original_content[:1000] == merged_content[:1000]) # Αυτό πρέπει να τυπώνει: True
 
 ```
 
