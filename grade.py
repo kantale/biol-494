@@ -225,7 +225,7 @@ AM: {AM}
             comment = ''
             while True:
                 line = input() # NEVER USE INPUT!! 
-                if line.strip() in ['q', ';']:
+                if line.strip() in ['q', 'Q', ';']:
                     break
 
                 comment += line + '\n'
