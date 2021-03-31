@@ -127,6 +127,7 @@ print ("This is the solution for ex. 55")
 
 
 ### Επιπλέον υλικό:
+* [Python: Notes for professionals book](https://books.goalkicker.com/PythonBook/)
 * [Practical Python Programming from David Beazley](https://dabeaz-course.github.io/practical-python/)
 * [Beginner's Python Cheat Sheets](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
 * [Non-beginner's python cheat sheet](https://gto76.github.io/python-cheatsheet/)
