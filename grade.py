@@ -59,18 +59,23 @@ class Mail:
 
     def do_send_mail(self, to, subject, text, sleep=10, actually_send_mail=False):
 
-        from email.header import Header
-        from email.mime.text import MIMEText
-        msg = MIMEText(text, 'utf-8')
         sender_email = "alexandros.kanterakis@gmail.com"
         receiver_email = to
-        msg['From'] = sender_email # Hopefully no utf8 weirdness here...
-        msg['To'] = receiver_email
-        msg['Subject'] = Header(subject, 'utf-8')
-        message = msg.as_string()
+
+        if False: # Experimental..
+            from email.header import Header
+            from email.mime.text import MIMEText
+            msg = MIMEText(text, 'utf-8')        
+            msg['From'] = sender_email # Hopefully no utf8 weirdness here...
+            msg['To'] = receiver_email
+            msg['Subject'] = Header(subject, 'utf-8')
+            message = msg.as_string()
+
+        message = 'Subject: {}\n\n{}'.format(subject, text)
 
         if actually_send_mail:
-            self.server.sendmail(sender_email, receiver_email, message.encode("utf8")) # msg.encode("utf8")
+            #self.server.sendmail(sender_email, receiver_email, message.encode("utf-8")) # msg.encode("utf8")
+            self.server.sendmail(sender_email, receiver_email, message.encode("utf-8")) # msg.encode("utf8")
         time.sleep(sleep)
         print ('Mail sent')
 
@@ -96,6 +101,7 @@ class Grades:
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
+        'askshsh', 'ασκ',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -105,7 +111,7 @@ class Grades:
     MAIL_PATTERN = '''
 Γεια σας,
 
-Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις 1-20 στο μάθημα:
+Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις {START}-{END} στο μάθημα:
 ΒΙΟΛ-494 - Εισαγωγή στον προγραμματισμό
 
 AM: {AM}
@@ -118,7 +124,7 @@ AM: {AM}
 
 {SUMMARY}
 
-Για απορίες στείλτε DM στο slack!
+Για απορίες στείλτε DM στο slack. Μην ξεχάσετε να αναφέρετε το ΑΜ σας στις απορίες. 
 
 Χαιρετώ,
 Αλέξανδρος Καντεράκης
@@ -140,7 +146,7 @@ AM: {AM}
 --------------------------------
 '''
 
-    MAIL_SUBJECT = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων 1-20'
+    MAIL_SUBJECT = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων {START}-{END}'
 
     def __init__(self, directory, solutions_dir, action, 
             ex=None, 
@@ -323,17 +329,17 @@ AM: {AM}
         total = len(self.all_answers)
         for i, AM in enumerate(self.all_answers):
 
-            mail_address = Grades.create_mail_address(AM)
-            #mail_address = 'alexandros.kanterakis@gmail.com'
-            print ('{}/{} -- {}'.format((i+1), total, mail_address))
+            #mail_address = Grades.create_mail_address(AM)
+            mail_address = 'alexandros.kanterakis@gmail.com'
+            #print ('{}/{} -- {}'.format((i+1), total, mail_address))
 
             mail = self.create_mail(AM)
-            #print(mail)
+            print(mail)
 
             if True:
                 self.mail.do_send_mail(
                     to=mail_address, 
-                    subject=self.MAIL_SUBJECT, 
+                    subject=self.MAIL_SUBJECT.format(START=self.start, END=self.end), 
                     text=mail,
                     actually_send_mail=self.actually_send_mail,
                 )
@@ -383,6 +389,8 @@ AM: {AM}
 
 
         ret = self.MAIL_PATTERN.format(
+            START=self.start,
+            END=self.end,
             AM=AM,
             EXERCISES=exercises_mail,
             SUMMARY=summary,
@@ -500,6 +508,13 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
 
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40 --actually_send_mail  
+
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail 
+
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
+
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade
     '''
 
@@ -509,10 +524,14 @@ if __name__ == '__main__':
     parser.add_argument("--ex", help="Examine only given ΑΜ")
     parser.add_argument("--action", help="What to do: grade")
     parser.add_argument("--actually_send_mail", action="store_true")
+    parser.add_argument("--start", type=int, help="Start from")
+    parser.add_argument("--end", type=int, help="Start end")
     args = parser.parse_args()
 
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
         action=args.action,
         actually_send_mail=args.actually_send_mail,
+        start = args.start,
+        end = args.end,
         )
     
