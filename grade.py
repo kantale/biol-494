@@ -58,8 +58,8 @@ class Mail:
 
 
     def do_send_mail(self, to, subject, text, sleep=10, actually_send_mail=False):
-		from email.header import Header
-	  	from email.mime.text import MIMEText
+        from email.header import Header
+        from email.mime.text import MIMEText
     	from email.mime.multipart import MIMEMultipart
 
         msg = MIMEText(text, 'plain', 'utf-8')
