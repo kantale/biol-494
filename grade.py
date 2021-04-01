@@ -62,12 +62,11 @@ class Mail:
 	  	from email.mime.text import MIMEText
     	from email.mime.multipart import MIMEMultipart
 
-	    msg = MIMEText(text, 'plain', 'utf-8')
- 		
+        msg = MIMEText(text, 'plain', 'utf-8')
         sender_email = "alexandros.kanterakis@gmail.com"
         receiver_email = to
-        
-		email = MIMEMultipart('mixed')
+
+        email = MIMEMultipart('mixed')
         email['From'] = sender_email
         email['To'] = receiver_email
         email['Subject'] = Header(subject, 'utf-8')
@@ -76,7 +75,6 @@ class Mail:
         email.attach(msg)
 
         message = email.as_string()
-
 
         if actually_send_mail:
             self.server.sendmail(sender_email, receiver_email, message)
@@ -103,7 +101,9 @@ class Grades:
         'Απαντηση ασκησης', 'Απάντηση ασκησης', 'απαντηση ασκησης',
         'Task_', 'απαντηση ακσησης', 'απάντηση άσκησης',
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
-        "'Ασκηση", "Αskisi", "Άσκση", "asksisi"
+        "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
+        'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
+        'askshsh', 'ασκ',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -113,7 +113,7 @@ class Grades:
     MAIL_PATTERN = '''
 Γεια σας,
 
-Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις 1-20 στο μάθημα:
+Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις {START}-{END} στο μάθημα:
 ΒΙΟΛ-494 - Εισαγωγή στον προγραμματισμό
 
 AM: {AM}
@@ -126,7 +126,7 @@ AM: {AM}
 
 {SUMMARY}
 
-Για απορίες στείλτε DM στο slack!
+Για απορίες στείλτε DM στο slack. Μην ξεχάσετε να αναφέρετε το ΑΜ σας στις απορίες. 
 
 Χαιρετώ,
 Αλέξανδρος Καντεράκης
@@ -148,7 +148,7 @@ AM: {AM}
 --------------------------------
 '''
 
-    MAIL_SUBJECT = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων 1-20'
+    MAIL_SUBJECT = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων {START}-{END}'
 
     def __init__(self, directory, solutions_dir, action, 
             ex=None, 
@@ -163,6 +163,7 @@ AM: {AM}
         self.start = start
         self.end = end
         self.exercises_range = list(range(self.start, self.end+1))
+        self.all_anonymous_grades = [] # For plotting and statistics
 
         self.get_filenames(ex)
         self.get_all_exercises()
@@ -178,7 +179,10 @@ AM: {AM}
         else:
             raise Exception('Unknown action: {}'.format(action))
 
-
+    def save_anonymoys_grades(self,):
+        with open('grades.json', 'w') as f:
+            json.dump(self.all_anonymous_grades, f)
+        print ('Saved anonymous grades at: grades.json ')
 
     def get_solutions_filename(self, id_, exercise):
 
@@ -229,7 +233,7 @@ AM: {AM}
             comment = ''
             while True:
                 line = input() # NEVER USE INPUT!! 
-                if line.strip() in ['q', ';']:
+                if line.strip() in ['q', 'Q', ';']:
                     break
 
                 comment += line + '\n'
@@ -256,6 +260,7 @@ AM: {AM}
         # Read all files
         data = []
         for filename in self.filenames:
+            #print (filename)
             id_ = self.get_id_from_filename(filename)
             content = self.get_exercises(filename)
 
@@ -275,13 +280,17 @@ AM: {AM}
         for k,v in self.all_exercises.items():
             for k2,v2 in v.items():
                 assert k
-                assert k2
+                if not k2:
+                    raise Exception('AM: {} Empty ASK:{} '.format(k, str(k2)))
 
         # Group and sort according to ask / AM
         self.all_exercises = sorted((int(k2), k, v2) for k,v in self.all_exercises.items() for k2,v2 in v.items())
 
     def collect_all_grades(self,):
         all_answers = {}
+
+        #print (json.dumps(self.all_exercises, indent=4))
+        #print ('=====')
 
         for ask, AM, answer in self.all_exercises:
             if not AM in all_answers:
@@ -303,6 +312,12 @@ AM: {AM}
                 'comment': comment,
             }
         self.all_answers = all_answers
+        #print (json.dumps(self.all_answers, indent=4))
+
+        self.all_anonymous_grades = [[v.get(i, {'grade':0})['grade'] for i in self.exercises_range] for k,v in all_answers.items()]
+        with open('grades.json', 'w') as f:
+            json.dump(self.all_anonymous_grades, f)
+        print ('Created anonymous grades.json')
 
     @staticmethod
     def create_mail_address(AM):
@@ -316,17 +331,17 @@ AM: {AM}
         total = len(self.all_answers)
         for i, AM in enumerate(self.all_answers):
 
-            mail_address = Grades.create_mail_address(AM)
-            #mail_address = 'alexandros.kanterakis@gmail.com'
-            print ('{}/{} -- {}'.format((i+1), total, mail_address))
+            #mail_address = Grades.create_mail_address(AM)
+            mail_address = 'alexandros.kanterakis@gmail.com'
+            #print ('{}/{} -- {}'.format((i+1), total, mail_address))
 
             mail = self.create_mail(AM)
-            #print(mail)
+            print(mail)
 
             if True:
                 self.mail.do_send_mail(
                     to=mail_address, 
-                    subject=self.MAIL_SUBJECT, 
+                    subject=self.MAIL_SUBJECT.format(START=self.start, END=self.end), 
                     text=mail,
                     actually_send_mail=self.actually_send_mail,
                 )
@@ -364,16 +379,20 @@ AM: {AM}
                 comment = 'Δεν έστειλες τίποτα για αυτή την άσκηση!'
                 grade = 0
 
-
+            grade_dics = {'Άσκηση': ASK, 'Βαθμός': grade}
             exercises_mail += self.create_exercise_mail(ASK, answer, comment, grade)
-            pandas_df.append({'Άσκηση': ASK, 'Βαθμός': grade})
+            pandas_df.append(grade_dics)
 
         pandas_df = pd.DataFrame(pandas_df)
         summary = pandas_df.to_string(index=False)
-        summary += '\n\nΜέσος Όρος: {}'.format(pandas_df['Βαθμός'].mean())
+        average = pandas_df['Βαθμός'].mean()
+        summary += '\n\nΜέσος Όρος: {}'.format(average)
+
 
 
         ret = self.MAIL_PATTERN.format(
+            START=self.start,
+            END=self.end,
             AM=AM,
             EXERCISES=exercises_mail,
             SUMMARY=summary,
@@ -463,11 +482,12 @@ AM: {AM}
 
         m = email.message_from_string(content)
         payload = m.get_payload()
-        assert len(payload) == 21 # FIXME
+        #assert len(payload) == 21 # FIXME
 
         content = ""
         for x in payload[1:]:
-            content += '\n' + x.get_payload(decode=True).decode("utf-8")
+            if hasattr(x, "get_payload"):
+                content += '\n' + x.get_payload(decode=True).decode("utf-8")
 
         return content 
 
@@ -475,6 +495,8 @@ AM: {AM}
     def get_filenames(self, ex=None):
         if not ex:
             ex='*'
+        else:
+            ex = ex + '*'
 
         self.filenames = glob.glob(os.path.join(self.dir, ex))
         print ('Read: {} files'.format(len(self.filenames)))
@@ -484,19 +506,34 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action grade
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action send_mail
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action send_mail --actually_send_mail
-    python grade.py --dir /Users/admin/biol-494/exercises/ --ex 3158 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --ex 3158 --action grade 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
+
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40 --actually_send_mail  
+
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail 
+
+    python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
+
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade
     '''
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", help="Directory with exercises")
     parser.add_argument("--sol", help="Directory with solutions")
-    parser.add_argument("--ex", help="Examine only given exercise")
+    parser.add_argument("--ex", help="Examine only given ΑΜ")
     parser.add_argument("--action", help="What to do: grade")
     parser.add_argument("--actually_send_mail", action="store_true")
+    parser.add_argument("--start", type=int, help="Start from")
+    parser.add_argument("--end", type=int, help="Start end")
     args = parser.parse_args()
 
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
         action=args.action,
         actually_send_mail=args.actually_send_mail,
+        start = args.start,
+        end = args.end,
         )
     

@@ -34,6 +34,10 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_4.ipynb), [markdown](2021/draft_lesson_4.md), [html](2021/draft_lesson_4.html), [pdf](2021/draft_lesson_4.pdf)
 * Διάλεξη 6η - 10 Μαρτίου 2021 . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_5.ipynb), [markdown](2021/draft_lesson_5.md), [html](2021/draft_lesson_5.html), [pdf](2021/draft_lesson_5.pdf)
+* Διάλεξη 7η - 17 Μαρτίου 2021 . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_6.ipynb), [markdown](2021/draft_lesson_6.md), [html](2021/draft_lesson_6.html), [pdf](2021/draft_lesson_6.pdf)
+* Διάλεξη 8η - 24 Μαρτίου 2021 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_7.ipynb), [markdown](2021/draft_lesson_7.md), [html](2021/draft_lesson_7.html), [pdf](2021/draft_lesson_7.pdf)
 
 
 
@@ -123,6 +127,7 @@ print ("This is the solution for ex. 55")
 
 
 ### Επιπλέον υλικό:
+* [Python: Notes for professionals book](https://books.goalkicker.com/PythonBook/)
 * [Practical Python Programming from David Beazley](https://dabeaz-course.github.io/practical-python/)
 * [Beginner's Python Cheat Sheets](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
 * [Non-beginner's python cheat sheet](https://gto76.github.io/python-cheatsheet/)
