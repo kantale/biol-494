@@ -69,9 +69,11 @@ class Mail:
             msg['From'] = sender_email # Hopefully no utf8 weirdness here...
             msg['To'] = receiver_email
             msg['Subject'] = Header(subject, 'utf-8')
+            msg['Content-type'] = 'text/plain; charset=utf-8' 
             message = msg.as_string()
 
-        message = 'Subject: {}\n\n{}'.format(subject, text)
+        if True:
+            message = 'Subject: {}\n\n{}'.format(subject, text)
 
         if actually_send_mail:
             #self.server.sendmail(sender_email, receiver_email, message.encode("utf-8")) # msg.encode("utf8")
@@ -153,7 +155,7 @@ AM: {AM}
             actually_send_mail=False,
             start = 1,
             end = 20,
-
+            send_to_me=False,
         ):
         self.dir = directory
         self.solutions_dir = solutions_dir
@@ -161,6 +163,7 @@ AM: {AM}
         self.start = start
         self.end = end
         self.exercises_range = list(range(self.start, self.end+1))
+        self.send_to_me = send_to_me
         self.all_anonymous_grades = [] # For plotting and statistics
 
         self.get_filenames(ex)
@@ -329,12 +332,15 @@ AM: {AM}
         total = len(self.all_answers)
         for i, AM in enumerate(self.all_answers):
 
-            #mail_address = Grades.create_mail_address(AM)
-            mail_address = 'alexandros.kanterakis@gmail.com'
-            #print ('{}/{} -- {}'.format((i+1), total, mail_address))
+            if self.send_to_me:
+                mail_address = 'alexandros.kanterakis@gmail.com'
+            else:
+                mail_address = Grades.create_mail_address(AM)
+            
+            print ('{}/{} -- {}'.format((i+1), total, mail_address)) # Don't comment this!
 
             mail = self.create_mail(AM)
-            print(mail)
+            #print(mail) # Comment this! 
 
             if True:
                 self.mail.do_send_mail(
@@ -508,8 +514,12 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
 
+    # 2nd Round Send mail:
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40  
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40 --actually_send_mail  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 3052 --action send_mail --start 21 --end 40 --actually_send_mail --send_to_me
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail  
+
 
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail 
 
@@ -524,6 +534,7 @@ if __name__ == '__main__':
     parser.add_argument("--ex", help="Examine only given ΑΜ")
     parser.add_argument("--action", help="What to do: grade")
     parser.add_argument("--actually_send_mail", action="store_true")
+    parser.add_argument("--send_to_me", action="store_true")
     parser.add_argument("--start", type=int, help="Start from")
     parser.add_argument("--end", type=int, help="Start end")
     args = parser.parse_args()
@@ -531,6 +542,7 @@ if __name__ == '__main__':
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
         action=args.action,
         actually_send_mail=args.actually_send_mail,
+        send_to_me=args.send_to_me,
         start = args.start,
         end = args.end,
         )
