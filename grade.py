@@ -225,6 +225,9 @@ AM: {AM}
             print ('Filename:', filename)
             print ('==================')
 
+            if id_ == '3052':
+                print (answer)
+
             if os.path.exists(filename):
                 print ('   Already graded..')
                 continue
@@ -489,7 +492,8 @@ AM: {AM}
         #assert len(payload) == 21 # FIXME
 
         content = ""
-        for x in payload[1:]:
+        #for x in payload[1:]:
+        for x in payload[:]:
             if hasattr(x, "get_payload"):
                 content += '\n' + x.get_payload(decode=True).decode("utf-8")
 
@@ -514,11 +518,15 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
 
+    # 2nd Round grade:
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade --start 21 --end 40 
+
     # 2nd Round Send mail:
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40  
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40 --actually_send_mail  
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 3052 --action send_mail --start 21 --end 40 --actually_send_mail --send_to_me
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 3052 --action send_mail --start 21 --end 40 --actually_send_mail
 
 
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail 
