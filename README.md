@@ -38,6 +38,8 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_6.ipynb), [markdown](2021/draft_lesson_6.md), [html](2021/draft_lesson_6.html), [pdf](2021/draft_lesson_6.pdf)
 * Διάλεξη 8η - 24 Μαρτίου 2021 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_7.ipynb), [markdown](2021/draft_lesson_7.md), [html](2021/draft_lesson_7.html), [pdf](2021/draft_lesson_7.pdf)
+* Διάλεξη 9η - 31 Μαρτίου 2021 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_8.ipynb), [markdown](2021/draft_lesson_8.md), [html](2021/draft_lesson_8.html), [pdf](2021/draft_lesson_8.pdf)
 
 
 
