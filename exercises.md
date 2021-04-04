@@ -565,10 +565,32 @@ def get_tumor_gene_names():
 
 Χρησιμοποιώντας τη συνάρτηση την οποία φτιάξατε και τη συνάρτηση ```get_tumor_gene_names()``` απαντήστε στην ερώτηση: Ποια γονίδια που εμπλέκονται στον καρκίνο είναι ιντερλευκίνες;
 
+Λύση:
+```python
+def starts_with_IL(x):
+    return x[:2] == 'IL'
+
+def ask_21(l):
+    return list(filter(starts_with_IL, l))
+
+print (ask_21(get_tumor_gene_names()))
+```
+
 ### Άσκηση 22
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_22_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει μία νέα λίστα η οποία θα έχει τα στοιχεία της περαμέτρου αλλά θα είναι ταξινομημένη με βάση το μήκος του string (από το μικρότερο στο μεγαλύτερο). 
 
 Χρησιμοποιώντας τη συνάρτηση που μόλις φτιάξατε (τη ```ask_22_a```) και τη ```get_tumor_gene_names()```, φτιάξτε μία άλλη συνάρτηση με το όνομα ```ask_22_b``` η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει την απάντηση στην ερώτηση: Ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο;
+
+Λύση:
+```python
+def ask_22_a(l):
+    return sorted(l, key=len)
+
+def ask_22_b():
+    l = get_tumor_gene_names()
+    s = ask_22_a(l)
+    return s[-10:]
+```
 
 ### Άσκηση 23
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_23_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει τη λίστα της περαμέτρου όπου όμως σε κάθε στοιχείο της θα έχετε αφαιρέσει όλους τους αριθμούς. Για παράδειγμα θα πρέπει:
@@ -579,8 +601,44 @@ f(l) # Επιστρέφει: ['CQTNF', 'CD', 'TNFRSF']
 ```
 Χρησιμοποιώντας τη συνάρτηση ```ask_23_a```, τη συνάρτηση ```ask_22_a``` της άσκησης 22 και τη συνάρτηση ```get_tumor_gene_names()```, φτιάξτε μία νέα συνάρτηση με το όνομα ```ask_23_b``` η οποία δεν θα παίρνει κάποιο όρισμα. Η συνάρτηση θα επιστρέφει την απαντήση στην ερώτηση: Αν αφαιρέσουμε τους αριθμούς από τα ονόματα των γονιδίων, ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο; (Τυπώστε τα αλλαγμένα ονόματα)
 
+Λύση:
+```python
+def remove_digits(s):
+    ret = ''
+    for letter in s:
+        if not letter in '0123456789':
+            ret += letter
+            
+    return ret
+
+def ask_23_a(l):
+    return list(map(remove_digits, l))
+
+def ask_23_b():
+    l = get_tumor_gene_names()
+    l_no_digits = ask_23_a(l)
+    l_no_digits_sorted = ask_22_a(l_no_digits)
+    return l_no_digits_sorted[-10:]
+
+ask_23_b()
+```
+
 ### Άσκηση 24
 Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει έναν αριθμό ο οποίος θα είναι το πλήθος των γονιδίων που εμπλέκονται στον καρκίνο και ΔΕΝ έχουν κάποιον αριθμό στον όνομά τους. 
+
+Λύση:
+```python
+def does_not_has_digit(s):
+    for x in s:
+        if x in '0123456789':
+            return False
+    return True
+
+def ask_24():
+    l = get_tumor_gene_names()
+    
+    return sum(list(map(does_not_has_digit, l)))
+```
 
 ### Άσκηση 25
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει το στοιχείο της λίστας που έχει το μικρότερο μήκος. Αν δύο ή περισσότερα στοιχεία έχουν το ίδιο μικρότερο μήκος, τότε θα επιστρέφει αυτό που είναι μικρότερο αλφαβητικά. Για παράδειγμα:
@@ -594,6 +652,17 @@ f(get_tumor_gene_names()) # Επιστρέφει: ANG
 ```
 
 Αν χρησιμοποιήσετε 2 φορές τη sorted στην Άσκηση 25, χάνετε 2 μονάδες (8/10)
+
+Λύση:
+```python
+def ask_25(l):
+    def sort_sort_according_to_this(x):
+        return [len(x), x]
+    
+    return min(l, key=sort_sort_according_to_this)
+
+ask_25(get_tumor_gene_names())
+```
 
 **Για τις ασκήσεις 26-30 δίνεται η παρακάτω συνάρτηση:**
 
@@ -652,13 +721,57 @@ genes[:10]
 ### Άσκηση 26
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το όνομα του γονιδίου με το μεγαλύτερο μήκος. Το μήκος ενός γονιδίου είναι η διαφορά του τέλους από την αρχή του. Για παράδειγμα το μήκος του γονιδίου TPD52 είναι: 80231232-80034745=196487
 
+Λύση:
+```python
+def get_length(gene):
+    return gene[3]-gene[2]
+
+def ask_26(l):
+    return max(l, key=len)
+
+ask_26(get_tumour_genes_pos())
+```
+
 ### Άσκηση 27
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει μία λίστα με τα ονόματα των γονιδίων της λίστας της παραμέτρου ταξινομημένα ανάλογα με τη θέση τους στο γονιδίωμα. Πρώτα πάνε τα γονίδια που είναι στο χρωμόσωμα 1, μετά τα γονίδια που είναι στο χρωμόσωμα 2, ... μετά το χρωμόσωμα 22 μετά το Χ και στο τέλος το Υ. Τα γονίδια που είναι στο ίδιο χρωμόσωμα ταξινομούνται με βάση την θέση της αρχής τους στο χρωμόσωμά τους. 
+
+Λύση:
+```python
+def ask_27(l):
+    
+    def get_chromosome_number(chromosome):
+        if chromosome == 'X':
+            return 23
+        if chromosome == 'Y':
+            return 24
+        if chromosome == 'MT':
+            return 25
+        
+        return int(chromosome)
+    
+    def sort_according_to_this(gene):
+        return [get_chromosome_number(gene[1]), gene[2]]
+    
+    return sorted(l, key=sort_according_to_this)
+
+ask_27(get_tumour_genes_pos())
+```
 
 ### Άσκηση 28
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το μέσο όρο του μήκους των γονιδίων που περιέχει. 
 
 Μέσος όρος της λίστας ```a = [4,5,6,6]``` είναι ```sum(a)/len(a)```
+
+Λύση
+```python
+def ask_28(l):
+    def get_length(gene):
+        return gene[3]-gene[2]
+    
+    return sum(map(get_length, l))/len(l)
+
+ask_28(get_tumour_genes_pos())
+```
 
 ### Άσκηση 29
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους. Η πρώτη θα είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()``` και η δεύτερη θα είναι το όνομα ενός χρωμοσώματος (π.χ. ```"4"```). H συνάρτηση θα επιστρέφει το πλήθος των γονιδίων της λίστας που ανήκουν σε αυτό το χρωμόσωμα.
@@ -671,12 +784,42 @@ f(genes, '1') # Επιστρέφει 94
 f(genes, '21') # Επιστρέφει 8
 ```
 
+Λύση:
+```python
+def ask_29(l, chromosome):
+
+    def belongs_to_chromosome(gene):
+        return gene[1] == chromosome
+    
+    return len(list(filter(belongs_to_chromosome, l)))
+
+l = get_tumour_genes_pos()
+ask_29(l, '1')
+```
+
 **Προσοχή:** Σε εσάς ίσως επιστρέφει λίγο διαφορετικές τιμές. Η συνάρτηση ```get_tumour_genes_pos()``` ενδέχεται να επιστρέφει ένα ελαφρώς διαφορετικό σετ από γονίδια κάθε φορά που τη καλείτε. Αυτό είναι ΟΚ! Απλά το site από όπου "τραβάει" τα δεδομένα αυτή η συνάρτηση δεν εγγυάται ότι θα επιστρέφει πάντα τα ίδια.
  
+
 ### Άσκηση 30
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα, όπως αυτή που επιστρέφει η συνάρτηση ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το όνομα του γονίδιου του οποίου το μήκος έχει τη μικρότερη απόσταση από το μέσο όρο του μήκους όλων των γονιδίων. 
 
 Πως βρίσκουμε την απόσταση μεταξύ των αριθμών ```a``` και ```b```: ```abs(a-b)```. 
+
+```python
+def ask_30(l):
+    
+    def get_length(gene):
+        return gene[3]-gene[2]
+
+    mo = sum(map(get_length, l))/len(l)
+
+    def sort_according_to_this(gene):
+        return abs(mo-get_length(gene)),
+    
+    return min(l, key=sort_according_to_this)[0]
+
+ask_30(get_tumour_genes_pos())
+```
 
 ### Άσκηση 31
 Γράψτε μία συνάρτηση η οποία θα παίρνει ως όρισμα 3 ακέραιους αριθμούς τους a,b,c. Η συνάρτηση θα επιστρέφει το άθροισμα όλων των αριθμών από το a μέχρι και το b οι οποίοι διαιρούνται με το c. Για παράδειγμα:
@@ -685,12 +828,42 @@ f(genes, '21') # Επιστρέφει 8
 f(23, 258, 7) # επιστρέφει 4620
 ```
 
+```python
+# 1st solution
+def ask_31(a,b,c):
+    
+    s = 0
+    for x in range(a,b+1):
+        if x%c==0:
+            s += 1
+    return s
+
+# 2nd solution
+def ask_31(a,b,c):
+    return sum(x%c==0 for x in range(a,b+1))
+```
+
+
 ### Άσκηση 32
 Γράψτε μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι μία λίστα με αριθμούς. Η συνάρτηση θα επιστρέφει το γινόμενο των αντίστροφων των στοιχείων της λίστας τα οποία δεν είναι 0. Ο αντίστροφος ενός αριθμού a είναι το 1/a.  
 
 Για παράδειγμα:
 
 f([2, 4, 0, 0.1]) # επιστρέφει 1/2 * 1/4 * 1/0.1 = 1.25 
+
+Λύση:
+```python
+def ask_32(l):
+    p = 1
+    
+    for x in l:
+        if x == 0:
+            continue
+            
+        p *= 1/x # p = p * 1/x
+        
+    return p
+```
 
 ### Άσκηση 33
 Ένας πληθυσμός με το όνομα Α αποτελείται από 20 ανθρώπους. Σε αυτούς τους ανθρώπους κάναμε γονοτύπηση σε 10 γενετικούς τόπους. Όλοι οι γονότυποι είναι δι-αλληλικοί (biallelic). Κάθε ένας από τους 10 γενετικούς τόπους έχει όνομα Μ1, Μ2, ... Μ10. Τα αποτελέσματα που πήραμε υπάρχουν σε αυτή τη λίστα:
@@ -723,6 +896,20 @@ pop_A = [
 f(pop_A) # Επιστρέφει 'Μ9'
 ```
 
+Λύση:
+```python
+
+def ask_33(pop):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    m = max(pop, key=get_freq)
+    return m[0]
+
+print (ask_33(pop_A))
+
+```
+
 ### Άσκηση 34
 Κάνουμε τον ίδιο πείραμα σε έναν άλλο πληθυσμό ο οποίος όμως τώρα έχει 25 άτομα. Τα αποτελέσματα της γονοτύπησης υπάρχουν στη παρακάτω λίστα: 
 
@@ -743,6 +930,21 @@ pop_B = [
 ```
 
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους Α και Β. Κάθε παράμετρος θα είναι μία λίστα όπως η pop_A και pop_B. Η συνάρτηση θα επιστρέφει το όνομα του γενετικού τόπου του οποίου η αλληλική συχνότητα του δευτερεύοντος αλλήλιου έχει τη μεγαλύτερη απόλυτη διαφορά μεταξύ των πληθυσμών Α και Β. 
+
+Λύση:
+```python
+def ask_34(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    def compare_freq(m):
+        return abs(get_freq(m[0]) - get_freq(m[1]))
+            
+    max_diff = max(zip(pop_1, pop_2), key=compare_freq)
+    return max_diff[0][0]
+
+ask_34(pop_A, pop_B) 
+```
 
 ### Άσκηση 35
 [Αυτό το άρθρο της wikipedia](https://en.wikipedia.org/wiki/Genetic_distance) έχει έναν κατάλογο με μετρικές για την μέτρηση της γενετικής απόστασης μεταξύ δύο πληθυσμών με βάση τις αλληλικές τους συχνότητες. Αυτό το άρθρο είναι αρκετά κακογραμμένο και μπορείτε να το αγνοήσετε!
@@ -774,6 +976,25 @@ H τετραγωνική ρίζα του a είναι: ```a**0.5```
 f(pop_A, pop_B) # Επιστρέφει: 0.265 
 ```
 
+
+Λύση:
+```python
+def ask_35(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    s = 0
+    for m1, m2 in zip(pop_1, pop_2):
+        fr_1 = get_freq(m1)
+        fr_2 = get_freq(m2)
+        
+        s += (fr_1-fr_2)**2
+        
+    return s**0.5
+
+ask_35(pop_A, pop_B)
+```
+
 ### Άσκηση 36
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```.  Η συνάρτηση θα επιστρέφει την "Nei's minimum genetic distance 1973" μεταξύ των πληθυσμών ```X``` και ```Y``` η οποία υπολογίζεται ως εξής [πηγή](https://dyerlab.github.io/applied_population_genetics/genetic-distances.html):
 
@@ -796,6 +1017,35 @@ I=\frac{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,x}p_{ij,y} \righ
 f(pop_A, pop_B) # Επιστρέφει: 0.9886664715207936
 ```
 
+Λύση:
+```python
+def ask_36(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))  
+    
+    freq_pop_1_allele_1 = [get_freq(x) for x in pop_1]
+    freq_pop_1_allele_2 = [1-x for x in freq_pop_1_allele_1]
+    freq_pop_2_allele_1 = [get_freq(x) for x in pop_2]
+    freq_pop_2_allele_2 = [1-x for x in freq_pop_2_allele_1]
+    
+    alleles = [
+        [freq_pop_1_allele_1, freq_pop_2_allele_1], 
+        [freq_pop_1_allele_2, freq_pop_2_allele_2],
+    ]
+    
+    s1 = 0
+    s2 = 0
+    s3 = 0
+    for mutation in range(len(pop_1)):
+        for allele in [0,1]:
+            s1 += alleles[allele][0][mutation] * alleles[allele][1][mutation]
+            s2 += alleles[allele][0][mutation]**2
+            s3 += alleles[allele][1][mutation]**2
+    
+    return s1 / (s2**0.5 * s3**0.5)
+
+ask_36(pop_A, pop_B)
+```
 
 ### Άσκηση 37
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```. Η συνάρτηση θα επιστρέφει την "Cavalli-Sforza chord distance" μεταξύ των πληθυσμών ```pop_A``` και ```pop_B```, σύμφωνα με τον μαθηματικό τύπο ([πηγή](https://www.montana.edu/kalinowski/documents/2002_Genetic_distances_review_MolecularEcology.pdf)):
@@ -815,6 +1065,34 @@ f(pop_A, pop_B) # Επιστρέφει: 0.9886664715207936
 Δίνεται ότι:
 ```python
 f(pop_A, pop_B) # Επιστρέφει 0.004909335749700872
+```
+
+Λύση:
+```python
+def ask_37(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))  
+    
+    freq_pop_1_allele_1 = [get_freq(x) for x in pop_1]
+    freq_pop_1_allele_2 = [1-x for x in freq_pop_1_allele_1]
+    freq_pop_2_allele_1 = [get_freq(x) for x in pop_2]
+    freq_pop_2_allele_2 = [1-x for x in freq_pop_2_allele_1]
+    
+    alleles = [
+        [freq_pop_1_allele_1, freq_pop_2_allele_1], 
+        [freq_pop_1_allele_2, freq_pop_2_allele_2],
+    ]
+    
+    s = 0
+    for allele in [0,1]:
+        for mutation in range(len(pop_1)):
+            s += (alleles[allele][0][mutation]*alleles[allele][1][mutation]) ** 0.5
+            
+    s /= len(pop_1) # s = s / len(pop_1)
+    
+    return 1-s
+
+ask_37(pop_A, pop_B)
 ```
 
 ### Άσκηση 38
@@ -853,6 +1131,21 @@ f(pop_B) # Επιστρέφει True
 f(pop_C) # Επιστρέφει False
 ```
 
+Λύση:
+```python
+def ask_38(pop):
+    lengths = {len(x) for x in pop}
+    if len(lengths) != 1:
+        return False
+    
+    for mutation in pop:
+        for sample in mutation[1:]:
+            if not sample in [0,1,2]:
+                return False
+            
+    return True
+
+```
 
 ### Άσκηση 39
 Αφού επικοινωνείτε με τον συνάδελφό σας, του καταδεικνύετε τα λάθη που έχει κάνει! Ο συνάδελφος σας ζητάει συγγνώμη και σας στέλνει διορθωμένη τη λίστα. Η νέα λίστα είναι η εξής:
@@ -913,6 +1206,23 @@ f(pop_D)
 
 ```
 
+Λύση:
+```python
+def ask_39(pop):
+    ret = []
+    
+    samples = len(pop)-1
+    mutations = len(pop[0])
+    for mutation in range(mutations):
+        new_line = [pop[0][mutation]]
+        for sample in range(samples):
+            new_line.append(pop[1+sample][mutation])
+            
+        ret.append(new_line)
+        
+    return ret
+```
+
 ### Άσκηση 40 
 Η λίστα:
 ```python
@@ -936,6 +1246,29 @@ cancer = [True, True, True, True, True, True, True, False, True, False]
 
 ```python
 f(genes, sizes, cancer) # Επιστρέφει [2, 3, 4, 5, 6, 9]
+```
+
+Λύση:
+```python
+genes = ['Gene_1', 'Gene_2', 'Gene_3', 'Gene_4', 'Gene_5', 'Gene_6', 'Gene_7', 'Gene_8', 'Gene_9', 'Gene_10']
+sizes = [2957, 8379, 9365, 5377, 9243, 5636, 4984, 9238, 6779, 7745]
+cancer = [True, True, True, True, True, True, True, False, True, False]
+
+def ask_40(genes, sizes, cancer):
+    
+    ret = []
+    for g,s,c in zip(genes, sizes, cancer):
+        if s<5000:
+            continue
+            
+        if not c:
+            continue
+            
+        ret.append(int(g[g.index('_')+1:]))
+        
+    return ret
+
+ask_40(genes, sizes, cancer)
 ```
 
 **Κάποιες σημειώσεις για τις υπόλοιπες ασκήσεις**
@@ -1950,7 +2283,7 @@ data = json.loads(s)
 Για αυτή την άσκηση στείλτε:
 * το string το οποίο φτιάξατε κάνοντας copy paste από τον κώδικα της σελίδας.
 * τον κώδικα ο οποίος το διαβάζει και τον μετατρέπει σε μία λίστα python. 
-* τον κώδικα ο οποίος απαντάει στο ερώτημα της άσκησης 
+* τον κώδικα ο οποίος απαντάει στο ερώτημα της άσκησης. 
 
 
 
