@@ -151,7 +151,10 @@ print ("This is the solution for ex. 55")
 * Scipy
    * [Paper στο Nature για το scipy](https://www.nature.com/articles/s41592-019-0686-2) published: 3 February 2020
    * [scipy lectures](http://scipy-lectures.org/)
-* Challenges: https://www.hackerrank.com/dashboard
+* Challenges: 
+   * https://www.hackerrank.com/dashboard
+   * https://stepik.org  
+   * http://rosalind.info/problems/locations/ 
 * [Scientific Python Cheatsheet](https://ipgp.github.io/scientific_python_cheat_sheet/)
 * [Matplotlib Cheatsheet](https://twitter.com/magnumdessert/status/1280543694760710144)
 * Pandas:
