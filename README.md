@@ -133,6 +133,7 @@ print ("This is the solution for ex. 55")
 * [Practical Python Programming from David Beazley](https://dabeaz-course.github.io/practical-python/)
 * [Beginner's Python Cheat Sheets](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
 * [Non-beginner's python cheat sheet](https://gto76.github.io/python-cheatsheet/)
+* [CS61A: Online Textbook ](https://inst.eecs.berkeley.edu//~cs61a/sp12/book/). Ευχαριστώ τον Ιωάννη-Ραφαήλ Τζονευράκης για το link. 
 * NumPy
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
