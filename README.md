@@ -165,4 +165,7 @@ print ("This is the solution for ex. 55")
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
 * [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html)
 * [Python & APIs: A Winning Combo for Reading Public Data](https://realpython.com/python-api/)
+* Regular Expressions
+   * [Python Regex Cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
+
 
