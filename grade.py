@@ -103,7 +103,7 @@ class Grades:
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
-        'askshsh', 'ασκ',
+        'askshsh', 'ασκ', '΄άσκηση'
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -481,7 +481,7 @@ AM: {AM}
             content = json.load(f)
 
         code_cells = ['\n'.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
-        return '\n\n'.join(code_cells)
+        return ''.join(code_cells)
 
     def get_exercises_MIME(self, filename):
         with open(filename) as f:
@@ -534,6 +534,9 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
 
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade
+
+    # 3rd Round
+    python grade.py --dir /Users/admin/biol-494/exercises3/ --sol /Users/admin/biol-494/solutions3 --action grade --start 41 --end 60 
     '''
 
     parser = argparse.ArgumentParser()
