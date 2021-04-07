@@ -103,7 +103,7 @@ class Grades:
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
-        'askshsh', 'ασκ', '΄άσκηση'
+        'askshsh', 'ασκ', '΄άσκηση', 'Asksh',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -268,11 +268,16 @@ AM: {AM}
             id_ = self.get_id_from_filename(filename)
             content = self.get_exercises(filename)
 
-            for ask, solution in self.iterate_exercises(content):
-                data.append((id_, ask, solution))
+            try:
+                for ask, solution in self.iterate_exercises(content):
+                    data.append((id_, ask, solution))
+            except Exception as e:
+                print ('Problem in file:', filename)
+                raise e
 
         # Group together multiple solutions to the same exercise from the same student
         self.all_exercises = defaultdict(dict)
+
         for group, it in groupby(sorted(data), lambda x : x[:2]):
             self.all_exercises[group[0]][group[1]] = '\n'.join(x[2] for x in it)
 
@@ -453,6 +458,11 @@ AM: {AM}
 
             content += '\n' + line
 
+        if exercise is None:
+            print ('Could not find any exercise in file!')
+            print (text)
+            assert False
+
         yield (exercise, content)
 
     def get_exercises(self, filename):
@@ -480,8 +490,8 @@ AM: {AM}
         with open(filename) as f:
             content = json.load(f)
 
-        code_cells = ['\n'.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
-        return ''.join(code_cells)
+        code_cells = [''.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
+        return '\n\n'.join(code_cells)
 
     def get_exercises_MIME(self, filename):
         with open(filename) as f:
