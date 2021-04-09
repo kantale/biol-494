@@ -40,6 +40,8 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_7.ipynb), [markdown](2021/draft_lesson_7.md), [html](2021/draft_lesson_7.html), [pdf](2021/draft_lesson_7.pdf)
 * Διάλεξη 9η - 31 Μαρτίου 2021 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_8.ipynb), [markdown](2021/draft_lesson_8.md), [html](2021/draft_lesson_8.html), [pdf](2021/draft_lesson_8.pdf)
+* Διάλεξη 10η - 7 Απριλίου 2021 . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/pandas.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_9.ipynb), [markdown](2021/draft_lesson_9.zip), [html](2021/draft_lesson_9.html), [pdf](2021/draft_lesson_9.pdf)
 
 
 
@@ -161,6 +163,7 @@ print ("This is the solution for ex. 55")
 * [Scientific Python Cheatsheet](https://ipgp.github.io/scientific_python_cheat_sheet/)
 * [Matplotlib Cheatsheet](https://twitter.com/magnumdessert/status/1280543694760710144)
 * Pandas:
+   * [Cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
    * [Introduction to Pandas](https://realpython.com/pandas-dataframe/) . [plotting with pandas](https://realpython.com/pandas-plot-python/)
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
 * [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html)
