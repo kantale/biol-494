@@ -20,19 +20,18 @@
 Τι να **ΜΗΝ** κάνετε:
 ```python
 def f(n):
-	if n%2 == 1:
-		return True
-	else:
-		return False
+    if n%2 == 1:
+        return True
+    else:
+        return False
 
 ```
 
 Τι να κάνετε:
 ```python
 def f(n):
-	return n%2 == 1
+    return n%2 == 1
 ```
-
 
 ### Άσκηση 1
 Φτιάξτε μία συνάρτηση σε python η οποία θα παίρνει σαν όρισμα έναν αριθμό. 
@@ -42,7 +41,7 @@ def f(n):
 Λύση:
 ```python
 def f(x):
-	return (x%7) % 2 == 1
+    return (x%7) % 2 == 1
 ```
 
 ### Άσκηση 2
@@ -54,11 +53,11 @@ def f(x):
 ```python
 # 1st solution
 def f(x):
-	return x>=100 and x<=200
+    return x>=100 and x<=200
 
 # 2nd solution
 def f(x):
-	return 100 <= x <= 200
+    return 100 <= x <= 200
 ```
 
 
@@ -73,7 +72,7 @@ f(x)=-8x<sup>2</sup> + 5x - 2
 
 ```python
 def f(x):
-	return (-8*(x**2)) + (5*x) -2
+    return (-8*(x**2)) + (5*x) -2
 
 print (f(5))
 print (f(6))
@@ -110,7 +109,7 @@ f('CAGTGACGTACCGTAGGGCGTAGCGTAACG')
 Λύση:
 ```python
 def f(x):
-	return x[1::3]
+    return x[1::3]
 ```
 
 ### Άσκηση 5
@@ -123,9 +122,9 @@ def f(x):
 Λύση:
 ```python
 def f(x):
-	C = x.count('C')
-	G = x.count('G')
-	return (C+G) / len(x)
+    C = x.count('C')
+    G = x.count('G')
+    return (C+G) / len(x)
 ```
 
 ### Άσκηση 6
@@ -137,7 +136,7 @@ def f(x):
 Λύση:
 ```python
 def f(a,b):
-	return 0.6*a + 0.4*b > 0.5
+    return 0.6*a + 0.4*b > 0.5
 ```
 
 ### Άσκηση 7
@@ -165,8 +164,8 @@ f('AAACCCGGGAAACCCGGT') # Επιστρέφει False
 ```python
 def f(x):
 
-	l = len(x)//2
-	return x[:l] == x[l:]
+    l = len(x)//2
+    return x[:l] == x[l:]
 ```
 
 
@@ -179,12 +178,12 @@ def f(x):
 ```python
 def f(x):
 
-	A = x.count('A')
-	C = x.count('C')
-	G = x.count('G')
-	T = x.count('T')
+    A = x.count('A')
+    C = x.count('C')
+    G = x.count('G')
+    T = x.count('T')
 
-	return A+G >= G+T 
+    return A+G >= G+T 
 ```
 
 ### Άσκηση 9
@@ -212,9 +211,9 @@ TGCACTGGGGAAAATGTTACCAGGTCCGAACTTATTGAGGTAAGACAGA
 ```python
 def f(x):
 
-	start = x.index('ATG')
-	end = x.index('TAA') + 3
-	return x[start:end]
+    start = x.index('ATG')
+    end = x.index('TAA') + 3
+    return x[start:end]
 ```
 
 ### Άσκηση 10
@@ -234,15 +233,15 @@ f('AAACCCGGG') # Επιστρέφει False: Δεν υπάρχει το ATG μέ
 ```python
 # 1st solution 
 def f(x):
-	return x.count('ATG') > 0 and x.index('ATG')%3 == 0
+    return x.count('ATG') > 0 and x.index('ATG')%3 == 0
 
 # 2nd solution 
 def f(x):
-	return 'ATG' in x and x.index('ATG')%3 == 0
+    return 'ATG' in x and x.index('ATG')%3 == 0
 
 # 3rd solution 
 def f(x):
-	return x.find('ATG')%3 == 0
+    return x.find('ATG')%3 == 0
 
 ```
 
@@ -262,24 +261,24 @@ def f(x):
 ```python
 # 1st solution
 def f(BMI, gender):
-	if gender == 'male':
-		if BMI > 32:
-			return "overweight"
-		return "not overweight"
-	if gender == "female":
-		if BMI > 30:
-			return "overweight"
-		return "not overweight"
+    if gender == 'male':
+        if BMI > 32:
+            return "overweight"
+        return "not overweight"
+    if gender == "female":
+        if BMI > 30:
+            return "overweight"
+        return "not overweight"
 
 
 #2nd solution
 def f(BMI, gender):
 
-	overweight = (gender == 'male' and BMI > 32) or (gender == 'female' and BMI > 30)
-	if overweight:
-		return 'overweight'
+    overweight = (gender == 'male' and BMI > 32) or (gender == 'female' and BMI > 30)
+    if overweight:
+        return 'overweight'
 
-	return "not overweight"
+    return "not overweight"
 ```
 
 ### Άσκηση 12
@@ -311,22 +310,22 @@ f(0.5)  # Επιστρέφει: "Small satellite - Picosatellite"
 Λύση:
 ```python
 def f(x):
-	if x > 1000:
-		return 'Large satellit'
+    if x > 1000:
+        return 'Large satellit'
 
-	if x > 500:
-		return 'Medium-sized satellites'
+    if x > 500:
+        return 'Medium-sized satellites'
 
-	if x > 100:
-		return 'Small satellites - Minisatellite'
+    if x > 100:
+        return 'Small satellites - Minisatellite'
 
-	if x > 10:
-		return 'Small satellites - Microsatellite'
+    if x > 10:
+        return 'Small satellites - Microsatellite'
 
-	if x > 1:
-		return 'Small satellites - Nanosatellite'
+    if x > 1:
+        return 'Small satellites - Nanosatellite'
 
-	return 'Small satellites - Picosatellite'
+    return 'Small satellites - Picosatellite'
 ```
 
 ### Άσκηση 13
@@ -340,16 +339,16 @@ def f(x):
 Λύση:
 ```python
 def f(x):
-	if alcohol < 0.25:
-		return 0
+    if alcohol < 0.25:
+        return 0
 
-	if alcohol <= 0.4:
-		return 200
+    if alcohol <= 0.4:
+        return 200
 
-	if alcohol <= 0.6:
-		return 700
+    if alcohol <= 0.6:
+        return 700
 
-	return 3000
+    return 3000
 ```
 
 ### Άσκηση 14
@@ -375,14 +374,14 @@ f(f(f(1)))
 ```python
 def f(x):
 
-	if x == 1:
-		return 'Hello'
+    if x == 1:
+        return 'Hello'
 
-	if x == 'Hello':
-		return 'Mitsos'
+    if x == 'Hello':
+        return 'Mitsos'
 
-	if x == 'Mitsos':
-		return 'Maria'
+    if x == 'Mitsos':
+        return 'Maria'
 ```
 
 ### Άσκηση 15
@@ -397,10 +396,10 @@ f(g(1)+g(2)) + g(f(1)+f(2))
 Λύση:
 ```python
 def f(x):
-	return x
+    return x
 
 def g(x):
-	return x-1
+    return x-1
 ```
 
 ### Άσκηση 16
@@ -414,12 +413,12 @@ def g(x):
 Λύση:
 ```python
 def f(a,b):
-	if a == 0:
-		if b == 0:
-			return 'TAYTOTHTA'
-		return 'ADYNATH'
+    if a == 0:
+        if b == 0:
+            return 'TAYTOTHTA'
+        return 'ADYNATH'
 
-	return -b/a
+    return -b/a
 ```
 
 ### Άσκηση 17
@@ -437,13 +436,13 @@ def f(a,b):
 Λύση:
 ```python
 def nautical_miles_to_km(x):
-	return x*1.852
+    return x*1.852
 
 def km_to_miles(x):
-	return x*0.62137
+    return x*0.62137
 
 def nautical_miles_to_miles(x):
-	return km_to_miles(nautical_miles_to_km(x))
+    return km_to_miles(nautical_miles_to_km(x))
 ```
 
 ### Άσκηση 18
@@ -461,12 +460,12 @@ f(3,3,3) # Επιστρέφει: 3
 Λύση:
 ```python
 def f(x):
-	if (b<=a and a<=c) or (c<=a and a<=b):
-		return a
-	if (a<=b and b<=c) or (c<=b and b<=a):
-		return b
+    if (b<=a and a<=c) or (c<=a and a<=b):
+        return a
+    if (a<=b and b<=c) or (c<=b and b<=a):
+        return b
 
-	return c
+    return c
 
 ```
 
@@ -512,13 +511,13 @@ print (a)
 ```python
 
 def reverse(x):
-	return x[::-1]
+    return x[::-1]
 
 def complement(x):
-	t = x.replace('A', '1').replace('C', '2').replace('G', '3').replace('T', '4')
-	t = t.replace('1', 'T').replace('2', 'G').replace('3', 'C').replace('4', 'A')
+    t = x.replace('A', '1').replace('C', '2').replace('G', '3').replace('T', '4')
+    t = t.replace('1', 'T').replace('2', 'G').replace('3', 'C').replace('4', 'A')
 
-	return t
+    return t
 ```
 
 ### Άσκηση 20
@@ -535,7 +534,7 @@ f('AGTCCG') # Επιστρέφει: "CGGACT"
 Λύση:
 ```python
 def reverse_complement(x):
-	return complement(reverse(x))
+    return complement(reverse(x))
 ```
 
 ## Ασκήσεις 21-30
@@ -546,10 +545,10 @@ def reverse_complement(x):
 import requests
 
 def get_tumor_gene_names():
-	r = requests.get('http://mygene.info/v3/query?q=tumor&fields=symbol&size=1000&species=human')
-	j = r.json()
+    r = requests.get('http://mygene.info/v3/query?q=tumor&fields=symbol&size=1000&species=human')
+    j = r.json()
 
-	return [x['symbol'] for x in j['hits']]
+    return [x['symbol'] for x in j['hits']]
 ```
 
 Η συνάρτηση αυτή χρειάζεται το πακέτο requests της python. Αν δεν είναι εγκαταστημένο στον υπολογιστή σας μπορείτε να το εγκαταστήσετε τρέχoντας σε ένα κελί στο jupyter:
@@ -678,15 +677,15 @@ def get_tumour_genes_pos():
     j = r.json()
 
     list_1 = [
-    	[
-        	x['symbol'], 
-        	(x['genomic_pos'][0] if type(x['genomic_pos']) is list else x['genomic_pos']),
-    	] for x in j['hits'] if 'genomic_pos' in x]
+        [
+            x['symbol'], 
+            (x['genomic_pos'][0] if type(x['genomic_pos']) is list else x['genomic_pos']),
+        ] for x in j['hits'] if 'genomic_pos' in x]
 
     list_2 = [
-    	[
-    		x[0], x[1]['chr'], x[1]['start'], x[1]['end']
-    	] for x in list_1 if not 'CHR' in x[1]['chr']]
+        [
+            x[0], x[1]['chr'], x[1]['start'], x[1]['end']
+        ] for x in list_1 if not 'CHR' in x[1]['chr']]
 
     return list_2
 ```
@@ -870,16 +869,16 @@ def ask_32(l):
 
 ```python
 pop_A = [
-	['M1', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 0, 1, 1, 1, 0, 1],
-	['M2', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0],
-	['M3', 1, 1, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1],
-	['M4', 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-	['M5', 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 2],
-	['M6', 0, 0, 1, 0, 2, 0, 0, 0, 1, 1, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0],
-	['M7', 0, 0, 2, 1, 1, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0],
-	['M8', 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 0, 0, 2],
-	['M9', 0, 0, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1],
-	['M10', 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    ['M1', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 0, 1, 1, 1, 0, 1],
+    ['M2', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+    ['M3', 1, 1, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1],
+    ['M4', 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    ['M5', 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 2],
+    ['M6', 0, 0, 1, 0, 2, 0, 0, 0, 1, 1, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0],
+    ['M7', 0, 0, 2, 1, 1, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0],
+    ['M8', 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 0, 0, 2],
+    ['M9', 0, 0, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1],
+    ['M10', 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 ]
 ```
 
@@ -915,16 +914,16 @@ print (ask_33(pop_A))
 
 ```python
 pop_B = [
-	['M1', 2, 1, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1], 
-	['M2', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0],
-	['M3', 1, 1, 0, 2, 1, 1, 0, 0, 2, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 1],
-	['M4', 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 0, 0, 2],
-	['M5', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0],
-	['M6', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 2, 1, 0],
-	['M7', 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 2, 2],
-	['M8', 0, 2, 0, 0, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 0, 1, 2, 0, 1, 0, 0],
-	['M9', 1, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 1, 0],
-	['M10', 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 2, 0, 2, 1, 0, 1, 2, 0, 0, 1, 0, 0, 1, 1]
+    ['M1', 2, 1, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1], 
+    ['M2', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0],
+    ['M3', 1, 1, 0, 2, 1, 1, 0, 0, 2, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 1],
+    ['M4', 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 0, 0, 2],
+    ['M5', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0],
+    ['M6', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 2, 1, 0],
+    ['M7', 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 2, 2],
+    ['M8', 0, 2, 0, 0, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 0, 1, 2, 0, 1, 0, 0],
+    ['M9', 1, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 1, 0],
+    ['M10', 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 2, 0, 2, 1, 0, 1, 2, 0, 0, 1, 0, 0, 1, 1]
 ]
 
 ```
@@ -1051,7 +1050,7 @@ ask_36(pop_A, pop_B)
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```. Η συνάρτηση θα επιστρέφει την "Cavalli-Sforza chord distance" μεταξύ των πληθυσμών ```pop_A``` και ```pop_B```, σύμφωνα με τον μαθηματικό τύπο ([πηγή](https://www.montana.edu/kalinowski/documents/2002_Genetic_distances_review_MolecularEcology.pdf)):
 
 <!-- 
-	D=1-\sum_{j=1}^{2}\left ( \sum_{i=1}^{L} \left ( \frac{\sqrt{p_{ij,x}\cdot p_{ij,y}}}{L} \right ) \right )
+    D=1-\sum_{j=1}^{2}\left ( \sum_{i=1}^{L} \left ( \frac{\sqrt{p_{ij,x}\cdot p_{ij,y}}}{L} \right ) \right )
 -->
 ![img](https://i.imgur.com/jFdqr3e.png)
 
@@ -1152,32 +1151,32 @@ def ask_38(pop):
 
 ```python
 pop_D = [
-	['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'], 
-	[0, 2, 0, 0, 1, 1, 1, 0, 1, 0], 
-	[1, 1, 1, 0, 0, 0, 0, 0, 0, 1], 
-	[0, 0, 2, 0, 1, 2, 0, 0, 0, 1], 
-	[0, 0, 0, 2, 2, 0, 0, 0, 0, 0], 
-	[0, 0, 0, 2, 1, 0, 1, 0, 0, 0], 
-	[1, 2, 0, 0, 0, 2, 0, 0, 2, 0], 
-	[0, 1, 0, 0, 0, 1, 0, 0, 0, 0], 
-	[0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
-	[1, 2, 0, 0, 0, 0, 1, 0, 0, 0], 
-	[0, 1, 0, 1, 0, 0, 1, 0, 0, 2], 
-	[0, 0, 0, 1, 0, 0, 0, 0, 0, 1], 
-	[1, 1, 2, 0, 2, 0, 1, 0, 0, 0], 
-	[0, 1, 2, 0, 2, 1, 1, 0, 0, 2], 
-	[0, 0, 1, 0, 0, 1, 2, 1, 0, 2], 
-	[0, 0, 1, 0, 2, 1, 0, 1, 1, 0], 
-	[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
-	[0, 0, 1, 0, 0, 1, 1, 0, 1, 1], 
-	[0, 0, 0, 0, 2, 2, 0, 2, 0, 0], 
-	[1, 1, 0, 1, 1, 0, 1, 0, 1, 0], 
-	[1, 0, 0, 2, 1, 1, 0, 1, 2, 2], 
-	[1, 2, 0, 1, 0, 1, 0, 0, 1, 0], 
-	[0, 0, 1, 0, 1, 1, 0, 1, 0, 0], 
-	[0, 0, 2, 0, 2, 0, 0, 0, 1, 0], 
-	[0, 1, 0, 1, 2, 0, 1, 0, 1, 0], 
-	[0, 0, 2, 1, 1, 0, 0, 2, 1, 0],
+    ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'], 
+    [0, 2, 0, 0, 1, 1, 1, 0, 1, 0], 
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 1], 
+    [0, 0, 2, 0, 1, 2, 0, 0, 0, 1], 
+    [0, 0, 0, 2, 2, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 2, 1, 0, 1, 0, 0, 0], 
+    [1, 2, 0, 0, 0, 2, 0, 0, 2, 0], 
+    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
+    [1, 2, 0, 0, 0, 0, 1, 0, 0, 0], 
+    [0, 1, 0, 1, 0, 0, 1, 0, 0, 2], 
+    [0, 0, 0, 1, 0, 0, 0, 0, 0, 1], 
+    [1, 1, 2, 0, 2, 0, 1, 0, 0, 0], 
+    [0, 1, 2, 0, 2, 1, 1, 0, 0, 2], 
+    [0, 0, 1, 0, 0, 1, 2, 1, 0, 2], 
+    [0, 0, 1, 0, 2, 1, 0, 1, 1, 0], 
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
+    [0, 0, 1, 0, 0, 1, 1, 0, 1, 1], 
+    [0, 0, 0, 0, 2, 2, 0, 2, 0, 0], 
+    [1, 1, 0, 1, 1, 0, 1, 0, 1, 0], 
+    [1, 0, 0, 2, 1, 1, 0, 1, 2, 2], 
+    [1, 2, 0, 1, 0, 1, 0, 0, 1, 0], 
+    [0, 0, 1, 0, 1, 1, 0, 1, 0, 0], 
+    [0, 0, 2, 0, 2, 0, 0, 0, 1, 0], 
+    [0, 1, 0, 1, 2, 0, 1, 0, 1, 0], 
+    [0, 0, 2, 1, 1, 0, 0, 2, 1, 0],
 ]
 ```
 
@@ -1192,16 +1191,16 @@ pop_D = [
 f(pop_D) 
 # Θα πρέπει να επιστρέφει τη λίστα:
 [
-	['M1', 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0], 
-	['M2', 2, 1, 0, 0, 0, 2, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 1, 0], 
-	['M3', 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 0, 1, 0, 0, 0, 0, 1, 2, 0, 2], 
-	['M4', 0, 0, 0, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 1, 1], 
-	['M5', 1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0, 1, 2, 2, 1], 
-	['M6', 1, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0], 
-	['M7', 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], 
-	['M8', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 2], 
-	['M9', 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 1, 1, 1], 
-	['M10', 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0],
+    ['M1', 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0], 
+    ['M2', 2, 1, 0, 0, 0, 2, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 1, 0], 
+    ['M3', 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 0, 1, 0, 0, 0, 0, 1, 2, 0, 2], 
+    ['M4', 0, 0, 0, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 1, 1], 
+    ['M5', 1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0, 1, 2, 2, 1], 
+    ['M6', 1, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0], 
+    ['M7', 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], 
+    ['M8', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 2], 
+    ['M9', 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 1, 1, 1], 
+    ['M10', 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0],
 ]
 
 ```
@@ -1288,17 +1287,17 @@ a = 'asdfasdf3'
 last = a[-1]
 
 def f(x):
-	is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
-	return is_it
+    is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
+    return is_it
 
 ```
 
 Σωστό:
 ```python
 def f(x):
-	last = x[-1]
-	is_it = last.is_digit()
-	return is_it
+    last = x[-1]
+    is_it = last.is_digit()
+    return is_it
 ```
 
 Παρόλα αυτά εννοείται ότι επιτρέπεται να χρησιμοποιήσουμε συναρτήσεις που έχουν οριστεί έξω από τη συνάρτησή μας. 
@@ -1308,15 +1307,15 @@ def f(x):
 
 ```python
 A = {
-	'kwstas': 1,
-	'george': 2,
-	'elenh': 3,
+    'kwstas': 1,
+    'george': 2,
+    'elenh': 3,
 }
 
 B = {
-	'mitsos': 2,
-	'kwstas': 3,
-	'elenh': 1,
+    'mitsos': 2,
+    'kwstas': 3,
+    'elenh': 1,
 }
 
 
@@ -1324,8 +1323,8 @@ f(A,B)
 # Επιστρέφει:
 
 {
-	'george': 2,
-	'mitsos': 2,
+    'george': 2,
+    'mitsos': 2,
 }
 # Το "kwstas" και το "mitsos" υπάρχουν και στα δύο dictionaries (A και Β) για αυτό δεν 
 # υπάρχουν στο dictionary που επέστρεψε η συνάρτηση.
@@ -1336,23 +1335,23 @@ f(A,B)
 
 ```python
 A = {
-	'kwstas': 1,
-	'george': 2,
-	'elenh': 3,
+    'kwstas': 1,
+    'george': 2,
+    'elenh': 3,
 }
 
 B = {
-	'mitsos': 2,
-	'kwstas': 3,
-	'elenh': 2,
+    'mitsos': 2,
+    'kwstas': 3,
+    'elenh': 2,
 }
 
 
 f(A,B)
 # Επιστρέφει:
 {
-	'kwstas': 2.0, # (1+3)/2
-	'elenh': 2.5 # (2+3)/2
+    'kwstas': 2.0, # (1+3)/2
+    'elenh': 2.5 # (2+3)/2
 }
 
 ```
@@ -1391,10 +1390,10 @@ cancer = [True, True, True, True, True, True, True, False, True, False]
 f(genes, sizes, cancer) 
 # Επιστρέφει:
 {
-	'Gene_1': {'size': 2957, 'cancer': True},
-	'Gene_2': {'size': 8379, 'cancer': True},
-	...
-	'Gene_10': {'size': 7745, 'cancer': False},
+    'Gene_1': {'size': 2957, 'cancer': True},
+    'Gene_2': {'size': 8379, 'cancer': True},
+    ...
+    'Gene_10': {'size': 7745, 'cancer': False},
 }
 ```
 
@@ -1407,9 +1406,9 @@ f(genes, sizes, cancer)
 Παράδειγμα:
 ```python
 A = {
-	'Gene_1': {'size': 2957, 'cancer': True},
-	'Gene_2': {'size': 8379, 'cancer': True},
-	'Gene_10': {'size': 7745, 'cancer': False},
+    'Gene_1': {'size': 2957, 'cancer': True},
+    'Gene_2': {'size': 8379, 'cancer': True},
+    'Gene_10': {'size': 7745, 'cancer': False},
 }
 
 f(A)
@@ -1470,27 +1469,27 @@ f(A)
 # Επιστρέφει:
 
 {
-	 'RECTYPE': 'D',
-	 'MH': 'Calcimycin',
-	 'AQ': 'AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR',
-	 'ENTRY': 'A23187, Antibiotic',
-	 'MN': 'D03.633.100.221.173',
-	 'PA': 'Calcium Ionophores',
-	 'MH_TH': 'NLM (1975)',
-	 'ST': 'T195',
-	 'N1': '4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-',
-	 'RN': '37H9VM9WZL',
-	 'RR': '52665-69-7 (Calcimycin)',
-	 'PI': 'Carboxylic Acids (1973-1974)',
-	 'MS': 'An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.',
-	 'OL': 'use CALCIMYCIN to search A 23187 1975-90',
-	 'PM': '91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
-	 'HN': '91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
-	 'MR': '20160527',
-	 'DA': '19741119',
-	 'DC': '1',
-	 'DX': '19840101',
-	 'UI': 'D000001'
+     'RECTYPE': 'D',
+     'MH': 'Calcimycin',
+     'AQ': 'AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR',
+     'ENTRY': 'A23187, Antibiotic',
+     'MN': 'D03.633.100.221.173',
+     'PA': 'Calcium Ionophores',
+     'MH_TH': 'NLM (1975)',
+     'ST': 'T195',
+     'N1': '4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-',
+     'RN': '37H9VM9WZL',
+     'RR': '52665-69-7 (Calcimycin)',
+     'PI': 'Carboxylic Acids (1973-1974)',
+     'MS': 'An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.',
+     'OL': 'use CALCIMYCIN to search A 23187 1975-90',
+     'PM': '91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+     'HN': '91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+     'MR': '20160527',
+     'DA': '19741119',
+     'DC': '1',
+     'DX': '19840101',
+     'UI': 'D000001'
  }
 
 ```
@@ -1533,10 +1532,10 @@ f(100) # Eπιστρέφει 97
 import requests
 
 def get_disease_gene_names(disease):
-	r = requests.get(f'http://mygene.info/v3/query?q={disease}&fields=symbol&size=1000&species=human')
-	j = r.json()
+    r = requests.get(f'http://mygene.info/v3/query?q={disease}&fields=symbol&size=1000&species=human')
+    j = r.json()
 
-	return {x['symbol'] for x in j['hits']}
+    return {x['symbol'] for x in j['hits']}
 ```
 
 Αυτή η συνάρτηση παίρνει σαν όρισμα ένα string το οποίο αναπαριστάει έναν φαινότυπο (ασθένεια ή μη) ή μία βιολογική λειτουργία. Η συνάρτηση επιστρέφει ένα σύνολο από γονίδια τα οποία έχουν συσχετιστεί με αυτόν το string. 
@@ -1550,8 +1549,8 @@ def get_disease_gene_names(disease):
 ```python
 import requests
 def get_pi_1M():
-	r = requests.get('https://www.angio.net/pi/digits/pi1000000.txt')
-	return r.text
+    r = requests.get('https://www.angio.net/pi/digits/pi1000000.txt')
+    return r.text
 ```
 
 Αυτή η συνάρτηση επιστρέφει ένα string το οποίο περιέχει το π (3.14159...) στις πρώτες 1.000.000 θέσεις. Γράψτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει τη θέση πάνω στο π όπου ο αριθμός 7 γίνεται για πρώτη φορά ο πιο κοινός αριθμός του π. 
@@ -1614,7 +1613,7 @@ f(10)
 
 # Δημιουργεί το αρχείο factors.txt το οποίο θα πρέπει να μπορώ να το τυπωσω με:
 with open('factors.txt') as f:
-	data = f.read()
+    data = f.read()
 
 print (data)
 # θα πρέπει να τυπώνει:
@@ -1645,7 +1644,7 @@ f()()[0]()
 Σε αυτό το site: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/ θα βρείτε το αρχείο: Homo_sapiens.gene_info.gz. Το αρχείο αυτό μπορείτε να το κατεβάσετε και απευθείας με αυτό το link: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz . Το αρχείο αυτό είναι συμπιεσμένο οπότε θα πρέπει και να το αποσυμπιέσετε. Το αποσυμπιεσμένο αρχείο ονομάζεται: ```Homo_sapiens.gene_info```. To αρχείο είναι tab delimited (οι στήλες δηλαδή είναι χωρισμένες με τον χαρακτήρα tab) και περιέχει διάφορες πληροφορίες για τα γονίδια στο ανθρώπινο γονιδίωμα. Η πρώτη γραμμή του αρχείου περιέχει την επικεφαλίδα (header) η οποία περιέχει τους τίτλους των στηλών. Η επικεφαλίδα είναι:
 
 ```text
-#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
+#tax_id GeneID  Symbol  LocusTag    Synonyms    dbXrefs chromosome  map_location    description type_of_gene    Symbol_from_nomenclature_authority  Full_name_from_nomenclature_authority   Nomenclature_status Other_designations  Modification_date   Feature_type
 ``` 
 
 Το αρχείο μπορείτε να το ανοίξετε και από το excel (ή από το Google sheets). Μπορείτε να google-άρετε: "how to open tab delimited file in excel" για να βρείτε πως γίνεται αυτό.
@@ -1676,19 +1675,19 @@ filename = f('Homo_sapiens.gene_info', '7')
 
 # Ανοίγω το αρχείο που δημιούργησε και τυπώνω τις πρώτες 6 γραμμές
 with open(filename) as f:
-	for l_number, line in enumerate(f):
-		print (line.strip('\n'))
-		if l_number>=5:
-			break
+    for l_number, line in enumerate(f):
+        print (line.strip('\n'))
+        if l_number>=5:
+            break
 
 #To παραπάνω τυπώνει:
 '''
-#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
-9606	26	AOC1	-	ABP|ABP1|DAO|DAO1|KAO	MIM:104610|HGNC:HGNC:80|Ensembl:ENSG00000002726	7	7q36.1	amine oxidase copper containing 1	protein-coding	AOC1	amine oxidase copper containing 1	O	amiloride-sensitive amine oxidase [copper-containing]|amiloride binding protein 1 (amine oxidase (copper-containing))|amiloride-binding protein 1|amiloride-sensitive amine oxidase|amine oxidase copper domain-containing protein 1|diamine oxidase|histaminase|kidney amine oxidase	20210302	-
-9606	43	ACHE	-	ACEE|ARACHE|N-ACHE|YT	MIM:100740|HGNC:HGNC:108|Ensembl:ENSG00000087085	7	7q22.1	acetylcholinesterase (Cartwright blood group)	protein-coding	ACHE	acetylcholinesterase (Cartwright blood group)	O	acetylcholinesterase|Yt blood group|acetylcholinesterase (Yt blood group)|apoptosis-related acetylcholinesterase	20210302	-
-9606	60	ACTB	-	BRWS1|PS1TP5BP1	MIM:102630|HGNC:HGNC:132|Ensembl:ENSG00000075624	7	7p22.1	actin beta	protein-coding	ACTB	actin beta	O	actin, cytoplasmic 1|I(2)-actin|PS1TP5-binding protein 1|beta cytoskeletal actin	20210307	-
-9606	107	ADCY1	-	AC1|DFNB44	MIM:103072|HGNC:HGNC:232|Ensembl:ENSG00000164742	7	7p12.3	adenylate cyclase 1	protein-coding	ADCY1	adenylate cyclase 1	O	adenylate cyclase type 1|3',5'-cyclic AMP synthetase|ATP pyrophosphate-lyase 1|Ca(2+)/calmodulin-activated adenylyl cyclase|adenyl cyclase|adenylate cyclase 1 (brain)|adenylate cyclase type I|adenylyl cyclase 1|adenylyl cyclase subtype 1	20210302	-
-9606	117	ADCYAP1R1	-	PAC1|PAC1R|PACAPR|PACAPRI	MIM:102981|HGNC:HGNC:242|Ensembl:ENSG00000078549	7	7p14.3	ADCYAP receptor type I	protein-coding	ADCYAP1R1	ADCYAP receptor type I	O	pituitary adenylate cyclase-activating polypeptide type I receptor|PACAP receptor 1|PACAP type I receptor|PACAP-R1|adenylate cyclase activating polypeptide 1 (pituitary) receptor type I|pituitary adenylate cyclase activating polypeptide 1 receptor type I Hiphop|pituitary adenylate cyclase-activating polypeptide type 1 receptor	20210302	-
+#tax_id GeneID  Symbol  LocusTag    Synonyms    dbXrefs chromosome  map_location    description type_of_gene    Symbol_from_nomenclature_authority  Full_name_from_nomenclature_authority   Nomenclature_status Other_designations  Modification_date   Feature_type
+9606    26  AOC1    -   ABP|ABP1|DAO|DAO1|KAO   MIM:104610|HGNC:HGNC:80|Ensembl:ENSG00000002726 7   7q36.1  amine oxidase copper containing 1   protein-coding  AOC1    amine oxidase copper containing 1   O   amiloride-sensitive amine oxidase [copper-containing]|amiloride binding protein 1 (amine oxidase (copper-containing))|amiloride-binding protein 1|amiloride-sensitive amine oxidase|amine oxidase copper domain-containing protein 1|diamine oxidase|histaminase|kidney amine oxidase   20210302    -
+9606    43  ACHE    -   ACEE|ARACHE|N-ACHE|YT   MIM:100740|HGNC:HGNC:108|Ensembl:ENSG00000087085    7   7q22.1  acetylcholinesterase (Cartwright blood group)   protein-coding  ACHE    acetylcholinesterase (Cartwright blood group)   O   acetylcholinesterase|Yt blood group|acetylcholinesterase (Yt blood group)|apoptosis-related acetylcholinesterase    20210302    -
+9606    60  ACTB    -   BRWS1|PS1TP5BP1 MIM:102630|HGNC:HGNC:132|Ensembl:ENSG00000075624    7   7p22.1  actin beta  protein-coding  ACTB    actin beta  O   actin, cytoplasmic 1|I(2)-actin|PS1TP5-binding protein 1|beta cytoskeletal actin    20210307    -
+9606    107 ADCY1   -   AC1|DFNB44  MIM:103072|HGNC:HGNC:232|Ensembl:ENSG00000164742    7   7p12.3  adenylate cyclase 1 protein-coding  ADCY1   adenylate cyclase 1 O   adenylate cyclase type 1|3',5'-cyclic AMP synthetase|ATP pyrophosphate-lyase 1|Ca(2+)/calmodulin-activated adenylyl cyclase|adenyl cyclase|adenylate cyclase 1 (brain)|adenylate cyclase type I|adenylyl cyclase 1|adenylyl cyclase subtype 1   20210302    -
+9606    117 ADCYAP1R1   -   PAC1|PAC1R|PACAPR|PACAPRI   MIM:102981|HGNC:HGNC:242|Ensembl:ENSG00000078549    7   7p14.3  ADCYAP receptor type I  protein-coding  ADCYAP1R1   ADCYAP receptor type I  O   pituitary adenylate cyclase-activating polypeptide type I receptor|PACAP receptor 1|PACAP type I receptor|PACAP-R1|adenylate cyclase activating polypeptide 1 (pituitary) receptor type I|pituitary adenylate cyclase activating polypeptide 1 receptor type I Hiphop|pituitary adenylate cyclase-activating polypeptide type 1 receptor    20210302    -
 '''
 ```
 
@@ -1706,11 +1705,11 @@ merged_filename = ask_57_b(filenames)
 
 # Take all contents from original Homo_sapiens.gene_info
 with open('Homo_sapiens.gene_info') as f:
-	original_content = f.read()
+    original_content = f.read()
 
 # Take all contents from merged 
 with open(merged_filename) as f:
-	merged_content = f.read()
+    merged_content = f.read()
 
 
 ```
@@ -1755,11 +1754,11 @@ max(d, key=lambda x: ...)
 Μία ανάλυση που έγινε παρήγαγε ένα αρχείο το οποίο είχε το εξής περιεχόμενο:
 
 ```
-ID	GENE	FoldChange
-TC0100007038.hg.1	NECAP2	1.17
-TC0100007063.hg.1	FAM231C; FAM231A	-1.04
-TC0100007206.hg.1	CDA; CDB; CDC	-1.15
-TC0100007207.hg.1	PINK1; MIR6084	1.1
+ID  GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C; FAM231A    -1.04
+TC0100007206.hg.1   CDA; CDB; CDC   -1.15
+TC0100007207.hg.1   PINK1; MIR6084  1.1
 ```
 
 Παρατηρούμε ότι η στήλη ```GENE``` μπορεί να έχει παραπάνω από ένα γονίδια διαχωρισμένα με τον χαρακτήρα ```';'```. Αυτό που θέλουμε είναι να μετασχηματίσουμε το αρχείο έτσι ώστε η στήλη GENE να έχει μόνο ένα γονίδιο. Οι γραμμές που έχουν παραπάνω από ένα γονίδιο θα πρέπει να γραφτούν τόσες φορές όσες τα γονίδια που περιέχουν. Κάθε γραμμή θα έχει και από ένα γονίδιο. Η τιμή στη στήλη ```ID``` και στη στήλη ```FoldChange``` θα πρέπει να παραμείνουν ίδιες. Επίσης οι στήλες χωρίζονται με τον χαρακτήρα tab (```'\t'```)
@@ -1769,33 +1768,33 @@ TC0100007207.hg.1	PINK1; MIR6084	1.1
 
 ```python
 
-contents = '''ID	GENE	FoldChange
-TC0100007038.hg.1	NECAP2	1.17
-TC0100007063.hg.1	FAM231C; FAM231A	-1.04
-TC0100007206.hg.1	CDA; CDB; CDC	-1.15
-TC0100007207.hg.1	PINK1; MIR6084	1.1
+contents = '''ID    GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C; FAM231A    -1.04
+TC0100007206.hg.1   CDA; CDB; CDC   -1.15
+TC0100007207.hg.1   PINK1; MIR6084  1.1
 '''
 
 with open('ask_60_input.txt', 'w') as f:
-	f.write(contents)
+    f.write(contents)
 
 f('ask_60_input.txt', 'ask_60_output.txt')
 
 with open('ask_60_output.txt') as f:
-	result = f.read()
+    result = f.read()
 
 print (result) 
 #  Θα πρέπει να τυπώνει:
 '''
-ID	GENE	FoldChange
-TC0100007038.hg.1 	NECAP2	1.17
-TC0100007063.hg.1 	FAM231C	-1.04
-TC0100007063.hg.1 	FAM231A	-1.04
-TC0100007206.hg.1	CDA	-1.15
-TC0100007206.hg.1	CDB	-1.15
-TC0100007206.hg.1	CDC	-1.15
-TC0100007207.hg.1	PINK1	1.1
-TC0100007207.hg.1	MIR6084	1.1
+ID  GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C -1.04
+TC0100007063.hg.1   FAM231A -1.04
+TC0100007206.hg.1   CDA -1.15
+TC0100007206.hg.1   CDB -1.15
+TC0100007206.hg.1   CDC -1.15
+TC0100007207.hg.1   PINK1   1.1
+TC0100007207.hg.1   MIR6084 1.1
 '''
 ```
 
@@ -1899,20 +1898,20 @@ import random
 
 def test_ask_66():
 
-	def rand_param():
-		if random.random()<0.5:
-			r = random.randint(1,1000)
-			if random.random()<0.3:
-				r /= 1
-		else:
-			r = "a"
+    def rand_param():
+        if random.random()<0.5:
+            r = random.randint(1,1000)
+            if random.random()<0.3:
+                r /= 1
+        else:
+            r = "a"
 
-		return r
+        return r
 
-	first = rand_param()
-	second = rand_param()
+    first = rand_param()
+    second = rand_param()
 
-	return ask_66(first, second)
+    return ask_66(first, second)
 
 ```
 
@@ -1966,9 +1965,9 @@ print (my_add(10,30)) # Τυπώνει 40
 import gzip
 
 with gzip.open('covid_fasta.gz', 'rt') as f:
-	# Εδώ μπορείτε να βάλετε τις εντολές που θα βάζατε αν το αρχείο δεν ήταν συμπιεσμένο.
-	# π.χ. f.readline() 
-	pass
+    # Εδώ μπορείτε να βάλετε τις εντολές που θα βάζατε αν το αρχείο δεν ήταν συμπιεσμένο.
+    # π.χ. f.readline() 
+    pass
 ```
 
 Φτιάξτε έναν generator ο οποίος θα παίρνει μία παράμετρο. Η παράμετρος θα είναι το όνομα του αρχείου με τις ακολουθίες του COVID19 (μπορείτε αν θέλετε να βάλετε το αποσυμπιεσμένο αρχείο). Για κάθε strain που έχει το αρχείο, ο generator θα κάνει yield ένα dictionary. To dictionary θα έχει τα ακόλουθα δύο ζευγάρια από κλειδιά / τιμές:
@@ -2130,8 +2129,8 @@ M M D M M M D D M M
 ```python
 import re
 def f(x):
-	m = re.fullmatch(r'..PUT YOU MAGIC HERE..', x)
-	return bool(m)
+    m = re.fullmatch(r'..PUT YOU MAGIC HERE..', x)
+    return bool(m)
 ```
 
 Δηλαδή θα πρέπει απλά να συμπληρώσετε το regular expression.
@@ -2208,18 +2207,18 @@ f(5) # Επιστρέφει [ [1,2,3,4,5], [1,3,4,5], [1,2,4,5], [1,2,3,5], [1,4
 
 ```python
 alleles = {
-	'M1': [('A', 0.3), ('B', 0.7)],
-	'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
+    'M1': [('A', 0.3), ('B', 0.7)],
+    'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
 }
 f(alleles) 
 # Επιστρέφει:
 {
-	'Haplotype 1': ('A-K', 0.03), # 0.3 * 0.1
-	'Haplotype 2': ('A-L', 0.15), # 0.3 * 0.5
-	'Haplotype 3': ('A-M', 0.12), # 0.3 * 0.4
-	'Haplotype 4': ('B-K', 0.07), # 0.7 * 0.1
-	'Haplotype 5': ('B-L', 0.35), # 0.7 * 0.5
-	'Haplotype 6': ('B-M', 0.28), # 0.7 * 0.4 
+    'Haplotype 1': ('A-K', 0.03), # 0.3 * 0.1
+    'Haplotype 2': ('A-L', 0.15), # 0.3 * 0.5
+    'Haplotype 3': ('A-M', 0.12), # 0.3 * 0.4
+    'Haplotype 4': ('B-K', 0.07), # 0.7 * 0.1
+    'Haplotype 5': ('B-L', 0.35), # 0.7 * 0.5
+    'Haplotype 6': ('B-M', 0.28), # 0.7 * 0.4 
 }
 
 ```
@@ -2232,8 +2231,8 @@ f(alleles)
 ```python
 import json
 alleles = {
-	'M1': [('A', 0.3), ('B', 0.7)],
-	'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
+    'M1': [('A', 0.3), ('B', 0.7)],
+    'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
 }
 
 results_1 = ask_78(alleles)
@@ -2241,7 +2240,7 @@ results_1 = ask_78(alleles)
 ask_79(alleles, 'file.json')
 
 with open('file.json') as f:
-	results_2 = json.load(f)
+    results_2 = json.load(f)
 
 results_1 = {k: tuple(v) for k,v in results_1.items()} # Κάνω tuple τις τιμές του dictionary
 results_2 = {k: tuple(v) for k,v in results_2.items()} # Κάνω tuple τις τιμές του dictionary
