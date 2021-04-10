@@ -2296,7 +2296,7 @@ data = json.loads(s)
 * τον κώδικα ο οποίος απαντάει στο ερώτημα της άσκησης. 
 
 ### Άσκηση 81
-Η [PharmGKB](https://www.pharmgkb.org) είναι μία βάση δεδομένων που περιέχει φαρμακογονιδιωματική πληροφορία. Γνωρίζουμε ότι μερικά φάρμακα έχουν διαφορετική τοξικότητα ή διαφορετική επίδραση ([ADME](https://en.wikipedia.org/wiki/ADME) effects), ανάλογα μα το γονιδίωμα του λήπτη τους. Μπορούμε να φορτώσουμε με pandas ένα μικρό μέρος αυτής της βάσης. Για αρχή πηγαίνετε εδώ: https://www.pharmgkb.org/downloads και κατηβάστε το αρχείο: [clinicalVariants.zip](https://api.pharmgkb.org/v1/download/file/data/clinicalVariants.zip) το οποίο περιέχει Clinical Variant Data. Το αρχείο είναι σε zip οπότε θα πρέπει να το αποσυμπιέσετε. Ένα από τα αρχεία που περιέχει το zip αρχείο είναι το ```clinicalVariants.tsv```. Μπορείτε να το φορτώσετε με:
+Η [PharmGKB](https://www.pharmgkb.org) είναι μία βάση δεδομένων που περιέχει φαρμακογονιδιωματική πληροφορία. Γνωρίζουμε ότι μερικά φάρμακα έχουν διαφορετική τοξικότητα ή διαφορετική επίδραση ([ADME](https://en.wikipedia.org/wiki/ADME) effects), ανάλογα μα το γονιδίωμα του λήπτη τους. Μπορούμε να φορτώσουμε με pandas ένα μικρό μέρος αυτής της βάσης. Για αρχή πηγαίνετε εδώ: https://www.pharmgkb.org/downloads και κατεβάστε το αρχείο: [clinicalVariants.zip](https://api.pharmgkb.org/v1/download/file/data/clinicalVariants.zip) το οποίο περιέχει Clinical Variant Data. Το αρχείο είναι σε zip οπότε θα πρέπει να το αποσυμπιέσετε. Ένα από τα αρχεία που περιέχει το zip αρχείο είναι το ```clinicalVariants.tsv```. Μπορείτε να το φορτώσετε με:
 
 ```python
 import pandas as pd
@@ -2398,7 +2398,7 @@ f(expression, 'coronary artery', 'aorta')
 
 Σε αυτή τη σελίδα https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic υπάρχει ένας πίνακας με τα 50 αεροδρόμια με τη μεγαλύτερη επιβατική κίνηση σε όλο τον κόσμο. 
 
-Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτησ θα:
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα:
 * Φορτώνει τον πρώτο πίνακα της σελίδας σε ένα pandas DataFrame
 * Θα "γκρουπάρει" όλες τις γραμμές που έχουν την ίδια χώρα (στήλη: ```Country```)
 * Για κάθε group θα υπολογίζει το άθροισμα των επιβατών (στήλη: ```Totalpassengers```)
