@@ -103,7 +103,7 @@ class Grades:
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
-        'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh'
+        'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh', 'asksi',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
