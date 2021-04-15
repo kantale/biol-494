@@ -66,6 +66,7 @@ class Mail:
         sender_email = "alexandros.kanterakis@gmail.com"
         receiver_email = to
 
+
         email = MIMEMultipart('mixed')
         email['From'] = sender_email
         email['To'] = receiver_email
@@ -75,6 +76,9 @@ class Mail:
         email.attach(msg)
 
         message = email.as_string()
+
+        if False:
+            message = 'Subject: {}\n\n{}'.format(subject, text)
 
         if actually_send_mail:
             self.server.sendmail(sender_email, receiver_email, message)
@@ -103,7 +107,7 @@ class Grades:
         'this is the solution for ex.', r'-+ΑΣΚΗΣΗ',
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
-        'askshsh', 'ασκ',
+        'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh', 'asksi',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -155,7 +159,7 @@ AM: {AM}
             actually_send_mail=False,
             start = 1,
             end = 20,
-
+            send_to_me=False,
         ):
         self.dir = directory
         self.solutions_dir = solutions_dir
@@ -163,6 +167,7 @@ AM: {AM}
         self.start = start
         self.end = end
         self.exercises_range = list(range(self.start, self.end+1))
+        self.send_to_me = send_to_me
         self.all_anonymous_grades = [] # For plotting and statistics
 
         self.get_filenames(ex)
@@ -224,6 +229,9 @@ AM: {AM}
             print ('Filename:', filename)
             print ('==================')
 
+            if id_ == '3052':
+                print (answer)
+
             if os.path.exists(filename):
                 print ('   Already graded..')
                 continue
@@ -264,11 +272,16 @@ AM: {AM}
             id_ = self.get_id_from_filename(filename)
             content = self.get_exercises(filename)
 
-            for ask, solution in self.iterate_exercises(content):
-                data.append((id_, ask, solution))
+            try:
+                for ask, solution in self.iterate_exercises(content):
+                    data.append((id_, ask, solution))
+            except Exception as e:
+                print ('Problem in file:', filename)
+                raise e
 
         # Group together multiple solutions to the same exercise from the same student
         self.all_exercises = defaultdict(dict)
+
         for group, it in groupby(sorted(data), lambda x : x[:2]):
             self.all_exercises[group[0]][group[1]] = '\n'.join(x[2] for x in it)
 
@@ -331,12 +344,15 @@ AM: {AM}
         total = len(self.all_answers)
         for i, AM in enumerate(self.all_answers):
 
-            #mail_address = Grades.create_mail_address(AM)
-            mail_address = 'alexandros.kanterakis@gmail.com'
-            #print ('{}/{} -- {}'.format((i+1), total, mail_address))
+            if self.send_to_me:
+                mail_address = 'alexandros.kanterakis@gmail.com'
+            else:
+                mail_address = Grades.create_mail_address(AM)
+            
+            print ('{}/{} -- {}'.format((i+1), total, mail_address)) # Don't comment this!
 
             mail = self.create_mail(AM)
-            print(mail)
+            #print(mail) # Comment this! 
 
             if True:
                 self.mail.do_send_mail(
@@ -446,6 +462,11 @@ AM: {AM}
 
             content += '\n' + line
 
+        if exercise is None:
+            print ('Could not find any exercise in file!')
+            print (text)
+            assert False
+
         yield (exercise, content)
 
     def get_exercises(self, filename):
@@ -473,7 +494,7 @@ AM: {AM}
         with open(filename) as f:
             content = json.load(f)
 
-        code_cells = ['\n'.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
+        code_cells = [''.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
         return '\n\n'.join(code_cells)
 
     def get_exercises_MIME(self, filename):
@@ -485,7 +506,8 @@ AM: {AM}
         #assert len(payload) == 21 # FIXME
 
         content = ""
-        for x in payload[1:]:
+        #for x in payload[1:]:
+        for x in payload[:]:
             if hasattr(x, "get_payload"):
                 content += '\n' + x.get_payload(decode=True).decode("utf-8")
 
@@ -510,14 +532,26 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action send_mail --actually_send_mail
 
+    # 2nd Round grade:
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade --start 21 --end 40 
+
+    # 2nd Round Send mail:
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40  
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 2743 --action send_mail --start 21 --end 40 --actually_send_mail  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 3052 --action send_mail --start 21 --end 40 --actually_send_mail --send_to_me
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail  
+    python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --ex 3052 --action send_mail --start 21 --end 40 --actually_send_mail
+
 
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action send_mail --start 21 --end 40 --actually_send_mail 
 
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --ex 2743 --action grade 
 
     python grade.py --dir /Users/admin/biol-494/exercises2/ --sol /Users/admin/biol-494/solutions2 --action grade
+
+    # 3rd Round
+    python grade.py --dir /Users/admin/biol-494/exercises3/ --sol /Users/admin/biol-494/solutions3 --action grade --start 41 --end 60 
+    python grade.py --dir /Users/admin/biol-494/exercises3/ --sol /Users/admin/biol-494/solutions3 --action send_mail --start 41 --end 60 
     '''
 
     parser = argparse.ArgumentParser()
@@ -526,6 +560,7 @@ if __name__ == '__main__':
     parser.add_argument("--ex", help="Examine only given ΑΜ")
     parser.add_argument("--action", help="What to do: grade")
     parser.add_argument("--actually_send_mail", action="store_true")
+    parser.add_argument("--send_to_me", action="store_true")
     parser.add_argument("--start", type=int, help="Start from")
     parser.add_argument("--end", type=int, help="Start end")
     args = parser.parse_args()
@@ -533,6 +568,7 @@ if __name__ == '__main__':
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
         action=args.action,
         actually_send_mail=args.actually_send_mail,
+        send_to_me=args.send_to_me,
         start = args.start,
         end = args.end,
         )

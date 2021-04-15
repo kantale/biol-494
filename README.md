@@ -38,6 +38,10 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_6.ipynb), [markdown](2021/draft_lesson_6.md), [html](2021/draft_lesson_6.html), [pdf](2021/draft_lesson_6.pdf)
 * Διάλεξη 8η - 24 Μαρτίου 2021 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_7.ipynb), [markdown](2021/draft_lesson_7.md), [html](2021/draft_lesson_7.html), [pdf](2021/draft_lesson_7.pdf)
+* Διάλεξη 9η - 31 Μαρτίου 2021 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_8.ipynb), [markdown](2021/draft_lesson_8.md), [html](2021/draft_lesson_8.html), [pdf](2021/draft_lesson_8.pdf)
+* Διάλεξη 10η - 7 Απριλίου 2021 . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_9.ipynb), [markdown](2021/draft_lesson_9.zip), [html](2021/draft_lesson_9.html), [pdf](2021/draft_lesson_9.pdf)
 
 
 
@@ -52,11 +56,14 @@
 Συνολικά θα ανέβουν 100 ασκήσεις. Οι ασκήσεις είναι υποχρεωτικές και μετράνε στο 33.3% του βαθμού. Όλες οι ασκήσεις είναι βαθμολογικά ισοδύναμες. Οι ημερομηνίες παράδοσης των ασκήσεων είναι:
 * Ασκήσεις  1-20 : 3 Μαρτίου 2021 
 * Ασκήσεις 21-40 : 19 Μαρτίου 2021
-* Ασκήσεις 41-60 : 2 Απριλίου 2021 
-* Ασκήσεις 61-80 : 16 Απριλίου 2021 
-* Ασκήσεις 81-100: 30 Απριλίου 2021 
+* Ασκήσεις 41-60 : 4 Απριλίου 2021 
+* Ασκήσεις 61-80 : 18 Απριλίου 2021 
+* Ασκήσεις 81-90: 2 Μαΐου 2021 
+* Ασκήσεις 91-100: 31 Μαΐου 2021 
 
-Πως παραδίνουμε τις ασκήσες: Πριν το τέλος της διορίας παράδοσης στέλνουμε ένα μέιλ στο [kantale@ics.forth.gr](mailto:kantale@ics.forth.gr) με τις λύσεις των ασκήσεων μας. **Στέλνουμε από το ιδρυματικό μας (@edu.biology.uoc.gr) μέιλ**, εκτώς αν δεν έχετε (έχετε πάρει το μάθημα από άλλα ιδρύματα μετά από συνενόηση με μένα). Αν δεν έχετε ιδρυματικό μέιλ, καλό θα είναι να το αναφέρετε στο μέιλ σας. Κάτι σαν "Δεν έχω ιδρυματικό μέιλ και ΑΜ". Στο subject του μέιλ γράφουμε το ΑΜ, το όνομά μας και τον αριθμό των ασκήσεων που έχουμε λύσει. Για παράδειγμα: ```ΑΜ 1234, Κατερίνα Στανίση, Ασκήσεις 41-60```. Στο μέιλ βάζουμε τις λύσεις των ασκήσεων. Κάθε λύση πρέπει να έχει ένα σχόλιο σε python με τον αριθμό της άσκησης που λύνουμε σε αυτή τη μορφή: ```# Askhsh <Noumero>```. Για παράδειγμα:
+Η ώρα που λήγει η διορία είναι η 23:59 της αντίστοιχης μέρας στο Time Zone [Anywhere on Earth](https://time.is/Anywhere_on_Earth).
+
+Πως παραδίνουμε τις ασκήσεις: Πριν το τέλος της διορίας παράδοσης στέλνουμε ένα μέιλ στο [kantale@ics.forth.gr](mailto:kantale@ics.forth.gr) με τις λύσεις των ασκήσεων μας. **Στέλνουμε από το ιδρυματικό μας (@edu.biology.uoc.gr) μέιλ**, εκτός αν δεν έχετε (έχετε πάρει το μάθημα από άλλα ιδρύματα μετά από συνενόηση με μένα). Αν δεν έχετε ιδρυματικό μέιλ, καλό θα είναι να το αναφέρετε στο μέιλ σας. Κάτι σαν "Δεν έχω ιδρυματικό μέιλ και ΑΜ". Στο subject του μέιλ γράφουμε το ΑΜ, το όνομά μας και τον αριθμό των ασκήσεων που έχουμε λύσει. Για παράδειγμα: ```ΑΜ 1234, Κατερίνα Στανίση, Ασκήσεις 41-60```. Στο μέιλ βάζουμε τις λύσεις των ασκήσεων. Κάθε λύση πρέπει να έχει ένα σχόλιο σε python με τον αριθμό της άσκησης που λύνουμε σε αυτή τη μορφή: ```# Askhsh <Noumero>```. Για παράδειγμα:
 
 ```python
 
@@ -75,11 +82,12 @@ print ("This is the solution for ex. 55")
 Για να αποθηκεύσετε μία σειρά ασκήσεων σε .ipynb ή σε .py φορμάτ, πηγαίντε στο Jupyter , File --> Download as -> Python (ή Notebook) και στείλτε μου το σαν συνημμένο:
 ![img](https://i.imgur.com/jm2tmHm.png) 
 
-Αυτά γίνονται γιατί υπάρχει σκριπτάκι που αναλύει αυτόματα τις ασκήσεις σας. Ο βαθμός σας θα σας αποσταλεί με μέιλ περίπου 2 εβδομάδες μετά που στείλετε τις ασκήσεις. 
+Αυτά γίνονται γιατί υπάρχει [σκριπτάκι](grade.py) που αναλύει αυτόματα τις ασκήσεις σας. Ο βαθμός σας θα σας αποσταλεί με μέιλ περίπου 2 εβδομάδες μετά που στείλετε τις ασκήσεις. 
 
 **ΠΡΟΣΟΧΗ! Δεν στέλνουμε:**
-* Αρχεία σε pdf, doc  (είναι για κείμενα, όχι για κώδικα)
+* Αρχεία σε pdf, doc (είναι για κείμενα, όχι για κώδικα)
 * Συμπιεσμένα αρχεία
+* Screenshots
 
 #### Πως βαθμολογούνται οι ασκήσεις
 Για κάθε άσκηση παίρνετε βαθμό: από 1 μέχρι 10. Όλες οι ερωτήσεις/ασκήσεις θεωρούνται ισοδύναμες. 
@@ -131,6 +139,7 @@ print ("This is the solution for ex. 55")
 * [Practical Python Programming from David Beazley](https://dabeaz-course.github.io/practical-python/)
 * [Beginner's Python Cheat Sheets](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
 * [Non-beginner's python cheat sheet](https://gto76.github.io/python-cheatsheet/)
+* [CS61A: Online Textbook ](https://inst.eecs.berkeley.edu//~cs61a/sp12/book/). Ευχαριστώ τον Ιωάννη-Ραφαήλ Τζονευράκη για το link. 
 * NumPy
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
@@ -144,16 +153,26 @@ print ("This is the solution for ex. 55")
 * [Python Computing for Data Science](https://github.com/profjsb/python-seminar)
 * Γιατί jupyter; https://www.nature.com/articles/d41586-018-07196-1 
 * [pythoncheatsheet](https://www.pythoncheatsheet.org/) . Πολύ καλό και "συμπαγές" σημείο αναφοράς. Χρήσιμο όταν έχεις ξεχάσει πως γίνεται κάτι. 
-* [28 Jupyter Notebook tips, tricks and shortcuts - Dataquest](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/). From Thimo. Thanks!
+* [28 Jupyter Notebook tips, tricks and shortcuts - Dataquest](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/).  Ευχαριστώ τον Thimo Kristani για το link. 
 * Scipy
    * [Paper στο Nature για το scipy](https://www.nature.com/articles/s41592-019-0686-2) published: 3 February 2020
    * [scipy lectures](http://scipy-lectures.org/)
-* Challenges: https://www.hackerrank.com/dashboard
+* Challenges: 
+   * https://www.hackerrank.com/dashboard
+   * https://stepik.org  
+   * http://rosalind.info/problems/locations/ 
 * [Scientific Python Cheatsheet](https://ipgp.github.io/scientific_python_cheat_sheet/)
 * [Matplotlib Cheatsheet](https://twitter.com/magnumdessert/status/1280543694760710144)
 * Pandas:
+   * [Cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
    * [Introduction to Pandas](https://realpython.com/pandas-dataframe/) . [plotting with pandas](https://realpython.com/pandas-plot-python/)
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
 * [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html)
 * [Python & APIs: A Winning Combo for Reading Public Data](https://realpython.com/python-api/)
+* Regular Expressions
+   * [Python Regex Cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
+   * Debugging 
+      * https://www.debuggex.com/
+      * https://regexr.com/
+
 

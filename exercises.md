@@ -20,19 +20,18 @@
 Τι να **ΜΗΝ** κάνετε:
 ```python
 def f(n):
-	if n%2 == 1:
-		return True
-	else:
-		return False
+    if n%2 == 1:
+        return True
+    else:
+        return False
 
 ```
 
 Τι να κάνετε:
 ```python
 def f(n):
-	return n%2 == 1
+    return n%2 == 1
 ```
-
 
 ### Άσκηση 1
 Φτιάξτε μία συνάρτηση σε python η οποία θα παίρνει σαν όρισμα έναν αριθμό. 
@@ -42,7 +41,7 @@ def f(n):
 Λύση:
 ```python
 def f(x):
-	return (x%7) % 2 == 1
+    return (x%7) % 2 == 1
 ```
 
 ### Άσκηση 2
@@ -54,11 +53,11 @@ def f(x):
 ```python
 # 1st solution
 def f(x):
-	return x>=100 and x<=200
+    return x>=100 and x<=200
 
 # 2nd solution
 def f(x):
-	return 100 <= x <= 200
+    return 100 <= x <= 200
 ```
 
 
@@ -73,7 +72,7 @@ f(x)=-8x<sup>2</sup> + 5x - 2
 
 ```python
 def f(x):
-	return (-8*(x**2)) + (5*x) -2
+    return (-8*(x**2)) + (5*x) -2
 
 print (f(5))
 print (f(6))
@@ -110,7 +109,7 @@ f('CAGTGACGTACCGTAGGGCGTAGCGTAACG')
 Λύση:
 ```python
 def f(x):
-	return x[1::3]
+    return x[1::3]
 ```
 
 ### Άσκηση 5
@@ -123,9 +122,9 @@ def f(x):
 Λύση:
 ```python
 def f(x):
-	C = x.count('C')
-	G = x.count('G')
-	return (C+G) / len(x)
+    C = x.count('C')
+    G = x.count('G')
+    return (C+G) / len(x)
 ```
 
 ### Άσκηση 6
@@ -137,7 +136,7 @@ def f(x):
 Λύση:
 ```python
 def f(a,b):
-	return 0.6*a + 0.4*b > 0.5
+    return 0.6*a + 0.4*b > 0.5
 ```
 
 ### Άσκηση 7
@@ -165,8 +164,8 @@ f('AAACCCGGGAAACCCGGT') # Επιστρέφει False
 ```python
 def f(x):
 
-	l = len(x)//2
-	return x[:l] == x[l:]
+    l = len(x)//2
+    return x[:l] == x[l:]
 ```
 
 
@@ -179,12 +178,12 @@ def f(x):
 ```python
 def f(x):
 
-	A = x.count('A')
-	C = x.count('C')
-	G = x.count('G')
-	T = x.count('T')
+    A = x.count('A')
+    C = x.count('C')
+    G = x.count('G')
+    T = x.count('T')
 
-	return A+G >= G+T 
+    return A+G >= G+T 
 ```
 
 ### Άσκηση 9
@@ -212,9 +211,9 @@ TGCACTGGGGAAAATGTTACCAGGTCCGAACTTATTGAGGTAAGACAGA
 ```python
 def f(x):
 
-	start = x.index('ATG')
-	end = x.index('TAA') + 3
-	return x[start:end]
+    start = x.index('ATG')
+    end = x.index('TAA') + 3
+    return x[start:end]
 ```
 
 ### Άσκηση 10
@@ -234,15 +233,15 @@ f('AAACCCGGG') # Επιστρέφει False: Δεν υπάρχει το ATG μέ
 ```python
 # 1st solution 
 def f(x):
-	return x.count('ATG') > 0 and x.index('ATG')%3 == 0
+    return x.count('ATG') > 0 and x.index('ATG')%3 == 0
 
 # 2nd solution 
 def f(x):
-	return 'ATG' in x and x.index('ATG')%3 == 0
+    return 'ATG' in x and x.index('ATG')%3 == 0
 
 # 3rd solution 
 def f(x):
-	return x.find('ATG')%3 == 0
+    return x.find('ATG')%3 == 0
 
 ```
 
@@ -262,24 +261,24 @@ def f(x):
 ```python
 # 1st solution
 def f(BMI, gender):
-	if gender == 'male':
-		if BMI > 32:
-			return "overweight"
-		return "not overweight"
-	if gender == "female":
-		if BMI > 30:
-			return "overweight"
-		return "not overweight"
+    if gender == 'male':
+        if BMI > 32:
+            return "overweight"
+        return "not overweight"
+    if gender == "female":
+        if BMI > 30:
+            return "overweight"
+        return "not overweight"
 
 
 #2nd solution
 def f(BMI, gender):
 
-	overweight = (gender == 'male' and BMI > 32) or (gender == 'female' and BMI > 30)
-	if overweight:
-		return 'overweight'
+    overweight = (gender == 'male' and BMI > 32) or (gender == 'female' and BMI > 30)
+    if overweight:
+        return 'overweight'
 
-	return "not overweight"
+    return "not overweight"
 ```
 
 ### Άσκηση 12
@@ -311,22 +310,22 @@ f(0.5)  # Επιστρέφει: "Small satellite - Picosatellite"
 Λύση:
 ```python
 def f(x):
-	if x > 1000:
-		return 'Large satellit'
+    if x > 1000:
+        return 'Large satellit'
 
-	if x > 500:
-		return 'Medium-sized satellites'
+    if x > 500:
+        return 'Medium-sized satellites'
 
-	if x > 100:
-		return 'Small satellites - Minisatellite'
+    if x > 100:
+        return 'Small satellites - Minisatellite'
 
-	if x > 10:
-		return 'Small satellites - Microsatellite'
+    if x > 10:
+        return 'Small satellites - Microsatellite'
 
-	if x > 1:
-		return 'Small satellites - Nanosatellite'
+    if x > 1:
+        return 'Small satellites - Nanosatellite'
 
-	return 'Small satellites - Picosatellite'
+    return 'Small satellites - Picosatellite'
 ```
 
 ### Άσκηση 13
@@ -340,16 +339,16 @@ def f(x):
 Λύση:
 ```python
 def f(x):
-	if alcohol < 0.25:
-		return 0
+    if alcohol < 0.25:
+        return 0
 
-	if alcohol <= 0.4:
-		return 200
+    if alcohol <= 0.4:
+        return 200
 
-	if alcohol <= 0.6:
-		return 700
+    if alcohol <= 0.6:
+        return 700
 
-	return 3000
+    return 3000
 ```
 
 ### Άσκηση 14
@@ -375,14 +374,14 @@ f(f(f(1)))
 ```python
 def f(x):
 
-	if x == 1:
-		return 'Hello'
+    if x == 1:
+        return 'Hello'
 
-	if x == 'Hello':
-		return 'Mitsos'
+    if x == 'Hello':
+        return 'Mitsos'
 
-	if x == 'Mitsos':
-		return 'Maria'
+    if x == 'Mitsos':
+        return 'Maria'
 ```
 
 ### Άσκηση 15
@@ -397,10 +396,10 @@ f(g(1)+g(2)) + g(f(1)+f(2))
 Λύση:
 ```python
 def f(x):
-	return x
+    return x
 
 def g(x):
-	return x-1
+    return x-1
 ```
 
 ### Άσκηση 16
@@ -414,12 +413,12 @@ def g(x):
 Λύση:
 ```python
 def f(a,b):
-	if a == 0:
-		if b == 0:
-			return 'TAYTOTHTA'
-		return 'ADYNATH'
+    if a == 0:
+        if b == 0:
+            return 'TAYTOTHTA'
+        return 'ADYNATH'
 
-	return -b/a
+    return -b/a
 ```
 
 ### Άσκηση 17
@@ -437,13 +436,13 @@ def f(a,b):
 Λύση:
 ```python
 def nautical_miles_to_km(x):
-	return x*1.852
+    return x*1.852
 
 def km_to_miles(x):
-	return x*0.62137
+    return x*0.62137
 
 def nautical_miles_to_miles(x):
-	return km_to_miles(nautical_miles_to_km(x))
+    return km_to_miles(nautical_miles_to_km(x))
 ```
 
 ### Άσκηση 18
@@ -461,12 +460,12 @@ f(3,3,3) # Επιστρέφει: 3
 Λύση:
 ```python
 def f(x):
-	if (b<=a and a<=c) or (c<=a and a<=b):
-		return a
-	if (a<=b and b<=c) or (c<=b and b<=a):
-		return b
+    if (b<=a and a<=c) or (c<=a and a<=b):
+        return a
+    if (a<=b and b<=c) or (c<=b and b<=a):
+        return b
 
-	return c
+    return c
 
 ```
 
@@ -512,13 +511,13 @@ print (a)
 ```python
 
 def reverse(x):
-	return x[::-1]
+    return x[::-1]
 
 def complement(x):
-	t = x.replace('A', '1').replace('C', '2').replace('G', '3').replace('T', '4')
-	t = t.replace('1', 'T').replace('2', 'G').replace('3', 'C').replace('4', 'A')
+    t = x.replace('A', '1').replace('C', '2').replace('G', '3').replace('T', '4')
+    t = t.replace('1', 'T').replace('2', 'G').replace('3', 'C').replace('4', 'A')
 
-	return t
+    return t
 ```
 
 ### Άσκηση 20
@@ -535,7 +534,7 @@ f('AGTCCG') # Επιστρέφει: "CGGACT"
 Λύση:
 ```python
 def reverse_complement(x):
-	return complement(reverse(x))
+    return complement(reverse(x))
 ```
 
 ## Ασκήσεις 21-30
@@ -546,10 +545,10 @@ def reverse_complement(x):
 import requests
 
 def get_tumor_gene_names():
-	r = requests.get('http://mygene.info/v3/query?q=tumor&fields=symbol&size=1000&species=human')
-	j = r.json()
+    r = requests.get('http://mygene.info/v3/query?q=tumor&fields=symbol&size=1000&species=human')
+    j = r.json()
 
-	return [x['symbol'] for x in j['hits']]
+    return [x['symbol'] for x in j['hits']]
 ```
 
 Η συνάρτηση αυτή χρειάζεται το πακέτο requests της python. Αν δεν είναι εγκαταστημένο στον υπολογιστή σας μπορείτε να το εγκαταστήσετε τρέχoντας σε ένα κελί στο jupyter:
@@ -565,10 +564,32 @@ def get_tumor_gene_names():
 
 Χρησιμοποιώντας τη συνάρτηση την οποία φτιάξατε και τη συνάρτηση ```get_tumor_gene_names()``` απαντήστε στην ερώτηση: Ποια γονίδια που εμπλέκονται στον καρκίνο είναι ιντερλευκίνες;
 
+Λύση:
+```python
+def starts_with_IL(x):
+    return x[:2] == 'IL'
+
+def ask_21(l):
+    return list(filter(starts_with_IL, l))
+
+print (ask_21(get_tumor_gene_names()))
+```
+
 ### Άσκηση 22
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_22_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει μία νέα λίστα η οποία θα έχει τα στοιχεία της περαμέτρου αλλά θα είναι ταξινομημένη με βάση το μήκος του string (από το μικρότερο στο μεγαλύτερο). 
 
 Χρησιμοποιώντας τη συνάρτηση που μόλις φτιάξατε (τη ```ask_22_a```) και τη ```get_tumor_gene_names()```, φτιάξτε μία άλλη συνάρτηση με το όνομα ```ask_22_b``` η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει την απάντηση στην ερώτηση: Ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο;
+
+Λύση:
+```python
+def ask_22_a(l):
+    return sorted(l, key=len)
+
+def ask_22_b():
+    l = get_tumor_gene_names()
+    s = ask_22_a(l)
+    return s[-10:]
+```
 
 ### Άσκηση 23
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_23_a``` η οποία θα παίρνει μία παράμετρο. Αυτή η παράμετρος είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει τη λίστα της περαμέτρου όπου όμως σε κάθε στοιχείο της θα έχετε αφαιρέσει όλους τους αριθμούς. Για παράδειγμα θα πρέπει:
@@ -579,8 +600,44 @@ f(l) # Επιστρέφει: ['CQTNF', 'CD', 'TNFRSF']
 ```
 Χρησιμοποιώντας τη συνάρτηση ```ask_23_a```, τη συνάρτηση ```ask_22_a``` της άσκησης 22 και τη συνάρτηση ```get_tumor_gene_names()```, φτιάξτε μία νέα συνάρτηση με το όνομα ```ask_23_b``` η οποία δεν θα παίρνει κάποιο όρισμα. Η συνάρτηση θα επιστρέφει την απαντήση στην ερώτηση: Αν αφαιρέσουμε τους αριθμούς από τα ονόματα των γονιδίων, ποια είναι τα 10 γονίδια με το μεγαλύτερο όνομα τα οποία εμπλέκονται στον καρκίνο; (Τυπώστε τα αλλαγμένα ονόματα)
 
+Λύση:
+```python
+def remove_digits(s):
+    ret = ''
+    for letter in s:
+        if not letter in '0123456789':
+            ret += letter
+            
+    return ret
+
+def ask_23_a(l):
+    return list(map(remove_digits, l))
+
+def ask_23_b():
+    l = get_tumor_gene_names()
+    l_no_digits = ask_23_a(l)
+    l_no_digits_sorted = ask_22_a(l_no_digits)
+    return l_no_digits_sorted[-10:]
+
+ask_23_b()
+```
+
 ### Άσκηση 24
 Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει έναν αριθμό ο οποίος θα είναι το πλήθος των γονιδίων που εμπλέκονται στον καρκίνο και ΔΕΝ έχουν κάποιον αριθμό στον όνομά τους. 
+
+Λύση:
+```python
+def does_not_has_digit(s):
+    for x in s:
+        if x in '0123456789':
+            return False
+    return True
+
+def ask_24():
+    l = get_tumor_gene_names()
+    
+    return sum(list(map(does_not_has_digit, l)))
+```
 
 ### Άσκηση 25
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι μία λίστα από strings. Η συνάρτηση θα επιστρέφει το στοιχείο της λίστας που έχει το μικρότερο μήκος. Αν δύο ή περισσότερα στοιχεία έχουν το ίδιο μικρότερο μήκος, τότε θα επιστρέφει αυτό που είναι μικρότερο αλφαβητικά. Για παράδειγμα:
@@ -594,6 +651,17 @@ f(get_tumor_gene_names()) # Επιστρέφει: ANG
 ```
 
 Αν χρησιμοποιήσετε 2 φορές τη sorted στην Άσκηση 25, χάνετε 2 μονάδες (8/10)
+
+Λύση:
+```python
+def ask_25(l):
+    def sort_sort_according_to_this(x):
+        return [len(x), x]
+    
+    return min(l, key=sort_sort_according_to_this)
+
+ask_25(get_tumor_gene_names())
+```
 
 **Για τις ασκήσεις 26-30 δίνεται η παρακάτω συνάρτηση:**
 
@@ -609,15 +677,15 @@ def get_tumour_genes_pos():
     j = r.json()
 
     list_1 = [
-    	[
-        	x['symbol'], 
-        	(x['genomic_pos'][0] if type(x['genomic_pos']) is list else x['genomic_pos']),
-    	] for x in j['hits'] if 'genomic_pos' in x]
+        [
+            x['symbol'], 
+            (x['genomic_pos'][0] if type(x['genomic_pos']) is list else x['genomic_pos']),
+        ] for x in j['hits'] if 'genomic_pos' in x]
 
     list_2 = [
-    	[
-    		x[0], x[1]['chr'], x[1]['start'], x[1]['end']
-    	] for x in list_1 if not 'CHR' in x[1]['chr']]
+        [
+            x[0], x[1]['chr'], x[1]['start'], x[1]['end']
+        ] for x in list_1 if not 'CHR' in x[1]['chr']]
 
     return list_2
 ```
@@ -652,13 +720,57 @@ genes[:10]
 ### Άσκηση 26
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το όνομα του γονιδίου με το μεγαλύτερο μήκος. Το μήκος ενός γονιδίου είναι η διαφορά του τέλους από την αρχή του. Για παράδειγμα το μήκος του γονιδίου TPD52 είναι: 80231232-80034745=196487
 
+Λύση:
+```python
+def get_length(gene):
+    return gene[3]-gene[2]
+
+def ask_26(l):
+    return max(l, key=len)
+
+ask_26(get_tumour_genes_pos())
+```
+
 ### Άσκηση 27
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει μία λίστα με τα ονόματα των γονιδίων της λίστας της παραμέτρου ταξινομημένα ανάλογα με τη θέση τους στο γονιδίωμα. Πρώτα πάνε τα γονίδια που είναι στο χρωμόσωμα 1, μετά τα γονίδια που είναι στο χρωμόσωμα 2, ... μετά το χρωμόσωμα 22 μετά το Χ και στο τέλος το Υ. Τα γονίδια που είναι στο ίδιο χρωμόσωμα ταξινομούνται με βάση την θέση της αρχής τους στο χρωμόσωμά τους. 
+
+Λύση:
+```python
+def ask_27(l):
+    
+    def get_chromosome_number(chromosome):
+        if chromosome == 'X':
+            return 23
+        if chromosome == 'Y':
+            return 24
+        if chromosome == 'MT':
+            return 25
+        
+        return int(chromosome)
+    
+    def sort_according_to_this(gene):
+        return [get_chromosome_number(gene[1]), gene[2]]
+    
+    return sorted(l, key=sort_according_to_this)
+
+ask_27(get_tumour_genes_pos())
+```
 
 ### Άσκηση 28
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το μέσο όρο του μήκους των γονιδίων που περιέχει. 
 
 Μέσος όρος της λίστας ```a = [4,5,6,6]``` είναι ```sum(a)/len(a)```
+
+Λύση
+```python
+def ask_28(l):
+    def get_length(gene):
+        return gene[3]-gene[2]
+    
+    return sum(map(get_length, l))/len(l)
+
+ask_28(get_tumour_genes_pos())
+```
 
 ### Άσκηση 29
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους. Η πρώτη θα είναι μία λίστα όπως η λίστα που επιστρέφει η ```get_tumour_genes_pos()``` και η δεύτερη θα είναι το όνομα ενός χρωμοσώματος (π.χ. ```"4"```). H συνάρτηση θα επιστρέφει το πλήθος των γονιδίων της λίστας που ανήκουν σε αυτό το χρωμόσωμα.
@@ -671,12 +783,42 @@ f(genes, '1') # Επιστρέφει 94
 f(genes, '21') # Επιστρέφει 8
 ```
 
+Λύση:
+```python
+def ask_29(l, chromosome):
+
+    def belongs_to_chromosome(gene):
+        return gene[1] == chromosome
+    
+    return len(list(filter(belongs_to_chromosome, l)))
+
+l = get_tumour_genes_pos()
+ask_29(l, '1')
+```
+
 **Προσοχή:** Σε εσάς ίσως επιστρέφει λίγο διαφορετικές τιμές. Η συνάρτηση ```get_tumour_genes_pos()``` ενδέχεται να επιστρέφει ένα ελαφρώς διαφορετικό σετ από γονίδια κάθε φορά που τη καλείτε. Αυτό είναι ΟΚ! Απλά το site από όπου "τραβάει" τα δεδομένα αυτή η συνάρτηση δεν εγγυάται ότι θα επιστρέφει πάντα τα ίδια.
  
+
 ### Άσκηση 30
 Φτιάξτε μία συνάρτηση η οποία παίρνει μία παράμετρο. Η παράμετρος είναι μία λίστα, όπως αυτή που επιστρέφει η συνάρτηση ```get_tumour_genes_pos()```. Η συνάρτηση θα επιστρέφει το όνομα του γονίδιου του οποίου το μήκος έχει τη μικρότερη απόσταση από το μέσο όρο του μήκους όλων των γονιδίων. 
 
 Πως βρίσκουμε την απόσταση μεταξύ των αριθμών ```a``` και ```b```: ```abs(a-b)```. 
+
+```python
+def ask_30(l):
+    
+    def get_length(gene):
+        return gene[3]-gene[2]
+
+    mo = sum(map(get_length, l))/len(l)
+
+    def sort_according_to_this(gene):
+        return abs(mo-get_length(gene)),
+    
+    return min(l, key=sort_according_to_this)[0]
+
+ask_30(get_tumour_genes_pos())
+```
 
 ### Άσκηση 31
 Γράψτε μία συνάρτηση η οποία θα παίρνει ως όρισμα 3 ακέραιους αριθμούς τους a,b,c. Η συνάρτηση θα επιστρέφει το άθροισμα όλων των αριθμών από το a μέχρι και το b οι οποίοι διαιρούνται με το c. Για παράδειγμα:
@@ -685,6 +827,22 @@ f(genes, '21') # Επιστρέφει 8
 f(23, 258, 7) # επιστρέφει 4620
 ```
 
+```python
+# 1st solution
+def ask_31(a,b,c):
+    
+    s = 0
+    for x in range(a,b+1):
+        if x%c==0:
+            s += 1
+    return s
+
+# 2nd solution
+def ask_31(a,b,c):
+    return sum(x%c==0 for x in range(a,b+1))
+```
+
+
 ### Άσκηση 32
 Γράψτε μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι μία λίστα με αριθμούς. Η συνάρτηση θα επιστρέφει το γινόμενο των αντίστροφων των στοιχείων της λίστας τα οποία δεν είναι 0. Ο αντίστροφος ενός αριθμού a είναι το 1/a.  
 
@@ -692,21 +850,35 @@ f(23, 258, 7) # επιστρέφει 4620
 
 f([2, 4, 0, 0.1]) # επιστρέφει 1/2 * 1/4 * 1/0.1 = 1.25 
 
+Λύση:
+```python
+def ask_32(l):
+    p = 1
+    
+    for x in l:
+        if x == 0:
+            continue
+            
+        p *= 1/x # p = p * 1/x
+        
+    return p
+```
+
 ### Άσκηση 33
 Ένας πληθυσμός με το όνομα Α αποτελείται από 20 ανθρώπους. Σε αυτούς τους ανθρώπους κάναμε γονοτύπηση σε 10 γενετικούς τόπους. Όλοι οι γονότυποι είναι δι-αλληλικοί (biallelic). Κάθε ένας από τους 10 γενετικούς τόπους έχει όνομα Μ1, Μ2, ... Μ10. Τα αποτελέσματα που πήραμε υπάρχουν σε αυτή τη λίστα:
 
 ```python
 pop_A = [
-	['M1', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 0, 1, 1, 1, 0, 1],
-	['M2', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0],
-	['M3', 1, 1, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1],
-	['M4', 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-	['M5', 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 2],
-	['M6', 0, 0, 1, 0, 2, 0, 0, 0, 1, 1, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0],
-	['M7', 0, 0, 2, 1, 1, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0],
-	['M8', 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 0, 0, 2],
-	['M9', 0, 0, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1],
-	['M10', 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    ['M1', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 0, 1, 1, 1, 0, 1],
+    ['M2', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+    ['M3', 1, 1, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1],
+    ['M4', 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    ['M5', 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 2],
+    ['M6', 0, 0, 1, 0, 2, 0, 0, 0, 1, 1, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0],
+    ['M7', 0, 0, 2, 1, 1, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0],
+    ['M8', 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 0, 0, 2],
+    ['M9', 0, 0, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1],
+    ['M10', 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 ]
 ```
 
@@ -723,26 +895,55 @@ pop_A = [
 f(pop_A) # Επιστρέφει 'Μ9'
 ```
 
+Λύση:
+```python
+
+def ask_33(pop):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    m = max(pop, key=get_freq)
+    return m[0]
+
+print (ask_33(pop_A))
+
+```
+
 ### Άσκηση 34
 Κάνουμε τον ίδιο πείραμα σε έναν άλλο πληθυσμό ο οποίος όμως τώρα έχει 25 άτομα. Τα αποτελέσματα της γονοτύπησης υπάρχουν στη παρακάτω λίστα: 
 
 ```python
 pop_B = [
-	['M1', 2, 1, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1], 
-	['M2', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0],
-	['M3', 1, 1, 0, 2, 1, 1, 0, 0, 2, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 1],
-	['M4', 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 0, 0, 2],
-	['M5', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0],
-	['M6', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 2, 1, 0],
-	['M7', 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 2, 2],
-	['M8', 0, 2, 0, 0, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 0, 1, 2, 0, 1, 0, 0],
-	['M9', 1, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 1, 0],
-	['M10', 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 2, 0, 2, 1, 0, 1, 2, 0, 0, 1, 0, 0, 1, 1]
+    ['M1', 2, 1, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1], 
+    ['M2', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0],
+    ['M3', 1, 1, 0, 2, 1, 1, 0, 0, 2, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 1],
+    ['M4', 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 0, 0, 2],
+    ['M5', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0],
+    ['M6', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 2, 1, 0],
+    ['M7', 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 2, 2],
+    ['M8', 0, 2, 0, 0, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 0, 1, 2, 0, 1, 0, 0],
+    ['M9', 1, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 1, 0],
+    ['M10', 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 2, 0, 2, 1, 0, 1, 2, 0, 0, 1, 0, 0, 1, 1]
 ]
 
 ```
 
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους Α και Β. Κάθε παράμετρος θα είναι μία λίστα όπως η pop_A και pop_B. Η συνάρτηση θα επιστρέφει το όνομα του γενετικού τόπου του οποίου η αλληλική συχνότητα του δευτερεύοντος αλλήλιου έχει τη μεγαλύτερη απόλυτη διαφορά μεταξύ των πληθυσμών Α και Β. 
+
+Λύση:
+```python
+def ask_34(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    def compare_freq(m):
+        return abs(get_freq(m[0]) - get_freq(m[1]))
+            
+    max_diff = max(zip(pop_1, pop_2), key=compare_freq)
+    return max_diff[0][0]
+
+ask_34(pop_A, pop_B) 
+```
 
 ### Άσκηση 35
 [Αυτό το άρθρο της wikipedia](https://en.wikipedia.org/wiki/Genetic_distance) έχει έναν κατάλογο με μετρικές για την μέτρηση της γενετικής απόστασης μεταξύ δύο πληθυσμών με βάση τις αλληλικές τους συχνότητες. Αυτό το άρθρο είναι αρκετά κακογραμμένο και μπορείτε να το αγνοήσετε!
@@ -774,6 +975,25 @@ H τετραγωνική ρίζα του a είναι: ```a**0.5```
 f(pop_A, pop_B) # Επιστρέφει: 0.265 
 ```
 
+
+Λύση:
+```python
+def ask_35(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))
+    
+    s = 0
+    for m1, m2 in zip(pop_1, pop_2):
+        fr_1 = get_freq(m1)
+        fr_2 = get_freq(m2)
+        
+        s += (fr_1-fr_2)**2
+        
+    return s**0.5
+
+ask_35(pop_A, pop_B)
+```
+
 ### Άσκηση 36
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```.  Η συνάρτηση θα επιστρέφει την "Nei's minimum genetic distance 1973" μεταξύ των πληθυσμών ```X``` και ```Y``` η οποία υπολογίζεται ως εξής [πηγή](https://dyerlab.github.io/applied_population_genetics/genetic-distances.html):
 
@@ -796,12 +1016,41 @@ I=\frac{\sum_{i=1}^{L} \left ( \sum_{j=1}^{l_{i}} \left ( p_{ij,x}p_{ij,y} \righ
 f(pop_A, pop_B) # Επιστρέφει: 0.9886664715207936
 ```
 
+Λύση:
+```python
+def ask_36(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))  
+    
+    freq_pop_1_allele_1 = [get_freq(x) for x in pop_1]
+    freq_pop_1_allele_2 = [1-x for x in freq_pop_1_allele_1]
+    freq_pop_2_allele_1 = [get_freq(x) for x in pop_2]
+    freq_pop_2_allele_2 = [1-x for x in freq_pop_2_allele_1]
+    
+    alleles = [
+        [freq_pop_1_allele_1, freq_pop_2_allele_1], 
+        [freq_pop_1_allele_2, freq_pop_2_allele_2],
+    ]
+    
+    s1 = 0
+    s2 = 0
+    s3 = 0
+    for mutation in range(len(pop_1)):
+        for allele in [0,1]:
+            s1 += alleles[allele][0][mutation] * alleles[allele][1][mutation]
+            s2 += alleles[allele][0][mutation]**2
+            s3 += alleles[allele][1][mutation]**2
+    
+    return s1 / (s2**0.5 * s3**0.5)
+
+ask_36(pop_A, pop_B)
+```
 
 ### Άσκηση 37
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει 2 παραμέτρους. Και οι δύο παράμετροι θα είναι λίστες με το όνομα X και Y. Οι λίστες θα έχουν την ίδια μορφή όπως και οι λίστες ```pop_A``` και ```pop_B```. Η συνάρτηση θα επιστρέφει την "Cavalli-Sforza chord distance" μεταξύ των πληθυσμών ```pop_A``` και ```pop_B```, σύμφωνα με τον μαθηματικό τύπο ([πηγή](https://www.montana.edu/kalinowski/documents/2002_Genetic_distances_review_MolecularEcology.pdf)):
 
 <!-- 
-	D=1-\sum_{j=1}^{2}\left ( \sum_{i=1}^{L} \left ( \frac{\sqrt{p_{ij,x}\cdot p_{ij,y}}}{L} \right ) \right )
+    D=1-\sum_{j=1}^{2}\left ( \sum_{i=1}^{L} \left ( \frac{\sqrt{p_{ij,x}\cdot p_{ij,y}}}{L} \right ) \right )
 -->
 ![img](https://i.imgur.com/jFdqr3e.png)
 
@@ -815,6 +1064,34 @@ f(pop_A, pop_B) # Επιστρέφει: 0.9886664715207936
 Δίνεται ότι:
 ```python
 f(pop_A, pop_B) # Επιστρέφει 0.004909335749700872
+```
+
+Λύση:
+```python
+def ask_37(pop_1, pop_2):
+    def get_freq(m):
+        return sum(m[1:])/(2*len(m[1:]))  
+    
+    freq_pop_1_allele_1 = [get_freq(x) for x in pop_1]
+    freq_pop_1_allele_2 = [1-x for x in freq_pop_1_allele_1]
+    freq_pop_2_allele_1 = [get_freq(x) for x in pop_2]
+    freq_pop_2_allele_2 = [1-x for x in freq_pop_2_allele_1]
+    
+    alleles = [
+        [freq_pop_1_allele_1, freq_pop_2_allele_1], 
+        [freq_pop_1_allele_2, freq_pop_2_allele_2],
+    ]
+    
+    s = 0
+    for allele in [0,1]:
+        for mutation in range(len(pop_1)):
+            s += (alleles[allele][0][mutation]*alleles[allele][1][mutation]) ** 0.5
+            
+    s /= len(pop_1) # s = s / len(pop_1)
+    
+    return 1-s
+
+ask_37(pop_A, pop_B)
 ```
 
 ### Άσκηση 38
@@ -853,38 +1130,53 @@ f(pop_B) # Επιστρέφει True
 f(pop_C) # Επιστρέφει False
 ```
 
+Λύση:
+```python
+def ask_38(pop):
+    lengths = {len(x) for x in pop}
+    if len(lengths) != 1:
+        return False
+    
+    for mutation in pop:
+        for sample in mutation[1:]:
+            if not sample in [0,1,2]:
+                return False
+            
+    return True
+
+```
 
 ### Άσκηση 39
 Αφού επικοινωνείτε με τον συνάδελφό σας, του καταδεικνύετε τα λάθη που έχει κάνει! Ο συνάδελφος σας ζητάει συγγνώμη και σας στέλνει διορθωμένη τη λίστα. Η νέα λίστα είναι η εξής:
 
 ```python
 pop_D = [
-	['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'], 
-	[0, 2, 0, 0, 1, 1, 1, 0, 1, 0], 
-	[1, 1, 1, 0, 0, 0, 0, 0, 0, 1], 
-	[0, 0, 2, 0, 1, 2, 0, 0, 0, 1], 
-	[0, 0, 0, 2, 2, 0, 0, 0, 0, 0], 
-	[0, 0, 0, 2, 1, 0, 1, 0, 0, 0], 
-	[1, 2, 0, 0, 0, 2, 0, 0, 2, 0], 
-	[0, 1, 0, 0, 0, 1, 0, 0, 0, 0], 
-	[0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
-	[1, 2, 0, 0, 0, 0, 1, 0, 0, 0], 
-	[0, 1, 0, 1, 0, 0, 1, 0, 0, 2], 
-	[0, 0, 0, 1, 0, 0, 0, 0, 0, 1], 
-	[1, 1, 2, 0, 2, 0, 1, 0, 0, 0], 
-	[0, 1, 2, 0, 2, 1, 1, 0, 0, 2], 
-	[0, 0, 1, 0, 0, 1, 2, 1, 0, 2], 
-	[0, 0, 1, 0, 2, 1, 0, 1, 1, 0], 
-	[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
-	[0, 0, 1, 0, 0, 1, 1, 0, 1, 1], 
-	[0, 0, 0, 0, 2, 2, 0, 2, 0, 0], 
-	[1, 1, 0, 1, 1, 0, 1, 0, 1, 0], 
-	[1, 0, 0, 2, 1, 1, 0, 1, 2, 2], 
-	[1, 2, 0, 1, 0, 1, 0, 0, 1, 0], 
-	[0, 0, 1, 0, 1, 1, 0, 1, 0, 0], 
-	[0, 0, 2, 0, 2, 0, 0, 0, 1, 0], 
-	[0, 1, 0, 1, 2, 0, 1, 0, 1, 0], 
-	[0, 0, 2, 1, 1, 0, 0, 2, 1, 0],
+    ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'], 
+    [0, 2, 0, 0, 1, 1, 1, 0, 1, 0], 
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 1], 
+    [0, 0, 2, 0, 1, 2, 0, 0, 0, 1], 
+    [0, 0, 0, 2, 2, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 2, 1, 0, 1, 0, 0, 0], 
+    [1, 2, 0, 0, 0, 2, 0, 0, 2, 0], 
+    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
+    [1, 2, 0, 0, 0, 0, 1, 0, 0, 0], 
+    [0, 1, 0, 1, 0, 0, 1, 0, 0, 2], 
+    [0, 0, 0, 1, 0, 0, 0, 0, 0, 1], 
+    [1, 1, 2, 0, 2, 0, 1, 0, 0, 0], 
+    [0, 1, 2, 0, 2, 1, 1, 0, 0, 2], 
+    [0, 0, 1, 0, 0, 1, 2, 1, 0, 2], 
+    [0, 0, 1, 0, 2, 1, 0, 1, 1, 0], 
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
+    [0, 0, 1, 0, 0, 1, 1, 0, 1, 1], 
+    [0, 0, 0, 0, 2, 2, 0, 2, 0, 0], 
+    [1, 1, 0, 1, 1, 0, 1, 0, 1, 0], 
+    [1, 0, 0, 2, 1, 1, 0, 1, 2, 2], 
+    [1, 2, 0, 1, 0, 1, 0, 0, 1, 0], 
+    [0, 0, 1, 0, 1, 1, 0, 1, 0, 0], 
+    [0, 0, 2, 0, 2, 0, 0, 0, 1, 0], 
+    [0, 1, 0, 1, 2, 0, 1, 0, 1, 0], 
+    [0, 0, 2, 1, 1, 0, 0, 2, 1, 0],
 ]
 ```
 
@@ -899,18 +1191,35 @@ pop_D = [
 f(pop_D) 
 # Θα πρέπει να επιστρέφει τη λίστα:
 [
-	['M1', 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0], 
-	['M2', 2, 1, 0, 0, 0, 2, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 1, 0], 
-	['M3', 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 0, 1, 0, 0, 0, 0, 1, 2, 0, 2], 
-	['M4', 0, 0, 0, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 1, 1], 
-	['M5', 1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0, 1, 2, 2, 1], 
-	['M6', 1, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0], 
-	['M7', 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], 
-	['M8', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 2], 
-	['M9', 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 1, 1, 1], 
-	['M10', 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0],
+    ['M1', 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0], 
+    ['M2', 2, 1, 0, 0, 0, 2, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 1, 0], 
+    ['M3', 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 0, 1, 0, 0, 0, 0, 1, 2, 0, 2], 
+    ['M4', 0, 0, 0, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 1, 1], 
+    ['M5', 1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0, 1, 2, 2, 1], 
+    ['M6', 1, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0], 
+    ['M7', 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], 
+    ['M8', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 2], 
+    ['M9', 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 1, 1, 1], 
+    ['M10', 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0],
 ]
 
+```
+
+Λύση:
+```python
+def ask_39(pop):
+    ret = []
+    
+    samples = len(pop)-1
+    mutations = len(pop[0])
+    for mutation in range(mutations):
+        new_line = [pop[0][mutation]]
+        for sample in range(samples):
+            new_line.append(pop[1+sample][mutation])
+            
+        ret.append(new_line)
+        
+    return ret
 ```
 
 ### Άσκηση 40 
@@ -938,8 +1247,31 @@ cancer = [True, True, True, True, True, True, True, False, True, False]
 f(genes, sizes, cancer) # Επιστρέφει [2, 3, 4, 5, 6, 9]
 ```
 
+Λύση:
+```python
+genes = ['Gene_1', 'Gene_2', 'Gene_3', 'Gene_4', 'Gene_5', 'Gene_6', 'Gene_7', 'Gene_8', 'Gene_9', 'Gene_10']
+sizes = [2957, 8379, 9365, 5377, 9243, 5636, 4984, 9238, 6779, 7745]
+cancer = [True, True, True, True, True, True, True, False, True, False]
+
+def ask_40(genes, sizes, cancer):
+    
+    ret = []
+    for g,s,c in zip(genes, sizes, cancer):
+        if s<5000:
+            continue
+            
+        if not c:
+            continue
+            
+        ret.append(int(g[g.index('_')+1:]))
+        
+    return ret
+
+ask_40(genes, sizes, cancer)
+```
+
 **Κάποιες σημειώσεις για τις υπόλοιπες ασκήσεις**
-* Απαγορεύεται να χρησιμοποιήσετε μεταβλήτές με το όνομα: max, min, sum, type, id, str, int, list, dict, tuple, set. Αυτά είναι ονόματα συναρτήσεων της python. Αν και η python αφήνει τη χρήση τους (κακώς..) σαν ονόματα μεταβλητών, αυτό έχει τη συνέπεια ότι μετά ΔΕΝ μπορείτε να τις χρησιμοποιήσετε. Δοκιμάστε:
+* Απαγορεύεται να χρησιμοποιήσετε μεταβλήτές με το όνομα: max, min, sum, type, id, str, chr, int, list, dict, tuple, set. Αυτά είναι ονόματα συναρτήσεων της python. Αν και η python αφήνει τη χρήση τους (κακώς..) σαν ονόματα μεταβλητών, αυτό έχει τη συνέπεια ότι μετά ΔΕΝ μπορείτε να τις χρησιμοποιήσετε. Δοκιμάστε:
 
 ```python
 print (min([4,5,3])) #  Δουλεύει κανονικά 
@@ -955,17 +1287,17 @@ a = 'asdfasdf3'
 last = a[-1]
 
 def f(x):
-	is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
-	return is_it
+    is_it = last.is_digit() # To last έχει οριστεί έξω από τη συνάρτηση. Επίσης τι το κάνουμε το x της παραμέτρου;
+    return is_it
 
 ```
 
 Σωστό:
 ```python
 def f(x):
-	last = x[-1]
-	is_it = last.is_digit()
-	return is_it
+    last = x[-1]
+    is_it = last.is_digit()
+    return is_it
 ```
 
 Παρόλα αυτά εννοείται ότι επιτρέπεται να χρησιμοποιήσουμε συναρτήσεις που έχουν οριστεί έξω από τη συνάρτησή μας. 
@@ -975,15 +1307,15 @@ def f(x):
 
 ```python
 A = {
-	'kwstas': 1,
-	'george': 2,
-	'elenh': 3,
+    'kwstas': 1,
+    'george': 2,
+    'elenh': 3,
 }
 
 B = {
-	'mitsos': 2,
-	'kwstas': 3,
-	'elenh': 1,
+    'mitsos': 2,
+    'kwstas': 3,
+    'elenh': 1,
 }
 
 
@@ -991,8 +1323,8 @@ f(A,B)
 # Επιστρέφει:
 
 {
-	'george': 2,
-	'mitsos': 2,
+    'george': 2,
+    'mitsos': 2,
 }
 # Το "kwstas" και το "mitsos" υπάρχουν και στα δύο dictionaries (A και Β) για αυτό δεν 
 # υπάρχουν στο dictionary που επέστρεψε η συνάρτηση.
@@ -1003,23 +1335,23 @@ f(A,B)
 
 ```python
 A = {
-	'kwstas': 1,
-	'george': 2,
-	'elenh': 3,
+    'kwstas': 1,
+    'george': 2,
+    'elenh': 3,
 }
 
 B = {
-	'mitsos': 2,
-	'kwstas': 3,
-	'elenh': 2,
+    'mitsos': 2,
+    'kwstas': 3,
+    'elenh': 2,
 }
 
 
 f(A,B)
 # Επιστρέφει:
 {
-	'kwstas': 2.0, # (1+3)/2
-	'elenh': 2.5 # (2+3)/2
+    'kwstas': 2.0, # (1+3)/2
+    'elenh': 2.5 # (2+3)/2
 }
 
 ```
@@ -1058,10 +1390,10 @@ cancer = [True, True, True, True, True, True, True, False, True, False]
 f(genes, sizes, cancer) 
 # Επιστρέφει:
 {
-	'Gene_1': {'size': 2957, 'cancer': True},
-	'Gene_2': {'size': 8379, 'cancer': True},
-	...
-	'Gene_10': {'size': 7745, 'cancer': False},
+    'Gene_1': {'size': 2957, 'cancer': True},
+    'Gene_2': {'size': 8379, 'cancer': True},
+    ...
+    'Gene_10': {'size': 7745, 'cancer': False},
 }
 ```
 
@@ -1074,9 +1406,9 @@ f(genes, sizes, cancer)
 Παράδειγμα:
 ```python
 A = {
-	'Gene_1': {'size': 2957, 'cancer': True},
-	'Gene_2': {'size': 8379, 'cancer': True},
-	'Gene_10': {'size': 7745, 'cancer': False},
+    'Gene_1': {'size': 2957, 'cancer': True},
+    'Gene_2': {'size': 8379, 'cancer': True},
+    'Gene_10': {'size': 7745, 'cancer': False},
 }
 
 f(A)
@@ -1137,27 +1469,27 @@ f(A)
 # Επιστρέφει:
 
 {
-	 'RECTYPE': 'D',
-	 'MH': 'Calcimycin',
-	 'AQ': 'AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR',
-	 'ENTRY': 'A23187, Antibiotic',
-	 'MN': 'D03.633.100.221.173',
-	 'PA': 'Calcium Ionophores',
-	 'MH_TH': 'NLM (1975)',
-	 'ST': 'T195',
-	 'N1': '4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-',
-	 'RN': '37H9VM9WZL',
-	 'RR': '52665-69-7 (Calcimycin)',
-	 'PI': 'Carboxylic Acids (1973-1974)',
-	 'MS': 'An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.',
-	 'OL': 'use CALCIMYCIN to search A 23187 1975-90',
-	 'PM': '91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
-	 'HN': '91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
-	 'MR': '20160527',
-	 'DA': '19741119',
-	 'DC': '1',
-	 'DX': '19840101',
-	 'UI': 'D000001'
+     'RECTYPE': 'D',
+     'MH': 'Calcimycin',
+     'AQ': 'AA AD AE AG AI AN BI BL CF CH CL CS EC HI IM IP ME PD PK PO RE SD ST TO TU UR',
+     'ENTRY': 'A23187, Antibiotic',
+     'MN': 'D03.633.100.221.173',
+     'PA': 'Calcium Ionophores',
+     'MH_TH': 'NLM (1975)',
+     'ST': 'T195',
+     'N1': '4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-',
+     'RN': '37H9VM9WZL',
+     'RR': '52665-69-7 (Calcimycin)',
+     'PI': 'Carboxylic Acids (1973-1974)',
+     'MS': 'An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.',
+     'OL': 'use CALCIMYCIN to search A 23187 1975-90',
+     'PM': '91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+     'HN': '91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)',
+     'MR': '20160527',
+     'DA': '19741119',
+     'DC': '1',
+     'DX': '19840101',
+     'UI': 'D000001'
  }
 
 ```
@@ -1200,13 +1532,13 @@ f(100) # Eπιστρέφει 97
 import requests
 
 def get_disease_gene_names(disease):
-	r = requests.get(f'http://mygene.info/v3/query?q={disease}&fields=symbol&size=1000&species=human')
-	j = r.json()
+    r = requests.get(f'http://mygene.info/v3/query?q={disease}&fields=symbol&size=1000&species=human')
+    j = r.json()
 
-	return {x['symbol'] for x in j['hits']}
+    return {x['symbol'] for x in j['hits']}
 ```
 
-Αυτή η συνάρτηση παίρνει σαν όρισμα ένα string το οποίο αναπαριστάει έναν φαινότυπο (ασθένεια ή μη) ή μία βιολογική λειτουργία. Η συνάρτηση επιστρέφει ένα σύνολο από γονίδια τα οποία έχουν συσχετιστεί με αυτόν το string. 
+Αυτή η συνάρτηση παίρνει σαν όρισμα ένα string το οποίο αναπαριστάει έναν φαινότυπο (ασθένεια ή μη) ή μία βιολογική λειτουργία. Η συνάρτηση επιστρέφει ένα σύνολο από γονίδια τα οποία έχουν συσχετιστεί με αυτό το string. 
 
 Φτιάξτε μία συνάρτηση η οποία δεν παίρνει κανένα όρισμα. Η συνάρτηση θα πρέπει να επιστρέφει ένα **σύνολο** με τα γονίδια τα οποία: Εμπλέκονται στη παχυσαρκία (```'obesity'```) KAI στον μεταβολισμό (```'metabolism'```) αλλά δεν έχουν συσχετιστεί με κάποιο λιπίδιο (```'lipids'```).
 
@@ -1217,11 +1549,61 @@ def get_disease_gene_names(disease):
 ```python
 import requests
 def get_pi_1M():
-	r = requests.get('https://www.angio.net/pi/digits/pi1000000.txt')
-	return r.text
+    r = requests.get('https://www.angio.net/pi/digits/pi1000000.txt')
+    return r.text
 ```
 
 Αυτή η συνάρτηση επιστρέφει ένα string το οποίο περιέχει το π (3.14159...) στις πρώτες 1.000.000 θέσεις. Γράψτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει τη θέση πάνω στο π όπου ο αριθμός 7 γίνεται για πρώτη φορά ο πιο κοινός αριθμός του π. 
+
+Για παράδειγμα: τα πρώτα 100 ψηφία του π είναι:
+```
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+```
+
+Ας μετρήσουμε πόσα ψηφία υπάρχουν για κάθε θέση του π:
+
+
+```
+Θέση 1
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+|
+3:1 φορά
+Ποιο κοινό ψηφίο: 3
+```
+```
+Θέση 2
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+  |
+  3:1 φορά
+  1:1 φορά
+Ποιο κοινό ψηφίο: Κανένα (ισοπαλία μεταξύ 3 και 1)
+```
+
+```
+Θέση 3:
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+   |
+   3:1 φορά
+   1:1 φορά
+   4:1 φορά
+Ποιο κοινό ψηφίο: Κανένα (ισοπαλία μεταξύ 3, 1 και 4)
+```
+
+```
+Θέση 4:
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+    |
+    3:1 φορά
+    1:2 φορές
+    4:1 φορά
+Ποιο κοινό ψηφίο: το 1
+```
+
+Εδώ παρατηρούμε ότι στη θέση 4, το 1 γίνεται το πιο κοινό ψηφίο του π για πρώτη φορά!
+
+Ποια λοιπόν είναι η αντίστοιχη θέση για το 7;
+
+Μπορείτε να επιστρέψετε τη θέση μετρώντας είτε ξεκινώντας από το 0, είτε από το 1. Ό,τι σας βολεύει. 
 
 ### Άσκηση 52
 Φτιάξτε μία συνάρτηση η οποία παίρνει σαν παράμετρο έναν ακέραιο αριθμό. Η συνάρτηση δημιουργεί ένα αρχείο με το όνομα factors.txt. Το αρχείο περιέχει τόσες γραμμές όσες ο αριθμός της παραμέτρου. Η i-οστή γραμμή περιέχει όλους τους παράγοντες του i από το 1 μέχρι και το i διαχωρισμένοι με κόμματα. Οι παράγοντες ενός αριθμού είναι οι αριθμοί που τον διαρούν τέλεια. H συνάρτηση δεν επιστρέφει τίποτα. Για παράδειγμα:
@@ -1231,7 +1613,7 @@ f(10)
 
 # Δημιουργεί το αρχείο factors.txt το οποίο θα πρέπει να μπορώ να το τυπωσω με:
 with open('factors.txt') as f:
-	data = f.read()
+    data = f.read()
 
 print (data)
 # θα πρέπει να τυπώνει:
@@ -1262,7 +1644,7 @@ f()()[0]()
 Σε αυτό το site: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/ θα βρείτε το αρχείο: Homo_sapiens.gene_info.gz. Το αρχείο αυτό μπορείτε να το κατεβάσετε και απευθείας με αυτό το link: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz . Το αρχείο αυτό είναι συμπιεσμένο οπότε θα πρέπει και να το αποσυμπιέσετε. Το αποσυμπιεσμένο αρχείο ονομάζεται: ```Homo_sapiens.gene_info```. To αρχείο είναι tab delimited (οι στήλες δηλαδή είναι χωρισμένες με τον χαρακτήρα tab) και περιέχει διάφορες πληροφορίες για τα γονίδια στο ανθρώπινο γονιδίωμα. Η πρώτη γραμμή του αρχείου περιέχει την επικεφαλίδα (header) η οποία περιέχει τους τίτλους των στηλών. Η επικεφαλίδα είναι:
 
 ```text
-#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
+#tax_id GeneID  Symbol  LocusTag    Synonyms    dbXrefs chromosome  map_location    description type_of_gene    Symbol_from_nomenclature_authority  Full_name_from_nomenclature_authority   Nomenclature_status Other_designations  Modification_date   Feature_type
 ``` 
 
 Το αρχείο μπορείτε να το ανοίξετε και από το excel (ή από το Google sheets). Μπορείτε να google-άρετε: "how to open tab delimited file in excel" για να βρείτε πως γίνεται αυτό.
@@ -1293,19 +1675,19 @@ filename = f('Homo_sapiens.gene_info', '7')
 
 # Ανοίγω το αρχείο που δημιούργησε και τυπώνω τις πρώτες 6 γραμμές
 with open(filename) as f:
-	for l_number, line in enumerate(f):
-		print (line.strip('\n'))
-		if l_number>=5:
-			break
+    for l_number, line in enumerate(f):
+        print (line.strip('\n'))
+        if l_number>=5:
+            break
 
 #To παραπάνω τυπώνει:
 '''
-#tax_id	GeneID	Symbol	LocusTag	Synonyms	dbXrefs	chromosome	map_location	description	type_of_gene	Symbol_from_nomenclature_authority	Full_name_from_nomenclature_authority	Nomenclature_status	Other_designations	Modification_date	Feature_type
-9606	26	AOC1	-	ABP|ABP1|DAO|DAO1|KAO	MIM:104610|HGNC:HGNC:80|Ensembl:ENSG00000002726	7	7q36.1	amine oxidase copper containing 1	protein-coding	AOC1	amine oxidase copper containing 1	O	amiloride-sensitive amine oxidase [copper-containing]|amiloride binding protein 1 (amine oxidase (copper-containing))|amiloride-binding protein 1|amiloride-sensitive amine oxidase|amine oxidase copper domain-containing protein 1|diamine oxidase|histaminase|kidney amine oxidase	20210302	-
-9606	43	ACHE	-	ACEE|ARACHE|N-ACHE|YT	MIM:100740|HGNC:HGNC:108|Ensembl:ENSG00000087085	7	7q22.1	acetylcholinesterase (Cartwright blood group)	protein-coding	ACHE	acetylcholinesterase (Cartwright blood group)	O	acetylcholinesterase|Yt blood group|acetylcholinesterase (Yt blood group)|apoptosis-related acetylcholinesterase	20210302	-
-9606	60	ACTB	-	BRWS1|PS1TP5BP1	MIM:102630|HGNC:HGNC:132|Ensembl:ENSG00000075624	7	7p22.1	actin beta	protein-coding	ACTB	actin beta	O	actin, cytoplasmic 1|I(2)-actin|PS1TP5-binding protein 1|beta cytoskeletal actin	20210307	-
-9606	107	ADCY1	-	AC1|DFNB44	MIM:103072|HGNC:HGNC:232|Ensembl:ENSG00000164742	7	7p12.3	adenylate cyclase 1	protein-coding	ADCY1	adenylate cyclase 1	O	adenylate cyclase type 1|3',5'-cyclic AMP synthetase|ATP pyrophosphate-lyase 1|Ca(2+)/calmodulin-activated adenylyl cyclase|adenyl cyclase|adenylate cyclase 1 (brain)|adenylate cyclase type I|adenylyl cyclase 1|adenylyl cyclase subtype 1	20210302	-
-9606	117	ADCYAP1R1	-	PAC1|PAC1R|PACAPR|PACAPRI	MIM:102981|HGNC:HGNC:242|Ensembl:ENSG00000078549	7	7p14.3	ADCYAP receptor type I	protein-coding	ADCYAP1R1	ADCYAP receptor type I	O	pituitary adenylate cyclase-activating polypeptide type I receptor|PACAP receptor 1|PACAP type I receptor|PACAP-R1|adenylate cyclase activating polypeptide 1 (pituitary) receptor type I|pituitary adenylate cyclase activating polypeptide 1 receptor type I Hiphop|pituitary adenylate cyclase-activating polypeptide type 1 receptor	20210302	-
+#tax_id GeneID  Symbol  LocusTag    Synonyms    dbXrefs chromosome  map_location    description type_of_gene    Symbol_from_nomenclature_authority  Full_name_from_nomenclature_authority   Nomenclature_status Other_designations  Modification_date   Feature_type
+9606    26  AOC1    -   ABP|ABP1|DAO|DAO1|KAO   MIM:104610|HGNC:HGNC:80|Ensembl:ENSG00000002726 7   7q36.1  amine oxidase copper containing 1   protein-coding  AOC1    amine oxidase copper containing 1   O   amiloride-sensitive amine oxidase [copper-containing]|amiloride binding protein 1 (amine oxidase (copper-containing))|amiloride-binding protein 1|amiloride-sensitive amine oxidase|amine oxidase copper domain-containing protein 1|diamine oxidase|histaminase|kidney amine oxidase   20210302    -
+9606    43  ACHE    -   ACEE|ARACHE|N-ACHE|YT   MIM:100740|HGNC:HGNC:108|Ensembl:ENSG00000087085    7   7q22.1  acetylcholinesterase (Cartwright blood group)   protein-coding  ACHE    acetylcholinesterase (Cartwright blood group)   O   acetylcholinesterase|Yt blood group|acetylcholinesterase (Yt blood group)|apoptosis-related acetylcholinesterase    20210302    -
+9606    60  ACTB    -   BRWS1|PS1TP5BP1 MIM:102630|HGNC:HGNC:132|Ensembl:ENSG00000075624    7   7p22.1  actin beta  protein-coding  ACTB    actin beta  O   actin, cytoplasmic 1|I(2)-actin|PS1TP5-binding protein 1|beta cytoskeletal actin    20210307    -
+9606    107 ADCY1   -   AC1|DFNB44  MIM:103072|HGNC:HGNC:232|Ensembl:ENSG00000164742    7   7p12.3  adenylate cyclase 1 protein-coding  ADCY1   adenylate cyclase 1 O   adenylate cyclase type 1|3',5'-cyclic AMP synthetase|ATP pyrophosphate-lyase 1|Ca(2+)/calmodulin-activated adenylyl cyclase|adenyl cyclase|adenylate cyclase 1 (brain)|adenylate cyclase type I|adenylyl cyclase 1|adenylyl cyclase subtype 1   20210302    -
+9606    117 ADCYAP1R1   -   PAC1|PAC1R|PACAPR|PACAPRI   MIM:102981|HGNC:HGNC:242|Ensembl:ENSG00000078549    7   7p14.3  ADCYAP receptor type I  protein-coding  ADCYAP1R1   ADCYAP receptor type I  O   pituitary adenylate cyclase-activating polypeptide type I receptor|PACAP receptor 1|PACAP type I receptor|PACAP-R1|adenylate cyclase activating polypeptide 1 (pituitary) receptor type I|pituitary adenylate cyclase activating polypeptide 1 receptor type I Hiphop|pituitary adenylate cyclase-activating polypeptide type 1 receptor    20210302    -
 '''
 ```
 
@@ -1313,7 +1695,7 @@ with open(filename) as f:
 * Προσοχή 2! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία χρωμοσώματα! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'Un'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλα αυτά.
 
 ### Άσκηση 57
-Φτιάξτε μία συνάρτηση με το όνομα ```ask_57_a``` η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα χρησιμοποιεί την συνάρτηση της άσκησης 56 για να "σπάσει" το αρχείο σε πολλά αρχεία όπου το κάθε αρχείο θα έχει και από ένα χρωμόσωμα. Θεωρήστε μόνο τα χρωμοσώματα: 1,2,3,...,22,Χ,Υ,ΜΤ. Θα πρέπει δηλαδή η συνάρτηση να φτιάχνει τα αντίστοιχα αρχεία:  ```Homo_sapiens_1.gene_info```, ```Homo_sapiens_2.gene_info```, ... ```Homo_sapiens_22.gene_info```, ```Homo_sapiens_Χ.gene_info```, ```Homo_sapiens_Υ.gene_info```, ```Homo_sapiens_ΜΤ.gene_info```. H συνάρτηση θα επιστρέφει μία λίστα με τα αρχεία που δημιούργησε.
+Φτιάξτε μία συνάρτηση με το όνομα ```ask_57_a``` η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα χρησιμοποιεί την συνάρτηση της άσκησης 56 για να "σπάσει" το αρχείο σε πολλά αρχεία όπου το κάθε αρχείο θα έχει και από ένα χρωμόσωμα. Θεωρήστε μόνο τα χρωμοσώματα: 1,2,3,...,22,Χ,Υ,ΜΤ. Το χρωμόσωμα ενός αρχείο υπάρχει στη στήλη με το όνομα: ```chromosome```. Θα πρέπει δηλαδή η συνάρτηση να φτιάχνει τα αντίστοιχα αρχεία:  ```Homo_sapiens_1.gene_info```, ```Homo_sapiens_2.gene_info```, ... ```Homo_sapiens_22.gene_info```, ```Homo_sapiens_Χ.gene_info```, ```Homo_sapiens_Υ.gene_info```, ```Homo_sapiens_ΜΤ.gene_info```. H συνάρτηση θα επιστρέφει μία λίστα με τα αρχεία που δημιούργησε.
 
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_57_b``` η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι μία λίστα από strings. Κάθε strings θα είναι και το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα ενώνει όλα τα αρχεία της λίστας της παραμέτρου σε ένα αρχείο. Το αρχείο θα σώζεται με όνομα: ```Homo_sapiens_MERGED.gene_info```. Αυτό το αρχείο θα πρέπει να έχει την ίδια δομή με το αρχείο ```Homo_sapiens.gene_info``` και τα γονίδια που περιέχει να είναι ταξινομήμα αλφαβητικά σύμφωνα με τη στήλη ```Symbol```. H συνάρτηση θα επιστρέφει το string: ```Homo_sapiens_MERGED.gene_info```. Θα πρέπει δηλαδή να μπορώ να κάνω:
 
@@ -1323,11 +1705,11 @@ merged_filename = ask_57_b(filenames)
 
 # Take all contents from original Homo_sapiens.gene_info
 with open('Homo_sapiens.gene_info') as f:
-	original_content = f.read()
+    original_content = f.read()
 
 # Take all contents from merged 
 with open(merged_filename) as f:
-	merged_content = f.read()
+    merged_content = f.read()
 
 
 ```
@@ -1340,8 +1722,15 @@ with open(merged_filename) as f:
 
 ```python
 f('Homo_sapiens.gene_info') # Επιστρέφει τη λίστα: 
+
+# Προσοχή το αρχείο Homo_sapiens.gene_info.gz αννανεώθηκε στις 2 Απριλίου. 
+# Όσοι κατεβάσατε το αρχείο ΠΡΙΝ από αυτή την ημερομηνία, το σωστό αποτέλεσμα είναι:
 ['1', '2', '6', '3', '11', '7', '5', '19', '12', '17', '4', '9', 'X', '8', '10', '14', '16', '15', '13', '20', '22', '18', '21', 'Y', 'MT',] 
 
+# Όσοι κατεβάσατε το αρχείο στις 2 Απριλίου ή μετά, το σωστό αποτέλεσμα είναι:
+['1', '2', '6', '3', '11', '7', '5', '12', '19', '17', '4', '9', 'X', '8', '10', '14', '16', '15', '13', '20', '22', '18', '21', 'Y', '-', 'MT'
+
+# Συμπέρασμα: στη βιολογία "τα πάντα ρει"...
 ```
 
 * Προσοχή! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία χρωμοσώματα! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'Un'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλα αυτά.
@@ -1359,16 +1748,17 @@ max(d, key=lambda x: ...)
 
 Δίνεται ότι αυτό που θα πρέπει να επιστρέφει η παραπάνω εντολή είναι: ```'ARMCX5-GPRASP2'```. 
 
+Πρέπει να επιστρέφει το γονίδιο, όχι το συνώνυμο του γονιδίου.
 
 ### Άσκηση 60
 Μία ανάλυση που έγινε παρήγαγε ένα αρχείο το οποίο είχε το εξής περιεχόμενο:
 
 ```
-ID	GENE	FoldChange
-TC0100007038.hg.1	NECAP2	1.17
-TC0100007063.hg.1	FAM231C; FAM231A	-1.04
-TC0100007206.hg.1	CDA; CDB; CDC	-1.15
-TC0100007207.hg.1	PINK1; MIR6084	1.1
+ID  GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C; FAM231A    -1.04
+TC0100007206.hg.1   CDA; CDB; CDC   -1.15
+TC0100007207.hg.1   PINK1; MIR6084  1.1
 ```
 
 Παρατηρούμε ότι η στήλη ```GENE``` μπορεί να έχει παραπάνω από ένα γονίδια διαχωρισμένα με τον χαρακτήρα ```';'```. Αυτό που θέλουμε είναι να μετασχηματίσουμε το αρχείο έτσι ώστε η στήλη GENE να έχει μόνο ένα γονίδιο. Οι γραμμές που έχουν παραπάνω από ένα γονίδιο θα πρέπει να γραφτούν τόσες φορές όσες τα γονίδια που περιέχουν. Κάθε γραμμή θα έχει και από ένα γονίδιο. Η τιμή στη στήλη ```ID``` και στη στήλη ```FoldChange``` θα πρέπει να παραμείνουν ίδιες. Επίσης οι στήλες χωρίζονται με τον χαρακτήρα tab (```'\t'```)
@@ -1378,33 +1768,33 @@ TC0100007207.hg.1	PINK1; MIR6084	1.1
 
 ```python
 
-contents = '''ID	GENE	FoldChange
-TC0100007038.hg.1	NECAP2	1.17
-TC0100007063.hg.1	FAM231C; FAM231A	-1.04
-TC0100007206.hg.1	CDA; CDB; CDC	-1.15
-TC0100007207.hg.1	PINK1; MIR6084	1.1
+contents = '''ID    GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C; FAM231A    -1.04
+TC0100007206.hg.1   CDA; CDB; CDC   -1.15
+TC0100007207.hg.1   PINK1; MIR6084  1.1
 '''
 
 with open('ask_60_input.txt', 'w') as f:
-	f.write(contents)
+    f.write(contents)
 
 f('ask_60_input.txt', 'ask_60_output.txt')
 
 with open('ask_60_output.txt') as f:
-	result = f.read()
+    result = f.read()
 
 print (result) 
 #  Θα πρέπει να τυπώνει:
 '''
-ID	GENE	FoldChange
-TC0100007038.hg.1 	NECAP2	1.17
-TC0100007063.hg.1 	FAM231C	-1.04
-TC0100007063.hg.1 	FAM231A	-1.04
-TC0100007206.hg.1	CDA	-1.15
-TC0100007206.hg.1	CDB	-1.15
-TC0100007206.hg.1	CDC	-1.15
-TC0100007207.hg.1	PINK1	1.1
-TC0100007207.hg.1	MIR6084	1.1
+ID  GENE    FoldChange
+TC0100007038.hg.1   NECAP2  1.17
+TC0100007063.hg.1   FAM231C -1.04
+TC0100007063.hg.1   FAM231A -1.04
+TC0100007206.hg.1   CDA -1.15
+TC0100007206.hg.1   CDB -1.15
+TC0100007206.hg.1   CDC -1.15
+TC0100007207.hg.1   PINK1   1.1
+TC0100007207.hg.1   MIR6084 1.1
 '''
 ```
 
@@ -1480,6 +1870,10 @@ def g():
 
 Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση επιστρέφει το πλήθος των στοιχείων που παράγει η γεννήτρια g. Για να το κάνετε αυτό είναι υποχρεωτικό να χρησιμοποιήσετε τη [StopIteration](https://docs.python.org/3/library/exceptions.html#StopIteration).
 
+Ένας άλλος τρόπος να περιγραφεί αυτό που ζητάει η άσκηση είναι: το πλήθος των στοιχείων που κάνει generate το ```g()``` μέχρι να "πετάξει" StopIteration.
+
+Hint: Ο αριθμός που πρέπει να επιστρέφει η συνάρτηση είναι μεγαλύτερος από 4.000.000 και μικρότερος από 5.000.000  
+
 ### Άσκηση 66
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_66``` η οποία παίρνει δύο ορίσματα. Η συνάρτηση κάνει τους εξής ελέγχους:
 * αν τουλάχιστον ένα από τα δύο ορίσματα δεν είναι int ή float, πετάει (raise) TypeError 
@@ -1508,20 +1902,20 @@ import random
 
 def test_ask_66():
 
-	def rand_param():
-		if random.random()<0.5:
-			r = random.randint(1,1000)
-			if random.random()<0.3:
-				r /= 1
-		else:
-			r = "a"
+    def rand_param():
+        if random.random()<0.5:
+            r = random.randint(1,1000)
+            if random.random()<0.3:
+                r /= 1
+        else:
+            r = "a"
 
-		return r
+        return r
 
-	first = rand_param()
-	second = rand_param()
+    first = rand_param()
+    second = rand_param()
 
-	return ask_66(first, second)
+    return ask_66(first, second)
 
 ```
 
@@ -1575,15 +1969,15 @@ print (my_add(10,30)) # Τυπώνει 40
 import gzip
 
 with gzip.open('covid_fasta.gz', 'rt') as f:
-	# Εδώ μπορείτε να βάλετε τις εντολές που θα βάζατε αν το αρχείο δεν ήταν συμπιεσμένο.
-	# π.χ. f.readline() 
-	pass
+    # Εδώ μπορείτε να βάλετε τις εντολές που θα βάζατε αν το αρχείο δεν ήταν συμπιεσμένο.
+    # π.χ. f.readline() 
+    pass
 ```
 
 Φτιάξτε έναν generator ο οποίος θα παίρνει μία παράμετρο. Η παράμετρος θα είναι το όνομα του αρχείου με τις ακολουθίες του COVID19 (μπορείτε αν θέλετε να βάλετε το αποσυμπιεσμένο αρχείο). Για κάθε strain που έχει το αρχείο, ο generator θα κάνει yield ένα dictionary. To dictionary θα έχει τα ακόλουθα δύο ζευγάρια από κλειδιά / τιμές:
 
 * Κλειδί: "header", Τιμή: Ένα string με την επικεφαλίδα του strain
-* Κλειδί: "sequence": Τιμή: Ένα string με την ακολουθία του strain, ως ένα string το οποίο περιέχει μόνο A,C,G,Τ και Ν (=άγνωστη βάση).
+* Κλειδί: "sequence": Τιμή: Ένα string με την ακολουθία του strain, ως ένα string το οποίο περιέχει μόνο A,C,G,Τ και Ν (=άγνωστη βάση). 
 
 Για παράδειγμα:
 
@@ -1604,6 +1998,8 @@ print (second_strain['sequence'][:100])
 # Τυπώνει: 'ATTAAAGGTTTATACCTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCTGTTCTCTAAACGAACTTTAAAATCTGTGTGGCTGTCACTC' 
 ```
 
+Σημείωση: Θα παρατηρήσετε ότι κάποιες ακολουθίες έχουν γράμματα εκτώς από A,C,G και T. Δεν χρειάζεται να κάνετε κάποιον έλεγχο. Απλά κάντε yield την ακολουθία όποια και αν είναι αυτή. Προαιρετικό: αντικαταστήστε τα new lines (```\n```) με τον κενό χαρακτήρα.  
+
 ### Άσκηση 70
 Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει μία λίστα η οποία θα περιέχει τις 10 χώρες του κόσμου με τα περισσότερα strains του ιού COVID19. Η χώρα από την οποία προέρχεται ένα strain υπάρχει στην επικεφαλίδα του strain στο αρχείο FASTA της άσκησης 69. Η χώρα υπάρχει μεταξύ του πρώτου και του δεύτερου ```/``` στην επικεφαλίδα. Για παράδειγμα:
 
@@ -1612,7 +2008,425 @@ print (second_strain['sequence'][:100])
          ^^^^^
 ```
 
+### Άσκηση 71
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα string. To string θα αναπαριστάει ένα insertion σε φορμάτ [HGVS](https://varnomen.hgvs.org/bg-material/simple/). Για παράδειγμα η μετάλλαξη ```NM_004006.2:c.849_850insCCT``` σημαίνει ότι στο μετάγραφο NM_004006.2, μεταξύ των θέσεων 849 και 850 (σε κωδικεύουσες θέσεις), έχει "προστεθεί" η ακολουθία ```CCT```. Η συνάρτηση θα επιστρέφει ```True``` ή ```False``` ανάλογα με το αν η μετάλλαξη είναι στο σωστό φορμάτ ή όχι. Το σωστό φορμάτ είναι:
 
+1. Όνομα γονιδίου. Αυτό μπορεί να περιέχει γράμματα, αριθμούς και τον χαρακτήρα ```_```.
+2. Τελεία
+3. Αριθμός με ένα ή πολλά ψηφία
+4. Άνω κάτω τελεία
+5. Το γράμμα c ή το γράμμα g
+6. Τελεία 
+7. Αριθμός με ένα ή πολλά ψηφία
+8. Ο χαρακτήρας ```_``` (underscore)
+9. Αριθμός με ένα ή πολλά ψηφία
+10. Οι χαρακτήρες: ```ins```
+11. Μία ακολουθία με ένα η περισσότερα από τα γράμματα ```A```,```C```,```G```,```T```.
+
+Επίσης θα πρέπει ο αριθμός στο πεδίο 9 να είναι κατά 1 μεγαλύτερος από τον αριθμό στο πεδίο 7. Αυτό το τέλευταίο θα το ελέγξετε με regular expression χρησιμοποιώντας groups. Στη συνέχεια θα πάρετε τα πεδία που έχουν κάνει "capture" τα groups, θα τα μετατρέψετε σε ακέραιους (από strings) και θα κάνετε τον έλεγχο αν διαφέρουν κατά 1. 
+
+Για παράδειγμα θα πρέπει:
+
+```python
+f('NM_004006.2:c.849_850insCCT') # Επιστρέψει True
+f('NM_004006.2:c.849_850insCCE') # Επιστρέψει False
+f('NM_004006.2:c.849_850ins') # Επιστρέψει False
+f('NM_004006.2:c.849_850inrsCCT') # Επιστρέψει False
+f('NM_004006.2:c.849_852insCCT') # Επιστρέψει False
+f('NM_004006.2:c.849insCCT') # Επιστρέψει False
+f('NM_004006.2:c.849_insCCT') # Επιστρέψει False
+f('NM_004006.2:r.849_850insCCT') # Επιστρέψει False
+f('NM_004006:c.849_850insCCT') # Επιστρέψει False
+f('NM_004006.:c.849_850insCCT') # Επιστρέψει False
+f('NM_004006.a:c.849_850insCCT') # Επιστρέψει False
+f('NM_004006:c.849_850insCCT') # Επιστρέψει False
+f('.2:c.849_850insCCT') # Επιστρέψει False
+f('MHTSOS.2:c.849_850insCCT') # Επιστρέψει True
+```
+
+### Άσκηση 72
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το ```Homo_sapiens.gene_info``` που έχουμε δει σε προηγούμενες ασκήσεις. Η συνάρτηση θα πρέπει να χρησιμοπoιείσει ΕΝΑ regular expression για να εντοπίσει το πλήθος από Ensembl Genes τα οποία υπάρχουν στο αρχείο. Ένα Ensembl Gene έχει ένα ID το οποίο ακολουθεί το φορμάτ:
+
+* Οι χαρακτήρες ENSG
+* Ένα ή περισσότερα 0
+* Αριθμός με ένα ή πολλά ψηφία
+
+Δίνεται ότι ο αριθμός αυτός είναι:
+* είτε 35194 για αρχεία που έχουν κατέβει πριν τις 2 Απριλίου 
+* είτε 35207 για αρχείο που έχουν κατέβει μετά τις 2 Απριλίου και πριν τις 10 
+* είτε 35208 για αρχεία που έχουν κατέβει μετά τις 10 Απριλίου
+
+Hint: re.findall
+
+### Άσκηση 73
+Στα αγαπημένο μας αρχείο ```Homo_sapiens.gene_info``` υπάρχει η στήλη ```dbXrefs```. Σε αυτή τη στήλη υπάρχουν οι κωδικοί του κάθε γονιδίου σύμφωνα με διάφορες ονοματολογίες (nomenclatures). Για παράδειγμα στο πρώτο γονίδιο του αρχείου (```A1BG```), υπάρχει το κείμενο: ```MIM:138670|HGNC:HGNC:5|Ensembl:ENSG00000121410``` . Σε αυτό το κείμενο υπάρχει η πληροφορία ότι αυτό το γονίδιο έχει τον κωδικό ```138670``` στην ονοματολογία [MIM](https://www.omim.org/), τον κωδικό ```5``` στην ονοματολογία [HGNC](https://www.genenames.org/) και τον κωδικό ```ENSG00000121410``` στην ονοματολογία [Ensembl](https://www.ensembl.org/index.html). Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Το string θα είναι της μορφής:  ```MIM:138670|HGNC:HGNC:5|Ensembl:ENSG00000121410``` . Η συνάρτηση θα επιστρέφει ένα string όπου οι κωδικοί ΜΙΜ και Ensembl θα έχουν αλλάξει θέση. Για παράδειγμα:
+
+```python
+f('MIM:138670|HGNC:HGNC:5|Ensembl:ENSG00000121410') # Επιστρέφει: Ensembl:ENSG00000121410|HGNC:HGNC:5|MIM:138670
+```  
+
+Σε αυτή την άσκηση είναι υποχρεωτικό να χρησιμοποιήσετε τη ```re.sub```
+
+### Άσκηση 74
+Σε αυτό τον πίνακα: https://www.bioinformatics.org/sms/iupac.html υπάρχει το "IUPAC nucleotide code" (πρώτος πίνακας). [Ο πίνακας υπάρχει και στη wikipedia](https://en.wikipedia.org/wiki/Nucleic_acid_notation). Σε αυτόν τον πίνακα υπάρχει μία αντιστοίχιση μεταξύ συνδοιασμών νουκλεοτιδίων και γραμμάτων. Για παράδειγμα το γράμμα: ```K``` σημαίνει ```G``` or ```T``` και το γράμμα ```Μ``` σημαίνει ```A``` or ```C```. Άρα ο κωδικός ```KM``` μπορεί να κάνει match τις ακολουθίες ```GΑ```, ```GC```, ```TA``` και ```TC```. Γράψτε μία συνάρτηση η οποία θα παίρνει 2 παράμετρους. Και οι δύο παράμετροι θα είναι strings. Η 1η παράμετρος θα είναι ένας συνδυασμός από γράμματα που ανήκουν στο "IUPAC nucleotide code". Δηλαδή θα αποτελείται από συνδοιασμούς των γραμματων ```A```,```C```,```G```,```T```,```R```,```Y```,```S```,```W```,```K```,```M```,```B```,```D```,```H```,```V```,```N``` (αγνοήστε τα ```U```, ```.```, ```-```). Η 2η παράμετρος θα είναι μία ακολουθία που θα αποτελείται μόνο από τα γράμματα ```A```,```C```,```G```,```T``` (δεν χρειάζεται να το επαληθεύσετε αυτό). Η συνάρτηση θα επιστρέφει ```True``` αν η δεύτερη παράμετρος (ακολουθία) είναι συμβατή με τα γράμματα στον κωδικό IUPAC της 1ης παραμέτρου. Διαφορετικά θα επιστρέφει ```False```. 
+
+Για παράδειγμα:
+```python
+f('M', 'A') # Επιστρέφει True
+f('M', 'T') # Επιστρέφει False
+f('KM', 'GA') # Επιστρέφει True
+f('KM', 'GG') # Επιστρέφει False
+f('BAN', 'TAA') # Επιστρέφει True
+f('BAN', 'AAA') # Επιστρέφει False
+```
+
+* Στην άσκηση είναι υποχρεωτικό να κατασκευάσετε ένα regular expression το οποία θα κάνει fullmatch το δεύτερο όρισμα.
+* Δεν χρειάζεται να κάνετε κάποιον έλεγχο για να δείτε αν τα περιεχόμενα της 1ης παραμέτρου είναι σωστά. Δηλαδή δεν χρειάζεται να τσεκάρεται ότι τα γράμματα είναι όντως από τον πίνακα της IUPAC.\
+
+Hint: Αν η 1η παράμετρος είναι ```'KM'``` τότε το regular expression είναι ```'[GT][AC]'```
+
+### Άσκηση 75
+[Διαβάζουμε στη wikipedia](https://en.wikipedia.org/wiki/GATA1):
+
+> In both GATA1 and GATA1-S, C-ZnF (i.e. C-terminus zinc finger) binds to DNA-specific nucleic acid sequences sites viz., (T/A(GATA)A/G), on the expression-regulating sites of its target genes and in doing so either stimulates or suppresses the expression of these target genes 
+
+
+Αυτό φαίνεται πολύ ενδιαφέρον! ο μεταγραφικός παράγοντας GATA1 λοιπόν προσδένεται σε οτιδήποτε έχει τη μορφή T ή Α, ακολουθούμενο από GATA, ακολουθούμενο από A ή G (Για παράδειγμα στην ακολουθία: ```TGATAG``` ) και ρυθμίζει την έκφρασή του. Η ερώτηση είναι: επηρεάζει το GATA1 την έκφραση στα γονίδια του COVID; Για να το διευρευνήσουνμε μπορούμε να κάνουμε το εξής: να μετρήσουμε απλά πόσες φορές υπάρχει το pattern της ακολουθίας που προσδένεται ο GATA1 **πριν** από το start codon ```ATG```. Επίσης θα αφήσουμε και ένα περιθώριο το πολύ 100 βάσεων μεταξύ του GATA1 pattern και του start codon. Άρα φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα string το οποίο θα είναι το όνομα ενός αρχείου όπως το ```covid_fasta.gz```. Η συνάρτηση θα ψάχνει σε κάθε strain του αρχείου πόσες φορές υπάρχει το παρακάτω pattern:
+
+* Το γράμμα ```T``` ή ```A```
+* Η ακολουθία ```GATA``` 
+* To γράμμα ```A``` ή ```G```
+* 1 έως 100 οποιεσδήποτε βάσεις 
+* Η τριπλέτα  ```ATG```
+
+Η συνάρτηση θα επιστρέφει τον μέσο όρο εμφάνισης του πλήθους του παραπάνω pattern για όλα τα strains. Δηλαδή αν σε όλο το αρχείο βρεθεί αυτό το pattern 150 φορές και το αρχείο έχει 10 strains, η συνάρτηση θα πρέπει να επιστρέφει 15 (150/10).
+
+* Είναι υποχρεωτική η χρήση regular expressions
+* Μπορείτε να χρησιμοποιείσετε και τον generator της άσκησης 69.
+
+### Άσκηση 76
+Σημείωση: Χωρίς να σας προκαταλαμβάνω [[???](https://www.loutraki365.gr/blog/post/omileite-ellinika-prokatalamvano-kai-prokatavallo-i-megali-syghysi)], αυτή είναι μία δύσκολη άσκηση. Καλύτερα να ασχοληθείτε αφού έχετε κάνει τις υπόλοιπες. Επίσης θα βαθμολογηθεί επιεικότερα.
+
+[Σε αυτό το link](https://m.ensembl.org/info/docs/api/compara/compara_schema.html#genomic_align) περιγράφονται τα CIGAR strings (σε μία απλή εκδοχή τους). Τα CIGAR strings είναι ένας τρόπος να περιγράψουμε τον τρόπο με τον οποίο μία ακολουθία έχει στοιχηθεί (align) σε μία άλλη. Για παράδειγμα ας υποθέσουμε ότι έχουμε τις ακολουθίες Α: ```AAGCGCACTT``` και Β: ```ΑΑCGCTT```  και ότι η Β έχει στοιχηθεί πάνω στην Α με αυτόν τον τρόπο:
+
+```
+Α: A A G C G C A C T T
+Β: Α Α - C G C - - T T 
+```
+
+Ένας τρόπος να περιγράψουμε αυτη τη στοίχιση είναι απλά να μετρήσουμε τα matches και τα deletions. Σε αυτή τη περίπτωση είναι:
+
+```
+Α: A A G C G C A C T T
+Β: Α Α - C G C - - T T 
+   M M D M M M D D M M 
+```
+
+To string ```M M D M M M D D M M``` το συρικνώνουμε γράφοντας απλά τον αριθμό από M και D πριν από αυτά. Για παράδειγμα:
+```
+M M D M M M D D M M
+-->
+2M1D3M2D2M
+```
+
+Τέλος τα 1 μπορούμε να τα σβήσουμε (όταν δεν υπάρχει αριθμός εννοείται το 1):
+```
+2M1D3M2D2M
+-->
+2MD3M2D2M
+```
+
+Γράψτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα string το οποίο θα αναπαριστάει ένα CIGAR string. H συνάρτηση θα επιστρέφει ```True``` ή ```False``` ανάλογα με το αν η παράμετρος είναι CIGAR string ή όχι. Η συνάρτηση πρέπει να είναι η εξής:
+
+```python
+import re
+def f(x):
+    m = re.fullmatch(r'..PUT YOU MAGIC HERE..', x)
+    return bool(m)
+```
+
+Δηλαδή θα πρέπει απλά να συμπληρώσετε το regular expression.
+
+Για παράδειγμα θα πρέπει:
+```python
+f('M') # Επιστρέφει True
+f('5M') # Επιστρέφει True
+f('D') # Επιστρέφει True
+f('15D') # Επιστρέφει True
+f('MD') # Επιστρέφει True
+f('DM') # Επιστρέφει True
+f('MDM') # Επιστρέφει True
+f('DMD') # Επιστρέφει True
+f('10D2MD') # Επιστρέφει True
+f('2MD3M2D2M') # Επιστρέφει True
+
+f('1M') # Επιστρέφει False
+f('0M') # Επιστρέφει False
+f('1D') # Επιστρέφει False
+f('MM') # Επιστρέφει False
+f('DD') # Επιστρέφει False
+f('10D10D') # Επιστρέφει False
+f('MDMM') # Επιστρέφει False
+```
+
+### Άσκηση 77
+Όλοι ξέρουμε για το φαινόμενο του [alternative splicing](https://en.wikipedia.org/wiki/Alternative_splicing), ή εναλλακτικό μάτισμα. Σύμφωνα με αυτό το φαινόμενο, κατά τη διαδικασία της μεταγραφής ένα ή περισσότερα εξώνια μπορεί να διαγραφτούν και να μην συμμετέχουν στο παραγόμενο mRNA. Ας υποθέσουμε ότι έχουμε ένα γονίδιο το οποίο έχει 4 εξόνια. Επίσης ας υποθέσουμε ότι κατά τη διάρκεια της μεταγραφής μπορεί να διαγραφτούν όλα εκτός απο το 1o και τελευταιο εξόνιο και ότι τα εξόνια δεν αλλάζουν ποτέ σειρά. Πόσα εναλλακτικά μετάγραφα μπορούν να δημιουργηθούν; Ας τα μετρήσουμε:
+
+```
+Εξόνια Αρχικού γονίδιου:
+1-2-3-4 
+
+Εναλλακτικά ματίσματα:
+1-2-3-4
+1-3-4
+1-2-4
+1-4
+```  
+
+Βλέπουμε ότι μπορούν να δημιουργηθούν (θεωρητικά) 4 διαφορετικά μετάγραφα.
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος αυτή θα είναι ακέραιος αριθμός και θα αναπαριστάει τον αριθμό από εξόνια ενός γονιδίου. Η συνάρτηση θα επιστρέφει μία λίστα από όλα τα δυνατά μετάγραφα του γονιδίου. Κάθε μετάγραφο θα είναι απλά μία λίστα με τα εξόνια που περιέχει. Για παράδειγμα:
+
+```python
+f(3) # Επιστρέφει [ [1,2,3], [1,3] ]
+f(4) # Επιστρέφει [ [1,2,3,4], [1,3,4], [1,2,4], [1,4] ]
+f(5) # Επιστρέφει [ [1,2,3,4,5], [1,3,4,5], [1,2,4,5], [1,2,3,5], [1,4,5], [1,3,5], [1,2,5], [1,5] ]
+```
+
+* Σημείωση 1: Η σειρά που επιστρέφει τα μετάγραφα δεν έχει σημασία. 
+* Σημείωση 2: Μπορείτε να επιστρέψετε και λίστα από tuples.
+
+### Άσκηση 78
+Ας υποθέσουμε ότι:
+* Στη γενετική θέση ```Θ1``` έχουμε μία μετάλλαξη με δύο αλλήλια: το αλλήλιο ```Α11``` και το αλλήλιο ```Α12```. Οι αλληλικές τους συχνότητες στον πληθυσμό που μελετάμε είναι: ```P11``` και ```P12``` αντίστοιχα. 
+* Στη γενετική θέση ```Θ2``` έχουμε μία μετάλλαξη με τρία δυνατά αλλήλια: τα αλλήλια ```Α21```, ```Α22```, ```Α23```. Οι αλληλικές τους συχνότητες στον πληθυσμό που μελετάμε είναι: ``` P21```, ```P22```, ```P23```. 
+* Υποθέτουμε ότι οι γενετικές θέσεις ```Θ1``` και ```Θ2``` είναι ανεξάρτητες. Ή αλλιώς ότι δεν είναι σε [ανισορροπία σύνδεσης](https://en.wikipedia.org/wiki/Linkage_disequilibrium). 
+
+Με βάση τα παραπάνω ένα άτομα μπορεί να έχει εναν από τους εξής απλότυπους:
+
+```
+Απλότυπος 1: A11  A21 με πιθανότητα P11 * P21
+Απλότυπος 2: A11  A22 με πιθανότητα P11 * P22
+Απλότυπος 3: A11  A23 με πιθανότητα P11 * P23
+Απλότυπος 4: A12  A21 με πιθανότητα P12 * P21
+Απλότυπος 5: A12  A22 με πιθανότητα P12 * P22
+Απλότυπος 6: A12  A23 με πιθανότητα P12 * P23
+```
+
+Βλέπουμε δηλαδή ότι οι δυνατοί απλότυποι είναι όλοι οι συνδυασμοί των αλληλίων της θέσης ```Θ1``` με όλα τα αλλήλια της θέσης ```Θ2``` και η συχνότητά τους είναι το γινόμενο των συχνοτήτων των αλλήλιων που έχουν. 
+
+Με βάση τα παραπάνω γράψτε μία συνάρτηση με το όνομα ```ask_78``` η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα dictionary το οποίο θα περιέχει τα εξής κλειδιά/τιμές: Κλειδί: το όνομα της μετάλλαξης, τιμή: μία λίστα με tuples. Κάθε tuple θα έχει δύο τιμές. Η πρώτη τιμή θα είναι  ένα string με το όνομα κάθε αλληλίου της μετάλλαξης. Η 2η τιμή του tuple θα είναι η συχνότητα αυτού του αλληλίου. Τα αλλήλια μπορεί να είναι παραπάνω από 2. Η συνάρτηση θα επιστρέφει ένα dictionary. Κάθε κλειδί του dictionary θα είναι το όνομα του απλότυπου σε αυτό το φορμάτ: ```Haplotype 1```, ```Haplotype 2```, ```Haplotype 3```, κτλ. Η τιμή κάθε κλειδιού του dictionary θα είναι ένα tuple το οποίο θα περιέχει 2 τιμές. Η πρώτη τιμή θα είναι ένα string το οποίο θα αποτελείται από όλα τα ονόματα των αλλήλιων του απλότυπου ενωμένα με τον χαρακτήρα ```-```. H 2η τιμή του tuple θα είναι η συχνότητα του απλότυπου υπολογισμένη με βάση τα παραπάνω. Για παράδειγμα:
+
+```python
+alleles = {
+    'M1': [('A', 0.3), ('B', 0.7)],
+    'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
+}
+f(alleles) 
+# Επιστρέφει:
+{
+    'Haplotype 1': ('A-K', 0.03), # 0.3 * 0.1
+    'Haplotype 2': ('A-L', 0.15), # 0.3 * 0.5
+    'Haplotype 3': ('A-M', 0.12), # 0.3 * 0.4
+    'Haplotype 4': ('B-K', 0.07), # 0.7 * 0.1
+    'Haplotype 5': ('B-L', 0.35), # 0.7 * 0.5
+    'Haplotype 6': ('B-M', 0.28), # 0.7 * 0.4 
+}
+
+```
+
+Εννοείται ότι το dictionary ```alleles``` μπορεί να περιέχει παραπάνω από 2 μεταλλάξεις. 
+
+### Άσκηση 79
+Φτιάξτε μία συνάρτηση με το όνομα ```ask_79``` η οποία θα παίρνει δύο παραμέτρους. Η πρώτη θα είναι ένα dictionary σαν το dictionary που περιγράφηκε ως η παράμετρος της συνάρτησης ```ask_78``` της άσκησης 78. Η δεύτερη παράμετρος θα είναι το όνομα ενός αρχείου. Η συνάρτηση θα καλεί της συνάρτηση ```ask_78``` με τη τιμή της παραμέτρου και θα σώζει το dictionary που επιστρέφει η ```ask_78``` στο αρχείο με το όνομα της 2ης παραμέτρου σε φορμάτ json. Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+import json
+alleles = {
+    'M1': [('A', 0.3), ('B', 0.7)],
+    'M2': [('K', 0.1), ('L', 0.5), ('M', 0.4)]
+}
+
+results_1 = ask_78(alleles)
+
+ask_79(alleles, 'file.json')
+
+with open('file.json') as f:
+    results_2 = json.load(f)
+
+results_1 = {k: tuple(v) for k,v in results_1.items()} # Κάνω tuple τις τιμές του dictionary
+results_2 = {k: tuple(v) for k,v in results_2.items()} # Κάνω tuple τις τιμές του dictionary
+
+print (results_1 == results_2) # Τυπώνει True
+
+```
+
+### Άσκηση 80
+Πηγαίνετε σε αυτή τη σελίδα: https://www.worldometers.info/coronavirus/country/greece/ . Αφού.. περιεργαστείτε λίγο τη σελίδα, θα νοιώσετε σίγουρα την ανάγκη να επεξεργαστείτε και εσείς τα δεδομένα της με τη φανταστική python που ξέρετε! Ας κάνουμε μια.. χακιά λοιπόν! 
+
+Για αρχή, πηγαίνετε εδώ: https://www.view-page-source.com/howto-see-html-code-different-browsers/ και διαβάστε πως μπορείτε να δείτε τον κώδικα μίας σελίδας που έχετε επισκεφτεί. Αφού δείτε πως το κάνετε αυτό ανάλογα με τον browser σας και το λειτουργικό σας σύστημα (windows, mac, Linux), ξανα-επισκεφτείτε τη σελίδα https://www.worldometers.info/coronavirus/country/greece/ και κάντε τις ανάλογες ενέργειες για να εμφανιστεί ο κώδικας αυτής της σελίδας. 
+
+Λογικά θα εμφανιστεί κάτι τελείως ακαταλαβίστικο το οποίο ξεκινάει με αυτό:
+```html
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greece Coronavirus: 273,459 Cases and 8,302 Deaths - Worldometer</title>
+```
+
+Μέσα σε αυτό το χάος υπάρχει ένας πίνακας σε json ο οποίος περιέχει τα ημερήσια κρούσματα του κοροναϊού στην Ελλάδα. Η πληροφορία αυτή υπάρχει στη γραμμή 631. Πρόκειται για μία γραμμή η οποία ξεκινάει με:
+
+```
+   [null,null,null,null,null,null,null,null,null,null,null,null,2,1,3,0
+```
+
+και συνεχίζεται για πολύ.. μέσα σε αυτή τη γραμμή. 
+
+Όπως καταλάβατε ήδη η λίστα σε αυτή η γραμμή περιέχει τον ημερίσιο αριθμό κρουσμάτων από τότε που ξεκίνησε να γίνεται παρακολούθηση του κοροναϊού παγκοσμίως (15 Φεβρουαρίου, 2020). Δηλαδή το πρώτο στοιχείο της λίστας (```null```) περιέχει τον αριθμό των κρουσμάτων στην Ελλάδα στις 15 Φεβρουαρίου 2021. Τα στοιχεία ```null``` στην αρχή σημαίνουν ότι απλά εκείνη τη μέρα δεν έγινε μέτρηση (μην το μερδεύετε με τα στοιχεία ```0``` που σημαίνει ότι εκείνη τη μέρα δεν καταγράφηκαν κρούσματα).
+
+Επιλέξτε με το ποντίκι αυτή τη λίστα ξεκινώντας από την αγκύλη που ξεκινάει (```[```) μέχρι την αγκύλη που τελειώνει (```]```). Στη συνέχεια κάνετε το copy (Ctrl-C). Πηγαίνετε στο jupyter και κάντε το paste (Ctrl-V) μέσα σε ένα string. Θα πρέπει δηλαδή στο jupyter σας να υπάρχει ένα κελί σαν αυτό:
+
+![img](https://i.imgur.com/RITbb3S.png)
+
+Αφού αυτό είναι ένα string σε format json, μπορείτε να το επεξεργαστείτε:
+
+```python
+import jsοn
+data = json.loads(s)
+```
+
+Αφού λοιπόν κάνετε τα παραπάνω απαντήστε στην εξής ερώτηση: αν θεωρήσουμε σαν μέρα 1 την 15 Φεβρουαρίου, 2020, ποιος είναι ο αριθμός της μέρας που είχαμε ρεκόρ κρουσμάτων (μέχρι στιγμής) στην Ελλάδα; Η απάντησή σας θα πρέπει να είναι ένας αριθμός (όχι ημερομηνία)
+
+Για αυτή την άσκηση δεν χρειάζεται να φτιάξετε κάποια συνάρτηση (αν φτιάξετε δεν είναι λάθος φυσικά). Απλα σε ένα "κελί" στο jupyter και κάτω από το σχόλιο ```# askhsh 80``` βάλτε:
+* το string το οποίο φτιάξατε κάνοντας copy paste από τον κώδικα της σελίδας.
+* τον κώδικα ο οποίος το διαβάζει και τον μετατρέπει σε μία λίστα python. 
+* τον κώδικα ο οποίος απαντάει στο ερώτημα της άσκησης. 
+
+### Άσκηση 81
+Η [PharmGKB](https://www.pharmgkb.org) είναι μία βάση δεδομένων που περιέχει φαρμακογονιδιωματική πληροφορία. Γνωρίζουμε ότι μερικά φάρμακα έχουν διαφορετική τοξικότητα ή διαφορετική επίδραση ([ADME](https://en.wikipedia.org/wiki/ADME) effects), ανάλογα μα το γονιδίωμα του λήπτη τους. Μπορούμε να φορτώσουμε με pandas ένα μικρό μέρος αυτής της βάσης. Για αρχή πηγαίνετε εδώ: https://www.pharmgkb.org/downloads και κατεβάστε το αρχείο: [clinicalVariants.zip](https://api.pharmgkb.org/v1/download/file/data/clinicalVariants.zip) το οποίο περιέχει Clinical Variant Data. Το αρχείο είναι σε zip οπότε θα πρέπει να το αποσυμπιέσετε. Ένα από τα αρχεία που περιέχει το zip αρχείο είναι το ```clinicalVariants.tsv```. Μπορείτε να το φορτώσετε με:
+
+```python
+import pandas as pd
+
+cV = pd.read_csv('clinicalVariants/clinicalVariants.tsv', sep='\t') 
+```
+
+ή με:
+```python
+import pandas as pd
+cV = pd.read_csv('clinicalVariants.tsv', sep='\t') 
+```
+
+Ανάλογα με το που το έχετε αποσυμπιέσει. 
+
+Φτιάξτε λοιπόν μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι ένα DataFrame σαν το cV. Η συνάρτηση θα επιστρέφει ένα νέο DataFrame το οποίο θα περιέχει τις ίδιες στήλες με το DataFrame της παραμέτρου. Θα περιέχει όμως μόνο τις γραμμές όπου η στήλη ```"type"``` έχει τη τιμή ```"Toxicity"``` και η στήλη ```"Level of evidence"``` θα έχει ή τη τιμή ```"1A"``` ή τη τιμή ```"1B"```.
+
+Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+import pandas as pd
+cV = pd.read_csv('clinicalVariants.tsv', sep='\t') 
+
+new_cV = f(cV)
+
+print (new_cV.shape)
+# Τυπώνει (119, 6)
+
+```
+
+### Άσκηση 82
+Παρατηρούμε ότι η στήλη ```type``` περιέχει τιμές που μπορεί να έχουν τη λέξη "Toxicity" μαζί με άλλες λέξεις. Επίσης η στήλη ```type``` έχει μερικές γραμμές στις οποίες η τιμή της είναι 'NA', οπότε θα πρέπει να τις αφαιρέσετε αυτες τις γραμμές για αυτή την άσκηση. 
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι ένα DataFrame σαν το cV. Η συνάρτηση θα επιστρέφει το γονίδιο το οποίο έχει τις περισσότερες γραμμές όπου στη στήλη ```type``` υπάρχει το string  "Τoxicity".
+
+Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+import pandas as pd
+cV = pd.read_csv('clinicalVariants.tsv', sep='\t') 
+
+f(cV) # Τυπώνει 'HLA-B' 
+
+```
+
+
+### Άσκηση 83
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι ένα DataFrame σαν το cV. Η συνάρτηση θα φτιάχνει ένα barplot με τους 10 πιο κοινούς φαινότυπους (στήλη ```phenotypes```) που υπάρχουν στο DataFrame της παραμέτρου.  Η συνάρτηση δεν θα επιστρέφει τίποτα. Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+import pandas as pd
+cV = pd.read_csv('clinicalVariants.tsv', sep='\t') 
+
+f(cV) 
+# Εμφανίζει το plot:
+```
+![img](https://i.imgur.com/3a4e7Gn.png)
+
+### Άσκηση 84
+Αν πάμε στο [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-MTAB-5214/Downloads) μπορούμε να κατεβάσουμε τα δεδομένα από [αυτό το paper](https://europepmc.org/article/MED/25954001). Σε αυτό το πείραμα οι συγγραφείς μελέτησαν την έκφραση σχεδόν όλων των γονιδίων σε 53 διαφορετικούς ιστούς. Μπορείτε να κατεβάσετε το αρχείο [Expression values across all genes (TPM)](https://www.ebi.ac.uk/gxa/experiments-content/E-MTAB-5214/resources/ExperimentDownloadSupplier.RnaSeqBaseline/tpms.tsv) και να το μελετήσετε.. Θα δείτε ότι η πρώτη στήλη είναι το ENSEMBL code για το γονίδιο, η 2η στήλη έχει το όνομα του γονιδίου και οι υπόλοιπες στήλες έχουν την έκφραση του γονιδίου σε διάφορους ιστούς (δεν μας ενδιαφέρει εδώ πως το μετρήσανε ή τι δείχνουν αυτές οι ποσότητες).
+
+Μπορείτε να φορτώσετε αυτά τα δεδομένα σε pandas με:
+
+```python
+import pandas as pd
+url = 'https://www.ebi.ac.uk/gxa/experiments-content/E-MTAB-5214/resources/ExperimentDownloadSupplier.RnaSeqBaseline/tpms.tsv'
+expression = pd.read_csv(url, sep='\t', skiprows=4)
+```
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει τρία ορίσματα. H πρώτη θα είναι ένα DataFrame σαν το expression. Η δεύτερη και η τρίτη παράμετρος θα είναι το όνομα ενός ιστού, όπως εμφανίζεται στις στήλες του DataFrame. Η συνάρτηση θα κάνει ένα scatter plot όπου στον άξονα x θα είναι οι τιμές της έκφρασης όλων των γονιδίων για τον ιστό της 2ης παράμετρου. Στον άξονα y θα είναι οι τιμές τις έκφρασης όλων των γονιδίων για τον ιστό της 3ης παραμέτρου. Στο plot που θα κάνετε αφαιρέστε όλα τα γονίδια που έχουν τιμή έκφρασης > 200 σε οποιοδήποτε από τους 2 ιστούς. 
+
+Δίνονται εδώ μερικά παραδείγματα:
+```python
+f(expression, 'stomach', 'spleen')
+```
+Εμφανίζει το plot:
+
+![img](https://i.imgur.com/owcO8Yc.png)
+
+
+```python
+f(expression, 'heart left ventricle', 'lung')
+```
+Εμφανίζει το plot:
+
+![img](https://i.imgur.com/jOrwJ5N.png)
+
+```python
+f(expression, 'coronary artery', 'aorta')
+```
+Εμφανίζει το plot:
+
+![img](https://i.imgur.com/PtUmXjk.png)
+
+
+Όπως καταλαβαίνετε από το πόσο "διαγώνιες" είναι οι τιμές σε αυτό το plot, μπορούμε να βγάλουμε συμπεράσματα για την ομοιότητα στη βιολογική λειτουργία αυτών των ιστών. 
+
+### Άσκηση 85
+
+Σε αυτή τη σελίδα https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic υπάρχει ένας πίνακας με τα 50 αεροδρόμια με τη μεγαλύτερη επιβατική κίνηση σε όλο τον κόσμο. 
+
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα:
+* Φορτώνει τον πρώτο πίνακα της σελίδας σε ένα pandas DataFrame
+* Θα "γκρουπάρει" όλες τις γραμμές που έχουν την ίδια χώρα (στήλη: ```Country```)
+* Για κάθε group θα υπολογίζει το άθροισμα των επιβατών (στήλη: ```Totalpassengers```)
+* Θα ταξινομεί το DataFrame με βάση αυτό το άθροισμα, ξεκινώντας από το μεγαλύτερο και καταλήγοντας στο μικρότερο
+* Θα κάνει ένα barplot με το άθροισμα των επιβατών για κάθε χώρα. 
+
+Θα πρέπει δηλαδή να τρέχω:
+
+```python
+f()
+```
+
+Η συνάρτηση θα παράγει το παρακάτω γράφημα (είστε ελεύθεροι να κάνετε οποιαδήποτε.. στυλιστική αλλαγή)
+![img](https://i.imgur.com/l8QxYnO.png)
+
+Προσπαθήστε να υλοποιήσετε αυτή την άσκηση γράφοντας μία εντολή με method chaining, χωρίς αυτό να είναι υποχρεωτικό.
 
 
 
