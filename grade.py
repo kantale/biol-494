@@ -58,26 +58,30 @@ class Mail:
 
 
     def do_send_mail(self, to, subject, text, sleep=10, actually_send_mail=False):
+        from email.header import Header
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
 
+        msg = MIMEText(text, 'plain', 'utf-8')
         sender_email = "alexandros.kanterakis@gmail.com"
         receiver_email = to
 
-        if False: # Experimental..
-            from email.header import Header
-            from email.mime.text import MIMEText
-            msg = MIMEText(text, 'utf-8')        
-            msg['From'] = sender_email # Hopefully no utf8 weirdness here...
-            msg['To'] = receiver_email
-            msg['Subject'] = Header(subject, 'utf-8')
-            msg['Content-type'] = 'text/plain; charset=utf-8' 
-            message = msg.as_string()
 
-        if True:
+        email = MIMEMultipart('mixed')
+        email['From'] = sender_email
+        email['To'] = receiver_email
+        email['Subject'] = Header(subject, 'utf-8')
+
+        msg.set_payload(text.encode('utf-8'))
+        email.attach(msg)
+
+        message = email.as_string()
+
+        if False:
             message = 'Subject: {}\n\n{}'.format(subject, text)
 
         if actually_send_mail:
-            #self.server.sendmail(sender_email, receiver_email, message.encode("utf-8")) # msg.encode("utf8")
-            self.server.sendmail(sender_email, receiver_email, message.encode("utf-8")) # msg.encode("utf8")
+            self.server.sendmail(sender_email, receiver_email, message)
         time.sleep(sleep)
         print ('Mail sent')
 
