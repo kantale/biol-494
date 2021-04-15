@@ -42,7 +42,8 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_8.ipynb), [markdown](2021/draft_lesson_8.md), [html](2021/draft_lesson_8.html), [pdf](2021/draft_lesson_8.pdf)
 * Διάλεξη 10η - 7 Απριλίου 2021 . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_9.ipynb), [markdown](2021/draft_lesson_9.zip), [html](2021/draft_lesson_9.html), [pdf](2021/draft_lesson_9.pdf)
-
+* Διάλεξη 11η - 15 Απριλίου 2021 . numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_10.ipynb), [markdown](2021/draft_lesson_10.zip), [html](2021/draft_lesson_10.html), [pdf](2021/draft_lesson_10.pdf)
 
 
 ### Βαθμολόγηση
@@ -144,6 +145,8 @@ print ("This is the solution for ex. 55")
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
    * [NumPy Illustrated: The Visual Guide to NumPy](https://medium.com/better-programming/numpy-illustrated-the-visual-guide-to-numpy-3b1d4976de1d), from Lev Maximov 
+   * [Cheatsheet 1](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+   * [Cheatsheet 2](https://s3.amazonaws.com/dq-blog-files/numpy-cheat-sheet.pdf)
 * [The official Python Tutorial](https://docs.python.org/3/tutorial/index.html)
 * [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/) Practical programming for total beginners. Written by Al Sweigart. Free to read under a Creative Commons license.
 * [A beginner's python tutorial](https://en.wikibooks.org/wiki/A_Beginner%27s_Python_Tutorial)
