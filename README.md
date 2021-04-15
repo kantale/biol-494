@@ -171,5 +171,8 @@ print ("This is the solution for ex. 55")
 * [Python & APIs: A Winning Combo for Reading Public Data](https://realpython.com/python-api/)
 * Regular Expressions
    * [Python Regex Cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
+   * Debugging 
+      * https://www.debuggex.com/
+      * https://regexr.com/
 
 
