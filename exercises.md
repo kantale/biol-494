@@ -1330,6 +1330,21 @@ f(A,B)
 # υπάρχουν στο dictionary που επέστρεψε η συνάρτηση.
 ``` 
 
+Λύση:
+```python
+def f(A,B):
+    ret = {}
+    for x in A:
+        if not x in B:
+            ret[x]=A[x]
+            
+    for x in B:
+        if not x in A:
+            ret[x]=B[x]
+            
+    return ret
+```
+
 ### Άσκηση 42
 Φτιάξτε μία συνάρτηση η οποία να παίρνει δύο παράμετρους. Οι παράμετροι είναι και οι δύο dictionaries, τα Α και το Β. Τα dictionaries είναι τέτοια που οι τιμές τους είναι ακέραιοι. Η συνάρτηση θα πρέπει να επιστρέφει ένα νέο dictionary το οποία θα πρέπει να έχει ΜΟΝΟ τα κλειδιά που ανήκουν και στο Α και στο Β. Η τιμή του κάθε κλειδιού θα είναι ο μέσος όρος των τιμών αυτού του κλειδιού στα dictionary Α και Β. Για παράδειγμα:
 
@@ -1354,6 +1369,19 @@ f(A,B)
     'elenh': 2.5 # (2+3)/2
 }
 
+
+
+```
+
+
+Λύση:
+```python
+
+def f(A,B):
+    
+    common_keys = set(A.keys()) & set(B.keys())
+    
+    return {x: (A[x]+B[x])/2 for x in common_keys}
 ```
 
 ### Άσκηση 43
@@ -1397,6 +1425,16 @@ f(genes, sizes, cancer)
 }
 ```
 
+Λύση:
+```python
+def f(genes, sizes, cancer):
+    
+    return {
+        g:{'size': s, 'cancer': c}
+        for g,s,c in zip(genes, sizes, cancer)
+    }
+```
+
 ### Άσκηση 44
 Φτιάξτε μία συνάρτηση η οποία θα κάνει το αντίθετο από ότι η άσκηση 43. Η συνάρτηση θα δέχεται μία παράμετρο. Η παράμετρος θα είναι ένα dictionary όπως αυτό που επιστρέφει η άσκηση 43. Η συνάρτηση θα επιστρέφει τρεις λίστες:
 * Η πρώτη θα είναι τα κλειδιά του dictionary της παραμέτρου.
@@ -1419,6 +1457,20 @@ print (k) # τυπώνει: ['Gene_1', 'Gene_2', 'Gene_10']
 print (l) # τυπώνει [2957, 8379, 7745]
 print (m) # τυπώνει [true, True, False]
 
+```
+
+Λύση:
+```python
+def f(A):
+    genes = []
+    sizes = []
+    cancer = []
+    for k,v in A.items():
+        genes.append(k)
+        sizes.append(v['size'])
+        cancer.append(v['cancer'])
+        
+    return genes, sizes, cancer
 ```
 
 ### Άσκηση 45 
@@ -1494,6 +1546,23 @@ f(A)
 
 ```
 
+Λύση:
+```python
+def f(A):
+    
+    ret = {}
+    for x in A.split('\n'):
+        if not x.strip():
+            continue
+            
+        eq_pos = x.index('=')
+        first_part = x[:eq_pos].strip()
+        second_part= x[eq_pos+1:].strip()
+        
+        ret[first_part] = second_part
+        
+    return ret
+```
 
 ### Άσκηση 46
 
@@ -1505,6 +1574,20 @@ f(11) # Επιστρέφει 13
 f(15) # Επιστρέφει 17
 ```
 
+Λύση:
+```python
+def f(n):
+    test = n+1
+    while True:
+        for i in range(2,test):
+            if test%i == 0:
+                break
+        else:
+            return test
+        
+        test += 1
+```
+
 ### Άσκηση 47
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένας θετικός ακέραιος αριθμός. Η συνάρτηση θα επιστρέψει τον μεγαλύτερο πρώτο αριθμό ο οποίος είναι μικρότερος από τη παράμετρο. Για παράδειγμα:
 
@@ -1513,8 +1596,36 @@ f(10) # Επιστρέφει 7
 f(100) # Eπιστρέφει 97
 ``` 
 
+Λύση:
+```python
+def f(n):
+    test = n-1
+    while True:
+        for i in range(2,test):
+            if test%i == 0:
+                break
+        else:
+            return test
+        
+        test -= 1
+```
+
+
 ### Άσκηση 48
 Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα επιστρέφει την απάντηση στο παρακάτω ερώτημα. Ας υποθέσουμε ότι έχουμε 1000 ευρώ και κάθε μήνα ξοδεύουμε το 10% του ποσού που έχουμε. Μετά από πόσους μήνες το ποσό που θα έχει μείνει θα είναι λιγότερο από 100 ευρώ;
+
+
+Λύση:
+```python
+def f():
+    remaining = 1000
+    months = 0
+    while remaining>100:
+        remaining -= 0.1*remaining
+        months += 1
+        
+    return months
+```
 
 ### Άσκηση 49
 Φτιάξτε μία συνάρτηση με το όνομα ```fact``` η οποία θα δέχεται μία παράμετρο. Η παράμετρος θα είναι ένας θετικός ακέραιος αριθμός. Η συνάρτηση θα επιστρέφει το παραγοντικό του αριθμού αυτού. Το παραγοντικό ενός αριθμού ```N```, συμβολίζεται με ```Ν!``` και είναι ίσο με το γινόμενο: ```1 * 2 * .. * Ν-1 * Ν```.
@@ -1524,6 +1635,31 @@ f(100) # Eπιστρέφει 97
 ![img](https://i.imgur.com/I3mS3Hu.png)
 
 Όσο περισσότερους όρους βάλουμε σε αυτή τη σειρά, τόσο καλύτερη προσέγγιση του e θα κάνουμε. Φτιάξτε λοιπόν μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα υπολογίζει προσεγγιστικά και θα επιστρέφει το ```e``` χρησιμοποιώντας τον παραπάνω μαθηματικό τύπο. Για τον υπολογισμό του e, προσθέστε όσους όρους χρειαστούν μέχρι ο τελευταίος όρος που θα προσθέσετε να γίνει μικρότερος από 0.0001. Συνίσταται να χρησιμοποιήσετε τη συνάρτηση ```fact```. 
+
+Λύση:
+```python
+def fact(n):
+    if n == 0:
+        return 1
+    
+    ret = 1
+    for i in range(2,n+1):
+        ret *= i
+        
+    return ret
+
+def f():
+    e = 1
+    n = 1
+    term = 1
+    
+    while term>0.0001:
+        term = 1/fact(n)
+        e += term
+        n += 1
+        
+    return e
+```
 
 ### Άσκηση 50
 Δίνεται η παρακάτω συνάρτηση:
@@ -1542,6 +1678,16 @@ def get_disease_gene_names(disease):
 
 Φτιάξτε μία συνάρτηση η οποία δεν παίρνει κανένα όρισμα. Η συνάρτηση θα πρέπει να επιστρέφει ένα **σύνολο** με τα γονίδια τα οποία: Εμπλέκονται στη παχυσαρκία (```'obesity'```) KAI στον μεταβολισμό (```'metabolism'```) αλλά δεν έχουν συσχετιστεί με κάποιο λιπίδιο (```'lipids'```).
 
+
+Λύση:
+```python
+def f():
+    obesity = get_disease_gene_names('obesity')
+    metabolism = get_disease_gene_names('metabolism')
+    lipids = get_disease_gene_names('lipids')
+    
+    return (obesity & metabolism) - lipids
+```
 
 ### Άσκηση 51
 Δίνεται η παρακάτω συνάρτηση:
@@ -1605,6 +1751,29 @@ def get_pi_1M():
 
 Μπορείτε να επιστρέψετε τη θέση μετρώντας είτε ξεκινώντας από το 0, είτε από το 1. Ό,τι σας βολεύει. 
 
+Λύση:
+```python
+from collections import defaultdict
+def f():
+    
+    PI = get_pi_1M()
+
+    counters = defaultdict(int)
+    maximum_count = 1
+
+    for digit_index, digit in enumerate(PI):
+        counters[digit] += 1
+        
+        if counters[digit] > maximum_count:
+            maximum_count = counters[digit]
+            maximum_digit = digit
+            
+            if maximum_digit == '7':
+                break
+                
+    return digit_index
+```
+
 ### Άσκηση 52
 Φτιάξτε μία συνάρτηση η οποία παίρνει σαν παράμετρο έναν ακέραιο αριθμό. Η συνάρτηση δημιουργεί ένα αρχείο με το όνομα factors.txt. Το αρχείο περιέχει τόσες γραμμές όσες ο αριθμός της παραμέτρου. Η i-οστή γραμμή περιέχει όλους τους παράγοντες του i από το 1 μέχρι και το i διαχωρισμένοι με κόμματα. Οι παράγοντες ενός αριθμού είναι οι αριθμοί που τον διαρούν τέλεια. H συνάρτηση δεν επιστρέφει τίποτα. Για παράδειγμα:
 
@@ -1631,6 +1800,16 @@ print (data)
 '''
 ```
 
+Λύση:
+```python
+def f(N):
+    
+    with open('factors.txt', 'w') as f:
+        for i in range(1,N+1):
+            factors = [str(j) for j in range(1,i+1) if i%j==0]
+            f.write(','.join(factors) + '\n')
+```
+
 ### Άσκηση 53
 Γράψτε κώδικα python τέτοιον ώστε όταν γράφω:
 
@@ -1639,6 +1818,21 @@ f()()[0]()
 ```
 
 Να επιστρέφεται η τιμή: ```"Μήτσος"```
+
+Λύση 1
+```python
+def f():
+    def g():
+        def h():
+            return 'Μήτσος'
+        return [h]
+    return g
+```
+
+Λύση 2
+```python
+f = lambda : lambda : [lambda : 'Μήτσος']
+```
 
 ### Άσκηση 54
 Σε αυτό το site: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/ θα βρείτε το αρχείο: Homo_sapiens.gene_info.gz. Το αρχείο αυτό μπορείτε να το κατεβάσετε και απευθείας με αυτό το link: https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz . Το αρχείο αυτό είναι συμπιεσμένο οπότε θα πρέπει και να το αποσυμπιέσετε. Το αποσυμπιεσμένο αρχείο ονομάζεται: ```Homo_sapiens.gene_info```. To αρχείο είναι tab delimited (οι στήλες δηλαδή είναι χωρισμένες με τον χαρακτήρα tab) και περιέχει διάφορες πληροφορίες για τα γονίδια στο ανθρώπινο γονιδίωμα. Η πρώτη γραμμή του αρχείου περιέχει την επικεφαλίδα (header) η οποία περιέχει τους τίτλους των στηλών. Η επικεφαλίδα είναι:
@@ -1658,6 +1852,27 @@ print (d['A1BG']) # Τυπώνει: "alpha-1-B glycoprotein"
 print (d['GLP1R']) # Τυπώνρι: "glucagon like peptide 1 receptor"
 ```
 
+Λύση:
+```python
+def f(filename):
+    
+    ret = {}
+    
+    with open(filename) as f:
+        header = f.readline().strip().split('\t')
+        symbol_col = header.index('Symbol')
+        description_col = header.index('description')
+        
+        for l in f:
+            ls = l.strip().split('\t')
+            symbol = ls[symbol_col]
+            description = ls[description_col]
+            
+            ret[symbol] = description
+            
+    return ret
+```
+
 ### Άσκηση 55
 Ας θεωρήσουμε πάλι το ίδιο αρχείο με την άσκηση 54. Η στήλη ```Synonyms``` του αρχείου περιέχει τα συνώνυμα για κάθε γονίδιο. Οι τιμές αυτής της στήλης είναι strings διαχωρισμένα με τον χαρακτήρα ```|```. Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το ```Homo_sapiens.gene_info```. Η συνάρτηση θα πρέπει να επιστρέφει ένα dictionary. Τα keys του dictionary θα είναι οι τιμές στη στήλη με το όνομα: ```Symbol```. Τα values του dictionary θα πρέπει να είναι μία λίστα με όλα τα συνώνυμα του γονιδίου όπως υπάρχουν στη στήλη ```Synonyms```. Για παράδειγμα θα πρέπει να μπορώ να γράφω:
 
@@ -1665,6 +1880,27 @@ print (d['GLP1R']) # Τυπώνρι: "glucagon like peptide 1 receptor"
 d = f('Homo_sapiens.gene_info')
 print (d['A1BG']) # Τυπώνει: ['A1B', 'ABG', 'GAB', 'HYST2477']
 print (d['HCN2']) # Τυπώνει: ['BCNG-2', 'BCNG2', 'HAC-1']
+```
+
+Λύση:
+```python
+def f(filename):
+    
+    ret = {}
+    
+    with open(filename) as f:
+        header = f.readline().strip().split('\t')
+        symbol_col = header.index('Symbol')
+        synonyms_col = header.index('Synonyms')
+        
+        for l in f:
+            ls = l.strip().split('\t')
+            symbol = ls[symbol_col]
+            synonyms = ls[synonyms_col].split('|')
+            
+            ret[symbol] = synonyms
+            
+    return ret
 ```
 
 ### Άσκηση 56
@@ -1694,6 +1930,28 @@ with open(filename) as f:
 * Προσοχή 1! Το νέο αρχείο θα πρέπει να έχει και την επικεφαλίδα (header) του filename.
 * Προσοχή 2! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία χρωμοσώματα! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'Un'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλα αυτά.
 
+```python
+def ask_56(filename, chromosome):
+    
+    output_filename = f'Homo_sapiens_{chromosome}.gene_info'
+    
+    with open(filename) as f_in, open(output_filename, 'w') as f_out:
+        header_line = f_in.readline()
+        header = header_line.strip().split('\t')
+        chromosome_col = header.index('chromosome')
+        
+        f_out.write(header_line)
+                
+        for l in f_in:
+            ls = l.strip().split('\t')
+            chromosome_val = ls[chromosome_col]
+            
+            if chromosome_val == chromosome:
+                f_out.write(l)
+                
+    return output_filename
+```
+
 ### Άσκηση 57
 Φτιάξτε μία συνάρτηση με το όνομα ```ask_57_a``` η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα χρησιμοποιεί την συνάρτηση της άσκησης 56 για να "σπάσει" το αρχείο σε πολλά αρχεία όπου το κάθε αρχείο θα έχει και από ένα χρωμόσωμα. Θεωρήστε μόνο τα χρωμοσώματα: 1,2,3,...,22,Χ,Υ,ΜΤ. Το χρωμόσωμα ενός αρχείο υπάρχει στη στήλη με το όνομα: ```chromosome```. Θα πρέπει δηλαδή η συνάρτηση να φτιάχνει τα αντίστοιχα αρχεία:  ```Homo_sapiens_1.gene_info```, ```Homo_sapiens_2.gene_info```, ... ```Homo_sapiens_22.gene_info```, ```Homo_sapiens_Χ.gene_info```, ```Homo_sapiens_Υ.gene_info```, ```Homo_sapiens_ΜΤ.gene_info```. H συνάρτηση θα επιστρέφει μία λίστα με τα αρχεία που δημιούργησε.
 
@@ -1717,6 +1975,40 @@ with open(merged_filename) as f:
 * Προσοχή! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία χρωμοσώματα! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'Un'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλα αυτά.
 
 
+Λύση:
+```python
+def ask_57_a(filename):
+    chromosomes = list(map(str, range(1,23)))
+    chromosomes += ['X', 'Y', 'MT']
+    
+    ret = [ask_56(filename, chromosome) for chromosome in chromosomes]
+    return ret
+
+def ask_57_b(filenames):
+    
+    all_content=[]
+    for filename in filenames:
+        with open(filename) as f:
+            header_line = f.readline()
+            header = header_line.strip().split('\t')
+            symbol_col = header.index('Symbol')
+            
+            for l in f:
+                ls = l.strip().split('\t')
+                symbol = ls[symbol_col]
+                all_content.append((symbol, l))
+                
+    # sorting..
+    all_content.sort()
+    
+    with open('Homo_sapiens_MERGED.gene_info', 'w') as f:
+        f.write(header_line)
+        for l in all_content:
+            f.write(l[1])
+            
+
+```
+
 ### Άσκηση 58
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν παράμετρο ένα string. Η παράμετρος αυτή θα είναι το όνομα ενός αρχείου το οποίο θα έχει την ίδια δομή όπως το αρχείο ```Homo_sapiens.gene_info```. Η συνάρτηση θα επιστρέφει μία λίστα με τα χρωμοσώματα ταξινομημένα από το μεγαλύτερο προς το μικρότερο ανάλογα με το πλήθος γονιδίων που έχουν. Για παράδειγμα:
 
@@ -1735,6 +2027,27 @@ f('Homo_sapiens.gene_info') # Επιστρέφει τη λίστα:
 
 * Προσοχή! Υπάρχει ένα γονίδιο του οποίοι η τιμή στη στήλη chromosome είναι: ```10|19|3```. Ανήκει δηλαδή σε τρία χρωμοσώματα! αγνοήστε το. Επίσης υπάρχουν 146 γονίδια τα οποία δεν έχουν τιμή στη στήλη chromosome (η τιμή είναι: ```-```), 66 γονίδια με χρωμόσωμα: ```'Un'```και 66 γονίδια με χρωμόσωμα: ```X|Y```. Αγνοήστε τα όλα αυτά.
 
+Λύση:
+```python
+from collections import Counter
+
+def ask_58(filename):
+    
+    accepted_chromosomes = list(map(str, range(1,23)))
+    accepted_chromosomes += ['X', 'Y', 'MT']
+    
+    with open(filename) as f:
+        header = f.readline().strip().split('\t')
+        
+        chromosome_col = header.index('chromosome')
+        
+        c = Counter(x.split('\t')[chromosome_col] for x in f)
+        
+    c_sorted = sorted(c, key=c.get, reverse=True)
+    
+    return [x for x in c_sorted if x in accepted_chromosomes]
+```
+
 ### Άσκηση 59
 Έστω ```d``` το dictionary που επιστρέφει η συνάρτηση της άσκησης 55 όταν τη τρέχουμε βάζοντας το αρχείο ```Homo_sapiens.gene_info``` σαν παράμετρο. Συμπληρώστε τη lambda συνάρτηση στη παρακάτω εντολή ώστε να επιστρέψει το γονίδιο το οποίο έχει το μεγαλύτερο (από άποψη μήκους ονόματος) συνώνυμο:
 
@@ -1749,6 +2062,21 @@ max(d, key=lambda x: ...)
 Δίνεται ότι αυτό που θα πρέπει να επιστρέφει η παραπάνω εντολή είναι: ```'ARMCX5-GPRASP2'```. 
 
 Πρέπει να επιστρέφει το γονίδιο, όχι το συνώνυμο του γονιδίου.
+
+Λύση 1
+```python
+max(d, key=lambda x : max([len(x) for x in d[x]]))
+```
+
+Λύση 2
+```python
+max(d, key=lambda x: len(max(d[x], key=len)))
+```
+
+Λύση 3
+```python
+max(d, key=lambda x: max(map(len, d[x])) )
+```
 
 ### Άσκηση 60
 Μία ανάλυση που έγινε παρήγαγε ένα αρχείο το οποίο είχε το εξής περιεχόμενο:
@@ -1796,6 +2124,22 @@ TC0100007206.hg.1   CDC -1.15
 TC0100007207.hg.1   PINK1   1.1
 TC0100007207.hg.1   MIR6084 1.1
 '''
+```
+
+Λύση:
+```python
+def f(fn_inp, fn_outp):
+    with open(fn_inp) as f_inp, open(fn_outp, 'w') as f_outp:
+        header = f_inp.readline()
+        f_outp.write(header)
+        
+        for l in f_inp:
+            ls = l.strip().split('\t')
+            genes = ls[1].split(';')
+            for gene in genes:
+                
+                line = [ls[0], gene.strip(), ls[2]]
+                f_outp.write('\t'.join(line) + '\n')
 ```
 
 ### Άσκηση 61
