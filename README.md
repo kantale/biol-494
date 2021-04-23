@@ -42,8 +42,11 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_8.ipynb), [markdown](2021/draft_lesson_8.md), [html](2021/draft_lesson_8.html), [pdf](2021/draft_lesson_8.pdf)
 * Διάλεξη 10η - 7 Απριλίου 2021 . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_9.ipynb), [markdown](2021/draft_lesson_9.zip), [html](2021/draft_lesson_9.html), [pdf](2021/draft_lesson_9.pdf)
-* Διάλεξη 11η - 15 Απριλίου 2021 . numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html)
+* Διάλεξη 11η - 14 Απριλίου 2021 . numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_10.ipynb), [markdown](2021/draft_lesson_10.zip), [html](2021/draft_lesson_10.html), [pdf](2021/draft_lesson_10.pdf)
+* Διάλεξη 12η - 21 Απριλίου 2021 . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_11.ipynb), [markdown](2021/draft_lesson_11.zip), [html](2021/draft_lesson_11.html), [pdf](2021/draft_lesson_11.pdf)
+
 
 
 ### Βαθμολόγηση
