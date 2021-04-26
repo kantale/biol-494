@@ -95,7 +95,7 @@ Credits στον Παύλο Παυλίδη που το εντόπισε!
 
 
 
-### Σημείωση: Υπολογισμός Hardy Weinberg Equilibrium < 0.001"
+### Σημείωση: Υπολογισμός Hardy Weinberg Equilibrium"
 
 H wikipedia δίνει ένα πολύ καλό παράδειγμα:
 https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle#Significance_tests_for_deviation
