@@ -226,7 +226,7 @@ AM: {AM}
 
             print ('Progress: {}/{} {:0.2f}%'.format(i+1, total, 100*(i+1)/total))
             print ('Exercise:', exercise)
-            print ('      AM:', id_)
+            print ('      AM:', id_, '             Origin:', os.path.join(self.dir, id_))
             print ('Filename:', filename)
             print ('==================')
 
