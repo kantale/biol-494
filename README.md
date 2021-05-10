@@ -23,7 +23,7 @@
 * Nα αναπαραστήσει γραφικά βιολογικά δεδομένα σε Matplotlib / bokeh / seaborn
 
 ### Διαλέξεις
-* Διάλεξη 1η - 3 Φεβρουαρίου 2021 . Εγκατάσταση jupyter 
+* Διάλεξη 1η - 3 Φεβρουαρίου 2021 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
 * Διάλεξη 2η - 10 Φεβρουαρίου 2021 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_1.ipynb), [markdown](2021/draft_lesson_1.md), [html](2021/draft_lesson_1.html), [pdf](2021/draft_lesson_1.pdf)
 * Διάλεξη 3η - 17 Φεβρουαρίου 2021 . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
