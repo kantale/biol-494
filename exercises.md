@@ -2374,20 +2374,19 @@ print (second_strain['sequence'][:100])
 Για παράδειγμα θα πρέπει:
 
 ```python
-f('NM_004006.2:c.849_850insCCT') # Επιστρέψει True
-f('NM_004006.2:c.849_850insCCE') # Επιστρέψει False
-f('NM_004006.2:c.849_850ins') # Επιστρέψει False
-f('NM_004006.2:c.849_850inrsCCT') # Επιστρέψει False
-f('NM_004006.2:c.849_852insCCT') # Επιστρέψει False
-f('NM_004006.2:c.849insCCT') # Επιστρέψει False
-f('NM_004006.2:c.849_insCCT') # Επιστρέψει False
-f('NM_004006.2:r.849_850insCCT') # Επιστρέψει False
-f('NM_004006:c.849_850insCCT') # Επιστρέψει False
-f('NM_004006.:c.849_850insCCT') # Επιστρέψει False
-f('NM_004006.a:c.849_850insCCT') # Επιστρέψει False
-f('NM_004006:c.849_850insCCT') # Επιστρέψει False
-f('.2:c.849_850insCCT') # Επιστρέψει False
-f('MHTSOS.2:c.849_850insCCT') # Επιστρέψει True
+f('NM_004006.2:c.849_850insCCT') # Επιστρέφει True
+f('NM_004006.2:c.849_850insCCE') # Επιστρέφει False
+f('NM_004006.2:c.849_850ins') # Επιστρέφει False
+f('NM_004006.2:c.849_850inrsCCT') # Επιστρέφει False
+f('NM_004006.2:c.849_852insCCT') # Επιστρέφει False
+f('NM_004006.2:c.849insCCT') # Επιστρέφει False
+f('NM_004006.2:c.849_insCCT') # Επιστρέφει False
+f('NM_004006.2:r.849_850insCCT') # Επιστρέφει False
+f('NM_004006:c.849_850insCCT') # Επιστρέφει False
+f('NM_004006.:c.849_850insCCT') # Επιστρέφει False
+f('NM_004006.a:c.849_850insCCT') # Επιστρέφει False
+f('.2:c.849_850insCCT') # Επιστρέφει False
+f('MHTSOS.2:c.849_850insCCT') # Επιστρέφει True
 ```
 
 ### Άσκηση 72
@@ -2595,7 +2594,7 @@ alleles = {
 
 results_1 = ask_78(alleles)
 
-ask_79(alleles, 'file.json')
+ask_79(results_1, 'file.json')
 
 with open('file.json') as f:
     results_2 = json.load(f)
@@ -3036,7 +3035,7 @@ f(data)
 
 
 ### Άσκηση 92
-Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα κάνει plot τη συνάρτηση: f(x)=sin(1/x) για 10.000 σημεία του x από το -0.5 μέχρι το 0.5. 
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα κάνει plot τη συνάρτηση: f(x)=sin(1/x) για 10.000 σημεία του x από το -0.5 μέχρι το 0.5. Για τις τιμές του άξονα X προτείνεται να χρησιμοποιήσετε τη συνάρτηση της numpy: [np.linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html). 
 
 Η συνάρτηση η οποία υπολογίζει το ημίτονο στη numpy είναι η ```np.sin```
 
