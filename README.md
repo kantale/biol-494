@@ -164,6 +164,7 @@ print ("This is the solution for ex. 55")
    * [Non-beginner's python cheat sheet](https://gto76.github.io/python-cheatsheet/)
    * [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html)
    * [Python & APIs: A Winning Combo for Reading Public Data](https://realpython.com/python-api/)
+   * [Recursion in Python: An Introduction](https://realpython.com/python-recursion/)
 * Challenges: 
    * https://www.hackerrank.com/dashboard
    * https://stepik.org  
