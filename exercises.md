@@ -2301,6 +2301,7 @@ f(400, 800) # Πετάει OverflowError
 f(10,15) # Επιστρέφει 25
 ```
 
+Λύση:
 ```python
 def ask_66(a,b):
     for x in [a,b]:
