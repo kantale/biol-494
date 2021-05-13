@@ -2202,7 +2202,7 @@ def f():
     ok = 0
     times = 1_000_000
     
-    for x in range(times):
+    for _ in range(times):
         dices_10 = [random.randint(1,6) for x in range(10)]
         if dices_10[-1] == 6 and dices_10.count(6) == 2:
             ok += 1
