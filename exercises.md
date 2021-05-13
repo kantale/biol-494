@@ -3379,4 +3379,85 @@ def get_edges():
 ![img](https://i.imgur.com/htKB55m.png)
 
 
+### Άσκηση 96
+Γράψτε μία κλάση η οποία να ονομάζεται ```Strain```. Η κλάση θα έχει μία συνάρτηση αρχικοποίησης (```__init__```) η οποία θα δέχεται ένα record όπως το επιστρέφει ο generator της άσκηςης 69. Η συνάρτηση θα υλοποιεί επίσης τη μέθοδο ```__str__``` η οποία θα επιστρέφει μία αναπάρασταση του strain σε string. Η αναπαράσταση αυτή θα έχει το header του strain και τα πρώτα 100 νουκλεοτίδια του strain ενωμένα με τον χαρακτήρα Enter (```\n```). Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+gen = ask_69('covid_fasta.gz')
+first = Strain(next(gen))
+
+print (first)
+# Τυπώνει:
+```
+
+```
+>hCoV-19/Italy/FVG-ICGEB-S208/2020|EPI_ISL_498558|2020-07
+ATTAAAGGTTTATACTTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCTGTTCTCTAAACGAACTTTAAAATCTGTGTGGCTGTCACTC
+```
+
+### Άσκηση 97
+Φτιάξτε τη κλάση ```Covid```. Η κλάση θα έχει μία συνάρτηση αρχικοποίησης (```__init__```) η οποία θα δέχεται ένα όνομα αρχείου με δομή όπως το ```covid_fasta.gz```. Η συνάρτηση θα υλοποιεί τη μέθοδο ```__len__``` η οποία θα επιστρέφει το πλήθος από strains που έχει το αρχείο. Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+c = Covid('covid_fasta.gz')
+print (len(c))
+# Τυπώνει: 8727 
+```
+
+### Άσκηση 98 
+Συνεχίζοντας από την άσκηση 97. Εμπλουτίστε τη κλάση ```Covid``` έτσι ώστε να υλοποιεί τη μέθοδο ```__getitem__```. Μέσω αυτής της μεθόδου θα μπορούμε να προσπελάσουμε μία εγγραφή του αρχείου το οποίο έχει τα strains. H ```__getitem__``` θα πρέπει να επιστρέφει αντικείμενα τις κλάσης ```Strain``` της άσκηςη 96. Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+c = Covid('covid_fasta.gz')
+a_strain = c[100]
+print (a_strain)
+```
+```
+# Τυπώνει
+>hCoV-19/Japan/PG-6090/2020|EPI_ISL_689202|2020-07
+TAAAATCTGTGTGGCTGTCACTCGGCTGCATGCTTAGTGCACTCACGCAGTATAATTAATAACTAATTACTGTCGTTGACAGGACACGAGTAACTCGTCT 
+```
+
+Προσοχή! αν η ```__getitem__``` δεχθεί κάποιο index μεγαλύτερο ή ίσο από το πλήθος από strains που έχει το αρχείο, τότε θα πρέπει να πετάει ένα IndexError exception. Για παράδειγμα ο παρακάτω κώδικας θα πρέπει να τυπώνει ```oops..```:
+
+```python
+c = Covid('covid_fasta.gz')
+try:
+    a_strain = c[9000]
+except IndexError:
+    print ('oops..')
+```
+
+### Άσκηση 99
+Στη κλάση ```Strain```. της άσκησης 96 προσθέστε τη μέθοδο ```get_sequence``` η οποία δεν θα παίρνει κανένα όρισμα (εκτός από το self) και θα επιστρέφει την ακολουθία του Strain. Επίσης προσθέστε και τη static μέθοδο ```get_GATA1```. Η μέθοδος αυτή θα παίρνει σαν παράμετρο ένα string και θα επιστρέφει το πλήθος από ενδεχόμενα Binding Sites που μπορεί να προσδεθεί ο μεταγραφικός παράγοντας GATA1, όπως έχει περιγραφεί στην άσκηση 75 (μπορείτε να χρησιμοποιήσετε και το regular expression της δικής μου λύσης). Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+c = Covid('covid_fasta.gz')
+sequence = c[0].get_sequence()
+found = Strain.get_GATA1(sequence)
+print (found) # Τυπώνει 29 (σύμφωνα με τη δική μου υλοποίηση της άσκησης 75)
+```
+
+### Άσκηση 100 
+Φτιάξτε τη κλάση ```Virus``` η οποία να κληρονομεί την κλάση Strain. Η κλάση αυτή πρέπει να περιέχει μόνο μία μέθοδο, την ```__init__```. Η κλάση αυτή θα πρέπει να "συμπεριφέρεται" όπως ακριβώς η κλάση ```Strain``` με την μόνη αλλαγή ότι αντί για το γράμμα ```Τ``` στην ακολουθία της, να υπάρχει το γράμμα ```U```. Θα πρέπει δηλαδή να μπορώ να γράφω:
+
+```python
+gen = ask_69('covid_fasta.gz')
+first = Virus(next(gen))
+
+print (first)
+# Τυπώνει:
+```
+
+```
+>hCoV-19/Italy/FVG-ICGEB-S208/2020|EPI_ISL_498558|2020-07
+AUUAAAGGUUUAUACUUUCCCAGGUAACAAACCAACCAACUUUCGAUCUCUUGUAGAUCUGUUCUCUAAACGAACUUUAAAAUCUGUGUGGCUGUCACUC
+```
+
+
+
+
+
+
+
 
