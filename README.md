@@ -46,6 +46,8 @@
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_10.ipynb), [markdown](2021/draft_lesson_10.zip), [html](2021/draft_lesson_10.html), [pdf](2021/draft_lesson_10.pdf)
 * Διάλεξη 12η - 21 Απριλίου 2021 . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
    * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_11.ipynb), [markdown](2021/draft_lesson_11.zip), [html](2021/draft_lesson_11.html), [pdf](2021/draft_lesson_11.pdf)
+* Διάλεξη 13η - 12 Μαΐου 2021 . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+   * Οι **πρόχειρες** σημειώσεις της διάλεξης είναι διαθέσιμες ως [jupyter notebook](2021/draft_lesson_12.ipynb), [markdown](2021/draft_lesson_12.md), [html](2021/draft_lesson_12.html), [pdf](2021/draft_lesson_12.pdf)
 
 
 
