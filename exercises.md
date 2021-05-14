@@ -3401,7 +3401,7 @@ ATTAAAGGTTTATACTTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCTGTTCTCTAAACGAACTTTAA
 ```python
 c = Covid('covid_fasta.gz')
 print (len(c))
-# Τυπώνει: 8727 
+# Τυπώνει: 8728 
 ```
 
 ### Άσκηση 98 

@@ -108,7 +108,7 @@ class Grades:
         "'Ασκηση", "Αskisi", "Άσκση", "asksisi", 'Aslisi',
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
         'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh', 'asksi',
-        'Ask', 'askkisi', 'aσκηση', 'ASkhsh',
+        'Ask', 'askkisi', 'aσκηση', 'ASkhsh', '΄Άσκηση', 'Akhsh',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -561,6 +561,9 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2729 --actually_send_mail --start 61 --end 80 
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2913 --actually_send_mail --start 61 --end 80 
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 3125 --actually_send_mail --start 61 --end 80
+
+    $ 5τη Round
+    python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --action grade --start 81 --end 90  
     '''
 
     parser = argparse.ArgumentParser()
