@@ -22,6 +22,16 @@
 * Nα προσπελάσει βιολογικές βάσεις δεδομένων και να εφαρμόσει απλή στατιστική ανάλυση.
 * Nα αναπαραστήσει γραφικά βιολογικά δεδομένα σε Matplotlib / bokeh / seaborn
 
+### Ποια python να βάλω (και πως);
+Η ελάχιστη έκδοση της python που απαιτείται για τα μαθήματα είναι η 3.6 . Προφανώς προτείνεται να εγκαταστήσετε τη πιο πρόσφατη έκδοση. Ο προτεινόμενος τρόπος εγκατάστασης είναι μέσω του [conda](https://docs.conda.io/en/latest/). Υπάρχουν 2 τρόποι για να εγκαταστήσετε τη python μέσω του συστήματος διαχείρησης πακέτων, conda. Είτε μέσω της [Anaconda](https://www.anaconda.com/) είτε μέσω της [miniconda](https://docs.conda.io/en/latest/miniconda.html). Για μία σχετική συζήτησε για τα πλεονεκτήματα/μειονεκτήματα της κάθε επιλογής δείτε [εδώ](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). Η Anaconda είναι ίσως η πιο "εύκολη" επιλογή η οποία απαιτεί λιγότερο εξειδικευμένες γνώσης και περιλαμβάνει ένα τεράστιο πλήθος από χρήσιμες βιβλιοθήκες. Το μειονέκτημα της είναι ότι έχει αρκετές υπολογιστικές απαιτήσεις. Η miniconda, όπως λέει και το όνομά της, περιέχει μόνο τα ελάχιστα προγράμματα που απαιτούνται για να εγκαταστήσετε conda αλλά και τη τελευταία python. Παρόλα αυτά η miniconda σου επιτρέπει (μέσω του conda) να στήσεις το προγραμματιστικό περιβάλλον του υπολογιστή σου με ό,τι πακέτα θέλεις. Πολλοί που εγκαθιστούν τη python σε υπερυπολογιστικά συστήματα προτιμούν τη miniconda. 
+
+* Tutorials για την εγκατάσταση της anaconda:
+   * [Python Tutorial: Anaconda - Installation and Using Conda](https://www.youtube.com/watch?v=YJC6ldI3hWk)
+   * [How to Set Up Your Data Science Environment (Anaconda Beginner)](https://www.youtube.com/watch?v=C4OPn58BLaU)
+* Tutorials για την εγκατάσταση της miniconda:
+   * [Installation of miniconda](https://www.youtube.com/watch?v=XCvgyvBFjyM)
+   * [A very nice tutorial and presentation of the differences between anaconda / miniconda](https://www.youtube.com/watch?v=clKgaEZJYww])
+
 ### Διαλέξεις
 * Διάλεξη 1η - 3 Φεβρουαρίου 2021 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
 * Διάλεξη 2η - 10 Φεβρουαρίου 2021 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
@@ -144,9 +154,10 @@ print ("This is the solution for ex. 55")
 
 
 ### Επιπλέον υλικό:
-* Official Documentation 
+* Official Documentation / General links
    * [Python documentation](https://docs.python.org/3/)
    * [The official Python Tutorial](https://docs.python.org/3/tutorial/index.html)
+   * [Wikipedia](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 * Courses / Books / Textbooks 
    * [CS61A: Online Textbook ](https://inst.eecs.berkeley.edu//~cs61a/sp12/book/). Ευχαριστώ τον Ιωάννη-Ραφαήλ Τζονευράκη για το link. 
    * [Python Computing for Data Science](https://github.com/profjsb/python-seminar)
