@@ -2971,6 +2971,16 @@ print (new_cV.shape)
 
 ```
 
+
+Λύση:
+```python
+def f(df):
+    return df[
+        (df['type'] == 'Toxicity') & 
+        (df['level of evidence'].isin(['1A', '1B']))
+    ]
+```
+
 ### Άσκηση 82
 Παρατηρούμε ότι η στήλη ```type``` περιέχει τιμές που μπορεί να έχουν τη λέξη "Toxicity" μαζί με άλλες λέξεις. Επίσης η στήλη ```type``` έχει μερικές γραμμές στις οποίες η τιμή της είναι 'NA', οπότε θα πρέπει να τις αφαιρέσετε αυτες τις γραμμές για αυτή την άσκηση. 
 
@@ -2988,6 +2998,18 @@ f(cV) # Τυπώνει 'HLA-B'
 
 Σημείωση: δεν είναι υποχρεωτικό να αφαιρέσετε τις γραμμές που είναι ```'ΝΑ'``` στη στήλη ```type```  για να κάνετε την άσκηση. Κάντε το αν βοηθάει τη δική σας υλοποίηση. 
 
+Λύση:
+```python
+def f(df):
+    return (
+        df[df['type']
+        .str.contains('Toxicity', na=False)]
+        .groupby('gene')
+        .count()['variant']
+        .idxmax()
+    ) 
+```
+
 ### Άσκηση 83
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει ένα όρισμα. Το όρισμα θα είναι ένα DataFrame σαν το cV. Η συνάρτηση θα φτιάχνει ένα barplot με τους 10 πιο κοινούς φαινότυπους (στήλη ```phenotypes```) που υπάρχουν στο DataFrame της παραμέτρου.  Η συνάρτηση δεν θα επιστρέφει τίποτα. Θα πρέπει δηλαδή να μπορώ να γράφω:
 
@@ -2999,6 +3021,12 @@ f(cV)
 # Εμφανίζει το plot:
 ```
 ![img](https://i.imgur.com/3a4e7Gn.png)
+
+Λύση:
+```python
+def f(df):
+    df['phenotypes'].value_counts()[:10].plot(kind = 'bar')
+```
 
 ### Άσκηση 84
 Αν πάμε στο [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-MTAB-5214/Downloads) μπορούμε να κατεβάσουμε τα δεδομένα από [αυτό το paper](https://europepmc.org/article/MED/25954001). Σε αυτό το πείραμα οι συγγραφείς μελέτησαν την έκφραση σχεδόν όλων των γονιδίων σε 53 διαφορετικούς ιστούς. Μπορείτε να κατεβάσετε το αρχείο [Expression values across all genes (TPM)](https://www.ebi.ac.uk/gxa/experiments-content/E-MTAB-5214/resources/ExperimentDownloadSupplier.RnaSeqBaseline/tpms.tsv) και να το μελετήσετε.. Θα δείτε ότι η πρώτη στήλη είναι το ENSEMBL code για το γονίδιο, η 2η στήλη έχει το όνομα του γονιδίου και οι υπόλοιπες στήλες έχουν την έκφραση του γονιδίου σε διάφορους ιστούς (δεν μας ενδιαφέρει εδώ πως το μετρήσανε ή τι δείχνουν αυτές οι ποσότητες).
@@ -3039,6 +3067,13 @@ f(expression, 'coronary artery', 'aorta')
 
 Όπως καταλαβαίνετε από το πόσο "διαγώνιες" είναι οι τιμές σε αυτό το plot, μπορούμε να βγάλουμε συμπεράσματα για την ομοιότητα στη βιολογική λειτουργία αυτών των ιστών. 
 
+Λύση:
+```python
+def f(df, tissue_1, tissue_2):
+    df.plot.scatter(x=tissue_1, y=tissue_2, xlim=(0, 200), ylim=(0,200))
+```
+
+
 ### Άσκηση 85
 
 Σε αυτή τη σελίδα https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic υπάρχει ένας πίνακας με τα 50 αεροδρόμια με τη μεγαλύτερη επιβατική κίνηση σε όλο τον κόσμο. 
@@ -3063,6 +3098,20 @@ f()
 
 \* **ΠΡΟΣΟΧΗ!** Αυτή η εκφώνηση γράφτηκε πριν [προστεθούν στη σελίδα τα στατιστικά για το 2020](https://en.wikipedia.org/w/index.php?title=List_of_busiest_airports_by_passenger_traffic&type=revision&diff=1018415106&oldid=1014458171). Τα αποτελέσματά σας θα είναι διαφορετικά από το γράφημα που δόθηκε. Μπορείτε να προσπαθήσετε να βγάλετε το γράφημα που δόθηκε αν διαβάσετε το δεύτερο DataFrame που περιέχει η σελίδα (αντί για το πρώτο). Και τα δύο θεωρούνται σωστά.  
 
+
+Λύση:
+```python
+def f():
+    a = pd.read_html('https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic') 
+    (a[0]
+        .groupby('Country')[['Totalpassengers']]
+        .sum()
+        .sort_values(by='Totalpassengers', ascending=False)
+        .plot(kind='bar')
+    )
+
+```
+
 ### Άσκηση 86
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος αυτή θα είναι ένας 2-διάστατος numpy πίνακας. Η συνάρτηση θα επιστρέφει το άθροισμα των αριθμών που βρίσκονται στην περίμετρο του πίνακα. Δηλαδή τα στοιχεία που βρίσκονται στη πρώτη γραμμή, στη τελευταία γραμμή, στη 1η στήλη και στη τελευταία στήλη. Για παράδειγμα θα πρέπει:
 
@@ -3071,6 +3120,12 @@ a = np.array([[3,6,5], [4,3,10], [6,5,2]])
 
 f(a) # Επιστρέφει 41 = 3+6+5+10+2+5+6+4 
 
+```
+
+Λύση:
+```python
+def f(ar):
+    return ar[[0,-1],].sum() + ar[1:-1, [0, -1]].sum()
 ```
 
 ### Άσκηση 87
@@ -3100,6 +3155,33 @@ Hint: Πως παίρνουμε τη θέση του πίνακα με τον μ
 * Σημείωση 1: Μπορείτε να ανοίξετε το αρχείο και απευθείας από το URL του.
 * Σημείωση 2: Όταν λέμε "ίδια δομή" εννοούμε ίδιο πλήθος από columns, ίδια ονόματα από columns και κάθε column έχει τον ίδιο τύπο πληροφορίας.
 * Σημείωση 3: Τα ονόματα των γονιδίων βρίσκονται στη στήλη ```Gene Name```. 
+
+Λύση:
+```python
+def f(filename):
+    expression = np.genfromtxt(filename, 
+        delimiter='\t', 
+        skip_header=5, 
+        usecols=range(2,55))
+    
+    max_index = np.nanmean(expression, axis=1).argmax()
+
+    # Get Gene Names
+    gn_index = None
+    gene_names = []
+    with open('tpms.tsv') as f:
+        for line in f:
+            if line[0] == '#':
+                continue
+
+            if not gn_index:
+                gn_index = line.split('\t').index('Gene Name')
+                continue
+
+            gene_names.append(line.split('\t')[gn_index])
+            
+    return gene_names[max_index]
+```
 
 ### Άσκηση 88
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένας ακέραιος θετικός αριθμός. Η συνάρτηση θα "κατασκευάζει" και θα επιστρέφει έναν 2-διάστατο πίνακα σε numpy ως εξής:
@@ -3147,6 +3229,23 @@ array([[1]])
 
 Σημείωση 2: Όταν φτιάχνετε έναν πίνακα (π.χ. με τη np.zeros, np.array, np.ones κτλ) μπορείτε να χρησιμοποιήσετε τη παράμετρο ```dtype=np.int``` , για να είναι όλοι οι αριθμοί ακέραιοι. Για παράδειγμα: ```numpy.array([4,5,6], dtype=numpy.int)```.
 
+Λύση:
+```python
+def f(n):
+    
+    def k(x):
+        return 2*x-1
+    
+    def g(n):
+        return n*np.ones( (k(n), k(n)), dtype=np.int)
+    
+    start = g(n)
+    for x in range(n):
+        start[x:k(n)-x, x:k(n)-x] = g(n-x)
+    
+    return start
+```
+
 ### Άσκηση 89
 Φτιάξτε μία συνάρτηση η οποία θα παίρνει μία παράμετρο. Η παράμετρος θα είναι ένα 2-διάστατος numpy πίνακας. Η συνάρτηση θα επιστρέφει ένα νέο πίνακας όπου:
 * τα μονά στοιχεία θα έχουν γίνει ζυγά προσθέτοντάς τα κατά 1
@@ -3169,6 +3268,15 @@ array([[8, 8, 1, 3],
 ```
 
 **Σε αυτή την άσκηση (89) απογορεύεται να χρησιμοποιήσετε for/while** 
+
+Λύση:
+```python
+def f(ar):
+    even = ar%2==0
+    ar[even] -= 1
+    ar[~even] += 1
+    return ar
+```
 
 ### Άσκηση 90
 Υπάρχει μία πολύ σημαντική κατανομή στη στατιστική η οποία ονομάζεται κατανομή [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution). Η κατανομή αυτή μας δίνει τη πιθανότητα να συμβεί ένα συγκεκριμμένο πλήθος γεγονότων όταν:
@@ -3282,6 +3390,34 @@ def do_everything():
 
 do_everything()
 # Upload greek_football.json to dropbox
+```
+
+Λύση:
+```python
+def f():
+
+    def create_row(ar):
+        unique, counts = np.unique(ar, return_counts=True)
+        l = len(ar)
+        random_dict = dict(zip(unique, counts))
+
+        return np.array([random_dict.get(x,0)/l for x in range(10)])
+    
+    greek_games = get_greek_games()
+    n_games = 100_000
+
+    ret = np.zeros((4,10))
+    ret[0,:] = np.arange(0,10)
+
+    random_games = np.random.poisson(average, n_games) 
+    ret[1,:] = create_row(random_games)
+
+    real_games = np.array([x[1]+x[2] for x in greek_games], dtype=np.int)
+    ret[2,:] = create_row(real_games)
+
+    ret[3,:] = np.abs( ret[1,:] - ret[2,:] )
+
+    return ret
 ```
 
 ### Άσκηση 91
