@@ -2237,14 +2237,14 @@ ask_64_b(1000) # Επιστρέφει: 3.141092653621038
 
 Λύση:
 ```python
-def ask_61_a():
+def ask_64_a():
     n=1
     while True:
         yield 1/(n*(n+2))
         n+=4
         
-def ask_61_b(n):
-    g = ask_61_a()
+def ask_64_b(n):
+    g = ask_64_a()
     
     s = sum(next(g) for x in range(n))
     return s*8
