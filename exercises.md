@@ -2154,6 +2154,7 @@ def f(fn_inp, fn_outp):
 
 Λύση:
 ```python
+import random
 def ask_61():
     x = random.random()
     if x<0.14:

@@ -17,6 +17,6 @@ def get_ask(am):
         (91, 100),
     )
 
-    ret = [random.randint(g[0], g[1]+1) for g in groups]
+    ret = [random.randint(g[0], g[1]) for g in groups]
     return ret
 
