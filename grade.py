@@ -20,6 +20,8 @@ from itertools import groupby
 from collections import defaultdict
 from os.path import expanduser
 
+from get_ask import get_ask
+
 def get_home_dir():
     '''
     '''
@@ -82,6 +84,8 @@ class Mail:
 
         if actually_send_mail:
             self.server.sendmail(sender_email, receiver_email, message)
+        else:
+            print (text)
         time.sleep(sleep)
         print ('Mail sent')
 
@@ -116,10 +120,18 @@ class Grades:
 
     SOLUTIONS_FILENAME_PATTERN = 'AM_{id_}_ASK_{ASK}'
 
-    MAIL_PATTERN = '''
+    GREETING_1 = '''
 Γεια σας,
 
-Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις {START}-{END} στο μάθημα:
+Παρακάτω ακολουθεί η βαθμολογία σας στις ασκήσεις {START}-{END} στο μάθημα:'''
+
+    GREETING_2 = '''
+Γεια σας,
+
+Παρακάτω ακολουθεί η βαθμολογία σας στη τελική εξέταση του μαθήματος:'''
+    
+    MAIL_PATTERN = '''
+{GREETING}
 ΒΙΟΛ-494 - Εισαγωγή στον προγραμματισμό
 
 AM: {AM}
@@ -154,7 +166,8 @@ AM: {AM}
 --------------------------------
 '''
 
-    MAIL_SUBJECT = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων {START}-{END}'
+    MAIL_SUBJECT_1 = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων {START}-{END}'
+    MAIL_SUBJECT_2 = 'ΒΙΟΛ-494 - Βαθμοί τελικού διαγωνίσματος'
 
     def __init__(self, directory, solutions_dir, action, 
             ex=None, 
@@ -162,6 +175,7 @@ AM: {AM}
             start = 1,
             end = 20,
             send_to_me=False,
+            random_list=None,
         ):
         self.dir = directory
         self.solutions_dir = solutions_dir
@@ -171,6 +185,7 @@ AM: {AM}
         self.exercises_range = list(range(self.start, self.end+1))
         self.send_to_me = send_to_me
         self.all_anonymous_grades = [] # For plotting and statistics
+        self.random_list = random_list
 
         self.get_filenames(ex)
         self.get_all_exercises()
@@ -320,7 +335,6 @@ AM: {AM}
             grade = self.get_grade_from_comment(comment)
             comment = self.remove_grade_from_comment(comment)
             
-
             all_answers[AM][ask] = {
                 'answer': answer,
                 'grade': grade,
@@ -359,14 +373,12 @@ AM: {AM}
             if True:
                 self.mail.do_send_mail(
                     to=mail_address, 
-                    subject=self.MAIL_SUBJECT.format(START=self.start, END=self.end), 
+                    #subject=self.MAIL_SUBJECT_1.format(START=self.start, END=self.end), 
+                    subject=self.MAIL_SUBJECT_2, 
                     text=mail,
                     actually_send_mail=self.actually_send_mail,
                 )
             #a=1/0
-
-            
-
 
     def create_exercise_mail(self,exercise, solution, comment, grade):
 
@@ -383,8 +395,16 @@ AM: {AM}
 
         pandas_df = []
 
+        if not self.random_list is None:
+            required_list = get_ask(AM)
+        else:
+            required_list = None
+
         #for ASK, details in self.all_answers[AM].items():
         for ASK in self.exercises_range:
+
+            if required_list and not ASK in required_list:
+                continue
 
             if ASK in self.all_answers[AM]:
                 details = self.all_answers[AM][ASK]
@@ -406,11 +426,11 @@ AM: {AM}
         average = pandas_df['Βαθμός'].mean()
         summary += '\n\nΜέσος Όρος: {}'.format(average)
 
-
+        #greeting = self.GREETING_1.format(START=self.start, END=self.end)
+        greeting = self.GREETING_2
 
         ret = self.MAIL_PATTERN.format(
-            START=self.start,
-            END=self.end,
+            GREETING=greeting,
             AM=AM,
             EXERCISES=exercises_mail,
             SUMMARY=summary,
@@ -564,13 +584,18 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 3125 --actually_send_mail --start 61 --end 80
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2898 --actually_send_mail --start 61 --end 80
 
-    $ 5th Round
+    # 5th Round
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --action grade --start 81 --end 90  
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 2970  --action send_mail --send_to_me --actually_send_mail --start 81 --end 90
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --action send_mail --actually_send_mail --start 81 --end 90  
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 2967  --action send_mail --actually_send_mail --start 81 --end 90  
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 3037  --action send_mail --actually_send_mail --start 81 --end 90  
 
+    # final
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100  
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100 --ex 2979
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 2979  --action send_mail --random_list 10 --actually_send_mail --send_to_me --start 1 --end 100 
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 2979  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
     '''
 
     parser = argparse.ArgumentParser()
@@ -582,6 +607,7 @@ if __name__ == '__main__':
     parser.add_argument("--send_to_me", action="store_true")
     parser.add_argument("--start", type=int, help="Start from")
     parser.add_argument("--end", type=int, help="Start end")
+    parser.add_argument("--random_list", type=int, help='Number of random exercises')
     args = parser.parse_args()
 
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
@@ -590,5 +616,6 @@ if __name__ == '__main__':
         send_to_me=args.send_to_me,
         start = args.start,
         end = args.end,
+        random_list = args.random_list,
         )
     
