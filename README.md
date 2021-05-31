@@ -159,8 +159,6 @@ print ("This is the solution for ex. 55")
 Κατά τη διάρκεια της εξέτασης μπορείτε να ρωτάτε σχετικά με τα θέματα στο slack. **Απαγορεύεται να στέλνετε DMs κατά τη διάρκεια της εξέτασης. Αν στείλετε δεν θα απαντήσω.** Για να μη γίνει.. συνωστισμός στο slack έχουν δημιουργηθεί 10 κανάλια #1-10, #11-20, ..., #91-100. Θα στείλετε την απορία στο αντίστοιχο κανάλι του αριθμού της άσκησης/θέματος. Για παράδειγμα μία απορία για την άσκηση/θέμα #58 θα πάει στο κανάλι #51-60. 
 
 
-
-
 ### Επιπλέον υλικό:
 * Official Documentation / General links
    * [Python documentation](https://docs.python.org/3/)
@@ -214,5 +212,7 @@ print ("This is the solution for ex. 55")
    * [28 Jupyter Notebook tips, tricks and shortcuts - Dataquest](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/).  Ευχαριστώ τον Thimo Kristani για το link. 
 * Tips & Tricks
    * 100 Helpful Python Tips You Can Learn Before Finishing Your Morning Coffee https://towardsdatascience.com/100-helpful-python-tips-you-can-learn-before-finishing-your-morning-coffee-eb9c39e68958 
-
-
+* Forums & QAs 
+   * https://www.reddit.com/r/bioinformatics/ 
+   * https://bioinformatics.stackexchange.com/ 
+   * https://www.biostars.org/ 

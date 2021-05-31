@@ -343,7 +343,13 @@ AM: {AM}
         self.all_answers = all_answers
         #print (json.dumps(self.all_answers, indent=4))
 
-        self.all_anonymous_grades = [[v.get(i, {'grade':0})['grade'] for i in self.exercises_range] for k,v in all_answers.items()]
+        self.all_anonymous_grades = [
+            [
+                v.get(i, {'grade':0})['grade'] for i in self.exercises_range
+            ] 
+            for k,v in all_answers.items()
+        ]
+
         with open('grades.json', 'w') as f:
             json.dump(self.all_anonymous_grades, f)
         print ('Created anonymous grades.json')
@@ -516,7 +522,10 @@ AM: {AM}
         with open(filename) as f:
             content = json.load(f)
 
-        code_cells = [''.join(x['source']) for x in content['cells'] if x['cell_type'] == 'code']
+        code_cells = [
+            ''.join(x['source']) for x in content['cells'] 
+                if x['cell_type'] == 'code'
+        ]
         return '\n\n'.join(code_cells)
 
     def get_exercises_MIME(self, filename):
