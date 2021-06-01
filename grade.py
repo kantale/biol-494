@@ -246,8 +246,8 @@ AM: {AM}
             print ('Filename:', filename)
             print ('==================')
 
-            if id_ == '3052':
-                print (answer)
+            #if id_ == '3052':
+            #    print (answer)
 
             if os.path.exists(filename):
                 print ('   Already graded..')
@@ -605,6 +605,8 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100 --ex 2979
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 2979  --action send_mail --random_list 10 --actually_send_mail --send_to_me --start 1 --end 100 
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 2979  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 3117  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 --send_to_me
+    python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final   --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
     '''
 
     parser = argparse.ArgumentParser()
