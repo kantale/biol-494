@@ -25,6 +25,8 @@
 ### Ποια python να βάλω (και πως);
 Η ελάχιστη έκδοση της python που απαιτείται για τα μαθήματα είναι η 3.6 . Προφανώς προτείνεται να εγκαταστήσετε τη πιο πρόσφατη έκδοση. Ο προτεινόμενος τρόπος εγκατάστασης είναι μέσω του [conda](https://docs.conda.io/en/latest/). Υπάρχουν 2 τρόποι για να εγκαταστήσετε τη python μέσω του συστήματος διαχείρησης πακέτων, conda. Είτε μέσω της [Anaconda](https://www.anaconda.com/) είτε μέσω της [miniconda](https://docs.conda.io/en/latest/miniconda.html). Για μία σχετική συζήτησε για τα πλεονεκτήματα/μειονεκτήματα της κάθε επιλογής δείτε [εδώ](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). Η Anaconda είναι ίσως η πιο "εύκολη" επιλογή η οποία απαιτεί λιγότερο εξειδικευμένες γνώσης και περιλαμβάνει ένα τεράστιο πλήθος από χρήσιμες βιβλιοθήκες. Το μειονέκτημά της είναι ότι έχει αρκετές υπολογιστικές απαιτήσεις. Η miniconda, όπως λέει και το όνομά της, περιέχει μόνο τα ελάχιστα προγράμματα που απαιτούνται για να εγκαταστήσετε conda αλλά και τη τελευταία python. Παρόλα αυτά η miniconda σου επιτρέπει (μέσω του conda) να στήσεις το προγραμματιστικό περιβάλλον του υπολογιστή σου με ό,τι πακέτα θέλεις. Πολλοί που εγκαθιστούν τη python σε υπερυπολογιστικά συστήματα προτιμούν τη miniconda. 
 
+Αν έχετε μπερδευτεί διαβάστε [αυτό τον απόλυτο οδηγό των conda, anaconda, miniconda](https://whiteboxml.com/blog/the-definitive-guide-to-python-virtual-environments-with-conda) 
+
 * Tutorials για την εγκατάσταση της anaconda:
    * [Python Tutorial: Anaconda - Installation and Using Conda](https://www.youtube.com/watch?v=YJC6ldI3hWk)
    * [How to Set Up Your Data Science Environment (Anaconda Beginner)](https://www.youtube.com/watch?v=C4OPn58BLaU)
@@ -201,6 +203,8 @@ print ("This is the solution for ex. 55")
    * [Cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
    * [Introduction to Pandas](https://realpython.com/pandas-dataframe/) . [plotting with pandas](https://realpython.com/pandas-plot-python/)
    * [100 pandas puzzles](https://github.com/ajcr/100-pandas-puzzles)
+* Plotting
+   * [Visualizing Data in Python Using plt.scatter()](https://realpython.com/visualizing-python-plt-scatter/)
 * Regular Expressions
    * [Python Regex Cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
    * Debugging 
@@ -216,3 +220,6 @@ print ("This is the solution for ex. 55")
    * https://www.reddit.com/r/bioinformatics/ 
    * https://bioinformatics.stackexchange.com/ 
    * https://www.biostars.org/ 
+
+
+
