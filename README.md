@@ -190,6 +190,7 @@ print ("This is the solution for ex. 55")
    * https://www.hackerrank.com/dashboard
    * https://stepik.org  
    * http://rosalind.info/problems/locations/ 
+   * https://www.spoj.com/problems/classical/ 
 * NumPy
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
