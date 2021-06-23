@@ -191,6 +191,7 @@ print ("This is the solution for ex. 55")
    * https://stepik.org  
    * http://rosalind.info/problems/locations/ 
    * https://www.spoj.com/problems/classical/ 
+   * https://github.com/microsoft/PythonProgrammingPuzzles 
 * NumPy
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
