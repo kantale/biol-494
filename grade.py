@@ -379,8 +379,8 @@ AM: {AM}
             if True:
                 self.mail.do_send_mail(
                     to=mail_address, 
-                    #subject=self.MAIL_SUBJECT_1.format(START=self.start, END=self.end), 
-                    subject=self.MAIL_SUBJECT_2, 
+                    subject=self.MAIL_SUBJECT_1.format(START=self.start, END=self.end), 
+                    #subject=self.MAIL_SUBJECT_2,  # Final
                     text=mail,
                     actually_send_mail=self.actually_send_mail,
                 )
@@ -432,8 +432,8 @@ AM: {AM}
         average = pandas_df['Βαθμός'].mean()
         summary += '\n\nΜέσος Όρος: {}'.format(average)
 
-        #greeting = self.GREETING_1.format(START=self.start, END=self.end)
-        greeting = self.GREETING_2
+        greeting = self.GREETING_1.format(START=self.start, END=self.end) # Interim 
+        #greeting = self.GREETING_2 # Final
 
         ret = self.MAIL_PATTERN.format(
             GREETING=greeting,
@@ -592,6 +592,7 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2913 --actually_send_mail --start 61 --end 80 
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 3125 --actually_send_mail --start 61 --end 80
     python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2898 --actually_send_mail --start 61 --end 80
+    python grade.py --dir /Users/admin/biol-494/exercises4/ --sol /Users/admin/biol-494/solutions4 --action send_mail --ex 2871 --actually_send_mail --start 61 --end 80
 
     # 5th Round
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --action grade --start 81 --end 90  
