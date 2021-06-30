@@ -79,7 +79,7 @@ snp_0 rs6078030 9098 C T 1 0 0 0 1 0 0 1 0 0 1 0 1 0 0
   * Η 1η στήλη είναι ο κωδικός του SNP
   * H 2η στήλη θα περιέχει το [Hardy Weinberg Equilibrium](https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle) statistic για το ενωμένο cases+controls dataset. Μπορείτε να χρησιμοποιήσετε οποιαδίποτε μέθοδο για τον υπολογισμό του (π.χ.: https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle#Significance_tests_for_deviation)
 
-* -LD SNP1 SNP2 : Τυπώνει στο αρχείο "output".ld το Linkage Disequilibrium (LD) R square και D' (D prime) μεταξύ των SNPs με κωδικό SNP1 και SNP2. Εξαιρετικά καλές και εύκολες οδηγίες για τον υπολογισμό του LD βρίσκονται εδώ: http://rannala.org/books/CUPChap3.pdf κεφάλαιο: 3.2.2 EM algorithm for estimating disequilibrium.
+* ~-LD SNP1 SNP2 : Τυπώνει στο αρχείο "output".ld το Linkage Disequilibrium (LD) R square και D' (D prime) μεταξύ των SNPs με κωδικό SNP1 και SNP2. Εξαιρετικά καλές και εύκολες οδηγίες για τον υπολογισμό του LD βρίσκονται εδώ: http://rannala.org/books/CUPChap3.pdf κεφάλαιο: 3.2.2 EM algorithm for estimating disequilibrium.~ **Αυτό το μέρος αποσύρεται**
 
 Προσοχή! σε αυτό το λινκ http://rannala.org/books/CUPChap3.pdf υπάρχει ένα λάθος στη σελίδα 68 το λάθος είναι:
 
@@ -91,7 +91,7 @@ Credits στον Παύλο Παυλίδη που το εντόπισε!
 * --AF_filter NUMBER παράγει ένα αρχείο με το όνομα AF_filter το οποίο περιέχει τους κωδικούς των SNPs των οποίων το alternative allele έχει Allele Frequency μεγαλύτερο απο το NUMBER.
 * --HWE_plot ONOMA_ARXEIOY.png παράγει ένα plot με τη κατανομή των τιμών του HWE statistic
 * --AF_plot ONOMA_ARXEIOY.png παράγει ένα plot με τη κατανομή των τιμών του Allele Frequency
-* --LD_run KWDIKOS_SNP threshold ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png με αυτή την εντολή υπολογίζει το LD μεταξύ του SNP KWDIKOS_SNP και όλων των SNPs downstream (δηλαδή σε μεγαλύτερες θέσεις) ή upstream (δηλαδή σε μικρότερες θέσεις). Μόλις βρει 1 SNP με LD μικρότερο από το threshold σταματάει. Φτιάχνει ένα plot όπου στον Χ είναι τα SNPs και στο Y είναι η τιμή του LD (R-square). Στο plot θα πρέπει να φαίνεται με κάποιο "σημάδι" η θέση του SNP KWDIKOS_SNP. Στο τέλος σώζει το plot στο αρχείο ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png. 
+* ~--LD_run KWDIKOS_SNP threshold ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png με αυτή την εντολή υπολογίζει το LD μεταξύ του SNP KWDIKOS_SNP και όλων των SNPs downstream (δηλαδή σε μεγαλύτερες θέσεις) ή upstream (δηλαδή σε μικρότερες θέσεις). Μόλις βρει 1 SNP με LD μικρότερο από το threshold σταματάει. Φτιάχνει ένα plot όπου στον Χ είναι τα SNPs και στο Y είναι η τιμή του LD (R-square). Στο plot θα πρέπει να φαίνεται με κάποιο "σημάδι" η θέση του SNP KWDIKOS_SNP. Στο τέλος σώζει το plot στο αρχείο ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png.~ **Αυτό το μέρος αποσύρεται**
 
 
 
