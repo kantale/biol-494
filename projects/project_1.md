@@ -88,7 +88,7 @@ snp_0 rs6078030 9098 C T 1 0 0 0 1 0 0 1 0 0 1 0 1 0 0
 Credits στον Παύλο Παυλίδη που το εντόπισε!
 
 * --HWE_filter NUMBER παράγει ένα αρχείο με το όνομα HWE_filter το οποίο περιέχει τους κωδικούς των SNPs που έχου HWE μεγαλύτερο από το NUMBER 
-* --AF_filter NUMBER παράγει ένα αρχείο με το όνομα AF_filter το οποίο περιέχει τους κωδικούς των SNPs που έχουν Allele Frequency μεγαλύτερο απο το NUMBER 
+* --AF_filter NUMBER παράγει ένα αρχείο με το όνομα AF_filter το οποίο περιέχει τους κωδικούς των SNPs των οποίων το alternative allele έχει Allele Frequency μεγαλύτερο απο το NUMBER.
 * --HWE_plot ONOMA_ARXEIOY.png παράγει ένα plot με τη κατανομή των τιμών του HWE statistic
 * --AF_plot ONOMA_ARXEIOY.png παράγει ένα plot με τη κατανομή των τιμών του Allele Frequency
 * --LD_run KWDIKOS_SNP threshold ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png με αυτή την εντολή υπολογίζει το LD μεταξύ του SNP KWDIKOS_SNP και όλων των SNPs downstream (δηλαδή σε μεγαλύτερες θέσεις) ή upstream (δηλαδή σε μικρότερες θέσεις). Μόλις βρει 1 SNP με LD μικρότερο από το threshold σταματάει. Φτιάχνει ένα plot όπου στον Χ είναι τα SNPs και στο Y είναι η τιμή του LD (R-square). Στο plot θα πρέπει να φαίνεται με κάποιο "σημάδι" η θέση του SNP KWDIKOS_SNP. Στο τέλος σώζει το plot στο αρχείο ΟΝΟΜΑ_ΑΡΧΕΙΟΥ.png. 
