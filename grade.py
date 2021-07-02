@@ -113,7 +113,7 @@ class Grades:
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
         'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh', 'asksi',
         'Ask', 'askkisi', 'aσκηση', 'ASkhsh', '΄Άσκηση', 'Akhsh',
-        'Askhh', 'Askshsh', '΄΄Ασκηση'
+        'Askhh', 'Askshsh', '΄΄Ασκηση', '΄΄Άσκηση',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -162,12 +162,14 @@ AM: {AM}
 Σχόλια:
 {COMMENT}
 --------------------------------
-Βαθμός: {GRADE}/10
+Βαθμός: {GRADE}
 --------------------------------
 '''
 
     MAIL_SUBJECT_1 = 'ΒΙΟΛ-494 - Βαθμοί ασκήσεων {START}-{END}'
     MAIL_SUBJECT_2 = 'ΒΙΟΛ-494 - Βαθμοί τελικού διαγωνίσματος'
+
+    GRADE_RE = r'^-?\d+$' # The regexp that matched grades. 
 
     def __init__(self, directory, solutions_dir, action, 
             ex=None, 
@@ -218,17 +220,26 @@ AM: {AM}
             with open(filename) as f:
                 comment = f.read()
 
-        grades = [int(x) for x in comment.split('\n') if re.match(r'^\d+$', x)]
+        grades = [
+            int(x) 
+            for x in comment.split('\n') 
+                if re.match(self.GRADE_RE, x)
+        ]
+
         assert len(grades) == 1
-        assert grades[0] in range(0,11)
+        assert grades[0] in list(range(0, 11)) + [-1] # -1 means: do not grade!
+        if grades[0] == -1:
+            return pd.NA
 
         return grades[0]
 
     def remove_grade_from_comment(self, comment):
 
-        return '\n'.join(x for x in comment.split('\n') if not re.match(r'^\d+$', x))
-
-
+        return '\n'.join(
+            x 
+            for x in comment.split('\n') 
+                if not re.match(self.GRADE_RE, x)
+        )
 
     def grade(self,):
 
@@ -351,7 +362,12 @@ AM: {AM}
         ]
 
         with open('grades.json', 'w') as f:
-            json.dump(self.all_anonymous_grades, f)
+            # Remove NAN 
+            to_save = [
+                list(filter(pd.notna, x)) 
+                for x in self.all_anonymous_grades
+            ]
+            json.dump(to_save, f)
         print ('Created anonymous grades.json')
 
     @staticmethod
@@ -386,13 +402,18 @@ AM: {AM}
                 )
             #a=1/0
 
-    def create_exercise_mail(self,exercise, solution, comment, grade):
+    def create_exercise_mail(self, exercise, solution, comment, grade):
+
+        if pd.isna(grade):
+            grade_str = '---'
+        else:
+            grade_str = f'{grade}/10'
 
         return self.MAIL_EXERCISE_PATTERN.format(
-            EXERCISE=exercise,
-            SOLUTION=solution,
-            COMMENT=comment,
-            GRADE=grade,
+            EXERCISE = exercise,
+            SOLUTION = solution,
+            COMMENT = comment,
+            GRADE = grade_str,
         )
 
     def create_mail(self, AM):
@@ -428,8 +449,9 @@ AM: {AM}
             pandas_df.append(grade_dics)
 
         pandas_df = pd.DataFrame(pandas_df)
-        summary = pandas_df.to_string(index=False)
-        average = pandas_df['Βαθμός'].mean()
+        summary = pandas_df.to_string(index=False, na_rep='---')
+        summary = summary.replace('<NA>', '  ---') # The above does not work!!!
+        average = pandas_df['Βαθμός'].mean(skipna=True)
         summary += '\n\nΜέσος Όρος: {}'.format(average)
 
         greeting = self.GREETING_1.format(START=self.start, END=self.end) # Interim 
@@ -600,6 +622,14 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --action send_mail --actually_send_mail --start 81 --end 90  
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 2967  --action send_mail --actually_send_mail --start 81 --end 90  
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 3037  --action send_mail --actually_send_mail --start 81 --end 90  
+
+    # 6th Round 
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100 --ex 2979 
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --start 91 --end 100  
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --actually_send_mail  --start 91 --end 100
+
+
 
     # final
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100  
