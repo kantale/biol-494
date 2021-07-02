@@ -178,6 +178,7 @@ AM: {AM}
             end = 20,
             send_to_me=False,
             random_list=None,
+            optional=None,
         ):
         self.dir = directory
         self.solutions_dir = solutions_dir
@@ -188,6 +189,7 @@ AM: {AM}
         self.send_to_me = send_to_me
         self.all_anonymous_grades = [] # For plotting and statistics
         self.random_list = random_list
+        self.optional = set(optional) if optional else set()
 
         self.get_filenames(ex)
         self.get_all_exercises()
@@ -441,8 +443,12 @@ AM: {AM}
                 grade = details['grade']
             else:
                 answer = '\n'
-                comment = 'Δεν έστειλες τίποτα για αυτή την άσκηση!'
-                grade = 0
+                if grade in self.optional:
+                    comment = 'Αυτή η άσκηση είναι προαιρετική. Δεν θα μετρήσει στη βαθμολογία'
+                    grade = pd.NA
+                else:
+                    comment = 'Δεν έστειλες τίποτα για αυτή την άσκηση!'
+                    grade = 0
 
             grade_dics = {'Άσκηση': ASK, 'Βαθμός': grade}
             exercises_mail += self.create_exercise_mail(ASK, answer, comment, grade)
@@ -628,6 +634,7 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100 --ex 2979 
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --start 91 --end 100  
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --actually_send_mail  --start 91 --end 100
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6  --action send_mail  --start 91 --end 100 --optional 94 
 
 
 
@@ -650,6 +657,7 @@ if __name__ == '__main__':
     parser.add_argument("--start", type=int, help="Start from")
     parser.add_argument("--end", type=int, help="Start end")
     parser.add_argument("--random_list", type=int, help='Number of random exercises')
+    parser.add_argument("--optional", nargs='*', type=int, help="Optional exercises")
     args = parser.parse_args()
 
     g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
@@ -659,5 +667,6 @@ if __name__ == '__main__':
         start = args.start,
         end = args.end,
         random_list = args.random_list,
+        optional = args.optional,
         )
     
