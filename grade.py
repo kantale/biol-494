@@ -116,7 +116,7 @@ class Grades:
         'Askhh', 'Askshsh', '΄΄Ασκηση', '΄΄Άσκηση',
     ]
 
-    ex_regexp = re.compile(r'^\s*#+\s*({})\s*(?P<ask>\d+)'.format('|'.join(declarations)))
+    ex_regexp = re.compile(r'^\s*#+\s*({})\s*_*(?P<ask>\d+)'.format('|'.join(declarations)))
 
     SOLUTIONS_FILENAME_PATTERN = 'AM_{id_}_ASK_{ASK}'
 
@@ -443,7 +443,7 @@ AM: {AM}
                 grade = details['grade']
             else:
                 answer = '\n'
-                if grade in self.optional:
+                if ASK in self.optional:
                     comment = 'Αυτή η άσκηση είναι προαιρετική. Δεν θα μετρήσει στη βαθμολογία'
                     grade = pd.NA
                 else:
@@ -630,11 +630,14 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises5/ --sol /Users/admin/biol-494/solutions5 --ex 3037  --action send_mail --actually_send_mail --start 81 --end 90  
 
     # 6th Round 
-    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100 --optional 94
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --action grade --start 91 --end 100 --ex 2979 
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --start 91 --end 100  
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2979  --action send_mail --actually_send_mail  --start 91 --end 100
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6  --action send_mail  --start 91 --end 100 --optional 94 
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6  --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail  
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3103 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3089 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
 
 
 
