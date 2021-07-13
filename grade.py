@@ -22,10 +22,27 @@ from os.path import expanduser
 
 from get_ask import get_ask
 
-def get_home_dir():
+class Utils:
     '''
+    Useful generic utils
     '''
-    return expanduser("~")
+    @staticmethod
+    def get_home_dir():
+        '''
+        '''
+        return expanduser("~")
+
+    @staticmethod
+    def get_immediate_subdirectories(a_dir):
+        '''
+        https://stackoverflow.com/a/800201
+        '''
+        for name in os.listdir(a_dir):
+            p = os.path.join(a_dir, name)
+            
+            if os.path.isdir(p):
+                yield p 
+
 
 class Mail:
 
@@ -36,7 +53,11 @@ class Mail:
 
     @staticmethod
     def get_password():
-        password_filename = os.path.join(get_home_dir(), Mail.PASSWORD_PATH)
+        password_filename = os.path.join(
+            Utils.get_home_dir(), 
+            Mail.PASSWORD_PATH
+        )
+
         with open(password_filename) as f:
             data = json.load(f)
         return data['password']
@@ -113,7 +134,8 @@ class Grades:
         'Ασκηση', "Task", "ask", "AKHSH", "aksisi", 'Akshsh',
         'askshsh', 'ασκ', '΄άσκηση', 'Asksh', 'Askhshh', 'asksi',
         'Ask', 'askkisi', 'aσκηση', 'ASkhsh', '΄Άσκηση', 'Akhsh',
-        'Askhh', 'Askshsh', '΄΄Ασκηση', '΄΄Άσκηση',
+        'Askhh', 'Askshsh', '΄΄Ασκηση', '΄΄Άσκηση', 'Άskisi', 'Αskisi',
+        '.+skisi',
     ]
 
     ex_regexp = re.compile(r'^\s*#+\s*({})\s*_*(?P<ask>\d+)'.format('|'.join(declarations)))
@@ -191,6 +213,9 @@ AM: {AM}
         self.random_list = random_list
         self.optional = set(optional) if optional else set()
 
+        print (f'EXERCICE  DIR: {self.dir}')
+        print (f'SOLUTIONS DIR: {self.solutions_dir}')
+
         self.get_filenames(ex)
         self.get_all_exercises()
 
@@ -202,6 +227,8 @@ AM: {AM}
             self.mail = Mail()
             self.send_mail()
             self.mail.disconnect_from_gmail()
+        elif action == 'aggregate':
+            pass # Do nothing
         else:
             raise Exception('Unknown action: {}'.format(action))
 
@@ -582,6 +609,188 @@ AM: {AM}
         self.filenames = glob.glob(os.path.join(self.dir, ex))
         print ('Read: {} files'.format(len(self.filenames)))
 
+    @staticmethod
+    def get_project_grades(projects_dir = 'projects'):
+        '''
+        Get all projects
+        '''
+
+        gen = Utils.get_immediate_subdirectories(projects_dir)
+
+        def normalize_AM(AM):
+            if AM.startswith('bio'):
+                assert re.fullmatch(r'bio\d+', AM)
+                return AM.replace('bio', '')
+
+            return AM
+
+        ret = []
+
+        for d in gen:
+
+            project_path = os.path.split(d)[1]
+            AMs = project_path.split('_')
+            AMs = list(map(normalize_AM, AMs))
+
+            #print (project_path, '-->', AMs)
+
+            notes_filename = os.path.join(d, 'notes.md')
+            
+            try:
+                with open(notes_filename) as f:
+                    notes = f.read()
+            except FileNotFoundError as e:
+                print (f'WARNING: COULD NOT FIND: {notes_filename}')
+                continue
+
+            m = re.search(r'\*\*Βαθμός: ([\d\.]+)\*\*', notes)
+            assert m
+
+            grade = float(m.group(1))
+            assert 0<=grade<=10.0
+
+            ret.append({
+                'AMs': AMs,
+                'grade': grade,
+            })
+
+        return ret
+
+
+
+
+class Aggregator:
+    '''
+    Aggregates all grades
+    '''
+
+    TOTAL_EXERCISES = 100
+    TOTAL_FINAL = 10
+
+    WEIGHT_FUN = lambda *, exercises, final, project : (
+        (0.33 * exercises) + 
+        (0.34 * final) + 
+        (0.33 * project)
+    )
+
+    def __init__(self, ):
+
+        self.get_all_dirs()
+        self.get_all_grades()
+        self.average_grades()
+
+    @staticmethod
+    def final_grade(decimal_grade):
+        g2 = round(decimal_grade * 10) / 10
+        
+        if g2 in [4.3, 4.4, 4.5, 4.6, 4.7]:
+            return 5.0
+        
+        g3 = round(decimal_grade * 2) / 2
+        
+        return g3        
+
+    def get_all_dirs(self,):
+
+        self.all_exercise_dirs = glob.glob('exercises?')
+        self.all_dirs = {
+            'exercises': [],
+            'final': {
+                'exercises': 'final',
+                'solutions': 'solutions_final',
+            },
+            'projects': 'projects',
+        }
+
+        for d in self.all_exercise_dirs:
+
+
+            m = re.search(r'(\d+)$', d)
+            assert m 
+            n = int(m.group(1))
+            dic = {
+                'exercises': d,
+                'solutions': f'solutions{n}',
+            }
+            self.all_dirs['exercises'].append(dic)
+
+        print (f'All directories:')
+        print (json.dumps(self.all_dirs, indent=4))
+
+    def store_grades(self, grades, type_):
+        '''
+        type_ : `exercises` or 'final'
+        '''
+        for AM, grade in grades.all_answers.items():
+            if not AM in self.all_grades:
+                self.all_grades[AM] = {
+                    'exercises': {},
+                    'final': {},
+                    'project': 0.0,
+                }
+
+            for exercise, exercise_d in grade.items():
+                assert not exercise in self.all_grades[AM][type_]
+                self.all_grades[AM][type_][exercise] = exercise_d['grade']
+
+    def get_all_grades(self,):
+
+        self.all_grades = {}
+
+        # Get all exercise grades
+        for exercise_round in self.all_dirs['exercises']:
+            grades = Grades(
+                directory = exercise_round['exercises'],
+                solutions_dir = exercise_round['solutions'],
+                action = 'aggregate', 
+            )
+            grades.collect_all_grades()
+            self.store_grades(grades, type_='exercises')
+            #print (grades.all_answers)  # {'1764': {1: {'answer': "\n# 'Ασκηση 1\n\ndef num(a):\n
+
+        print ('Collecting final grades')
+        grades = Grades(
+            directory = self.all_dirs['final']['exercises'],
+            solutions_dir = self.all_dirs['final']['solutions'],
+            action = 'aggregate',
+        )
+        grades.collect_all_grades()
+        self.store_grades(grades, type_='final')   
+
+        print ('Collecting project grades')
+        project_grades = Grades.get_project_grades()
+        for project_grade in project_grades:
+            for AM in project_grade['AMs']:
+                assert AM in self.all_grades
+                assert 'project' in self.all_grades[AM]
+                self.all_grades[AM]['project'] = project_grade['grade']
+        
+    def average_grades(self,):
+        for AM, grades in self.all_grades.items():
+
+            exercise_average = (
+                sum(grades['exercises'].values()) /
+                self.TOTAL_EXERCISES
+            )
+
+            final_average = sum(grades['final'].values())/self.TOTAL_FINAL
+
+            project_average = grades['project']
+
+            decimal_grade = Aggregator.WEIGHT_FUN(
+                exercises = exercise_average, 
+                final=final_average, 
+                project=project_average,
+            )
+
+            print (f'AM:{AM}, dec_grade: {decimal_grade}, ex:{exercise_average}, fin:{final_average}, proj: {project_average} ')
+            print (list(grades['final'].values()))
+
+
+
+ 
+
+
 if __name__ == '__main__':
     '''
     python grade.py --dir /Users/admin/biol-494/exercises/ --sol /Users/admin/biol-494/solutions --action grade
@@ -638,6 +847,8 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6  --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail  
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3103 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3089 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3052 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3094 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
 
 
 
@@ -649,6 +860,10 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 3117  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 --send_to_me
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final   --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
     '''
+
+    a = Aggregator()
+
+    a=1/0
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", help="Directory with exercises")
@@ -671,5 +886,5 @@ if __name__ == '__main__':
         end = args.end,
         random_list = args.random_list,
         optional = args.optional,
-        )
+    )
     
