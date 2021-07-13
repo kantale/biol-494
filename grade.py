@@ -673,11 +673,18 @@ class Aggregator:
         (0.33 * project)
     )
 
-    def __init__(self, ):
+    def __init__(self, 
+        excel_filename = None, 
+        optional=None,
+    ):
+
+        self.excel_filename = excel_filename
+        self.optional = set(map(int, optional)) if optional else set()
 
         self.get_all_dirs()
         self.get_all_grades()
         self.average_grades()
+        self.generate_excel()
 
     @staticmethod
     def final_grade(decimal_grade):
@@ -766,29 +773,111 @@ class Aggregator:
                 self.all_grades[AM]['project'] = project_grade['grade']
         
     def average_grades(self,):
+
+        self.lesson_grades = {}
+
+
         for AM, grades in self.all_grades.items():
 
-            exercise_average = (
-                sum(grades['exercises'].values()) /
-                self.TOTAL_EXERCISES
-            )
+            text = f'''
+Γεια σας, παρακάτω ακολουθεί η αναλυτική βαθμολογία σας στο μάθημα:
 
-            final_average = sum(grades['final'].values())/self.TOTAL_FINAL
+ΒΙΟΛ-494 - Εισαγωγή στον προγραμματισμό
+
+AM: {AM}
+
+Ασκήσεις:
+'''
+
+            exercises_sum = 0
+            exercises_count = 0
+            for x in range(1, self.TOTAL_EXERCISES+1):
+                text += f'{x}\t'
+
+                if x in grades['exercises']:
+                    g = grades['exercises'][x]
+
+                    if pd.isna(g):
+                        text += f'---\n'
+                    elif x in self.optional and g == 0:
+                        text += f'---\n'
+                    else:
+                        text += f'{g}\n'
+                        exercises_sum += g
+                        exercises_count += 1                        
+                else:
+                    if x in self.optional:
+                        text += f'---\n'
+                    else:
+                        text += '0\n'
+                        exercises_count += 1
+
+            exercise_average = exercises_sum/exercises_count
+
+            text += f'\nΜέσος όρος ασκήσεων: {exercises_sum}/{exercises_count}={exercise_average}\n\n'
+
+            text += 'Τελικό Διαγώνισμα:\n'
+            for k,v in grades['final'].items():
+                text += f'{k}\t{v}\n'
+
+            nominator = sum(grades['final'].values())
+            denominator = self.TOTAL_FINAL
+            final_average = nominator/denominator
+
+            text += f'Μέσος όρος τελικού: {nominator}/{denominator}={final_average}\n\n'
 
             project_average = grades['project']
+            text += f'Βαθμός Project: {project_average}\n\n'
 
             decimal_grade = Aggregator.WEIGHT_FUN(
                 exercises = exercise_average, 
                 final=final_average, 
                 project=project_average,
             )
+            text += f'Τελικός δεκαδικός βαθμός:\n'
+            text += f'0.33*{exercise_average} + 0.34*{final_average} + 0.33*{project_average} = {decimal_grade}\n\n'
 
-            print (f'AM:{AM}, dec_grade: {decimal_grade}, ex:{exercise_average}, fin:{final_average}, proj: {project_average} ')
-            print (list(grades['final'].values()))
+            rounded_grade = Aggregator.final_grade(decimal_grade)
+            text += f'Τελικός στρογγυλοποιημένος βαθμός: {rounded_grade}\n\n'
+            text += 'Χαιρετώ,\n'
+            text += 'Αλέξανδρος Καντεράκης\n'
 
+            print (
+                f'AM:{AM},'
+                f' dec_grade: {decimal_grade},'
+                f' rnd_grade: {rounded_grade},'
+                f' ex:{exercise_average},'
+                f' fin:{final_average},'
+                f' proj: {project_average} '
+            )
+            print (text)
 
+            self.lesson_grades[AM] = rounded_grade
 
- 
+    def generate_excel(self,):
+        if not self.excel_filename:
+            print ('Excel filename not found!')
+            return
+
+        print (f'Reading: {self.excel_filename}')
+        original_excel = pd.read_excel(self.excel_filename)
+        records = original_excel.to_dict('records')
+
+        new_records = []
+        for record in records:
+
+            new_dict = dict(record)
+            AM = str(record['ΑΜ']) # <-- Attention! this is Greek letters!
+            if AM in self.lesson_grades:
+                new_dict['Βαθ Εξετ'] = str(self.lesson_grades[AM])
+            else:
+                new_dict['Βαθ Εξετ'] = ''
+
+            new_records.append(new_dict)
+
+        new_excel = pd.DataFrame(new_records)
+        new_excel.to_excel('grades.xlsx')
+        print ('Generated: grades.xlsx')
 
 
 if __name__ == '__main__':
@@ -850,8 +939,6 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3052 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3094 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
 
-
-
     # final
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100  
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100 --ex 2979
@@ -859,11 +946,13 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 2979  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --ex 3117  --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 --send_to_me
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final   --action send_mail --random_list 10 --actually_send_mail --start 1 --end 100 
+
+    # Aggregate
+    python grade.py --action aggregate 
+    python grade.py --action aggregate --excel 494_ΒΙΟΛ-494.xlsx
+    python grade.py --action aggregate --excel 494_ΒΙΟΛ-494.xlsx --optional 94
     '''
 
-    a = Aggregator()
-
-    a=1/0
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", help="Directory with exercises")
@@ -876,15 +965,22 @@ if __name__ == '__main__':
     parser.add_argument("--end", type=int, help="Start end")
     parser.add_argument("--random_list", type=int, help='Number of random exercises')
     parser.add_argument("--optional", nargs='*', type=int, help="Optional exercises")
+    parser.add_argument("--excel", help="Excel file with all students")
     args = parser.parse_args()
 
-    g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
-        action=args.action,
-        actually_send_mail=args.actually_send_mail,
-        send_to_me=args.send_to_me,
-        start = args.start,
-        end = args.end,
-        random_list = args.random_list,
-        optional = args.optional,
-    )
+    if args.action == 'aggregate':
+        a = Aggregator(
+            excel_filename = args.excel,
+            optional = args.optional,
+        )
+    else:
+        g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
+            action=args.action,
+            actually_send_mail=args.actually_send_mail,
+            send_to_me=args.send_to_me,
+            start = args.start,
+            end = args.end,
+            random_list = args.random_list,
+            optional = args.optional,
+        )
     
