@@ -172,6 +172,8 @@ print ("This is the solution for ex. 55")
    * [CS61A: Online Textbook ](https://inst.eecs.berkeley.edu//~cs61a/sp12/book/). Ευχαριστώ τον Ιωάννη-Ραφαήλ Τζονευράκη για το link. 
    * [Python Computing for Data Science](https://github.com/profjsb/python-seminar)
    * [EbookFoundation free-programming-books on python](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#python)
+* Running python
+   * [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 * Cheatsheets 
    * [pythoncheatsheet](https://www.pythoncheatsheet.org/) . Πολύ καλό και "συμπαγές" σημείο αναφοράς. Χρήσιμο όταν έχεις ξεχάσει πως γίνεται κάτι.
    * [Scientific Python Cheatsheet](https://ipgp.github.io/scientific_python_cheat_sheet/) 

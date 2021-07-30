@@ -406,6 +406,14 @@ AM: {AM}
 
         return 'bio' + AM + '@edu.biology.uoc.gr'
 
+    @staticmethod
+    def create_AM_from_email(email):
+        m = re.fullmatch(r'bio(\d+)@edu\.biology\.uoc\.gr', email)
+        if m:
+            return m.group(1)
+
+        return email
+
     def send_mail(self,):
 
         total = len(self.all_answers)
@@ -676,10 +684,16 @@ class Aggregator:
     def __init__(self, 
         excel_filename = None, 
         optional=None,
+        ex = None,
+        send_to_me = False,
+        actually_send_mail = False,
     ):
 
         self.excel_filename = excel_filename
         self.optional = set(map(int, optional)) if optional else set()
+        self.ex = ex
+        self.send_to_me = send_to_me
+        self.actually_send_mail = actually_send_mail
 
         self.get_all_dirs()
         self.get_all_grades()
@@ -750,6 +764,7 @@ class Aggregator:
                 directory = exercise_round['exercises'],
                 solutions_dir = exercise_round['solutions'],
                 action = 'aggregate', 
+                ex = self.ex,
             )
             grades.collect_all_grades()
             self.store_grades(grades, type_='exercises')
@@ -760,6 +775,7 @@ class Aggregator:
             directory = self.all_dirs['final']['exercises'],
             solutions_dir = self.all_dirs['final']['solutions'],
             action = 'aggregate',
+            ex = self.ex,
         )
         grades.collect_all_grades()
         self.store_grades(grades, type_='final')   
@@ -768,6 +784,11 @@ class Aggregator:
         project_grades = Grades.get_project_grades()
         for project_grade in project_grades:
             for AM in project_grade['AMs']:
+
+                if self.ex:
+                    if AM != self.ex:
+                        continue
+
                 assert AM in self.all_grades
                 assert 'project' in self.all_grades[AM]
                 self.all_grades[AM]['project'] = project_grade['grade']
@@ -775,9 +796,12 @@ class Aggregator:
     def average_grades(self,):
 
         self.lesson_grades = {}
+        self.mail = Mail()
 
-
+        total = len(self.all_grades)
+        c = 0
         for AM, grades in self.all_grades.items():
+            c += 1
 
             text = f'''
 Γεια σας, παρακάτω ακολουθεί η αναλυτική βαθμολογία σας στο μάθημα:
@@ -850,11 +874,36 @@ AM: {AM}
                 f' fin:{final_average},'
                 f' proj: {project_average} '
             )
-            print (text)
+            #print (text)
 
             self.lesson_grades[AM] = rounded_grade
 
-    def generate_excel(self,):
+            if self.send_to_me:
+                mail_address = 'alexandros.kanterakis@gmail.com'
+            else:
+                mail_address = Grades.create_mail_address(AM)
+            subject = 'ΒΙΟΛ-494, Τελικός βαθμός'
+
+            if self.actually_send_mail:
+                self.mail.do_send_mail(
+                        to=mail_address, 
+                        subject=subject, 
+                        text=text,
+                        actually_send_mail=True,
+                    )
+                print (f'{c}/{total} Sent mail to: {mail_address}')
+            else:
+                print (text)
+
+        self.mail.disconnect_from_gmail()
+
+
+    def generate_excel(self,
+        new_column = 'Βαθ Εξετ 2',
+        #AM_column = 'ΑΜ', # <-- Attention! this is Greek letters!
+        AM_column = 'email', 
+        AM_column_is_email = True,
+        ):
         if not self.excel_filename:
             print ('Excel filename not found!')
             return
@@ -864,16 +913,33 @@ AM: {AM}
         records = original_excel.to_dict('records')
 
         new_records = []
+        in_excel = set()
         for record in records:
 
             new_dict = dict(record)
-            AM = str(record['ΑΜ']) # <-- Attention! this is Greek letters!
+            AM = str(record[AM_column]) # this might be an email
+
+            if AM_column_is_email:
+                AM = Grades.create_AM_from_email(AM)
+
             if AM in self.lesson_grades:
-                new_dict['Βαθ Εξετ'] = str(self.lesson_grades[AM])
+                new_dict[new_column] = str(self.lesson_grades[AM])
             else:
-                new_dict['Βαθ Εξετ'] = ''
+                new_dict[new_column] = ''
 
             new_records.append(new_dict)
+            in_excel.add(AM)
+
+        # Get students with grades that are NOT in excel!
+        students_with_grades = set(self.lesson_grades)
+
+        students_with_grades_not_in_excel = students_with_grades-in_excel
+        if students_with_grades_not_in_excel:
+            print ('WARNING!!!!')
+            print ('The following graded students are not in Excel!!!')
+            for student in students_with_grades_not_in_excel:
+                print (f'AM: {student}  Grade: {self.lesson_grades[student]}')
+            print ('==================================================')
 
         new_excel = pd.DataFrame(new_records)
         new_excel.to_excel('grades.xlsx')
@@ -938,6 +1004,7 @@ if __name__ == '__main__':
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3089 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3052 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
     python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 3094 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
+    python grade.py --dir /Users/admin/biol-494/exercises6/ --sol /Users/admin/biol-494/solutions6 --ex 2871 --action send_mail  --start 91 --end 100 --optional 94 --actually_send_mail
 
     # final
     python grade.py --dir /Users/admin/biol-494/final/ --sol /Users/admin/biol-494/solutions_final --action grade --start 1 --end 100  
@@ -951,6 +1018,8 @@ if __name__ == '__main__':
     python grade.py --action aggregate 
     python grade.py --action aggregate --excel 494_ΒΙΟΛ-494.xlsx
     python grade.py --action aggregate --excel 494_ΒΙΟΛ-494.xlsx --optional 94
+    python grade.py --action aggregate --excel 494_ΒΙΟΛ-494.xlsx --optional 94 --ex 2871 --send_to_me
+    python grade.py --action aggregate --excel ΒΙΟΛ-494_Ιούνιος_2021.xlsx --optional 94 
     '''
 
 
@@ -972,6 +1041,9 @@ if __name__ == '__main__':
         a = Aggregator(
             excel_filename = args.excel,
             optional = args.optional,
+            ex=args.ex,
+            send_to_me=args.send_to_me,
+            actually_send_mail=args.actually_send_mail,
         )
     else:
         g = Grades(directory=args.dir, ex=args.ex, solutions_dir=args.sol, 
