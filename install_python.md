@@ -13,6 +13,7 @@ The preferred method of installation is through the conda package system. There 
 For some computers anaconda might be too heavy to install. For these computers a better options is to install [miniconda](https://docs.conda.io/en/latest/miniconda.html) which is a minimum python/conda installation with all necessary packages. Despite the "minimum" nature of miniconda, it contains all tools and commands to install any other package so it is preferable in cases where we want to "build" a new python environment "bottom-up".
 
 * Installation of miniconda: https://www.youtube.com/watch?v=XCvgyvBFjyM 
+* Installation of miniconda and jupyter: https://www.youtube.com/watch?v=qPW_y9NhCpU  
 * A very nice tutorial and presentation of the differences between anaconda / miniconda: https://www.youtube.com/watch?v=clKgaEZJYww 
 
 
