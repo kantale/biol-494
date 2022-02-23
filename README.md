@@ -45,9 +45,9 @@
 ### Διαλέξεις / Σημείωσεις 
 * Διάλεξη 1η . 16 Φεβρουαρίου 2022 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_1.ipynb), [markdown](2022/draft_lesson_1.md), [pdf](2022/draft_lesson_1.pdf)
+* Διάλεξη 2η . 23 Φεβρουαρίου 2022 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 2η . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
 * Διάλεξη 3η . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
 * Διάλεξη 4η . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
 * Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
