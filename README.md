@@ -48,9 +48,12 @@
 * Διάλεξη 2η . 23 Φεβρουαρίου 2022 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
 * Διάλεξη 3η . 2 Μαρτίου 2022 . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_2.ipynb), [markdown](2022/draft_lesson_2.md), [pdf](2022/draft_lesson_2.pdf)
+* Διάλεξη 4η . 9 Μαρτίου 2022 . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_3.ipynb), [markdown](2022/draft_lesson_3.md), [pdf](2022/draft_lesson_3.pdf)
+
+
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 4η . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
 * Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
 * Διάλεξη 6η . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
 * Διάλεξη 7η . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
@@ -66,7 +69,7 @@
 Ο τελικός βαθμός του μαθήματος θα είναι το 33.3% των βαθμών από τις ασκήσεις, το 33.3% των βαθμών από το project και το υπόλοιπο 33.4% από το τελικό διαγώνισμα στο τέλος του τριμήνου. 
 
 #### Ασκήσεις
-[Το αρχείο με τις ασκήσεις βίσκεται εδώ](exercises_2022.md).
+[Το αρχείο με τις ασκήσεις βρίσκεται εδώ](exercises_2022.md).
 
 Στο τέλος κάθε διάλεξης θα ανεβαίνουν 7-10 ασκήσεις σχετικά με την ύλη που παρουσιάστηκε στη διάλεξη. 
 
