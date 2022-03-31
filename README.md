@@ -54,10 +54,11 @@
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_4.ipynb), [markdown](2022/draft_lesson_4.md), [pdf](2022/draft_lesson_4.pdf)
 * Διάλεξη 6η . 23 Μαρτίου 2022 . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_5.ipynb), [markdown](2022/draft_lesson_5.md), [pdf](2022/draft_lesson_5.pdf)
-   
+* Διάλεξη 7η . 30 Μαρτίου 2022 . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_6.ipynb), [markdown](2022/draft_lesson_6.md), [pdf](2022/draft_lesson_6.pdf)
+
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 7η . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
 * Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
 * Διάλεξη 9η . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
 * Διάλεξη 10η . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
@@ -103,7 +104,7 @@ print ("This is the solution for ex. 55")
 Αυτά γίνονται γιατί υπάρχει [σκριπτάκι](grade.py) που αναλύει αυτόματα τις ασκήσεις σας. Ο βαθμός σας θα σας αποσταλεί με μέιλ περίπου 2 εβδομάδες μετά που στείλετε τις ασκήσεις. 
 
 **ΠΡΟΣΟΧΗ! Δεν στέλνουμε:**
-* Αρχεία σε pdf, doc (είναι για κείμενα, όχι για κώδικα)
+* Αρχεία σε pdf, Microdoft word, LibreOffice, Google Docs (είναι για κείμενα, όχι για κώδικα)
 * Συμπιεσμένα αρχεία
 * Screenshots
 

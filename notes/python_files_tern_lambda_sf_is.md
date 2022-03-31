@@ -1,6 +1,8 @@
 ### Αρχεία
 
-Πριν ξεκινήσουμε για τα αρχεία μπορούμε να πούμε ότι το jupyter έχει έναν μηχανισμό για να σώζει απευθείας το περιεχόμενο ενός κελιού σε ένα αρχείο. Για να γίνει αυτό απλά γράφουμε ```%%writefile NAME.TXT``` στην αρχή του κελιού. Όπου NAME.TXT είναι το όνομα του αρχείου. Ας το δοκιμάσουμε:
+Για αυτή τη διάλεξη θα πρέπει να έχετε κάποιο πολύ απλό επεξεργαστή κειμένου. Προσοχή! όχι word, libre office, κτλ, [διαβάστε για τη διαφορά μεταξύ επεξεργαστή κειμένου](https://www.google.com/search?client=firefox-b-d&q=difference+between+text+editor+and+word+processor). Αν είσαστε σε windows μπορείτε να χρησιμοποιήσετε το notepad, ενώ αν είσαστε σε OSx μπορείτε να χρησιμοποιήσετε το TextEdit. Με αυτά τα προγράμματα μπορείτε να δημιουργήσετε κάποια αρχεία και στη συνέχεια να δοκιμάσετε να τα ανοίξετε από python.    
+
+Αντί για αυτό, μπορείτε να χρησιμοποιήσετε και το jupyter το οποίο έχει έναν μηχανισμό για να σώζει απευθείας το περιεχόμενο ενός κελιού σε ένα αρχείο. Για να γίνει αυτό απλά γράφουμε ```%%writefile NAME.TXT``` στην αρχή του κελιού. Όπου `NAME.TXT` είναι το όνομα του αρχείου. Ας το δοκιμάσουμε:
 
 
 ```python
@@ -1092,6 +1094,273 @@ f(data)
 
 
 
+### Παράδειγμα 3
+
+Το [GWAS Catalogue](https://www.ebi.ac.uk/gwas/home) είναι ένας κατάλογος με όλες τις μελέτες [GWAS](https://en.wikipedia.org/wiki/Genome-wide_association_study) που έχουν γίνει. Για να το μελετήσουμε κατεβάζουμε το αρχείο `All associations v1.0` απο εδώ: https://www.ebi.ac.uk/gwas/docs/file-downloads (πατάμε στο "Click to Download"). Ας παίξουμε λίγο με αυτό:
+
+
+```python
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    for line_count, l in enumerate(f):
+        pass # Διαβάστε περακάτω για το pass
+print (f'Lines: {line_count}')
+```
+
+    Lines: 351841
+
+
+
+```python
+# Σημείωση: σε windows μηχανήματα ίσως χρειαστεί να το ανοίξετε με τον εξής τρόπο:
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv', encoding='iso-8859-1') as f:
+    for line_count, l in enumerate(f):
+        pass
+print (f'Lines: {line_count}')
+```
+
+    Lines: 351841
+
+
+
+```python
+# Ας δούμε τη πρώτη γραμμή:
+```
+
+
+```python
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    first_line = f.readline()
+
+```
+
+
+```python
+first_line
+```
+
+
+
+
+    'DATE ADDED TO CATALOG\tPUBMEDID\tFIRST AUTHOR\tDATE\tJOURNAL\tLINK\tSTUDY\tDISEASE/TRAIT\tINITIAL SAMPLE SIZE\tREPLICATION SAMPLE SIZE\tREGION\tCHR_ID\tCHR_POS\tREPORTED GENE(S)\tMAPPED_GENE\tUPSTREAM_GENE_ID\tDOWNSTREAM_GENE_ID\tSNP_GENE_IDS\tUPSTREAM_GENE_DISTANCE\tDOWNSTREAM_GENE_DISTANCE\tSTRONGEST SNP-RISK ALLELE\tSNPS\tMERGED\tSNP_ID_CURRENT\tCONTEXT\tINTERGENIC\tRISK ALLELE FREQUENCY\tP-VALUE\tPVALUE_MLOG\tP-VALUE (TEXT)\tOR or BETA\t95% CI (TEXT)\tPLATFORM [SNPS PASSING QC]\tCNV\n'
+
+
+
+Παρατηρώ ότι η 1η γραμμή είναι η επικεφαλίδα. Κάνω `strip` ώστε να φύγει το `\n` ([newline](https://en.wikipedia.org/wiki/Newline)) στο τέλος  και μετά κάνω `split` με βάση το tab (`\t`):
+
+
+```python
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    first_line = f.readline().strip().split('\t')
+print (first_line)
+```
+
+    ['DATE ADDED TO CATALOG', 'PUBMEDID', 'FIRST AUTHOR', 'DATE', 'JOURNAL', 'LINK', 'STUDY', 'DISEASE/TRAIT', 'INITIAL SAMPLE SIZE', 'REPLICATION SAMPLE SIZE', 'REGION', 'CHR_ID', 'CHR_POS', 'REPORTED GENE(S)', 'MAPPED_GENE', 'UPSTREAM_GENE_ID', 'DOWNSTREAM_GENE_ID', 'SNP_GENE_IDS', 'UPSTREAM_GENE_DISTANCE', 'DOWNSTREAM_GENE_DISTANCE', 'STRONGEST SNP-RISK ALLELE', 'SNPS', 'MERGED', 'SNP_ID_CURRENT', 'CONTEXT', 'INTERGENIC', 'RISK ALLELE FREQUENCY', 'P-VALUE', 'PVALUE_MLOG', 'P-VALUE (TEXT)', 'OR or BETA', '95% CI (TEXT)', 'PLATFORM [SNPS PASSING QC]', 'CNV']
+
+
+Ωραία τώρα διαβάζω τη 2η γραμμή:
+
+
+```python
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    first_line = f.readline().strip().split('\t')
+    second_line = f.readline()
+
+print (second_line)
+```
+
+    2017-12-19	29058716	Milne RL	2017-10-23	Nat Genet	www.ncbi.nlm.nih.gov/pubmed/29058716	Identification of ten variants associated with risk of estrogen-receptor-negative breast cancer.	Breast cancer (estrogen-receptor negative)	14,135 European ancestry cases, 58,126 European ancestry controls	7,333 European ancestry cases, 42,468 European ancestry controls	14q24.1	14	68567965	NR	RAD51B			ENSG00000182185			rs999737-C	rs999737	0	999737	intron_variant	0	0.77	3E-8	7.522878745280337		1.0869565	[1.04-1.12] (Oncoarray)	Illumina [~ 11500000] (imputed)	N
+    
+
+
+Φαίνεται ότι η 2η γραμμή περιέχει τις τιμές ενός GWAS. Ας τα αποθηκεύσω όλα τότε σε ένα dictionary. Κλειδιά θα είναι τα strings της επικεφαλίδας (first_line) και οι τιμές θα είναι οι λίστες με τις αντίστοιχες τιμές του αρχείου:
+
+
+```python
+
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    first_line = f.readline().strip().split('\t')
+    
+    data = {x: [] for x in first_line} # Ένα dictionary με κλειδιά τα strings του header και τιμές άδειες λίστες
+    
+    for line in f:            
+        line_splitted = line.strip().split('\t')
+        for header_value, gwas_value in zip(first_line, line_splitted):
+            data[header_value].append(gwas_value)
+         
+
+
+```
+
+Όταν διαβάζουμε ένα μεγάλο αρχείο, είναι πολύ καλή συνήθεια να τυπώνουμε κάθε τόσο σε ποια γραμμή είμαστε. Αυτό μας δίνει μία αίσθηση του χρόνου που χρειάζεται για να διαβάσουμε όλο το αρχείο:
+
+
+```python
+
+with open('/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv') as f:
+    first_line = f.readline().strip().split('\t')
+    
+    data = {x: [] for x in first_line} # Ένα dictionary με κλειδιά τα strings του header και τιμές άδειες λίστες
+    
+    for line_counter, line in enumerate(f):
+        
+        if line_counter % 10_000 == 0:
+            print (f'Read lines: {line_counter}')
+        
+        line_splitted = line.strip().split('\t')
+        for header_value, gwas_value in zip(first_line, line_splitted):
+            data[header_value].append(gwas_value)
+
+
+```
+
+    Read lines: 0
+    Read lines: 10000
+    Read lines: 20000
+    Read lines: 30000
+    Read lines: 40000
+    Read lines: 50000
+    Read lines: 60000
+    Read lines: 70000
+    Read lines: 80000
+    Read lines: 90000
+    Read lines: 100000
+    Read lines: 110000
+    Read lines: 120000
+    Read lines: 130000
+    Read lines: 140000
+    Read lines: 150000
+    Read lines: 160000
+    Read lines: 170000
+    Read lines: 180000
+    Read lines: 190000
+    Read lines: 200000
+    Read lines: 210000
+    Read lines: 220000
+    Read lines: 230000
+    Read lines: 240000
+    Read lines: 250000
+    Read lines: 260000
+    Read lines: 270000
+    Read lines: 280000
+    Read lines: 290000
+    Read lines: 300000
+    Read lines: 310000
+    Read lines: 320000
+    Read lines: 330000
+    Read lines: 340000
+    Read lines: 350000
+
+
+Το data περιέχει όλα τα δεδομένα μας. Π.χ. ποιο είναι το P-VALUE της 1000ης GWAS;
+
+
+```python
+data['P-VALUE'][999]
+```
+
+
+
+
+    '4E-6'
+
+
+
+Ας δοκιμάσουμε μερικά ερωτήματα:
+
+
+```python
+data.keys()
+```
+
+
+
+
+    dict_keys(['DATE ADDED TO CATALOG', 'PUBMEDID', 'FIRST AUTHOR', 'DATE', 'JOURNAL', 'LINK', 'STUDY', 'DISEASE/TRAIT', 'INITIAL SAMPLE SIZE', 'REPLICATION SAMPLE SIZE', 'REGION', 'CHR_ID', 'CHR_POS', 'REPORTED GENE(S)', 'MAPPED_GENE', 'UPSTREAM_GENE_ID', 'DOWNSTREAM_GENE_ID', 'SNP_GENE_IDS', 'UPSTREAM_GENE_DISTANCE', 'DOWNSTREAM_GENE_DISTANCE', 'STRONGEST SNP-RISK ALLELE', 'SNPS', 'MERGED', 'SNP_ID_CURRENT', 'CONTEXT', 'INTERGENIC', 'RISK ALLELE FREQUENCY', 'P-VALUE', 'PVALUE_MLOG', 'P-VALUE (TEXT)', 'OR or BETA', '95% CI (TEXT)', 'PLATFORM [SNPS PASSING QC]', 'CNV'])
+
+
+
+Όλοι τα διαφορετικά περιοδικά:
+
+
+```python
+set(data['JOURNAL'])
+```
+
+Όλοι οι συγγραφείς που έχουν δημοσιεύσει στο Nature:
+
+
+```python
+set(author for journal, author in zip(data['JOURNAL'], data['FIRST AUTHOR']) if journal.startswith('Nat') )
+```
+
+Ποιος είναι ο συγγραφέας που έχει εντοπίσει τις περισσότερες μεταλλάξει και τις έχει δημοσιεύσει στο nature;
+
+
+```python
+counter = {}
+for journal, author in zip(data['JOURNAL'], data['FIRST AUTHOR']):
+    if not journal.startswith('Nat'):
+        continue
+        
+    if not author in counter:
+        counter[author] = 0
+        
+    counter[author] += 1
+
+def f(x):
+    return counter[x]
+    
+max(counter, key=f)
+```
+
+
+
+
+    'Sakaue S'
+
+
+
+Πόσες μεταλλάξεις έχει εντοπίσει αυτός ο συγγραφέας;
+
+
+```python
+counter['Sakaue S']
+```
+
+
+
+
+    17799
+
+
+
+
+```python
+# Οι.. πόντιοι συγγραφείς:
+pontioi = {x for x in data['FIRST AUTHOR'] if 'idis' in x or 'idou' in x}
+print (pontioi)
+```
+
+    {'Petridis C', 'Tachmazidou I', 'Gaitanidis A', 'Klimentidis YC', 'Michailidou K'}
+
+
+Ποιο είναι το μικρότερο  p-value που έχει εντοπίσει πόντιος συγγραφέας;
+
+
+
+```python
+min(float(p_v) for p_v, author in zip(data['P-VALUE'], data['FIRST AUTHOR']) if author in pontioi)
+```
+
+
+
+
+    5e-324
+
+
+
+Ή αλλιώς: 5\*10<sup>-324</sup>
+
 ### String formatting
 
 Το να "μπλέκουμε" μεταβλητές μέσα σε strings γρήγορα και εύκολα είναι ένα από τα πιο κοινά πράγματα που κάνουμε και ένας από τους βασικούς λόγους δημιουργίας της python. Ας υποθέσουμε λοιπόν ότι έχουμε τις μεταβλητές:
@@ -1772,7 +2041,7 @@ f()
     UnboundLocalError: local variable 'a' referenced before assignment
 
 
-Τι έγινε εδώ; Γιατί πέταξε αυτό το λάθος; Όπως είπαμε και πριν: αν θέσεις μία νέα τιμή σε μία μεταβλητή οπουδήποτε μέσα σε μία συνάρτηση τότε την ξαναορίζεις. Άρα η a ξαναορίστηκε μέσα στη συνάρτηση. Όταν λοιπόν πάμε να κάνουμε print(a), τότε του λέμε να τυπώσει τη μεταβλητή a της συνάρτησης η οποία.. δεν έχει ακόμα οριστεί!
+Τι έγινε εδώ; Γιατί πέταξε αυτό το λάθος; Όπως είπαμε και πριν: αν θέσεις μία νέα τιμή σε μία μεταβλητή οπουδήποτε μέσα σε μία συνάρτηση τότε την ξαναορίζεις. Εδώ η a ξαναορίστηκε μέσα στη συνάρτηση (γραμμή 4). Όταν λοιπόν πάμε να κάνουμε print(a) (γραμμή 3), τότε του λέμε να τυπώσει τη μεταβλητή a της συνάρτησης η οποία.. δεν έχει ακόμα οριστεί!
 
 Αν για κάποιο λόγο θέλουμε να πούμε ότι η a στη f αναφέρεται στη "έξω" a και όχι στη "μέσα" πρέπει να το δηλώσουμε:
 
@@ -1816,6 +2085,42 @@ print (t)
     
 
     NameError: name 't' is not defined
+
+
+Κάποιες (σπάνιες..) φορές θέλουμε να αναφερθούμε σε μία μεταβλητή η οποία να μην είναι global, να μην είναι local (δηλαδή να μην έχει οριστεί μέσα στη συνάρτηση), αλλά να έχει οριστεί σε μία συνάρτηση στο αμέσως πιο πάνω επίπεδο. Τότε χρησιμοποιούμε το `nonlocal`:
+
+
+```python
+a = 3
+def f():
+    a = 4
+    def g():
+        nonlocal a # Αναφέρεται στην a της f
+        print (a) # Τυπώνει 4
+    g()
+        
+f()
+```
+
+    4
+
+
+Δείτε τη διαφορά με αυτό:
+
+
+```python
+a = 3
+def f():
+    a = 4
+    def g():
+        global a # Αναφέρεται στην εξωτερική a
+        print (a) # Τυπώνει 3
+    g()
+        
+f()
+```
+
+    3
 
 
 Τι γίνεται με τις παραμέτρους των συναρτήσεων; Αν αλλάξουμε μία παράμετρο μέσα στη συνάρτηση, θα αλλάξει και έξω; Η απάντηση είναι.. εξαρτάται! Αν η παράμετρο είναι int, float, string, bool, complex, None (ή αλλιώς primitive data types). Τότε δεν αλλάζει:

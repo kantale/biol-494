@@ -14264,7 +14264,8 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Πριν ξεκινήσουμε για τα αρχεία μπορούμε να πούμε ότι το jupyter έχει έναν μηχανισμό για να σώζει απευθείας το περιεχόμενο ενός κελιού σε ένα αρχείο. Για να γίνει αυτό απλά γράφουμε <code>%%writefile NAME.TXT</code> στην αρχή του κελιού. Όπου NAME.TXT είναι το όνομα του αρχείου. Ας το δοκιμάσουμε:</p>
+<p>Για αυτή τη διάλεξη θα πρέπει να έχετε κάποιο πολύ απλό επεξεργαστή κειμένου. Προσοχή! όχι word, libre office, κτλ, <a href="https://www.google.com/search?client=firefox-b-d&amp;q=difference+between+text+editor+and+word+processor">διαβάστε για τη διαφορά μεταξύ επεξεργαστή κειμένου</a>. Αν είσαστε σε windows μπορείτε να χρησιμοποιήσετε το notepad, ενώ αν είσαστε σε OSx μπορείτε να χρησιμοποιήσετε το TextEdit. Με αυτά τα προγράμματα μπορείτε να δημιουργήσετε κάποια αρχεία και στη συνέχεια να δοκιμάσετε να τα ανοίξετε από python.</p>
+<p>Αντί για αυτό, μπορείτε να χρησιμοποιήσετε και το jupyter το οποίο έχει έναν μηχανισμό για να σώζει απευθείας το περιεχόμενο ενός κελιού σε ένα αρχείο. Για να γίνει αυτό απλά γράφουμε <code>%%writefile NAME.TXT</code> στην αρχή του κελιού. Όπου <code>NAME.TXT</code> είναι το όνομα του αρχείου. Ας το δοκιμάσουμε:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17162,6 +17163,672 @@ world
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="&#928;&#945;&#961;&#940;&#948;&#949;&#953;&#947;&#956;&#945;-3">&#928;&#945;&#961;&#940;&#948;&#949;&#953;&#947;&#956;&#945; 3<a class="anchor-link" href="#&#928;&#945;&#961;&#940;&#948;&#949;&#953;&#947;&#956;&#945;-3">&#182;</a></h3><p>Το <a href="https://www.ebi.ac.uk/gwas/home">GWAS Catalogue</a> είναι ένας κατάλογος με όλες τις μελέτες <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study">GWAS</a> που έχουν γίνει. Για να το μελετήσουμε κατεβάζουμε το αρχείο <code>All associations v1.0</code> απο εδώ: <a href="https://www.ebi.ac.uk/gwas/docs/file-downloads">https://www.ebi.ac.uk/gwas/docs/file-downloads</a> (πατάμε στο "Click to Download"). Ας παίξουμε λίγο με αυτό:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line_count</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c1"># Διαβάστε περακάτω για το pass</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Lines: </span><span class="si">{</span><span class="n">line_count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Lines: 351841
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Σημείωση: σε windows μηχανήματα ίσως χρειαστεί να το ανοίξετε με τον εξής τρόπο:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line_count</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">pass</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Lines: </span><span class="si">{</span><span class="n">line_count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Lines: 351841
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Ας δούμε τη πρώτη γραμμή:</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_line</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;DATE ADDED TO CATALOG\tPUBMEDID\tFIRST AUTHOR\tDATE\tJOURNAL\tLINK\tSTUDY\tDISEASE/TRAIT\tINITIAL SAMPLE SIZE\tREPLICATION SAMPLE SIZE\tREGION\tCHR_ID\tCHR_POS\tREPORTED GENE(S)\tMAPPED_GENE\tUPSTREAM_GENE_ID\tDOWNSTREAM_GENE_ID\tSNP_GENE_IDS\tUPSTREAM_GENE_DISTANCE\tDOWNSTREAM_GENE_DISTANCE\tSTRONGEST SNP-RISK ALLELE\tSNPS\tMERGED\tSNP_ID_CURRENT\tCONTEXT\tINTERGENIC\tRISK ALLELE FREQUENCY\tP-VALUE\tPVALUE_MLOG\tP-VALUE (TEXT)\tOR or BETA\t95% CI (TEXT)\tPLATFORM [SNPS PASSING QC]\tCNV\n&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Παρατηρώ ότι η 1η γραμμή είναι η επικεφαλίδα. Κάνω <code>strip</code> ώστε να φύγει το <code>\n</code> (<a href="https://en.wikipedia.org/wiki/Newline">newline</a>) στο τέλος  και μετά κάνω <code>split</code> με βάση το tab (<code>\t</code>):</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">first_line</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;DATE ADDED TO CATALOG&#39;, &#39;PUBMEDID&#39;, &#39;FIRST AUTHOR&#39;, &#39;DATE&#39;, &#39;JOURNAL&#39;, &#39;LINK&#39;, &#39;STUDY&#39;, &#39;DISEASE/TRAIT&#39;, &#39;INITIAL SAMPLE SIZE&#39;, &#39;REPLICATION SAMPLE SIZE&#39;, &#39;REGION&#39;, &#39;CHR_ID&#39;, &#39;CHR_POS&#39;, &#39;REPORTED GENE(S)&#39;, &#39;MAPPED_GENE&#39;, &#39;UPSTREAM_GENE_ID&#39;, &#39;DOWNSTREAM_GENE_ID&#39;, &#39;SNP_GENE_IDS&#39;, &#39;UPSTREAM_GENE_DISTANCE&#39;, &#39;DOWNSTREAM_GENE_DISTANCE&#39;, &#39;STRONGEST SNP-RISK ALLELE&#39;, &#39;SNPS&#39;, &#39;MERGED&#39;, &#39;SNP_ID_CURRENT&#39;, &#39;CONTEXT&#39;, &#39;INTERGENIC&#39;, &#39;RISK ALLELE FREQUENCY&#39;, &#39;P-VALUE&#39;, &#39;PVALUE_MLOG&#39;, &#39;P-VALUE (TEXT)&#39;, &#39;OR or BETA&#39;, &#39;95% CI (TEXT)&#39;, &#39;PLATFORM [SNPS PASSING QC]&#39;, &#39;CNV&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ωραία τώρα διαβάζω τη 2η γραμμή:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">second_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">second_line</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>2017-12-19	29058716	Milne RL	2017-10-23	Nat Genet	www.ncbi.nlm.nih.gov/pubmed/29058716	Identification of ten variants associated with risk of estrogen-receptor-negative breast cancer.	Breast cancer (estrogen-receptor negative)	14,135 European ancestry cases, 58,126 European ancestry controls	7,333 European ancestry cases, 42,468 European ancestry controls	14q24.1	14	68567965	NR	RAD51B			ENSG00000182185			rs999737-C	rs999737	0	999737	intron_variant	0	0.77	3E-8	7.522878745280337		1.0869565	[1.04-1.12] (Oncoarray)	Illumina [~ 11500000] (imputed)	N
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Φαίνεται ότι η 2η γραμμή περιέχει τις τιμές ενός GWAS. Ας τα αποθηκεύσω όλα τότε σε ένα dictionary. Κλειδιά θα είναι τα strings της επικεφαλίδας (first_line) και οι τιμές θα είναι οι λίστες με τις αντίστοιχες τιμές του αρχείου:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_line</span><span class="p">}</span> <span class="c1"># Ένα dictionary με κλειδιά τα strings του header και τιμές άδειες λίστες</span>
+    
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>            
+        <span class="n">line_splitted</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">header_value</span><span class="p">,</span> <span class="n">gwas_value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_line</span><span class="p">,</span> <span class="n">line_splitted</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">header_value</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gwas_value</span><span class="p">)</span>
+         
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Όταν διαβάζουμε ένα μεγάλο αρχείο, είναι πολύ καλή συνήθεια να τυπώνουμε κάθε τόσο σε ποια γραμμή είμαστε. Αυτό μας δίνει μία αίσθηση του χρόνου που χρειάζεται για να διαβάσουμε όλο το αρχείο:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/admin/Downloads/gwas_catalog_v1.0-associations_e105_r2022-03-23.tsv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_line</span><span class="p">}</span> <span class="c1"># Ένα dictionary με κλειδιά τα strings του header και τιμές άδειες λίστες</span>
+    
+    <span class="k">for</span> <span class="n">line_counter</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">line_counter</span> <span class="o">%</span> <span class="mi">10_000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Read lines: </span><span class="si">{</span><span class="n">line_counter</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="n">line_splitted</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">header_value</span><span class="p">,</span> <span class="n">gwas_value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_line</span><span class="p">,</span> <span class="n">line_splitted</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">header_value</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gwas_value</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Read lines: 0
+Read lines: 10000
+Read lines: 20000
+Read lines: 30000
+Read lines: 40000
+Read lines: 50000
+Read lines: 60000
+Read lines: 70000
+Read lines: 80000
+Read lines: 90000
+Read lines: 100000
+Read lines: 110000
+Read lines: 120000
+Read lines: 130000
+Read lines: 140000
+Read lines: 150000
+Read lines: 160000
+Read lines: 170000
+Read lines: 180000
+Read lines: 190000
+Read lines: 200000
+Read lines: 210000
+Read lines: 220000
+Read lines: 230000
+Read lines: 240000
+Read lines: 250000
+Read lines: 260000
+Read lines: 270000
+Read lines: 280000
+Read lines: 290000
+Read lines: 300000
+Read lines: 310000
+Read lines: 320000
+Read lines: 330000
+Read lines: 340000
+Read lines: 350000
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Το data περιέχει όλα τα δεδομένα μας. Π.χ. ποιο είναι το P-VALUE της 1000ης GWAS;</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;P-VALUE&#39;</span><span class="p">][</span><span class="mi">999</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;4E-6&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ας δοκιμάσουμε μερικά ερωτήματα:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>dict_keys([&#39;DATE ADDED TO CATALOG&#39;, &#39;PUBMEDID&#39;, &#39;FIRST AUTHOR&#39;, &#39;DATE&#39;, &#39;JOURNAL&#39;, &#39;LINK&#39;, &#39;STUDY&#39;, &#39;DISEASE/TRAIT&#39;, &#39;INITIAL SAMPLE SIZE&#39;, &#39;REPLICATION SAMPLE SIZE&#39;, &#39;REGION&#39;, &#39;CHR_ID&#39;, &#39;CHR_POS&#39;, &#39;REPORTED GENE(S)&#39;, &#39;MAPPED_GENE&#39;, &#39;UPSTREAM_GENE_ID&#39;, &#39;DOWNSTREAM_GENE_ID&#39;, &#39;SNP_GENE_IDS&#39;, &#39;UPSTREAM_GENE_DISTANCE&#39;, &#39;DOWNSTREAM_GENE_DISTANCE&#39;, &#39;STRONGEST SNP-RISK ALLELE&#39;, &#39;SNPS&#39;, &#39;MERGED&#39;, &#39;SNP_ID_CURRENT&#39;, &#39;CONTEXT&#39;, &#39;INTERGENIC&#39;, &#39;RISK ALLELE FREQUENCY&#39;, &#39;P-VALUE&#39;, &#39;PVALUE_MLOG&#39;, &#39;P-VALUE (TEXT)&#39;, &#39;OR or BETA&#39;, &#39;95% CI (TEXT)&#39;, &#39;PLATFORM [SNPS PASSING QC]&#39;, &#39;CNV&#39;])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Όλοι τα διαφορετικά περιοδικά:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;JOURNAL&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Όλοι οι συγγραφείς που έχουν δημοσιεύσει στο Nature:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">author</span> <span class="k">for</span> <span class="n">journal</span><span class="p">,</span> <span class="n">author</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;JOURNAL&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;FIRST AUTHOR&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">journal</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Nat&#39;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ποιος είναι ο συγγραφέας που έχει εντοπίσει τις περισσότερες μεταλλάξει και τις έχει δημοσιεύσει στο nature;</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">journal</span><span class="p">,</span> <span class="n">author</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;JOURNAL&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;FIRST AUTHOR&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">journal</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Nat&#39;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">author</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="n">counter</span><span class="p">[</span><span class="n">author</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">counter</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    
+<span class="nb">max</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Sakaue S&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Πόσες μεταλλάξεις έχει εντοπίσει αυτός ο συγγραφέας;</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="s1">&#39;Sakaue S&#39;</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>17799</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Οι.. πόντιοι συγγραφείς:</span>
+<span class="n">pontioi</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;FIRST AUTHOR&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;idis&#39;</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="s1">&#39;idou&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">}</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">pontioi</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>{&#39;Petridis C&#39;, &#39;Tachmazidou I&#39;, &#39;Gaitanidis A&#39;, &#39;Klimentidis YC&#39;, &#39;Michailidou K&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ποιο είναι το μικρότερο  p-value που έχει εντοπίσει πόντιος συγγραφέας;</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_v</span><span class="p">)</span> <span class="k">for</span> <span class="n">p_v</span><span class="p">,</span> <span class="n">author</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;P-VALUE&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;FIRST AUTHOR&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pontioi</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>5e-324</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ή αλλιώς: 5*10<sup>-324</sup></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="String-formatting">String formatting<a class="anchor-link" href="#String-formatting">&#182;</a></h3>
 </div>
 </div>
@@ -19254,7 +19921,7 @@ True
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Τι έγινε εδώ; Γιατί πέταξε αυτό το λάθος; Όπως είπαμε και πριν: αν θέσεις μία νέα τιμή σε μία μεταβλητή οπουδήποτε μέσα σε μία συνάρτηση τότε την ξαναορίζεις. Άρα η a ξαναορίστηκε μέσα στη συνάρτηση. Όταν λοιπόν πάμε να κάνουμε print(a), τότε του λέμε να τυπώσει τη μεταβλητή a της συνάρτησης η οποία.. δεν έχει ακόμα οριστεί!</p>
+<p>Τι έγινε εδώ; Γιατί πέταξε αυτό το λάθος; Όπως είπαμε και πριν: αν θέσεις μία νέα τιμή σε μία μεταβλητή οπουδήποτε μέσα σε μία συνάρτηση τότε την ξαναορίζεις. Εδώ η a ξαναορίστηκε μέσα στη συνάρτηση (γραμμή 4). Όταν λοιπόν πάμε να κάνουμε print(a) (γραμμή 3), τότε του λέμε να τυπώσει τη μεταβλητή a της συνάρτησης η οποία.. δεν έχει ακόμα οριστεί!</p>
 <p>Αν για κάποιο λόγο θέλουμε να πούμε ότι η a στη f αναφέρεται στη "έξω" a και όχι στη "μέσα" πρέπει να το δηλώσουμε:</p>
 
 </div>
@@ -19346,6 +20013,104 @@ True
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>print <span class="ansi-blue-fg">(</span>t<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;t&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Κάποιες (σπάνιες..) φορές θέλουμε να αναφερθούμε σε μία μεταβλητή η οποία να μην είναι global, να μην είναι local (δηλαδή να μην έχει οριστεί μέσα στη συνάρτηση), αλλά να έχει οριστεί σε μία συνάρτηση στο αμέσως πιο πάνω επίπεδο. Τότε χρησιμοποιούμε το <code>nonlocal</code>:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">a</span> <span class="c1"># Αναφέρεται στην a της f</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Τυπώνει 4</span>
+    <span class="n">g</span><span class="p">()</span>
+        
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>4
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Δείτε τη διαφορά με αυτό:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">a</span> <span class="c1"># Αναφέρεται στην εξωτερική a</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Τυπώνει 3</span>
+    <span class="n">g</span><span class="p">()</span>
+        
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>3
+</pre>
 </div>
 </div>
 
