@@ -56,10 +56,10 @@
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_5.ipynb), [markdown](2022/draft_lesson_5.md), [pdf](2022/draft_lesson_5.pdf)
 * Διάλεξη 7η . 30 Μαρτίου 2022 . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_6.ipynb), [markdown](2022/draft_lesson_6.md), [pdf](2022/draft_lesson_6.pdf)
-
+* Διάλεξη 8η . 6 April 2022 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_7.ipynb), [markdown](2022/draft_lesson_7.md), [pdf](2022/draft_lesson_7.pdf)
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
 * Διάλεξη 9η . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
 * Διάλεξη 10η . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
 * Διάλεξη 11η . numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html)
