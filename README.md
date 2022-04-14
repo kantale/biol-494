@@ -59,7 +59,7 @@
 * Διάλεξη 8η . 6 Απριλίου 2022 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_7.ipynb), [markdown](2022/draft_lesson_7.md), [pdf](2022/draft_lesson_7.pdf)
 * Διάλεξη 9η . 13 Απριλίου 2022 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
-   * [Εδώ βρίσκονται οι πρόχειρες σημείωσεις της διάλεξης](https://gist.github.com/kantale/4ce5dc5ccde161641bc31f7eef2247bb).
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/4ce5dc5ccde161641bc31f7eef2247bb).
 
 
 ### Μελλοντικές διαλέξεις
