@@ -1370,5 +1370,188 @@ print (m) # Τυπώνει 1, που είναι και το μικρότερο �
 Για αυτή την άσκηση στο μείλ που θα παραδώσετε βάλτε το περιεχόμενο του αρχείου `ask_63.py`.
 
 
+### Άσκηση 64
+Σύμφωνα με [τις οδηγίες της βάσης δεδομένων UniProt για το Entry Name](https://www.uniprot.org/help/entry_name):
+
+The UniProtKB/Swiss-Prot entry name consists of up to 11 uppercase alphanumeric characters with a naming convention that can be symbolized as X_Y, where:
+
+*    X is a mnemonic protein identification code of at most 5 alphanumeric characters;
+*    The '\_' sign serves as a separator;
+*    Y is a mnemonic species identification code of at most 5 alphanumeric characters.
+
+Συμπληρώστε το regular expression της ακόλουθης συνάρτησης ώστε:
+* Αν το `name` είναι σωστό entry name της Uniprot να επιστρέφει `True`.
+* Διαφορετικά θα επιστρέφει `False`.  
+
+```python
+import re
+def f(name):
+
+    m = re.fullmatch(r'<ΒΑΛΤΕ ΕΔΩ ΤΟ Regular Expression>', name)
+    return bool(m)
+
+```
+
+Δίνονται μερικά σωστά entry names: 
+```
+BRCA2_HUMAN
+PALB2_HUMAN
+BRCC3_BOVIN
+BRCC3_RAT
+BCCIP_MOUSE
+```
+
+
+### Άσκηση 65
+Στη βάση δεδομένων UniProt μπορούμε να αναζητήσουμε ένα μέρος της ακολουθίας μία πρωτεΐνης ωε εξής: `<Κωδικός_πρωτεΐνης>[<Αρχή ακολουθίας>-<Τέλος ακολουθίας>]`. Για παράδειγμα το `P00750[39-81]` δηλώνει ότι θέλουμε την ακολουθία της πρωτεΐνης `P00750` από το 39ο μέχρι το 81ο νουκλεοτίδιο. Θεωρούμε ότι ο κωδικός μίας πρωτεΐνης αρχίζει πάντα από `P` ακολουθούμενο από έναν αριθμό. Συμπληρώστε το regular expression της ακόλουθης συνάρτηση έτσι ώστε όταν εισάγουμε στην παράμετρο έναν κωδικό σαν αυτό που περιγράφηκε τότε η συνάρτηση να επιστρέφει ένα dictionary με τα ακόλουια κλειδιά/τιμές:
+* 'protein_id': Ο κωδικός της πρωτεΐνης (π.χ.: `P00750`)
+* 'start': Η αρχή της ακολουθίας (π.χ. `39`)
+* 'end': Το τέλος της ακολουθίας (π.χ. `81`)
+
+```python
+import re
+
+def f(code):
+
+    m = re.fullmatch(r'<ΒΑΛΤΕ ΕΔΩ ΤΟ Regular Expression>', code)
+    if not m:
+        raise Exception('Invalid code')
+    return m.groupdict()
+
+```
+
+Δίνονται μερικά παραδείγματα:
+
+```python
+f('P00750[39-81]') # επιστρέφει:
+{
+    'protein_id': 'P00750',
+    'start': '39',
+    'end': '81'
+}
+
+
+
+f('E00750[39-81]') # Πετάει exception (invalid code)
+f('PABC[39-81]') # Πετάει exception (invalid code)
+f('P00750') # Πετάει exception (invalid code)
+f('P00750[aa-100]') # Πετάει exception (invalid code)
+```
+
+### Άσκηση 66
+Σε [αυτό το link](https://www.dropbox.com/s/166z1c527k575gi/vgnc_gene_set_All.txt?dl=1) μπορείτε να κατεβάσετε ένα CSV αρχείο με όλα τα γονίδια όλων των σπονδυλωτών οργανισμών ([πηγή](https://vertebrate.genenames.org/)). Η τρίτη στήλη του αρχείου περιέχει τον κωδικό του γονιδίου (π.χ. `BRCA2`). Συμπληρώστε το regular expression της παρακάτω συνάρτηση ώστε όταν την τρέχουμε να τυπώνει τα γονίδια τα οποία περιέχουν ακριβώς 2 αριθμούς στο όνομά τους. Κάθε αριθμός μπορεί να έχει παραπάνω από 1 ψηφία. Για παράδειγμα το γονίδιο: `COL13A1` περιέχει 2 αριθμούς (τον 13 και το 1), άρα θα πρέπει να το τυπώνει. Το γονίδιο `ATP6V0A4` περιέχει 3 αριθμούς (το 6 το 0 και το 4), άρα δεν πρέπει να το τυπώνει. Το γονίδιο `ABCB10` περιέχει 1 αριθμό (το 10) αρα δεν πρέπει να το τυπώνει
+
+```python
+import re
+
+def f():
+    with open('vgnc_gene_set_All.txt') as f:
+        f.readline() # Η πρώτη γραμμή είναι η επικεφαλίδα
+        
+        for l in f:
+            ls = l.split()
+            symbol = ls[2] # Το σύμβολο του γονιδίου είναι η 3η στήλη
+            
+            m = re.search(r'<ΒΑΛΤΕ ΕΔΩ ΤΟ Regular Expression>', symbol)
+            if m:
+                print (symbol)
+```
+
+Παραδείγματα από γονίδια τα οποία πρέπει να τυπώνει:
+```
+ATP13A4
+P3H2
+PPP1R2C
+```
+
+### Άσκηση 67
+Σε [αυτό το link](https://www.ncbi.nlm.nih.gov/books/NBK8808/#A197). Διαβάζουμε (edited):
+
+> The name of a taxon between subclass and genus is formed by the addition of the appropriate suffix to the stem of the name of the type genus. These suffixes are as follows:
+
+| Rank | Suffix | Example |
+| --- | --- | --- |
+| Order | _-ales_ | Pseudomonadales |
+| Suborder | _-ineae_ | Pseudomonadineae |
+| Family | _-aceae_ | Pseudomonadaceae |
+| Subfamily | _-oideae_ | Pseudomonadoideae |
+| Tribe | _-eae_ | Pseudomonadeae |
+| Subtribe | _-inae_ | Pseudomonadinae |
+
+Ας υποθέσουμε ότι έχουμε το παρακάτω dictionary το οποίο για keys περιέχει το Suffix και για values περιέχει to Rank:
+
+```python
+rank = {
+ 'ales': 'Order',
+ 'ineae': 'Suborder',
+ 'aceae': 'Family',
+ 'oideae': 'Subfamily',
+ 'eae': 'Tribe',
+ 'inae': 'Subtribe',
+}
+```
+
+Συμπληρώστε το regular expression στη παρακάτω συνάρτηση ώστε όταν της δίνουμε στη παράμετρο το όνομα μίας ταξινόμησης να μας επιστρέφει το rank:
+
+```python
+def f(name):
+    m = re.search(r'<ΒΑΛΤΕ ΕΔΩ ΤΟ Regular Expression>', name)
+    if not m:
+        raise Exception('Invalid name')
+    return rank[m.group(0)]
+```
+
+Για παράδειγμα θα πρέπει:
+```python
+print (f('Pseudomonadales'))   # Τυπώνει: 'Order'
+print (f('Pseudomonadineae'))  # Τυπώνει: 'Suborder'
+print (f('Pseudomonadaceae'))  # Τυπώνει: 'Family'
+print (f('Pseudomonadoideae')) # Τυπώνει: 'Subfamily'
+print (f('Pseudomonadeae'))    # Τυπώνει: 'Tribe'
+print (f('Pseudomonadinae'))   # Τυπώνει: 'Subtribe'
+print (f('Kanterakis')) # Πετάει exception "invalid name"
+```
+
+### Άσκηση 68
+Σε [αυτό το link](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Original8Hour/Genetics/chrombanding.html) διαβάζουμε για την ονοματολογία των χρωμοσωμικών θέσεων στο ανθρώπινο γονιδίωμα:
+
+Each human chromosome has a short arm ("p" for "petit") and long arm ("q" for "queue"), separated by a centromere. The ends of the chromosome are called telomeres.
+
+Each chromosome arm is divided into regions, or cytogenetic bands, that can be seen using a microscope and special stains. The cytogenetic bands are labeled p1, p2, p3,   q1, q2, q3, etc., counting from the centromere out toward the telomeres. At higher resolutions, sub-bands can be seen within the bands. The sub-bands are also numbered from the centromere out toward the telomere.
+
+For example, the cytogenetic map location of the CFTR gene is 7q31.2, which indicates it is on chromosome 7, q arm, band 3, sub-band 1, and sub-sub-band 2.
+
+The ends of the chromosomes are labeled ptel and qtel. For example, the notation 7qtel refers to the end of the long arm of chromosome 7.
+
+Συμπληρώστε λοιπόν το regular expression στη παρακάτω συνάρτηση έτσι ώστε:
+* Αν η παράμετρος αποτελεί μία έγκυρη χρωμοσωμική θέση, θα πρέπει να επιστρέφει `True`.
+* Διαφορετικά θα επιστρέφει `False`
+
+```python
+import re
+def f(position):
+   m = re.search(r'<ΒΑΛΤΕ ΕΔΩ ΤΟ Regular Expression>', position)
+   return bool(m)
+```
+
+Παραδείγματα:
+```python
+f('7q') # Επιστρέφει True
+f('7q31') # Επιστρέφει True
+f('7q31.32') # Επιστρέφει True
+f('7qtel') # Επιστρέφει True
+
+f('7q31tel') # Επιστρέφει False
+f('7s31') # Επιστρέφει False
+f('7q31.32.33') # Επιστρέφει False
+```
+
+### Άσκηση 69
+Σε [αυτό το link](http://hla.alleles.org/nomenclature/naming.html) διαβάζουμε για το.. κάπως πολύπλοκο τρόπο με τον οποίο κωδικοποιούνται οι μεταλλάξεις στη περιοχή HLA του ανθρώπινου γονιδιώματος. To be continued..
+
+
+
+
+
 
 
