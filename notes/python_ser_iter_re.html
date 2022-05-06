@@ -16812,7 +16812,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Ο χαρακτήρας <code>?</code> μετά από <code>+,*,?,{}</code> λέει στη python "φέρουμε το μικρότερο δυνατό". Δείτε αυτά τα παραδείγματα:</p>
+<p>Ο χαρακτήρας <code>?</code> μετά από <code>+,*,?,{}</code> λέει στη python "φέρε το μικρότερο δυνατό". Δείτε αυτά τα παραδείγματα:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17433,10 +17433,11 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[167]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate_number</span> <span class="o">=</span> <span class="s1">&#39; This is my plate number: ABE 1234 hello&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">plate_number</span> <span class="o">=</span> <span class="s1">&#39; This is my plate number: ABE 1234 hello&#39;</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+) (\d+)&#39;</span><span class="p">,</span> <span class="n">plate_number</span><span class="p">)</span>
 </pre></div>
@@ -17579,7 +17580,223 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="&#927;&#953;-&#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962;-match,-exactmatch,--findall--&#954;&#945;&#953;--sub:">&#927;&#953; &#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962; match, exactmatch,  findall  &#954;&#945;&#953;  sub:<a class="anchor-link" href="#&#927;&#953;-&#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962;-match,-exactmatch,--findall--&#954;&#945;&#953;--sub:">&#182;</a></h3>
+<p>Ο τρόπος αυτός για να προσπελάσουμε τα πεδία που έχουμε κάνει match σε ένα group πολλές φορές δεν βολεύει γιατί απλά πρέπει να ξέρουμε τη σειρά με την οποία έχουμε βάλει τις παρενθέσεις. Ένας άλλος τρόπος είναι να δηλώσουμε ένα όνομα στο group το οποίο θέλουμε να κάνουμε match. Αυτά τα groups ονομάζονται named groups. Αυτό το κάνουμε με τη χρήση του <code>(?P&lt;name_of_group&gt;&lt;group_pattern&gt;)</code>. Για παράδειγμα:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">plate_number</span> <span class="o">=</span> <span class="s1">&#39; This is my plate number: ABE 1234 hello&#39;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;letters&gt;\w+) (?P&lt;numbers&gt;\d+)&#39;</span><span class="p">,</span> <span class="n">plate_number</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;letters&#39;</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>ABE
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;numbers&#39;</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>1234
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Μπορούμε επίσης να χρησιμοποιήσουμε τη συνάρτηση <code>groupdict</code> για να πάρουμε όλα τα groups που έχουμε κάνει match σε ένα dictionary:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">groupdict</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>{&#39;letters&#39;: &#39;ABE&#39;, &#39;numbers&#39;: &#39;1234&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Είναι ενδιαφέρον το γεγονός ότι αν ένα group δεν έχει γίνει match (επειδή π.χ. το έχουμε βάλει σαν προαιρετικό) τότε η τιμή του στο dictionary είναι <code>None</code>. Ας δούμε ένα παράδειγμα:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;prosimo&gt;[+-])?(?P&lt;number&gt;\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;prosimo&#39;: None, &#39;number&#39;: &#39;123&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;prosimo&gt;[+-])?(?P&lt;number&gt;\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;-123&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;prosimo&#39;: &#39;-&#39;, &#39;number&#39;: &#39;123&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="&#927;&#953;-&#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962;-match,-fullmatch,--findall--&#954;&#945;&#953;--sub:">&#927;&#953; &#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962; match, fullmatch,  findall  &#954;&#945;&#953;  sub:<a class="anchor-link" href="#&#927;&#953;-&#963;&#965;&#957;&#945;&#961;&#964;&#942;&#963;&#949;&#953;&#962;-match,-fullmatch,--findall--&#954;&#945;&#953;--sub:">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -18351,7 +18568,7 @@ b
 <h4 id="&#931;&#965;&#957;&#941;&#967;&#949;&#953;&#945;">&#931;&#965;&#957;&#941;&#967;&#949;&#953;&#945;<a class="anchor-link" href="#&#931;&#965;&#957;&#941;&#967;&#949;&#953;&#945;">&#182;</a></h4><p>Έχουμε πει λιγότερα από τα μισά που περιέχει τόσο η θεωρία των regular expressions, όσο και η υποστήριξή τους από τη python. Μπορείτε να διαβάσετε περισσότερα για:</p>
 <ul>
 <li><a href="https://www.rexegg.com/regex-lookarounds.html">Look ahead and look begind regular expressions</a></li>
-<li><a href="https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups">Named groups</a></li>
+<li><a href="https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups">Named groups</a> (το καλύψαμε)</li>
 <li><a href="https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups">Non capturing parenthesis</a></li>
 <li><a href="https://docs.python.org/3/howto/regex.html#compilation-flags">Compilation flags</a>. Για παράδειγμα η τελεία θα πρέπει να "πιάνει" το enter;  Ή πως μπορώ να κάνω match αγνοώντας τη διαφορά μεταξύ κεφαλαίων και μικρών γραμμάτων;</li>
 <li><a href="https://docs.python.org/3/howto/regex.html#greedy-versus-non-greedy">Greedy vs. non-greedy</a> (τα εξηγήσαμε λίγο εδώ)</li>

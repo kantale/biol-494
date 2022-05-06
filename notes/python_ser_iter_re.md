@@ -817,7 +817,7 @@ print (a.group(0))
     gene:G1 function
 
 
-Ο χαρακτήρας ```?``` μετά από ```+,*,?,{}``` λέει στη python "φέρουμε το μικρότερο δυνατό". Δείτε αυτά τα παραδείγματα:
+Ο χαρακτήρας ```?``` μετά από ```+,*,?,{}``` λέει στη python "φέρε το μικρότερο δυνατό". Δείτε αυτά τα παραδείγματα:
 
 
 ```python
@@ -995,6 +995,7 @@ print (a)
 
 
 ```python
+import re
 plate_number = ' This is my plate number: ABE 1234 hello'
 
 a = re.search(r'(\w+) (\d+)', plate_number)
@@ -1044,7 +1045,71 @@ a.group(2)
 
 
 
-### Οι συναρτήσεις match, exactmatch,  findall  και  sub:
+Ο τρόπος αυτός για να προσπελάσουμε τα πεδία που έχουμε κάνει match σε ένα group πολλές φορές δεν βολεύει γιατί απλά πρέπει να ξέρουμε τη σειρά με την οποία έχουμε βάλει τις παρενθέσεις. Ένας άλλος τρόπος είναι να δηλώσουμε ένα όνομα στο group το οποίο θέλουμε να κάνουμε match. Αυτά τα groups ονομάζονται named groups. Αυτό το κάνουμε με τη χρήση του `(?P<name_of_group><group_pattern>)`. Για παράδειγμα:
+
+
+```python
+import re
+plate_number = ' This is my plate number: ABE 1234 hello'
+
+a = re.search(r'(?P<letters>\w+) (?P<numbers>\d+)', plate_number)
+```
+
+
+```python
+print (a.group('letters'))
+```
+
+    ABE
+
+
+
+```python
+print (a.group('numbers'))
+```
+
+    1234
+
+
+Μπορούμε επίσης να χρησιμοποιήσουμε τη συνάρτηση `groupdict` για να πάρουμε όλα τα groups που έχουμε κάνει match σε ένα dictionary:
+
+
+```python
+print (a.groupdict())
+```
+
+    {'letters': 'ABE', 'numbers': '1234'}
+
+
+Είναι ενδιαφέρον το γεγονός ότι αν ένα group δεν έχει γίνει match (επειδή π.χ. το έχουμε βάλει σαν προαιρετικό) τότε η τιμή του στο dictionary είναι `None`. Ας δούμε ένα παράδειγμα:
+
+
+```python
+m = re.search(r'(?P<prosimo>[+-])?(?P<number>\d+)', '123')
+m.groupdict()
+```
+
+
+
+
+    {'prosimo': None, 'number': '123'}
+
+
+
+
+```python
+m = re.search(r'(?P<prosimo>[+-])?(?P<number>\d+)', '-123')
+m.groupdict()
+```
+
+
+
+
+    {'prosimo': '-', 'number': '123'}
+
+
+
+### Οι συναρτήσεις match, fullmatch,  findall  και  sub:
 
 Η συνάρτηση search που έχουμε δει μέχρι στιγμής χρησιμοποιείται για να βρούμε ένα pattern μέσα σε ένα string. Μία άλλη χρήσιμη συνάρτηση είναι η ```fullmatch``` η οποία κάνει match **μόνο αν** όλο το string κάνει match το pattern:
 
@@ -1265,7 +1330,7 @@ print (a)
 Έχουμε πει λιγότερα από τα μισά που περιέχει τόσο η θεωρία των regular expressions, όσο και η υποστήριξή τους από τη python. Μπορείτε να διαβάσετε περισσότερα για:
 
 * [Look ahead and look begind regular expressions](https://www.rexegg.com/regex-lookarounds.html)
-* [Named groups](https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups)
+* [Named groups](https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups) (το καλύψαμε)
 * [Non capturing parenthesis](https://docs.python.org/3/howto/regex.html#non-capturing-and-named-groups)
 * [Compilation flags](https://docs.python.org/3/howto/regex.html#compilation-flags). Για παράδειγμα η τελεία θα πρέπει να "πιάνει" το enter;  Ή πως μπορώ να κάνω match αγνοώντας τη διαφορά μεταξύ κεφαλαίων και μικρών γραμμάτων;
 * [Greedy vs. non-greedy](https://docs.python.org/3/howto/regex.html#greedy-versus-non-greedy) (τα εξηγήσαμε λίγο εδώ)

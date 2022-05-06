@@ -60,6 +60,8 @@
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_7.ipynb), [markdown](2022/draft_lesson_7.md), [pdf](2022/draft_lesson_7.pdf)
 * Διάλεξη 9η . 13 Απριλίου 2022 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/4ce5dc5ccde161641bc31f7eef2247bb).
+* Διάλεξη 10 . 4 Μαΐου 2022 . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/cc0ac6c7992e521a75eb7aaef25f2ad1).
 
 
 ### Μελλοντικές διαλέξεις
@@ -82,7 +84,7 @@
 * Οι ασκήσεις 1-18 έχουν διορία μέχρι της 23 Μαρτίου. 
 * Οι ασκήσεις 19-36 έχουν διορία μέχρι τις 6 Απριλίου.
 * Οι ασκήσεις 37-54 έχουν διορία μέχρι τις 20 Απριλίου. 
-* Οι ασκήσεις 55-72 έχουν διαρία μέχρι τις 18 Μαΐου.
+* Οι ασκήσεις 55-70 έχουν διαρία μέχρι τις 18 Μαΐου.
 
 Η ώρα που λήγει η διορία είναι η 23:59 της αντίστοιχης μέρας στο Time Zone [Anywhere on Earth](https://time.is/Anywhere_on_Earth).
 
