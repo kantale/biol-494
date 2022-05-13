@@ -1652,7 +1652,7 @@ Name: AssociatedGenes, dtype: int64
 import pandas as pd
 def f():
     df = pd.read_csv('https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id', sep='\t')
-    df['LastUpdated_corrected'] = pd.apply(correct_date, axis=1)
+    df['LastUpdated_corrected'] = df.apply(correct_date, axis=1)
 
     return df
 ```
