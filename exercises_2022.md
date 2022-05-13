@@ -1658,7 +1658,7 @@ def f():
 ```
 
 ### Άσκηση 74
-Χρησιμοποιώντας το αγαπημένο μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id), φτιάξτε μία συνάρτηση η οποία θα φτιάχνει ένα DataFrame το οποίο θα περιέχει μόνο της γραμμές που η στήλη `SourceName` έχει τη τιμή `MONDO`. Στη συνέχεια θα επιστρέφει ένα DataFrame το οποίο θα περιέχει  το πλήθος από γραμμές που υπάρχουν για κάθε διαφορετικό χρόνο της στήλης `LastUpdated`. Η στήλη που θα περιέχει τα πλήθη πρέπει να λέγεται `counts`. Δίνεται το DataFrame που έφτιαξε η δική μου συνάρτηση:
+Χρησιμοποιώντας το αγαπημένο μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id), φτιάξτε μία συνάρτηση η οποία θα φτιάχνει ένα DataFrame το οποίο θα περιέχει μόνο τις γραμμές που η στήλη `SourceName` έχει τη τιμή `MONDO`. Στη συνέχεια θα επιστρέφει ένα DataFrame το οποίο θα περιέχει  το πλήθος από γραμμές που υπάρχουν για κάθε διαφορετικό χρόνο της στήλης `LastUpdated`. Η στήλη που θα περιέχει τα πλήθη πρέπει να λέγεται `counts`. Δίνεται το DataFrame που έφτιαξε η δική μου συνάρτηση:
 
 ![img](https://i.imgur.com/h4pghdc.png)
 
@@ -1669,6 +1669,8 @@ def f():
 Υλοποιήστε την άσκηση 43, έτσι ώστε αντί για dictionary να επιστρέφει ένα DataFrame. 
 
 Δηλαδή θα πρέπει:
+
+
 ![img](https://i.imgur.com/Zr8Fhd3.png)To
 
 ### Άσκηση 76
@@ -1758,7 +1760,7 @@ def f():
 * Να χρησιμοποιεί τη `read_html` για να πάρει όλους τους πίνακες της σελίδας: https://en.wikipedia.org/wiki/List_of_stadiums_by_capacity με τη μορφή DataFrames. 
 * Για το plot θα κρατήσετε τους 2 πρώτους πίνακες. Ο πρώτος περιέχει τα στάδια με χωρητικότητα 100.000 ή παραπάνω και ο 2ος τα στάδια με χωριτικότητα 90,000–100,000. 
 * Θα πρέπει να επεξεργατείτε τη στήλη `Capacity` ώστε να περιέχει ακέραιες τιμές. Για παράδειγμα θα πρέπει η τιμή `132,000[2][3]` να γίνει `132000`. Χρησιμοποιήστε είτε τη συνάρτηση [apply](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html) ή τη [map](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html) για να γίνει αυτό (hint, εδώ βολεύουν πολύ τα regular expressions). 
-* Θα πρέπει να εννώσετε τα 2 dataframes σε ένα. Αυτό γίνεται με τη συνάρτηση [concat](https://pandas.pydata.org/docs/reference/api/pandas.concat.html). Π.χ: `pd.concat([df1, df2, ignore_index=True)`
+* Θα πρέπει να εννώσετε τα 2 DataFrames σε ένα. Αυτό γίνεται με τη συνάρτηση [concat](https://pandas.pydata.org/docs/reference/api/pandas.concat.html). Π.χ: `pd.concat([df1, df2, ignore_index=True)`
 * Στη συνέχεια θα πρέπει να κάνετε sort το DataFrame από το μεγαλύτερο στο μικρότερο με βάση τη στήλη `Capacity`.
 * Μετά θα πρέπει να κάνετε ένα vertical barplot (`kind='barh'`), όπου το x θα είναι η στήλη `Stadium` και y θα είναι η στήλη `Capacity`
 * Θα πρέπει να φροντίσετε ώστε το χρώμα της κάθε μπάρας να είναι διαφορετικό ανάλογα με την ήπειρο που βρίσκεται το στάδιο (στήλη: `Region`). Για να το κάνετε αυτό μπορείτε να φτιάξετε μια επιπλέον στήλη στο DataFrame το οποίο να έχει το όνομα του χρώματος (π.χ. 'red', 'yellow', ...) για κάθε γραμμή ανάλογα με τη τιμή της στήλης `Region`. Εγώ χρησιμοποιήσα αυτά τα τυχαία χρώματα, αλλά εσείς μπορείτε να διαλέξετε τα δικά σας:
