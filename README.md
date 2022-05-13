@@ -69,8 +69,6 @@
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/3c3cbe04cd831ebdd889470e2f83aebc).
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 10η . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
-* Διάλεξη 11η . numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html)
 * Διάλεξη 12η . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
 * Διάλεξη 13η . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
 
