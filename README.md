@@ -60,9 +60,13 @@
    * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_7.ipynb), [markdown](2022/draft_lesson_7.md), [pdf](2022/draft_lesson_7.pdf)
 * Διάλεξη 9η . 13 Απριλίου 2022 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/4ce5dc5ccde161641bc31f7eef2247bb).
-* Διάλεξη 10 . 4 Μαΐου 2022 . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
+* Διάλεξη 10η . 4 Μαΐου 2022 . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/cc0ac6c7992e521a75eb7aaef25f2ad1).
-
+* Διάλεξη 11η . 11 Μαΐου 2022 
+   * pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
+   * numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html) 
+      * Καθότι δεν αφιερώσαμε τον χρόνο που χρειάζεται, η numpy είναι εκτός ύλης. Παρόλα αυτά καλό είναι να της ρίξετε μια ματιά. 
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/3c3cbe04cd831ebdd889470e2f83aebc).
 
 ### Μελλοντικές διαλέξεις
 * Διάλεξη 10η . pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
