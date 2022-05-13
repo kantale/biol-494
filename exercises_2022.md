@@ -1606,6 +1606,219 @@ f('NM_012486.3:100G>A') # Επιστρέφει: NM_012486.3:c.100G>A
 f('NM_001297605.2:50A>G') # Επιστρέφει: NM_001297605.2:c.50A>G
 ```
 
+### Άσκηση 71 
 
+Συμπληρώστε τη παρακάτω συνάρτηση έτσι ώστε όταν την καλούμε να εμφανίζει ένα barplot. Κάθε μπάρα θα δείχνει το πλήθος απο γραμμές που έχει το γνωστό μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id) για όλες τις διαφορετικές τιμές της στήλης `SourceName`.
+
+```python
+import pandas as pd
+def f():
+    df = pd.read_csv('https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id', sep='\t')
+    df.<ΣΥΜΠΛΗΡΩΣΤΕ ΕΔΩ> 
+```
+
+Δίνεται εδώ το plot που έβγαλε σε εμένα:
+![img](https://i.imgur.com/iT7ueRo.png)
+
+
+### Άσκηση 72
+
+Συμπληρώστε τη παρακάτω συνάρτηση έτσι ώστε όταν την καλούμε να επιστρέφει ένα Series το οποία θα περιέχει το πλήθος από διαφορετικά γονίδια που υπάρχουν για κάθε διαφορετική τιμή της στήλης `SourceName`.
+
+```python
+import pandas as pd
+def f():
+    df = pd.read_csv('https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id', sep='\t')
+    return df.<ΣΥΜΠΛΗΡΩΣΤΕ ΕΔΩ> 
+```
+
+Δίνεται ο πίνακας που θα πρέπει να επιστρέφει:
+```
+SourceName
+GeneReviews                    7
+Human Phenotype Ontology     238
+MONDO                       4228
+NCBI curation                187
+OMIM                         138
+OMIM phenotypic series        64
+Orphanet                      92
+Name: AssociatedGenes, dtype: int64
+```
+
+### Άσκηση 73 
+Αν φορτώσουμε το αγαπημένο μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id) σε ένα pandas DataFrame και ελέγξουμε τη στήλη `LastUpdated`, θα δούμε (με τρόμο), ότι κάποιες ημερομηνίες έχουν γραφτεί ως εξής: Μήνας Μέρα Χρονιά (π.χ. `Feb 16 2016`) και άλλες έχουν γραφεί ως εξής: Μέρα Μήνας Χρονιά (π.χ. `16 Feb 2016`). Φτιάξτε μία συνάρτηση με το όνομα `correct_date` η οποία θα είναι τέτοια ώστε η παρακάτω συνάρτηση να επιστρέφει ένα DataFrame όπου θα υπάρχει μία επιπλέον στήλη με το όνομα `LastUpdated_corrected`, τέτοια ώστε όλες οι ημερομηνίες να έχουν τη μορφή Μέρα Μήνας Χρονιά (π.χ. `16 Feb 2016`). Προαιρετικά μπορείτε να εφαρμόσεται και τη συνάρτηση [to_datetime](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html) έτσι ώστε η στήλη να μην είναι τύπου string αλλά τύπου date. 
+
+```python
+import pandas as pd
+def f():
+    df = pd.read_csv('https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id', sep='\t')
+    df['LastUpdated_corrected'] = pd.apply(correct_date, axis=1)
+
+    return df
+```
+
+### Άσκηση 74
+Χρησιμοποιώντας το αγαπημένο μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id), φτιάξτε μία συνάρτηση η οποία θα φτιάχνει ένα DataFrame το οποίο θα περιέχει μόνο της γραμμές που η στήλη `SourceName` έχει τη τιμή `MONDO`. Στη συνέχεια θα επιστρέφει ένα DataFrame το οποίο θα περιέχει  το πλήθος από γραμμές που υπάρχουν για κάθε διαφορετικό χρόνο της στήλης `LastUpdated`. Η στήλη που θα περιέχει τα πλήθη πρέπει να λέγεται `counts`. Δίνεται το DataFrame που έφτιαξε η δική μου συνάρτηση:
+
+![img](https://i.imgur.com/h4pghdc.png)
+
+Σημείωση: [Εδώ](https://stackoverflow.com/questions/19078325/naming-returned-columns-in-pandas-aggregate-function) μπορείτε να βρείτε οδηγίες για το πως μπορείτε να δώσετε ένα όνομα σε μία στήλη του grouping.
+
+
+### Άσκηση 75
+Υλοποιήστε την άσκηση 43, έτσι ώστε αντί για dictionary να επιστρέφει ένα DataFrame. 
+
+Δηλαδή θα πρέπει:
+![img](https://i.imgur.com/Zr8Fhd3.png)To
+
+### Άσκηση 76
+Χρησιμοποιώντας το αγαπημένο μας αρχείο [gene_condition_source_id](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id), φτιάξτε μία συνάρτηση η οποία θα:
+* Φορτώνει το αρχείο σε ένα dataframe
+* Θα προσθέτει μία νέα στήλη με το όνομα `SourceName_2` η οποία:
+   * Αν η στήλη `SourceName` της γραμμής περιέχει το string `OMIM` τότε η τιμή της στήλης θα είναι `ΟΜΙΜ`
+   * Διαφορετικά θα περιέχει τη τιμή της στήλης `SourceName`
+* Θα πρσθέτει μία νέα στήλη με το όνομα `year` η οποία θα περιέχει τη χρονιά που έγινε update η κάθε γραμμή με βάση τη τιμή της στήλης: `LastUpdated` (δες και άσκηση 74)
+* Θα κρατάει μόνο τις γραμμές που η στήλη `SourceName_2` δεν είναι `MONDO`
+* Θα κάνει group με βάση τις στήλες `SourceName_2` και `year` 
+* Για κάθε group θα μετράει το πλήθος των γραμμών που περιέχει το κάθε group. (aggregate με βάση το `count`)
+* Θα παράγει ένα barplot `(kind='bar')` με το αποτέλεσμα. 
+
+Το αποτέλεσμα που παρήγαγε σε μένα είναι:
+![img](https://i.imgur.com/eFLjqKA.png)
+
+Σημείωση: δείτε στις σημειώσεις για το "unstacking"
+
+### Άσκηση 77
+To [1000 Genomes Project](https://www.internationalgenome.org/) ([wikipedia](https://en.wikipedia.org/wiki/1000_Genomes_Project)) ήταν ένα πρωτοποριακό project το οποίο έκανε πλήρη αλληλούχιση σε 3500 ανθρώπους από διάφορα μέρη του πλανήτη. Με τον παρακάτω κώδικα μπορείτε να φτιάξετε ένα dataframe το οποίο περιέχει πληροφορίες για αυτούς τους ανθρώπους. 
+
+```python
+import pandas as pd
+
+def f():
+    df = pd.read_excel('ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx')
+    return df
+```
+
+2 από τις βασικές στήλες που περιέχει αυτό το dataframe είναι:
+* `Population`: ένα string μεγέθους 3 χαρακτήρες το οποίο είναι ο κωδικός του πληθυσμού. Για παράδειγμα `GBR` σημαίνει ότι το δείγμα έχει καταγωγή: "British in England and Scotland", ενώ `GIH` σημαίνει ότι το δείγμα έχει καταγωγή: `Gujarati Indian in Houston,TX`
+* `Gender`: παίρνει δύο δυνατές τιμές: `male` και `female`
+
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα επιστρέφει ένα string τριών χαρακτήρων το οποίο θα είναι η απάντηση στην ερώτηση: Ποιος κωδικός πληθυσμού έχει το μεγαλύτερο ποσοστό γυναικών; Για παράδειγμα ο πληθυσμός `ACB` έχει 61 γυναίκες και 62 άντρες. Άρα το ποσοστό των γυναικών στον πληθυσμό `ACB` είναι: 61/(61+62)=0.496 ή 49.6%. Ποιος είναι ο πληθυσμός με το μεγαλύτερο ποσοστό γυναικών;
+
+Δίνεται η απάντηση: `FIN`
+
+* Απαγορεύεται να χρησιμοποιήσετε for, while, if. Επιτρέπονται μόνο συναρτήσεις της pandas.
+* Hints: groupby, unstack, idxmax
+
+### Άσκηση 78
+Η παρακάτω συνάρτηση:
+
+```python
+def f():
+    '''
+    Κατεβάζει ένα αρχείο το οποίο είναι σε bed format με τη μορφή DataFrame
+    Τα ονόματα των στηλών του bed αρχείου τα έχω πάρει από εδώ:
+    https://genome.ucsc.edu/FAQ/FAQformat.html#format1
+    '''
+
+    df = pd.read_csv(
+        'https://lncipedia.org/downloads/lncipedia_5_2/full-database/lncipedia_5_2_hg38.bed', 
+        sep='\t',
+        header=None,
+        names=['chrom', 'chromStart', 'chromEnd', 'name', 'score', 'strand', 'thickStart', 'thickEnd',
+           'itemRgb', 'blockCount', 'blockSizes', 'blockStarts'],
+    )
+    return df
+```
+
+Επιστρέφει ένα DataFrame με όλα τα [long non-coding RNAs](https://en.wikipedia.org/wiki/Long_non-coding_RNA) (ή αλλιώς lncRNAs). H πηγή των δεδομένων είναι από τη βάση δεδομένων [LNCipedia](https://lncipedia.org/download). 
+
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση:
+* Θα φορτώνει το DataFrame
+* Θα προσθέτει μία νέα στήλη η οποία θα περιέχει το μέγεθος του κάθε lncRNA. Το μέγεθος ορίζεται ως η διαφορά της τιμής της στήλης `chromEnd` με τη τιμή της στήλης `chromStart`.
+* Θα υπολογίζει το άθροισμα όλων των lncRNAs για κάθε χρωμόσωμα (στήλη `chrom`)
+* Θα τα ταξινομεί από το μεγαλύτερο (χρωμόσωμα) μέχρι το μικρότερο (hint: [sort_values(ascending=False)](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html))
+* Φτιάχνει ένα barplot με το αποτέλεσμα. 
+
+Η συνάρτηση δεν θα επιστρέφει τίποτα. 
+Δίνεται το plot το οποίο βγήκε σε εμένα:
+
+![img](https://i.imgur.com/OhLYM0V.png)
+
+* Απαγορεύεται να χρησιμοποιήσετε for, while, if. Επιτρέπονται μόνο συναρτήσεις της pandas.
+
+### Άσκηση 79
+Ο σκοπός αυτής της άσκησης είναι να φτιάξετε μία συνάρτηση η οποία δεν θα παίρνει κανένα όρισμα. Η συνάρτηση θα φτιάχνει ένα plot με τη χωρητικότητα των μεγαλύτερων σταδίων του κόσμου. To plot που θα πρέπει να φτιάξετε θα είναι σαν αυτό:
+
+![img](https://i.imgur.com/rPODsTh.png)
+
+
+Οπότε η συνάρτησή σας θα πρέπει:
+
+* Να χρησιμοποιεί τη `read_html` για να πάρει όλους τους πίνακες της σελίδας: https://en.wikipedia.org/wiki/List_of_stadiums_by_capacity με τη μορφή DataFrames. 
+* Για το plot θα κρατήσετε τους 2 πρώτους πίνακες. Ο πρώτος περιέχει τα στάδια με χωρητικότητα 100.000 ή παραπάνω και ο 2ος τα στάδια με χωριτικότητα 90,000–100,000. 
+* Θα πρέπει να επεξεργατείτε τη στήλη `Capacity` ώστε να περιέχει ακέραιες τιμές. Για παράδειγμα θα πρέπει η τιμή `132,000[2][3]` να γίνει `132000`. Χρησιμοποιήστε είτε τη συνάρτηση [apply](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html) ή τη [map](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html) για να γίνει αυτό (hint, εδώ βολεύουν πολύ τα regular expressions). 
+* Θα πρέπει να εννώσετε τα 2 dataframes σε ένα. Αυτό γίνεται με τη συνάρτηση [concat](https://pandas.pydata.org/docs/reference/api/pandas.concat.html). Π.χ: `pd.concat([df1, df2, ignore_index=True)`
+* Στη συνέχεια θα πρέπει να κάνετε sort το DataFrame από το μεγαλύτερο στο μικρότερο με βάση τη στήλη `Capacity`.
+* Μετά θα πρέπει να κάνετε ένα vertical barplot (`kind='barh'`), όπου το x θα είναι η στήλη `Stadium` και y θα είναι η στήλη `Capacity`
+* Θα πρέπει να φροντίσετε ώστε το χρώμα της κάθε μπάρας να είναι διαφορετικό ανάλογα με την ήπειρο που βρίσκεται το στάδιο (στήλη: `Region`). Για να το κάνετε αυτό μπορείτε να φτιάξετε μια επιπλέον στήλη στο DataFrame το οποίο να έχει το όνομα του χρώματος (π.χ. 'red', 'yellow', ...) για κάθε γραμμή ανάλογα με τη τιμή της στήλης `Region`. Εγώ χρησιμοποιήσα αυτά τα τυχαία χρώματα, αλλά εσείς μπορείτε να διαλέξετε τα δικά σας:
+
+```python
+c = {
+    'South Asia': 'green',
+    'East Asia': 'red',
+    'North America': 'blue',
+    'Europe': 'pink',
+    'Africa': 'yellow',
+    'Oceania': 'black',
+    
+}
+```
+
+* Αν υποθέσουμε ότι η νέα στήλη με τα χρώματα ονομάζεται `region_colors` τότε μπορείτε να δηλώσετε στην εντολή plot να χρησιμοποιήσει αυτά τα χρώματα ως εξής: `.plot(... , color=df['region_colors'])`
+
+
+### Άσκηση 80
+H παρακάτω συνάρτηση επιστρέφει ένα DataFrame με τον πίνακα [Table 1](https://www.nature.com/articles/s41588-022-01034-x/tables/1) της δημοσίευσης [Exome sequencing in bipolar disorder identifies AKAP11 as a risk gene shared with schizophrenia](https://www.nature.com/articles/s41588-022-01034-x). 
+
+```python
+def f():
+    dfs=pd.read_html('https://www.nature.com/articles/s41588-022-01034-x/tables/1', encoding='utf8')
+    return dfs[0]
+```
+
+Αν εμφανίσουμε αυτό το DataFrame παρατηρούμε ότι οι στήλες ανήκουν σε ομάδες. Υπάρχει η ομάδα `BD (BipEx)` η οποία περιέχει τη στήλη `P value` και η ομάδα `Schizophrenia (SCHEMA)` η οποία επίσης περιέχει τη στήλη `P value`.
+
+Μποροούμε να προσπελάσουμε αυτές τις στήλες ως εξής:
+```python
+df = f()
+
+df['BD (BipEx)']['P value']
+
+# και:
+df['Schizophrenia (SCHEMA)']['P value']
+```
+
+Παρατηρούμε επίσης ότι οι τιμές των στηλών είναι της μορφής: `1.15 × 10−5`. Δίνεται η παρακάτω συνάρτηση η οποία μετατρέπει αυτές τις τιμές σε `float`:
+
+```python
+import re
+def convert(s):
+    s = re.search(r'(\d+\.\d+) × 10\−(\d+)', s)
+    return float(s.group(1)) * 10**(-int(s.group(2)))
+
+# Για παράδειγμα:
+print (convert('2.02 × 10−5')) # Τυπώνει: 2.0200000000000003e-05 
+
+```
+
+
+Φτιάξτε μία συνάρτηση η οποία δεν θα παίρνει καμία παράμετρο. Η συνάρτηση θα φτιάχνει ένα scatter plot. Στον x άξονα θα είναι οι τιμές της στήλης `P value` της "οικογένειας" `BD (BipEx)` και στον άξονα y θα είναι οι τιμές της στήλης `P value` της "οικογένειας" `Schizophrenia (SCHEMA)`.
+
+Για τη δική μου υλοποίηση έφτιαξα δύο διαφορετικές στήλες για τη κάθε `P value` στήλη. Η μία είχε το όνομα `P value_1` και η άλλη το όνομα `P value_2`. Το.. απλοϊκό scatter plot που βγήκε είναι:
+
+![img](https://i.imgur.com/WU8EKts.png)
+
+Σημείωση: αυτή η άσκηση δείχνει ένα παράδειγμα με το οποίο μπορούμε να κατεβάσουμε δεδομένα απευθείας από papers και να τα επεξεργαστούμε.
 
 
