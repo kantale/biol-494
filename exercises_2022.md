@@ -1877,6 +1877,8 @@ Hint: `ax.twinx()`
 Δίνεται η παρακάτω συνάρτηση:
 
 ```python
+import datetime
+
 def get_date(days):
 
     start = datetime.datetime(2020, 1, 22)
