@@ -137,7 +137,7 @@ print ("This is the solution for ex. 55")
 
 
 ### Projects
-[Οι εκφώνήσεις των projects βρίσκονται εδώ](biol_494_2022_projects.ipynb)
+[Οι εκφωνήσεις των projects βρίσκονται εδώ](biol_494_2022_projects.ipynb)
 
 * Τα projects θα παραδοθούν με τον ίδιο τρόπο όπως οι ασκήσεις,
 * Τα projects μετράνε για το 33.3% του τελικού βαθμού.
