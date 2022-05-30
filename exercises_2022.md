@@ -1840,7 +1840,7 @@ print (convert('2.02 × 10−5')) # Τυπώνει: 2.0200000000000003e-05
 
 Hint: Χρησιμοποιήστε τη linspace:
 ```python
-import nympy as np
+import numpy as np
 X = np.linspace(-1, 1, 100) # Ένας πίνακας από το -1 έως το 1 με 100 βήματα
 ```
 
