@@ -2033,6 +2033,32 @@ my_list = data.to_dict('records')
 
 Ένα παράδειγμα για το πως φτιάχνεται stacked barplot με τη matplotlib [φαίνεται εδώ](https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_stacked.html).
 
+Δίνεται και ο παρακάτω κώδικας:
+```python
+import matplotlib.pyplot as plt
+
+
+labels = ['G1', 'G2', 'G3', 'G4', 'G5']
+men_means = [20, 35, 30, 35, 27]
+women_means = [25, 32, 34, 20, 25]
+extra = [10, 20, 10, 15, 5]
+men_std = [2, 3, 4, 1, 2]
+women_std = [3, 5, 2, 3, 3]
+width = 0.35       # the width of the bars: can also be len(x) sequence
+
+fig, ax = plt.subplots()
+
+
+ax.bar(labels, men_means, width,  label='Men')
+ax.bar(labels, women_means, width, bottom=men_means, label='Women')
+ax.bar(labels, aaa, width, bottom=[a+b for a,b in zip(men_means, women_means)], label='extra')
+
+ax.set_ylabel('Scores')
+ax.set_title('Scores by group and gender')
+ax.legend()
+
+plt.show()
+```
 
 
 
