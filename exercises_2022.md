@@ -1845,7 +1845,9 @@ X = np.linspace(-1, 1, 100) # Ένας πίνακας από το -1 έως το
 ```
 
 Σημείωση 1: Είναι υποχρεωτικό να χρησιμοποιήσετε matplotlib και τη συνάρτηση ax.plot
+
 Σημείωση 2: Η συνάρτηση np.sin υπολογίζει το ημίτονο.
+
 Σημείωση 3: Σχετικά με το `import numpy as np`, [αυτός είναι ο προτεινόμενος τρόπος για να κάνουμε import της numpy](https://numpy.org/doc/stable/user/absolute_beginners.html#how-to-import-numpy). 
 
 ### Άσκηση 83 
