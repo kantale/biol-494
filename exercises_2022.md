@@ -2169,13 +2169,90 @@ p = Protein('FSJ') # Πετάει exception.
 ```
 
 ### Άσκηση 97 
-Προσθέστε στη κλάση `Protein` τη στατική μέθοδο (`@staticmethod`) translate 
+Προσθέστε στη κλάση `Protein` τη στατική μέθοδο (`@staticmethod`) με το όνομα `translate`. Η συνάρτηση αυτή θα παίρνει ένα string το οποίο αναπαραστάει μία ακολουθία DΝA και θα επιστρέφει ένα String το οποίο αναπαραστάει την ακολοθία της πρωτεΐνης στην οποία μεταφράζεται. Για να γίνει σωστά η μετάφραση αντικαταστείστε το γράμμα `T` της ακολουθίας DNA με το `U`. Αν το μέγεθος της ακολουθίες δεν είναι πολλαπλάσιο του 3, τότε θα πρέπει να πετάει Exception.
+
+Θα πρέπει δηλαδή να μπορώ να γράψω:
+
+```python
+
+print (Protein.translate('CAAAGGACT')) #  Τυπώνει: QRT
+print (Protein.translate('CAAAGGAC')) #  Τυπώνει: QRT
+```
+
 
 ### Άσκηση 98 
+Προσθέστε στη συνάρτηση αρχικοποίησης (`__init__`) της κλάσης `Protein` τη προαιρετική παράμετρο from_dna. Αν χρησιμοποιηθεί αυτή η παράμετρος κατά την αρχικοποίηση, τότε η ακολουθία της πρωτεΐνης που θα περιέχει το αντικείμενο θα είναι η μετάφραση της ακολουθίας DNA που περιέχει η παράμετρος. Για παράδειγμα θα πρέπει να μπορώ να γράψω:
+
+```python
+
+p = Protein(from_dna='CAAAGGACT')
+print (p) # Τυπώνει: QRT
+
+```  
+
+Σημείωση: είναι υποχρεωτικό να χρησιμοποιήσετε τη static μέθοδο `translate` της άσκησης 97. 
 
 ### Άσκηση 99 
 
+Προσθέστε στη κλάση `Sequence` τη μέθοδο `to_protein` η οποία θα δημιουργεί ένα αντικείμενο τύπου `Protein` βασιζόμενο στη ακολουθία του αντικειμένου. Για παράδειγμα θα πρέπει να μπορώ να γράψω:
+
+```python
+s = Sequence('CAAAGGACT')
+p = s.to_protein()
+print (p) # Τυπώνει: `QRT` (προσοχή! το p ΔΕΝ είναι string, είναι αντικείμενο της κλάσης Protein)
+```
+
+Σημείωση: είναι υποχρεωτικό να χρησιμοποιήσετε τον τρόπο αρχικοποίησης της κλάσης `Protein` της άσκησης 98
+
+Προσθέστε στη συνάρτηση αρχικοποίησης (`__init__`) της κλάσης `Protein` τη προαιρετική παράμετρο from_sequence. Η παράμετρος αυτή θα μπορεί να είναι μόνο αντικείμενο τύπου Sequence. Αν χρησιμοποιηθεί αυτή η παράμετρος κατά την αρχικοποίηση, τότε η ακολουθία της πρωτεΐνης που θα περιέχει το αντικείμενο θα είναι η μετάφραση της ακολουθίας DNA που περιέχει το αντικείμενο. Για παράδειγμα θα πρέπει να μπορώ να γράψω:
+
+```python
+s = Sequence('CAAAGGACT')
+p = Protein(from_seq=s)
+print (p) # Τυπώνει: QRT
+```
+
 ### Άσκηση 100 
 
+Έστω η λίστα με τις παρακάτω ακολουθίες DNA:
+```python
+l = [
+'GAGGCGGAGCCGCTGTGGCACTGCTGCGCCTCTGCTGCGCCTCGGGTGTCTTTTGCGGCGGTGGGTCGCAAG',
+'CGCCGGGAGAAGCGTGAGGGGACAGATTTGTGACCGGCGCGGTTTTTGTCAGCTTACTCCGGCCAAAAAATC',
+'GAACTGCACCTCTGGAGCGGACTTATTTACCAAGCATTGGAGGAATATCGTAGGTAAAAATGCCTATTGGTG',
+'ATCCAAAGAGAGGCCAACATTTTTTGAAATTTTTAAGACACGCTGCAACAAAGCAGATTTAGGACCAATAGA',
+'AGTCTTAATTGGTTTGAAGAACTTTCTTCAGAAGCTCCACCCTATAATTCTGAACCTGCAGAAGAATCTGTA',
+'AACATAAAAACAACAATTACGAACCAAACCTATTTAAAACTCCACAAAGGAAACCATCTTATAATCAGCTAA',
+'GGCTTCAACTCCAATAATATTCAAAGAGCAAGGGCTGACTCTGCCGCTGTACCAATCTCCTGTAAAAGAAGG',
+'TTAGATAAATTCAAATTAGACTTAGGAAGGAATGTTCCCAATAGTAGACATAAAAGTCTTCGCACAGTGATT',
+'AAACTAAAATGGATCAAGCAGATGATGTTTCCTGTCCACTTCTAAATTCTTGTCTTAGTGAAAGTCCTGTCA',
+'TGTTCTACAATGTACACATGTAACACCACAAAGAGATAAGTCAGTGGTATGTGGGAGTTTGTTTCATACAGT',
+]
+
+```
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει σαν όρισμα μία λίστα με την ίδια δομή όπως η `l`. Η συνάρτηση θα φτιάχνει ένα αντικείμενο τύπου `Protein` για κάθε ακολουθία της λίστας της παραμέτρου και στη συνέχεια θα το βάζει σε μία λίστα. Η συνάρτηση θα επιστρέφει τη λίστα με όλα τα αντικείμενα τύπου `Protein` που έχει φτιάξει. Για παράδειγμα Θα πρέπει να μπορώ να γράφω:
+
+```python
+
+result = f(l)
+for p in result:
+    print (p)
+```
+Τυπώνει:
+```
+EAEPLWHCCASAAPRVSFAAVGRK
+RREKREGTDL/PARFLSAYsGQKI
+ELHLWSGLIYQALEEYRR/KCLLV
+IQREANIF/NF/DTLQQSRFRTNR
+SLNWFEELSSEAPPYNSEPAEESV
+NIKTTITNQTYLKLHKGNHLIIS/
+GFNsNNIQRARADSAAVPIsCKRR
+LDKFKLDLGRNVPNSRHKSLRTVI
+KLKWIKQMMFPVHF/ILVLVKVLS
+CSTMYTCNTTKR/VSGMWEFVSYS
+```
+
+Σημείωση: θα πρέπει να χρησιμοποιήσετε τη κλαση `Protein` όπως έχει υλοποιηθεί μέχρι και την άσκηση 99. Δεν θα πρέπει να αλλάξετε τη κλάση `Protein` σε αυτή την άσκηση.
 
 
