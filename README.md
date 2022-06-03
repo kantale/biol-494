@@ -69,9 +69,10 @@
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/3c3cbe04cd831ebdd889470e2f83aebc).
 * Διάλεξη 12η . 25 Μαΐου 2022 . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
    * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/070eaf856a3ee8ed6c2847e89d25b3e1).
+* Διάλεξη 13η . 1 Ιουνίου 2022 . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/d76c65a72306aa541b93cf4638bd5021).
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 13η . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
 
 
 ### Βαθμολόγηση
