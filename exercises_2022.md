@@ -2192,7 +2192,7 @@ print (p) # Τυπώνει: QRT
 
 ### Άσκηση 99 
 
-Προσθέστε στη κλάση `Sequence` τη μέθοδο `to_protein` η οποία θα δημιουργεί ένα αντικείμενο τύπου `Protein` βασιζόμενο στη ακολουθία του αντικειμένου. Για παράδειγμα θα πρέπει να μπορώ να γράψω:
+Προσθέστε στη κλάση `Sequence` τη μέθοδο `to_protein` η οποία θα δημιουργεί ένα αντικείμενο τύπου `Protein` βασιζόμενη στη ακολουθία του αντικειμένου. Για παράδειγμα θα πρέπει να μπορώ να γράψω:
 
 ```python
 s = Sequence('CAAAGGACT')
@@ -2208,6 +2208,23 @@ print (p) # Τυπώνει: `QRT` (προσοχή! το p ΔΕΝ είναι stri
 s = Sequence('CAAAGGACT')
 p = Protein(from_seq=s)
 print (p) # Τυπώνει: QRT
+```
+
+Σημείωση: μπορούμε να προσθέσουμε μία πραιρετική παράμετρο απλά βάζοντας μία προκαθορισμένη τιμή κατά τη δήλωση της συνάρτησης. Για παράδειγμα:
+
+```python
+def MyClass:
+
+    def __init__(self, option_1=None, option_2=None):
+        if option_1:
+            self.amazing_parameter_1 = option_1
+        elif option_2:
+            self.amazing_parameter_2 = option_2
+        else:
+            raise Exception('None of option_1 or option_2 parameters have been defined')
+
+obj_1 = MyClass(option_1='Mitsos')
+obj_2 = MyClass(option_2=42)
 ```
 
 ### Άσκηση 100 
