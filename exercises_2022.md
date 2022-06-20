@@ -2209,7 +2209,7 @@ print (p) # Τυπώνει: `QRT` (προσοχή! το p ΔΕΝ είναι stri
 
 ```python
 s = Sequence('CAAAGGACT')
-p = Protein(from_seq=s)
+p = Protein(from_sequence=s)
 print (p) # Τυπώνει: QRT
 ```
 
