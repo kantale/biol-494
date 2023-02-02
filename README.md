@@ -193,6 +193,7 @@ print ("This is the solution for ex. 55")
    * [NumPy Tutorial](https://realpython.com/numpy-tutorial/)
    * [NumPy: the absolute basics for beginners](https://numpy.org/devdocs/user/absolute_beginners.html)
    * [NumPy Illustrated: The Visual Guide to NumPy](https://medium.com/better-programming/numpy-illustrated-the-visual-guide-to-numpy-3b1d4976de1d), from Lev Maximov 
+   * [Linear Algebra in Python: Matrix Inverses and Least Squares](https://realpython.com/python-linear-algebra/)
    * [Cheatsheet 1](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
    * [Cheatsheet 2](https://s3.amazonaws.com/dq-blog-files/numpy-cheat-sheet.pdf)
 * Scipy
