@@ -7,7 +7,7 @@
 * email: [kantale@ics.forth.gr](mailto:kantale@ics.forth.gr)
 
 ### Ώρες Μαθήματος 
-* Τετάρτη, 12:00-14:00 
+* Τετάρτη, 16:00-18:00
 * Αμφ. B
 
 ### Slack
@@ -25,10 +25,6 @@
 **Η παρακολούθηση δεν είναι υποχρεωτική**
 
 ### Προηγούμενες χρονιές
-* 2022
-   * [Σημειώσεις για το μάθημα](README_2022.md)
-   * [Ασκήσεις](exercises_2022.md)
-   * [projects](biol_494_2022_projects.ipynb)
 * 2021 
    * [Σημειώσεις για το μάθημα](README_2021.md)
    * [Ασκήσεις](exercises_2021.md)
@@ -47,43 +43,54 @@
    * [A very nice tutorial and presentation of the differences between anaconda / miniconda](https://www.youtube.com/watch?v=clKgaEZJYww])
 
 ### Διαλέξεις / Σημείωσεις 
-* Διάλεξη 1η . 8 Φεβρουαρίου 2023 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
-   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/3b30f822832303e8b146bdcdae722e0e)
-
-### Μελλοντικές διαλέξεις
-* Διάλεξη 2η . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
-* Διάλεξη 3η . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
-* Διάλεξη 4η . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
-* Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
-* Διάλεξη 6η . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
-* Διάλεξη 7η . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
-* Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
-* Διάλεξη 9η . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
-* Διάλεξη 10η . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
-* Διάλεξη 11η . 
+* Διάλεξη 1η . 16 Φεβρουαρίου 2022 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_1.ipynb), [markdown](2022/draft_lesson_1.md), [pdf](2022/draft_lesson_1.pdf)
+* Διάλεξη 2η . 23 Φεβρουαρίου 2022 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
+* Διάλεξη 3η . 2 Μαρτίου 2022 . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_2.ipynb), [markdown](2022/draft_lesson_2.md), [pdf](2022/draft_lesson_2.pdf)
+* Διάλεξη 4η . 9 Μαρτίου 2022 . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_3.ipynb), [markdown](2022/draft_lesson_3.md), [pdf](2022/draft_lesson_3.pdf)
+* Διάλεξη 5η . 16 Μαρτίου 2022 . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_4.ipynb), [markdown](2022/draft_lesson_4.md), [pdf](2022/draft_lesson_4.pdf)
+* Διάλεξη 6η . 23 Μαρτίου 2022 . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_5.ipynb), [markdown](2022/draft_lesson_5.md), [pdf](2022/draft_lesson_5.pdf)
+* Διάλεξη 7η . 30 Μαρτίου 2022 . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_6.ipynb), [markdown](2022/draft_lesson_6.md), [pdf](2022/draft_lesson_6.pdf)
+* Διάλεξη 8η . 6 Απριλίου 2022 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
+   * Οι πρόχειρες σημειώσεις της διάλεξης σε φορμάτ: [jupyter notebook](2022/draft_lesson_7.ipynb), [markdown](2022/draft_lesson_7.md), [pdf](2022/draft_lesson_7.pdf)
+* Διάλεξη 9η . 13 Απριλίου 2022 . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/4ce5dc5ccde161641bc31f7eef2247bb).
+* Διάλεξη 10η . 4 Μαΐου 2022 . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/cc0ac6c7992e521a75eb7aaef25f2ad1).
+* Διάλεξη 11η . 11 Μαΐου 2022 
    * pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html) 
-* Διάλεξη 12η  . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
-* Διάλεξη 13η . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+      * Καθότι δεν αφιερώσαμε τον χρόνο που χρειάζεται, η numpy είναι εκτός ύλης. Παρόλα αυτά καλό είναι να της ρίξετε μια ματιά. 
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/3c3cbe04cd831ebdd889470e2f83aebc).
+* Διάλεξη 12η . 25 Μαΐου 2022 . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/070eaf856a3ee8ed6c2847e89d25b3e1).
+* Διάλεξη 13η . 1 Ιουνίου 2022 . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+   * [Εδώ βρίσκονται οι πρόχειρες σημειώσεις της διάλεξης](https://gist.github.com/kantale/d76c65a72306aa541b93cf4638bd5021).
 
+### Μελλοντικές διαλέξεις
 
 
 ### Βαθμολόγηση
 Ο τελικός βαθμός του μαθήματος θα είναι το 33.3% των βαθμών από τις ασκήσεις, το 33.3% των βαθμών από το project και το υπόλοιπο 33.4% από το τελικό διαγώνισμα στο τέλος του τριμήνου. 
 
 #### Ασκήσεις
-<!-- [Το αρχείο με τις ασκήσεις βρίσκεται εδώ](exercises_2023.md).  -->
+[Το αρχείο με τις ασκήσεις βρίσκεται εδώ](exercises_2022.md).
 
 Στο τέλος κάθε διάλεξης θα ανεβαίνουν 7-10 ασκήσεις σχετικά με την ύλη που παρουσιάστηκε στη διάλεξη. 
 
 Συνολικά θα ανέβουν 100 ασκήσεις. Οι ασκήσεις είναι υποχρεωτικές και μετράνε στο 33.3% του βαθμού. Όλες οι ασκήσεις είναι βαθμολογικά ισοδύναμες. Οι ημερομηνίες παράδοσης των ασκήσεων είναι:
 
-* Οι ασκήσεις 1-18 έχουν διορία μέχρι ΤΒΑ. 
-* Οι ασκήσεις 19-36 έχουν διορία μέχρι ΤΒΑ.
-* Οι ασκήσεις 37-54 έχουν διορία μέχρι ΤΒΑ. 
-* Οι ασκήσεις 55-70 έχουν διoρία μέχρι ΤΒΑ.
-* Οι ασκήσεις 71-90 έχουν διορία μέχρι ΤΒΑ.
-* Oι ασκήσεις 91-100 έχουν διορία μέχρι ΤΒΑ.
+* Οι ασκήσεις 1-18 έχουν διορία μέχρι της 23 Μαρτίου 2022. 
+* Οι ασκήσεις 19-36 έχουν διορία μέχρι τις 6 Απριλίου 2022.
+* Οι ασκήσεις 37-54 έχουν διορία μέχρι τις 20 Απριλίου 2022. 
+* Οι ασκήσεις 55-70 έχουν διoρία μέχρι τις 18 Μαΐου 2022.
+* Οι ασκήσεις 71-90 έχουν διορία μέχρι τις 8 Ιουνίου 2022.
+* Oι ασκήσεις 91-100 έχουν διορία μέχρι τις 22 Ιουνίου 2022.
 
 
 Η ώρα που λήγει η διορία είναι η 23:59 της αντίστοιχης μέρας στο Time Zone [Anywhere on Earth](https://time.is/Anywhere_on_Earth).
@@ -131,11 +138,11 @@ print ("This is the solution for ex. 55")
 
 
 ### Projects
-<!-- [Οι εκφωνήσεις των projects βρίσκονται εδώ](biol_494_2022_projects.ipynb) -->
+[Οι εκφωνήσεις των projects βρίσκονται εδώ](biol_494_2022_projects.ipynb)
 
 * Τα projects θα παραδοθούν με τον ίδιο τρόπο όπως οι ασκήσεις,
 * Τα projects μετράνε για το 33.3% του τελικού βαθμού.
-* Η ημερομηνία παράδοσης των projects είναι ΤΒΑ 23:59, Anywhere on Earth.
+* Η ημερομηνία παράδοσης των projects είναι η ~31 Μαΐου 2022~ 15 Ιουνίου 2022, 23:59, Anywhere on Earth.
 
 
 #### Τελικό διαγώνισμα.
@@ -144,7 +151,8 @@ print ("This is the solution for ex. 55")
 * [Θέματα εξέτασης Ιουνίου 2022](final_2022_may.ipynb)
 
 ### Εξεταστική Σεπτεμβρίου 
-Η διαδιακασία εξέτασης στην εξεταστική του Σεπτεμβρίου θα είναι η ίδια με αυτή του Ιουνίου. Δηλαδή στην αίθουσα υπολογιστών. **Οι ασκήσεις και τα projects μετράνε και για τον Σεπτέμβρη. Δηλαδή ο βαθμός του Σεπτέμβρη θα μετρήσει για το 34% του τελικού**. 
+Η διαδιακασία εξέτασης στην εξεταστική του Σεπτεμβρίου θα είναι η ίδια με αυτή του Ιουνίου. Δηλαδή στην αίθουσα υπολογιστών. **Οι ασκήσεις και τα projects μετρανε 
+και για τον Σεπτέμβρη. Δηλαδή ο βαθμός του Σεπτέμβρη θα μετρήσει για το 34% του τελικού**. 
 
 ### Επιπλέον υλικό:
 * Official Documentation / General links
