@@ -49,10 +49,12 @@
 ### Διαλέξεις / Σημείωσεις 
 * Διάλεξη 1η . 8 Φεβρουαρίου 2023 . Basics . [jupyter notebook](notes/python_basics.ipynb), [markdown](notes/python_basics.md), [pdf](notes/python_basics.pdf)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/3b30f822832303e8b146bdcdae722e0e)
+* Διάλεξη 2η . 15 Φεβρουαρίου 2023 . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/fc7b58c53a306df95cb57a091eeebaf7)
+* Διάλεξη 3η . 22 Φεβρουαρίου 2023 . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/b883aaff3d66faf24b04b021e68392aa)
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 2η . [Εγκατάσταση jupyter, σημείωσεις στα Αγγλικά](install_python.md) 
-* Διάλεξη 3η . functions , if . [jupyter notebook](notes/python_vars_if_functions.ipynb), [markdown](notes/python_vars_if_functions.md), [pdf](notes/python_vars_if_functions.pdf)
 * Διάλεξη 4η . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
 * Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
 * Διάλεξη 6η . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
