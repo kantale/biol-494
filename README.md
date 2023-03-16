@@ -55,9 +55,11 @@
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/b883aaff3d66faf24b04b021e68392aa)
 * Διάλεξη 4η . 1 Μαρτίου 2023 . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/4483f5b1f39e424f739687f90ab2d4bf)
+* Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/2075c94409f23324a984fdad82cf9938)
+
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
 * Διάλεξη 6η . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
 * Διάλεξη 7η . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
 * Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
