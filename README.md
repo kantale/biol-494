@@ -55,12 +55,12 @@
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/b883aaff3d66faf24b04b021e68392aa)
 * Διάλεξη 4η . 1 Μαρτίου 2023 . lists . [jupyter notebook](notes/python_lists.ipynb), [markdown](notes/python_lists.md), [pdf](notes/python_lists.pdf)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/4483f5b1f39e424f739687f90ab2d4bf)
-* Διάλεξη 5η . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
+* Διάλεξη 5η . 15 Μαρτίου 2023 . for + list comprehension . [jupyter notebook](notes/python_list_comprehensions.ipynb), [markdown](notes/python_list_comprehensions.md), [pdf](notes/python_list_comprehensions.pdf)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/2075c94409f23324a984fdad82cf9938)
-
+* Διάλεξη 6η . 22 Μαρτίου 2023 . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/8e7353e9610ff328c09c771b6f5448df)
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 6η . while + dictionary + tuples + sets . [jupyter notebook](notes/python_while_dictionary_tuples_sets.ipynb), [markdown](notes/python_while_dictionary_tuples_sets.md), [pdf](notes/python_while_dictionary_tuples_sets.pdf)
 * Διάλεξη 7η . Files + lambda + variable scoping + ternary operator + pass . [jupyter notebook](notes/python_files_tern_lambda_sf_is.ipynb), [markdown](notes/python_files_tern_lambda_sf_is.md), [pdf](notes/python_files_tern_lambda_sf_is.pdf)
 * Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
 * Διάλεξη 9η . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
@@ -84,10 +84,10 @@
 Συνολικά θα ανέβουν 100 ασκήσεις. Οι ασκήσεις είναι υποχρεωτικές και μετράνε στο 33.3% του βαθμού. Όλες οι ασκήσεις είναι βαθμολογικά ισοδύναμες. Οι ημερομηνίες παράδοσης των ασκήσεων είναι:
 
 * Οι ασκήσεις 1-20 έχουν διορία μέχρι 15 Μαρτίου 2023. 
-* Οι ασκήσεις 21-40 έχουν διορία μέχρι 29 Μαρτίου 2023.
-* Οι ασκήσεις 41-60 έχουν διορία μέχρι 12 Απριλίου 2023.  
-* Οι ασκήσεις 61-80 έχουν διoρία μέχρι 26 Απριλίου 2023.
-* Οι ασκήσεις 81-100 έχουν διορία μέχρι 10 Μαΐου 2023.
+* Οι ασκήσεις 21-40 έχουν διορία μέχρι 5 Απριλίου 2023.
+* Οι ασκήσεις 41-60 έχουν διορία μέχρι ~12 Απριλίου 2023~.  
+* Οι ασκήσεις 61-80 έχουν διoρία μέχρι ~26 Απριλίου 2023~.
+* Οι ασκήσεις 81-100 έχουν διορία μέχρι ~10 Μαΐου 2023~.
 
 
 Η ώρα που λήγει η διορία είναι η 23:59 της αντίστοιχης μέρας στο Time Zone [Anywhere on Earth](https://time.is/Anywhere_on_Earth).
