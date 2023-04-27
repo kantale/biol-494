@@ -1280,7 +1280,7 @@ print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_2')
 
 
 ### Άσκηση 70 
-Υλοποιήστε την άσκηση 69 με generator comprehension. Δλδ θα πρέπει:
+Υλοποιήστε την άσκηση 69 με generator comprehension. Δηλαδή θα πρέπει:
 
 ```python
 
