@@ -63,9 +63,10 @@
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/5f66193286572d946561d92977c4c81b)
 * Διάλεξη 8η . 5 Απριλίου 2023 .
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/558fc14a2f917439c4688764fb3c3931)
+* Διάλεξη 9η . 26 Απριλίου 2023 . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/b70cdcdfb8f3aeb2bfb06e90b7b0bf2c)
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 8η . Generators + Import + Command Line + Exceptions + random + collections . [jupyter notebook](notes/python_gen_imp_cons_exc.ipynb), [markdown](notes/python_gen_imp_cons_exc.md), [pdf](notes/python_gen_imp_cons_exc.pdf)
 * Διάλεξη 9η . Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
 * Διάλεξη 10η . Regular Expressions (σημειώσεις ίδιες με τη προηγούμενη διάλεξη)
 * Διάλεξη 11η . 
