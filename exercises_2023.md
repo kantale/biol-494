@@ -1080,7 +1080,7 @@ gene_4:exons=9,mutations=13
 
 
 ### Άσκηση 59
-Σε αυτό το link: https://www.dropbox.com/s/s4gf6lijg508yuy/variant_associations.tsv?dl=1 υπάρχει ένα αρχείο με διάφορες πλοροφορίες για μεταλλάξεις οι οποίες έχουν συσχετιστεί με ασθένεις. Το αρχείο προέρχεται από τη βάση δεδομένων [DisGenNET](https://www.disgenet.org/). Οι πρώτες 5 γραμμές του αρχίου είναι:
+Σε αυτό το link: https://www.dropbox.com/s/s4gf6lijg508yuy/variant_associations.tsv?dl=1 υπάρχει ένα αρχείο με διάφορες πληροφορίες για μεταλλάξεις οι οποίες έχουν συσχετιστεί με ασθένεις. Το αρχείο προέρχεται από τη βάση δεδομένων [DisGenNET](https://www.disgenet.org/). Οι πρώτες 5 γραμμές του αρχείου είναι:
 
 ```text
 snpId   class   chromosome  position    most_severe_consequence DSI DPI NofDiseases NofPmids
@@ -1147,5 +1147,155 @@ MT,100
 
 * Σημείωση 1: απαγορεύεται να κάνετε import κάτι (p.x. `import csv`)
 * Σημείωση 2: απαγορεύεται να κάνετε `f.read()` ή `f.readlines()`, δηλαδή απαγορεύεται να διαβάσετε όλο το αρχείο απευθείας στη μνήμη. Θα πρέπει να το διαβάσετε γραμμή-γραμμή.
+
+### Άσκηση 61
+Ας υποθέσουμε ότι τα κλειδιά στο παρακάτω dictionary περιέχουν τα ονόματα κάποιων ασθενειών και οι τιμές είναι σύνολα με τα μονοπάτια (pathways) με τα οποία οι ασθένειες έχουν συσχετιστεί. 
+
+```python
+diseases = {
+ 'disease_1':  {'pathway_4', 'pathway_1', 'pathway_5', 'pathway_6'},
+ 'disease_2':  {'pathway_2', 'pathway_8'},
+ 'disease_3':  {'pathway_10', 'pathway_5', 'pathway_6', 'pathway_8','pathway_9'},
+ 'disease_4':  {'pathway_10'},
+ 'disease_5':  {'pathway_2', 'pathway_1', 'pathway_8'},
+ 'disease_6':  {'pathway_9', 'pathway_1', 'pathway_8'},
+ 'disease_7':  {'pathway_9', 'pathway_5'},
+ 'disease_8':  {'pathway_9', 'pathway_5', 'pathway_3', 'pathway_10'},
+ 'disease_9':  {'pathway_9', 'pathway_1', 'pathway_4'},
+ 'disease_10': {'pathway_4', 'pathway_10'},
+}
+
+```
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο παράμετρους: ένα dictionary με την ίδια δομή όπως τα diseases (δεν χρειάζεται να το ελέγξετε αυτό) και το όνομα ενός pathway. H συνάρτηση θα πρέπει να επιστρέφει μία λίστα με τους κωδικούς της ασθένειας οι οποίες έχουν συσχετιστεί με αυτο το patηway. H συνάρτηση θα πρέπει να επιστρέφει τους ακέραιους κωδικούς της ασθένεας. Για παράδειγμα θα πρέπει:
+
+```python
+print (f(diseases, 'pathway_4')) # τυπώνει [1, 9, 10] 
+```
+
+
+Σημείωση 1: Μην χρησιμοποιήσετε comprehension
+Σημείωση 2: Μην χρησιμοποιήσετε map / filter
+Σημείωση 3: Με τον τελεστή `in` μπορούμε να ελέγξουμε αν ένα αντικείμενο υπάρχει σε ένα σύνολο.
+
+### Άσκηση 62
+Υλοποιήσετε την άσκηση 61 με comprehension
+
+### Άσκηση 63
+Υλοποιήσετε την άσκηση 61 με map / filter, χωρίς lambda 
+
+### Άσκηση 64 
+Υλοποιήσετε την άσκηση 61 με map / filter, με lambda  
+
+### Άσκηση 65 
+Εκτώς από το dictionary της άσκησης 61 έχουμε τώρα και το παρακάτω dictionary το οποίο περιέχει για κλειδιά τα ονόματα των pathways, και για τιμές σύνολα με τα γονίδια τα οποία περιέχουν:
+
+```python
+pathways = {
+ 'pathway_1': {'gene_4', 'gene_2', 'gene_7', 'gene_1', 'gene_5'},
+ 'pathway_2': {'gene_10', 'gene_4', 'gene_2'},
+ 'pathway_3': {'gene_2', 'gene_1', 'gene_5'},
+ 'pathway_4': {'gene_6', 'gene_9', 'gene_10', 'gene_2', 'gene_7'},
+ 'pathway_5': {'gene_6', 'gene_3', 'gene_10', 'gene_2', 'gene_7'},
+ 'pathway_6': {'gene_6', 'gene_3', 'gene_10', 'gene_2', 'gene_1', 'gene_5'},
+ 'pathway_7': {'gene_3', 'gene_5', 'gene_10', 'gene_8', 'gene_7'},
+ 'pathway_8': {'gene_10', 'gene_3'},
+ 'pathway_9': {'gene_3', 'gene_8', 'gene_5'},
+ 'pathway_10': {'gene_6', 'gene_3', 'gene_4', 'gene_7', 'gene_8'},
+}
+```
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει τρία ορίσματα: ένα dictionary με την ίδια δομή όπως το `diseases`, ένα dictionary με την ίδια δομή όπως το `pathways` και ένα string (δεν χρειάζεται να τα ελέγξετε αυτά). H συνάρτηση θα επιστρέφει **ένα σύνολο** με τους κωδικούς των diseases των οποίων τα pathways περιέχουν το γονίδιο με το όνομα της 3ης παραμέτρου. Για παράδειγμα θα πρέπει:
+
+```python
+print (f(diseases, pathways, 'gene_4')) 
+
+# Τυπώνει:
+ {'disease_1',
+ 'disease_10',
+ 'disease_2',
+ 'disease_3',
+ 'disease_4',
+ 'disease_5',
+ 'disease_6',
+ 'disease_8',
+ 'disease_9'}
+``` 
+
+Σημείωση: Μην την υλοποίσετε με comprehension
+
+### Άσκηση 66 
+Υλοποίησετε την άσκηση 65 με comprehension
+
+### Άσκηση 67 
+(Το αντίθετο τηε άσκησης 65/66)
+
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει τρία ορίσματα: ένα dictionary με την ίδια δομή όπως το `diseases`, ένα dictionary με την ίδια δομή όπως το `pathways` και ένα string (δεν χρειάζεται να τα ελέγξετε αυτά). H συνάρτηση θα επιστρέφει **ένα σύνολο** με τους κωδικούς των diseases των οποίων τα pathways **ΔΕΝ** περιέχουν το γονίδιο με το όνομα της 3ης παραμέτρου. Για παράδειγμα θα πρέπει:
+
+```python
+print (f(diseases, pathways, 'gene_4')) # Τυπώνει {'disease_7'}
+```
+
+Επεξήγηση: Το `disease_7` περιέχει το `pathway_9` και το `pathway_5`. Κανένα από αυτά τα δύο δεν έχει το `gene_4`
+
+Σημείωση: Πρέπει να χρησιμοποιήσετε την υλοποίηση της ασκήσης 65 ή 66.
+
+### Άσκηση 68
+Φτιάξτε μία συνάρτηση η οποία θα παίρνει δύο ορίσματα: ένα dictionary με την ίδια δομή όπως το `diseases` και ένα dictionary με την ίδια δομή όπως το `pathways` (δεν χρειάζεται να τα ελέγξετε αυτά). Η συνάρτηση θα φτιάχνει και θα επιστρέφει ένα dictionary το οποίο θα έχει τα ίδια κλειδιά με το `diseases` και σαν τιμές θα έχει το πλήθος των διαφορετικών γονιδίων που υπάρχουν σε όλα τα pathways αυτού του disease. Για παράδειγμα θα πρέπει:
+
+```python
+
+print (f(diseases, pathways))
+
+# Τυπώνει:
+{'disease_1': 9,
+ 'disease_2': 4,
+ 'disease_3': 9,
+ 'disease_4': 5,
+ 'disease_5': 7,
+ 'disease_6': 8,
+ 'disease_7': 7,
+ 'disease_8': 9,
+ 'disease_9': 10,
+ 'disease_10': 8}
+
+```
+
+Σημείωση: Μπορείτε να την υλοποιήσετε όπως θέλετε, αλλά προτείνεται να την υλοποίσετε με comprehension 
+
+### Άσκηση 69
+Φτιάξτε έναν generator ο οποίος θα παίρνει δύο ορίσματα: ένα dictionary με την ίδια δομή όπως το `diseases` και ένα dictionary με την ίδια δομή όπως το `pathways` (δεν χρειάζεται να τα ελέγξετε αυτά). Ο generator θα κάνει.. generate tuples τα οποία θα περιέχουν τρία στοιχεία: ένα disease, ένα pathway και ένα gene. Για κάθε tuple θα πρέπει το pathway να ανήκει στο disease καθώς και το gene να ανήκει στο pathway. Για παράδειγμα θα πρέπει:
+
+```python
+
+g = f(diseases, pathways)
+
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_6')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_9')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_10')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_2')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_7')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_4')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_2')
+
+```
+
+
+### Άσκηση 70 
+Υλοποίστε την άσκηση 69 με generator comprehension. Δλδ θα πρέπει:
+
+```python
+
+g = ( ...ΤΟ ΦΑΝΤΑΣΤΙΚΟ GENERATOR COMPREHENSION ΣΑΣ... )
+
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_6')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_9')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_10')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_2')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_4', 'gene_7')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_4')
+print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_2')
+
+```
 
 
