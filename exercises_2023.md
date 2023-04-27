@@ -1050,7 +1050,7 @@ mutations:10,6,9,3
 gene_1:exons=7,mutations=10
 gene_2:exons=3,mutations=6
 gene_3:exons=3,mutations=9
-gene_4:exons=9,mutations=13
+gene_4:exons=9,mutations=3
 ```
 
 
