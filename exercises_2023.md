@@ -1220,7 +1220,7 @@ print (f(diseases, pathways, 'gene_4'))
  'disease_9'}
 ``` 
 
-Σημείωση: Μην την υλοποίσετε με comprehension
+Σημείωση: Μην την υλοποιήσετε με comprehension
 
 ### Άσκηση 66 
 Υλοποίησετε την άσκηση 65 με comprehension
