@@ -1417,7 +1417,7 @@ RNA=RNAs  list=56
 
 Δίνεται εδώ το επίσημο documentation των regular expressions: https://docs.python.org/3/library/re.html
 
-Σημείωση 1: Στη δική μου υλοποίηση έπρεπε να εφαμρόσω αυτό το οποίο δεν υπάρχει στις σημειώσεις:
+Σημείωση 1: Στη δική μου υλοποίηση έπρεπε να εφαρμόσω αυτό το οποίο δεν υπάρχει στις σημειώσεις:
 > ```(?:...)```
 > A non-capturing version of regular parentheses. Matches whatever regular expression is inside the parentheses, but the substring matched by the group cannot be retrieved after performing a match or referenced later in the pattern.
 
@@ -1493,7 +1493,7 @@ with gzip.open('/Users/admin/Downloads/hg38.gff3.gz', 'rb') as f:
 * Σημείωση 2: Δεν θα πρέπει γενικότερα κατά την υλοποίησή σας να βρίσκονται κάπου όλα τα δεδομένα του αρχείου μέσα στη μνήμη (hint: Generators..)
 
 ### Άσκηση 79
-Υλοποιήστε την άσκηση 76 χρησιμοποιώντας.. ότι άλλο θέλετε εκτός Counter, defaultdict και itertools (π.χ. μπορείτε να χρησιμοποιήσετε απλά dictionaries
+Υλοποιήστε την άσκηση 76 χρησιμοποιώντας.. ότι άλλο θέλετε εκτός Counter, defaultdict και itertools (π.χ. μπορείτε να χρησιμοποιήσετε απλά dictionaries)
 
 * Σημείωση 1: Μην κάνετε f.read() ή f.readlines()
 * Σημείωση 2: Δεν θα πρέπει γενικότερα μέσα στην υλοποίησή σας να βρίσκονται όλα τα δεδομένα του αρχείου μέσα στη μνήμη.
