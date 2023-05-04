@@ -1297,7 +1297,8 @@ print (next(g)) # Τυπώνει ('disease_1', 'pathway_1', 'gene_2')
 
 ```
 
-**Για τις ασκήσεις με regular expression είναι υποχρεωτικό να δηλώνετε τα regular expressions ως [raw strings](https://www.digitalocean.com/community/tutorials/python-raw-string), υπάρχει και στις [σημειώσεις](notes/python_ser_iter_re.ipynb) μία σχετική επεξήγηση**
+## Ασκήσεις 71-80
+**Για τις ασκήσεις με regular expression είναι υποχρεωτικό να δηλώνετε τα regular expressions ως [raw strings](https://www.digitalocean.com/community/tutorials/python-raw-string), υπάρχει και στις [σημειώσεις](notes/python_ser_iter_re.ipynb) μία σχετική επεξήγηση.**
 
 ### Άσκηση 71
 
@@ -1313,6 +1314,7 @@ print f(s) # Τυπώνει: [16.2, 76.1, 31.0, -4.5]
 
 ```
 
+Σημείωση: Είναι υποχρεωτικό να χρησιμοποιήσετε regular expressions.
 
 ### Άσκηση 72 
 Ας υποθέσουμε ότι διαβάζετε αυτό το paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6629674/ . Αφού φτάνετε στο τέλος βλέπετε ότι περιέχει συμπληρωματικές πληροφορίες (supplementary information): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6629674/bin/41467_2019_11217_MOESM1_ESM.pdf . Ανοίγετε αυτό το PDF και βλέπετε το "Supplementary Table 1" το οποίο πολύ θα θέλατε να το φέρνατε σε μορφή python. Επιλέγετε όλο το κείμενο του table και το κάνετε copy paste:
