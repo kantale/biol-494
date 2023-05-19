@@ -67,13 +67,19 @@
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/b70cdcdfb8f3aeb2bfb06e90b7b0bf2c)
 * Διάλεξη 10η. 3η Μαΐου 2023.  Serialization + Itertools + Regular Expressions. [jupyter notebook](notes/python_ser_iter_re.ipynb), [markdown](notes/python_ser_iter_re.md), [pdf](notes/python_ser_iter_re.pdf)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/18eb3ce7ae124d202fdd241e11f332e3)
+* Διάλεξη 11η. 17 Μαΐου 2023 . Command Line + Exceptions (κοιτάξτε τις σημειώσεις της 9ης διάλεξης) 
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/1e50b5553cec7a579239410a7059542e)
+* Διάλεξη 12η. 18 Μαΐου 2023
+   * matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
+   * classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+   * Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook. **ΤΒΑ**
+
 
 ### Μελλοντικές διαλέξεις
 * Διάλεξη 11η . 
    * pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html) 
-* Διάλεξη 12η  . matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
-* Διάλεξη 13η . classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
+* Διάλεξη 12η  . 
 
 
 
