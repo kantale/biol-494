@@ -76,10 +76,9 @@
 
 
 ### Μελλοντικές διαλέξεις
-* Διάλεξη 11η . 
+* Διάλεξη 12η . 
    * pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html) 
-* Διάλεξη 12η  . 
 
 
 
@@ -97,7 +96,7 @@
 * Οι ασκήσεις 21-40 έχουν διορία μέχρι 5 Απριλίου 2023.
 * Οι ασκήσεις 41-60 έχουν διορία μέχρι 23 Απριλίου 2023.  
 * Οι ασκήσεις 61-80 έχουν διoρία μέχρι 17 Μαΐου 2023.
-* Οι ασκήσεις 81-100 έχουν διορία μέχρι ΤΒΑ.
+* Οι ασκήσεις 81-100 έχουν διορία μέχρι 17 Ιουνίου 2023.
 
 
 Η ώρα που λήγει η διορία είναι η 23:59 της αντίστοιχης μέρας στο Time Zone [Anywhere on Earth](https://time.is/Anywhere_on_Earth).
