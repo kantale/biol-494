@@ -72,7 +72,7 @@
 * Διάλεξη 12η. 18 Μαΐου 2023
    * matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
    * classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
-   * Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook. **ΤΒΑ**
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/e3001f818ade28093ea4245d9aee6c5d)
 
 
 ### Μελλοντικές διαλέξεις
