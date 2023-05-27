@@ -1965,6 +1965,49 @@ print(unique_counts)
 * Στη 2η γραμμή το 0 υπάρχει **1** φορές το 1 υπάρχει **1** φορά και το 2 υπάρχει **1** φορά.
 * Στη 3η γραμμή το 0 υπάρχει **0** φορέςτο 1 υπάρχει **2** φορές και το 2 υπάρχει **1** φορά.
 
+Για.. εκπαιδευτικούς σκοπούς (δεν θα τη χρειαστείτε) δίνεται και η συνάρτηση που έφτιαξα για να "πάρω" τα δεδομένα από τη wikipedia:
 
+```python
+import re
+import pandas as pd
+import numpy as np
+
+def get_data():
+
+    dfs = pd.read_html('https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship')
+    
+    columns = list(range(2,24))
+    data = []
+    for record in dfs[5][2:24][columns].to_dict('records'):
+
+        col_data = []
+
+        for col in columns:
+            value = record[col]
+
+            if (
+                pd.isna(value) or
+                value in ['WD', 'DNS'] or
+                re.search(r'Ret', value)
+            ):
+                col_data.append(0)
+                continue
+
+            s = re.search(r'^\d+', value)
+            if s:
+                v = int(s.group(0))
+                if v == 186:
+                    v = 18
+                elif v > 20:
+                    v = int(str(v)[0])
+
+                col_data.append(v)
+                continue
+
+            assert False, value
+
+        data.append(col_data)
+    return np.array(data)
+```
 
 
