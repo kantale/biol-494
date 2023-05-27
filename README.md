@@ -73,13 +73,14 @@
    * matplotlib - plotting . [jupyter notebook](notes/python_matplotlib.ipynb), [markdown](notes/python_matplotlib.zip), [pdf](notes/python_matplotlib.pdf), [html](notes/python_matplotlib.html)
    * classes . [jupyter notebook](notes/python_classes.ipynb), [markdown](notes/python_classes.md), [pdf](notes/python_classes.pdf), [html](notes/python_classes.html)
    * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/e3001f818ade28093ea4245d9aee6c5d)
-
-
-### Μελλοντικές διαλέξεις
-* Διάλεξη 12η . 
+* Διάλεξη 13η. 25 Μαΐου 2023
    * pandas . [jupyter notebook](notes/python_pandas.ipynb), [markdown](notes/python_pandas.zip), [pdf](notes/python_pandas.pdf), [html](notes/python_pandas.html)
    * numpy . [jupyter notebook](notes/python_numpy.ipynb), [markdown](notes/python_numpy.zip), [pdf](notes/python_numpy.pdf), [html](notes/python_numpy.html) 
+   * [Πρόχειρες σημειώσεις της διάλεξης σε φορμάτ jupyter notebook](https://gist.github.com/kantale/545737d869e47f8f4380ed23bd1e7654)
 
+<!--
+### Μελλοντικές διαλέξεις
+-->
 
 
 ### Βαθμολόγηση
