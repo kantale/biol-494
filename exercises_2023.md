@@ -1607,7 +1607,7 @@ import re
 
 def get_data():
 
-    dfs = pd.read_html('https://en.wikipedia.org/wiki/Opinion_polling_for_the_2023_Greek_legislative_election')
+    dfs = pd.read_html('https://en.wikipedia.org/wiki/Opinion_polling_for_the_May_2023_Greek_legislative_election')
     date_start = date(2019, 7, 7)
     data = []
     for x in dfs[0][1:].to_dict('records'):
