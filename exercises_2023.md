@@ -1561,7 +1561,7 @@ def inv_sqaure(n):
 Για παράδειγμα θα πρέπει:
 ```python
 try:
-    f(-1,2)
+    f(-2,1)
 except Exception as e:
     print (e)
 
