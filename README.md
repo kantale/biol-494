@@ -192,6 +192,7 @@ print ("This is the solution for ex. 55")
    * [Recursion in Python: An Introduction](https://realpython.com/python-recursion/)
    * [One a Day One Liners with Python](https://python.plainenglish.io/one-a-day-one-liners-with-python-week-3-d0a5c8229183)
    * [Python Classes: The Power of Object-Oriented Programming](https://realpython.com/python-classes/)
+   * [Advanced Python Mastery - A course by David Beazley](https://github.com/dabeaz-course/python-mastery)
 * Challenges: 
    * https://www.hackerrank.com/dashboard
    * https://stepik.org  
