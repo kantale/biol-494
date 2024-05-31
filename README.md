@@ -172,6 +172,7 @@ print ("This is the solution for ex. 55")
    * [Python Computing for Data Science](https://github.com/profjsb/python-seminar)
    * [EbookFoundation free-programming-books on python](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#python)
    * [Learn Python with Jupyter by Serena Bonaretti](https://learnpythonwithjupyter.com/assets/book/learn_python_with_jupyter.pdf)
+   * [How to Think Like a Computer Scientist: Interactive Edition](https://levjj.github.io/thinkcspy/)
 * Running python
    * [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 * Cheatsheets 
